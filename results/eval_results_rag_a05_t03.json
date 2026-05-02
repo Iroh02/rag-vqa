@@ -1,0 +1,1368 @@
+{
+  "overall_accuracy": 0.46333333333333326,
+  "num_evaluated": 100,
+  "per_type_accuracy": {
+    "are": {
+      "accuracy": 1.0,
+      "count": 2
+    },
+    "are the": {
+      "accuracy": 0.5,
+      "count": 2
+    },
+    "are there": {
+      "accuracy": 1.0,
+      "count": 2
+    },
+    "are these": {
+      "accuracy": 1.0,
+      "count": 1
+    },
+    "do": {
+      "accuracy": 0.0,
+      "count": 1
+    },
+    "do you": {
+      "accuracy": 1.0,
+      "count": 1
+    },
+    "does the": {
+      "accuracy": 1.0,
+      "count": 1
+    },
+    "how": {
+      "accuracy": 0.19047619047619047,
+      "count": 7
+    },
+    "how many": {
+      "accuracy": 0.6666666666666666,
+      "count": 6
+    },
+    "how many people are": {
+      "accuracy": 0.0,
+      "count": 1
+    },
+    "how many people are in": {
+      "accuracy": 0.0,
+      "count": 3
+    },
+    "is": {
+      "accuracy": 0.4444444444444444,
+      "count": 3
+    },
+    "is it": {
+      "accuracy": 1.0,
+      "count": 3
+    },
+    "is the": {
+      "accuracy": 0.6,
+      "count": 5
+    },
+    "is the man": {
+      "accuracy": 0.0,
+      "count": 1
+    },
+    "is the woman": {
+      "accuracy": 1.0,
+      "count": 1
+    },
+    "is there": {
+      "accuracy": 0.6666666666666666,
+      "count": 4
+    },
+    "is this": {
+      "accuracy": 1.0,
+      "count": 3
+    },
+    "is this a": {
+      "accuracy": 0.6666666666666666,
+      "count": 3
+    },
+    "none of the above": {
+      "accuracy": 1.0,
+      "count": 2
+    },
+    "what": {
+      "accuracy": 0.36363636363636365,
+      "count": 11
+    },
+    "what are": {
+      "accuracy": 0.3333333333333333,
+      "count": 1
+    },
+    "what color are the": {
+      "accuracy": 0.0,
+      "count": 2
+    },
+    "what color is the": {
+      "accuracy": 0.26666666666666666,
+      "count": 5
+    },
+    "what does the": {
+      "accuracy": 0.0,
+      "count": 2
+    },
+    "what is": {
+      "accuracy": 0.6666666666666666,
+      "count": 3
+    },
+    "what is in the": {
+      "accuracy": 1.0,
+      "count": 1
+    },
+    "what is on the": {
+      "accuracy": 0.0,
+      "count": 1
+    },
+    "what is the": {
+      "accuracy": 0.16666666666666666,
+      "count": 6
+    },
+    "what is the name": {
+      "accuracy": 0.0,
+      "count": 1
+    },
+    "what is this": {
+      "accuracy": 0.0,
+      "count": 1
+    },
+    "what kind of": {
+      "accuracy": 0.0,
+      "count": 1
+    },
+    "what number is": {
+      "accuracy": 0.0,
+      "count": 1
+    },
+    "what sport is": {
+      "accuracy": 1.0,
+      "count": 1
+    },
+    "what time": {
+      "accuracy": 0.3333333333333333,
+      "count": 3
+    },
+    "what type of": {
+      "accuracy": 0.6666666666666666,
+      "count": 3
+    },
+    "which": {
+      "accuracy": 0.3333333333333333,
+      "count": 4
+    },
+    "why": {
+      "accuracy": 0.0,
+      "count": 1
+    }
+  },
+  "detailed_results": [
+    {
+      "question_id": 2529010,
+      "question": "Is there snow on the ground?",
+      "predicted": "no",
+      "ground_truth": [
+        "no",
+        "no",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is there"
+    },
+    {
+      "question_id": 2532000,
+      "question": "Is the skier going downhill?",
+      "predicted": "yes",
+      "ground_truth": [
+        "no",
+        "no",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is the"
+    },
+    {
+      "question_id": 2532001,
+      "question": "How do you know this skier is not alone on the mountain?",
+      "predicted": "I don't",
+      "ground_truth": [
+        "someone had to take photo",
+        "tracks",
+        "other ski tracks and footprints"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how"
+    },
+    {
+      "question_id": 2532002,
+      "question": "How cold is it?",
+      "predicted": "very cold",
+      "ground_truth": [
+        "cold",
+        "15 degrees",
+        "freezing"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how"
+    },
+    {
+      "question_id": 2532003,
+      "question": "Is it a sunny or cloudy day?",
+      "predicted": "sunny",
+      "ground_truth": [
+        "sunny",
+        "cloudy",
+        "cloudy"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is it"
+    },
+    {
+      "question_id": 2532004,
+      "question": "What color is the sky?",
+      "predicted": "blue",
+      "ground_truth": [
+        "blue",
+        "blue",
+        "blue"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what color is the"
+    },
+    {
+      "question_id": 395749000,
+      "question": "What filter is being used in this image?",
+      "predicted": "black and white",
+      "ground_truth": [
+        "black and white",
+        "black & white",
+        "black and white"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 395749001,
+      "question": "Are all the people elderly?",
+      "predicted": "no",
+      "ground_truth": [
+        "no",
+        "yes",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "are"
+    },
+    {
+      "question_id": 395749002,
+      "question": "How many people can be seen?",
+      "predicted": "3",
+      "ground_truth": [
+        "4",
+        "4",
+        "4"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how many"
+    },
+    {
+      "question_id": 395749003,
+      "question": "What ocean might this be?",
+      "predicted": "ocean",
+      "ground_truth": [
+        "atlantic",
+        "antarctic",
+        "atlantic"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 395749004,
+      "question": "How many people are in the photo?",
+      "predicted": "1",
+      "ground_truth": [
+        "4",
+        "4",
+        "4"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how many people are in"
+    },
+    {
+      "question_id": 395752000,
+      "question": "What color are the mums in the front of the photo?",
+      "predicted": "red and green",
+      "ground_truth": [
+        "pink",
+        "red",
+        "pink, red, yellow"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what color are the"
+    },
+    {
+      "question_id": 395752001,
+      "question": "Can a mail truck fit behind the bus to pick up the mail?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "none of the above"
+    },
+    {
+      "question_id": 395752002,
+      "question": "What  \"Over the Rainbow\" singer sang about this vehicle?",
+      "predicted": "Judy Garland",
+      "ground_truth": [
+        "judy garland",
+        "judy garland",
+        "train"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 395752003,
+      "question": "What color are the hubcaps?",
+      "predicted": "green",
+      "ground_truth": [
+        "red",
+        "red",
+        "red"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what color are the"
+    },
+    {
+      "question_id": 395752004,
+      "question": "Is someone getting on this street car?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is"
+    },
+    {
+      "question_id": 264683000,
+      "question": "Is this airplane inside?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is this"
+    },
+    {
+      "question_id": 264683001,
+      "question": "What airline does the plane fly for?",
+      "predicted": "pacific",
+      "ground_truth": [
+        "air france",
+        "air france",
+        "air france"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 264683002,
+      "question": "Are there planes hanging?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "are there"
+    },
+    {
+      "question_id": 264686000,
+      "question": "How many side tables are there?",
+      "predicted": "2",
+      "ground_truth": [
+        "2",
+        "2",
+        "2"
+      ],
+      "accuracy": 1.0,
+      "question_type": "how many"
+    },
+    {
+      "question_id": 264686001,
+      "question": "How many windows are on the wall?",
+      "predicted": "3",
+      "ground_truth": [
+        "3",
+        "3",
+        "3"
+      ],
+      "accuracy": 1.0,
+      "question_type": "how many"
+    },
+    {
+      "question_id": 264686002,
+      "question": "Is the TV a tube or flat screen?",
+      "predicted": "flat screen",
+      "ground_truth": [
+        "tube",
+        "tube",
+        "tube"
+      ],
+      "accuracy": 0.0,
+      "question_type": "is the"
+    },
+    {
+      "question_id": 133619000,
+      "question": "What type of truck is it?",
+      "predicted": "fire truck",
+      "ground_truth": [
+        "fire engine",
+        "fire truck",
+        "service truck"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what type of"
+    },
+    {
+      "question_id": 133619001,
+      "question": "What time of day is it?",
+      "predicted": "night",
+      "ground_truth": [
+        "night",
+        "night",
+        "night"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what time"
+    },
+    {
+      "question_id": 133619002,
+      "question": "What color is the light above the hood of the truck?",
+      "predicted": "red and white",
+      "ground_truth": [
+        "yellow",
+        "blue",
+        "blue"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what color is the"
+    },
+    {
+      "question_id": 133620000,
+      "question": "Why does the woman have her hair up?",
+      "predicted": "to keep it out of her face",
+      "ground_truth": [
+        "uniform",
+        "on duty",
+        "uniform"
+      ],
+      "accuracy": 0.0,
+      "question_type": "why"
+    },
+    {
+      "question_id": 133620001,
+      "question": "Is she wearing glasses?",
+      "predicted": "no",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 0.0,
+      "question_type": "is"
+    },
+    {
+      "question_id": 133620002,
+      "question": "What is she wearing on her head?",
+      "predicted": "hat",
+      "ground_truth": [
+        "hat",
+        "helmet",
+        "hat"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what is"
+    },
+    {
+      "question_id": 133620003,
+      "question": "Is the woman happy?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is the woman"
+    },
+    {
+      "question_id": 526837000,
+      "question": "Is this man dressed for the weather?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is this"
+    },
+    {
+      "question_id": 526837001,
+      "question": "What is this man holding?",
+      "predicted": "wii controller",
+      "ground_truth": [
+        "ski pole",
+        "ski poles",
+        "poles"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is this"
+    },
+    {
+      "question_id": 526837002,
+      "question": "What is covering the ground?",
+      "predicted": "trees",
+      "ground_truth": [
+        "snow",
+        "snow",
+        "snow"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is"
+    },
+    {
+      "question_id": 133622000,
+      "question": "Are these vegetables or fruits?",
+      "predicted": "vegetables",
+      "ground_truth": [
+        "vegetables",
+        "vegetables",
+        "vegetables"
+      ],
+      "accuracy": 1.0,
+      "question_type": "are these"
+    },
+    {
+      "question_id": 133622001,
+      "question": "What is the yellow topping?",
+      "predicted": "cheese",
+      "ground_truth": [
+        "cheese",
+        "glaze",
+        "cheese"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what is the"
+    },
+    {
+      "question_id": 133622002,
+      "question": "Is this a high class dish?",
+      "predicted": "no",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is this a"
+    },
+    {
+      "question_id": 133622003,
+      "question": "What is the long thin food with seeds?",
+      "predicted": "quiche",
+      "ground_truth": [
+        "broccoli",
+        "cake",
+        "cheese"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is the"
+    },
+    {
+      "question_id": 133622004,
+      "question": "What is the green topping?",
+      "predicted": "cheese",
+      "ground_truth": [
+        "broccoli",
+        "broccoli",
+        "broccoli"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is the"
+    },
+    {
+      "question_id": 133622005,
+      "question": "What is the yellow item pictured?",
+      "predicted": "Broccoli",
+      "ground_truth": [
+        "cheese",
+        "cake",
+        "cheese"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is the"
+    },
+    {
+      "question_id": 133622006,
+      "question": "How are the eggs cooked?",
+      "predicted": "scrambled",
+      "ground_truth": [
+        "scrambled",
+        "scramble",
+        "omelet"
+      ],
+      "accuracy": 0.6666666666666666,
+      "question_type": "how"
+    },
+    {
+      "question_id": 133622007,
+      "question": "What vegetable is this?",
+      "predicted": "broccoli",
+      "ground_truth": [
+        "broccoli",
+        "broccoli",
+        "broccoli"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 133622008,
+      "question": "What kinds of food are on the plate?",
+      "predicted": "all kinds of food",
+      "ground_truth": [
+        "breakfast",
+        "spinach",
+        "eggs, spinach"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 22271000,
+      "question": "Is this a bright and sunny day?",
+      "predicted": "yes",
+      "ground_truth": [
+        "no",
+        "no",
+        "no"
+      ],
+      "accuracy": 0.0,
+      "question_type": "is this a"
+    },
+    {
+      "question_id": 22271001,
+      "question": "Are there people in the picture?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "are there"
+    },
+    {
+      "question_id": 22271002,
+      "question": "What is the name of the street sign on the ground?",
+      "predicted": "prairie",
+      "ground_truth": [
+        "western ave",
+        "western ave",
+        "western ave"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is the name"
+    },
+    {
+      "question_id": 133629000,
+      "question": "Is this a public place?",
+      "predicted": "no",
+      "ground_truth": [
+        "no",
+        "no",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is this a"
+    },
+    {
+      "question_id": 133629001,
+      "question": "What color is the desk?",
+      "predicted": "black",
+      "ground_truth": [
+        "brown",
+        "brown",
+        "brown"
+      ],
+      "accuracy": 0.3333333333333333,
+      "question_type": "what color is the"
+    },
+    {
+      "question_id": 133629002,
+      "question": "How many chairs have wheels?",
+      "predicted": "1",
+      "ground_truth": [
+        "1",
+        "1",
+        "1"
+      ],
+      "accuracy": 1.0,
+      "question_type": "how many"
+    },
+    {
+      "question_id": 133629003,
+      "question": "Is this chair in the way of people who might walk through?",
+      "predicted": "no",
+      "ground_truth": [
+        "no",
+        "no",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is this"
+    },
+    {
+      "question_id": 133629004,
+      "question": "Can these items be used to make food?",
+      "predicted": "no",
+      "ground_truth": [
+        "no",
+        "no",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "none of the above"
+    },
+    {
+      "question_id": 133629005,
+      "question": "What do people do here?",
+      "predicted": "playing wii",
+      "ground_truth": [
+        "work",
+        "work",
+        "office work"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 133629006,
+      "question": "What color is the lampshade?",
+      "predicted": "black",
+      "ground_truth": [
+        "off white",
+        "white",
+        "white"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what color is the"
+    },
+    {
+      "question_id": 133629007,
+      "question": "What type of computer is on the desk?",
+      "predicted": "laptop",
+      "ground_truth": [
+        "mac",
+        "laptop",
+        "laptop"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what type of"
+    },
+    {
+      "question_id": 133631000,
+      "question": "Which is longer, the Elephant's tusks or the Elephant's trunk?",
+      "predicted": "Elephant's trunk",
+      "ground_truth": [
+        "trunk",
+        "trunk",
+        "trunk"
+      ],
+      "accuracy": 0.3333333333333333,
+      "question_type": "which"
+    },
+    {
+      "question_id": 133631001,
+      "question": "Is it sunny out?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is it"
+    },
+    {
+      "question_id": 133631002,
+      "question": "Does the elephant need water?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "does the"
+    },
+    {
+      "question_id": 2562000,
+      "question": "What is the color scheme of the photo?",
+      "predicted": "blue and white",
+      "ground_truth": [
+        "white",
+        "white and blue",
+        "white, blue"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is the"
+    },
+    {
+      "question_id": 2562001,
+      "question": "Are all the men tennis players?",
+      "predicted": "no",
+      "ground_truth": [
+        "yes",
+        "no",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "are"
+    },
+    {
+      "question_id": 2562002,
+      "question": "Is the man wearing a wristband?",
+      "predicted": "no",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 0.0,
+      "question_type": "is the man"
+    },
+    {
+      "question_id": 2562003,
+      "question": "What two brands are shown advertised behind the tennis player?",
+      "predicted": "nike and adidas",
+      "ground_truth": [
+        "olympus and wta",
+        "olympus and wta",
+        "wta and olympus"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 2562004,
+      "question": "What sport is being played?",
+      "predicted": "tennis",
+      "ground_truth": [
+        "tennis",
+        "tennis",
+        "tennis"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what sport is"
+    },
+    {
+      "question_id": 133636000,
+      "question": "What is the number on the left parking meter?",
+      "predicted": "2",
+      "ground_truth": [
+        "12",
+        "12",
+        "19"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is the"
+    },
+    {
+      "question_id": 133636001,
+      "question": "How much time is left?",
+      "predicted": "4:05",
+      "ground_truth": [
+        "0 time",
+        "expired",
+        "0"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how"
+    },
+    {
+      "question_id": 133636002,
+      "question": "What number is the parking meter on the right?",
+      "predicted": "2",
+      "ground_truth": [
+        "13",
+        "13",
+        "13"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what number is"
+    },
+    {
+      "question_id": 133636003,
+      "question": "Is there any cars on the street?",
+      "predicted": "yes",
+      "ground_truth": [
+        "no",
+        "no",
+        "0"
+      ],
+      "accuracy": 0.0,
+      "question_type": "is there"
+    },
+    {
+      "question_id": 133636004,
+      "question": "Are the meters rusted?",
+      "predicted": "no",
+      "ground_truth": [
+        "no",
+        "no",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "are the"
+    },
+    {
+      "question_id": 133636005,
+      "question": "Is there time remaining on the meter?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "no"
+      ],
+      "accuracy": 0.6666666666666666,
+      "question_type": "is there"
+    },
+    {
+      "question_id": 133636006,
+      "question": "How many meters are there?",
+      "predicted": "2",
+      "ground_truth": [
+        "2",
+        "2",
+        "2"
+      ],
+      "accuracy": 1.0,
+      "question_type": "how many"
+    },
+    {
+      "question_id": 133645000,
+      "question": "Is there someone on the bench?",
+      "predicted": "no",
+      "ground_truth": [
+        "no",
+        "no",
+        "no"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is there"
+    },
+    {
+      "question_id": 133645001,
+      "question": "Are the street lights turned on?",
+      "predicted": "no",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 0.0,
+      "question_type": "are the"
+    },
+    {
+      "question_id": 133645002,
+      "question": "Is the water clear?",
+      "predicted": "yes",
+      "ground_truth": [
+        "no",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is the"
+    },
+    {
+      "question_id": 133645003,
+      "question": "What type of boat is in the water?",
+      "predicted": "houseboat",
+      "ground_truth": [
+        "private",
+        "sailboat",
+        "pontoon"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what type of"
+    },
+    {
+      "question_id": 264718000,
+      "question": "How long is the parking on the street?",
+      "predicted": "2 hours",
+      "ground_truth": [
+        "12 hours",
+        "2 hours",
+        "7 spots"
+      ],
+      "accuracy": 0.6666666666666666,
+      "question_type": "how"
+    },
+    {
+      "question_id": 264718001,
+      "question": "Do you have to pay to park here?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "do you"
+    },
+    {
+      "question_id": 264718002,
+      "question": "Which side of the sign is the road on?",
+      "predicted": "right",
+      "ground_truth": [
+        "right",
+        "left",
+        "right"
+      ],
+      "accuracy": 1.0,
+      "question_type": "which"
+    },
+    {
+      "question_id": 264718003,
+      "question": "What does the sign read?",
+      "predicted": "stop",
+      "ground_truth": [
+        "2 hour parking 8am to 8pm",
+        "parking",
+        "2 hour parking 8am-8pm"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what does the"
+    },
+    {
+      "question_id": 264718004,
+      "question": "What does the sign say?",
+      "predicted": "stop",
+      "ground_truth": [
+        "parking",
+        "2 hour parking",
+        "2 hour parking"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what does the"
+    },
+    {
+      "question_id": 264718005,
+      "question": "What phone number is on the sign?",
+      "predicted": "555-5555",
+      "ground_truth": [
+        "0",
+        "n/a",
+        "0"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 264718006,
+      "question": "What modes of transportation are in the picture?",
+      "predicted": "cars",
+      "ground_truth": [
+        "cars",
+        "car",
+        "car"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 264718007,
+      "question": "What sign is to the right of the photo?",
+      "predicted": "stop",
+      "ground_truth": [
+        "2 hour parking",
+        "parking",
+        "2 hour parking"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what"
+    },
+    {
+      "question_id": 133648000,
+      "question": "Is the bat blue?",
+      "predicted": "yes",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is the"
+    },
+    {
+      "question_id": 133648001,
+      "question": "Is the photo colored?",
+      "predicted": "no",
+      "ground_truth": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "accuracy": 0.0,
+      "question_type": "is the"
+    },
+    {
+      "question_id": 133648002,
+      "question": "What color is the home plate umpire's shirt?",
+      "predicted": "blue",
+      "ground_truth": [
+        "white",
+        "black",
+        "black"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what color is the"
+    },
+    {
+      "question_id": 133648003,
+      "question": "Which game are they playing?",
+      "predicted": "this one",
+      "ground_truth": [
+        "baseball",
+        "baseball",
+        "baseball"
+      ],
+      "accuracy": 0.0,
+      "question_type": "which"
+    },
+    {
+      "question_id": 459182000,
+      "question": "What are they carrying?",
+      "predicted": "surfboard",
+      "ground_truth": [
+        "surfboards",
+        "surfboards",
+        "surfboards"
+      ],
+      "accuracy": 0.3333333333333333,
+      "question_type": "what are"
+    },
+    {
+      "question_id": 459182001,
+      "question": "What is in the foreground?",
+      "predicted": "rocks",
+      "ground_truth": [
+        "rocks",
+        "rocks",
+        "rocks"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what is in the"
+    },
+    {
+      "question_id": 459182002,
+      "question": "How many people are there?",
+      "predicted": "4",
+      "ground_truth": [
+        "2",
+        "2",
+        "2"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how many people are"
+    },
+    {
+      "question_id": 395801000,
+      "question": "Is it morning or evening?",
+      "predicted": "morning",
+      "ground_truth": [
+        "evening",
+        "morning",
+        "morning"
+      ],
+      "accuracy": 1.0,
+      "question_type": "is it"
+    },
+    {
+      "question_id": 395801001,
+      "question": "How much does parking in the lot cost?",
+      "predicted": "$5",
+      "ground_truth": [
+        "nothing",
+        "free",
+        "free"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how"
+    },
+    {
+      "question_id": 395801002,
+      "question": "What is on the road?",
+      "predicted": "road",
+      "ground_truth": [
+        "car",
+        "car",
+        "cars"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what is on the"
+    },
+    {
+      "question_id": 395801003,
+      "question": "How many people are in the picture?",
+      "predicted": "1",
+      "ground_truth": [
+        "7",
+        "7",
+        "11"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how many people are in"
+    },
+    {
+      "question_id": 395801004,
+      "question": "Do the people know each other?",
+      "predicted": "yes",
+      "ground_truth": [
+        "no",
+        "no",
+        "no"
+      ],
+      "accuracy": 0.0,
+      "question_type": "do"
+    },
+    {
+      "question_id": 395801005,
+      "question": "How could you carry things if you were riding this bike?",
+      "predicted": "on your back",
+      "ground_truth": [
+        "there is no bike",
+        "on my back",
+        "backpack"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how"
+    },
+    {
+      "question_id": 395801006,
+      "question": "How many people are in this scene?",
+      "predicted": "1",
+      "ground_truth": [
+        "25",
+        "15",
+        "9"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how many people are in"
+    },
+    {
+      "question_id": 395801007,
+      "question": "What time is it?",
+      "predicted": "3:24",
+      "ground_truth": [
+        "6:00",
+        "6:00",
+        "12:30"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what time"
+    },
+    {
+      "question_id": 264730000,
+      "question": "How many arches are under the clock?",
+      "predicted": "3",
+      "ground_truth": [
+        "2",
+        "2",
+        "2"
+      ],
+      "accuracy": 0.0,
+      "question_type": "how many"
+    },
+    {
+      "question_id": 264730001,
+      "question": "What time is it?",
+      "predicted": "6:45",
+      "ground_truth": [
+        "10:50",
+        "10:49",
+        "8:45"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what time"
+    },
+    {
+      "question_id": 264730002,
+      "question": "Is a daytime or nighttime scene depicted?",
+      "predicted": "daytime",
+      "ground_truth": [
+        "nighttime",
+        "nighttime",
+        "night"
+      ],
+      "accuracy": 0.3333333333333333,
+      "question_type": "is"
+    },
+    {
+      "question_id": 264730003,
+      "question": "What kind of numbers are on the clock?",
+      "predicted": "9:10",
+      "ground_truth": [
+        "roman numerals",
+        "roman",
+        "roman numerals"
+      ],
+      "accuracy": 0.0,
+      "question_type": "what kind of"
+    },
+    {
+      "question_id": 2587000,
+      "question": "Which food contains the most potassium?",
+      "predicted": "Bananas",
+      "ground_truth": [
+        "banana",
+        "banana",
+        "banana"
+      ],
+      "accuracy": 0.0,
+      "question_type": "which"
+    },
+    {
+      "question_id": 2587001,
+      "question": "What is not healthy in the baggie?",
+      "predicted": "donut",
+      "ground_truth": [
+        "donut",
+        "doughnut",
+        "donut"
+      ],
+      "accuracy": 1.0,
+      "question_type": "what is"
+    }
+  ],
+  "rag_config": {
+    "top_k": 3,
+    "alpha": 0.5,
+    "candidate_k": 30,
+    "tau": 0.3,
+    "kb_size": 5000,
+    "rag_used_pct": 100.0
+  }
+}

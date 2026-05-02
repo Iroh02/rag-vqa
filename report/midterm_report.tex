@@ -1,0 +1,480 @@
+\documentclass[12pt, a4paper]{article}
+
+% ─── Packages ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multirow}
+\usepackage{parskip}
+
+% ─── Colors ──────────────────────────────────────────────────────
+\definecolor{codeblue}{RGB}{0, 102, 204}
+\definecolor{codegray}{RGB}{100, 100, 100}
+\definecolor{codegreen}{RGB}{34, 139, 34}
+\definecolor{backcolour}{RGB}{245, 245, 250}
+\definecolor{accentblue}{RGB}{41, 98, 255}
+
+% ─── Hyperref ────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentblue,
+    citecolor=accentblue,
+    urlcolor=accentblue,
+}
+
+% ─── Code listings ───────────────────────────────────────────────
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue}\bfseries,
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\tiny\color{codegray},
+    frame=single,
+    rulecolor=\color{codegray!30},
+    language=Python,
+}
+\lstset{style=pythonstyle}
+
+% ─── Headers ─────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small RAG-VQA: Retrieval-Augmented Visual Question Answering}
+\fancyhead[R]{\small Midterm Report}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ─── Section formatting ─────────────────────────────────────────
+\titleformat{\section}{\Large\bfseries\color{accentblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\setstretch{1.15}
+
+% =====================================================================
+\begin{document}
+
+% ─── TITLE PAGE ──────────────────────────────────────────────────
+\begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+    {\Huge\bfseries RAG-VQA}\\[0.5cm]
+    {\LARGE Retrieval-Augmented Visual Question Answering\\with BLIP-2}\\[2cm]
+    {\Large\bfseries Computer Vision --- Midterm Project Report}\\[0.5cm]
+    {\large Masters of Artificial Intelligence}\\[2.5cm]
+    \begin{tabular}{c}
+        \large\bfseries Team Members \\[0.3cm]
+        \large Nandita Menon \\
+        \large Jillian Priscilla \\
+        \large Anushree Ashok \\
+    \end{tabular}
+    \vfill
+    {\large March 2026}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% =====================================================================
+\section{Abstract}
+% =====================================================================
+
+Visual Question Answering (VQA) models typically rely solely on the query image to produce an answer. When questions are ambiguous or require disambiguation, a single image may not provide sufficient signal. We augment \textbf{BLIP-2} (OPT-2.7B) with a \textbf{Retrieval-Augmented Generation (RAG)} pipeline that finds visually similar images from a knowledge base using \textbf{CLIP ViT-B/32} and \textbf{FAISS}, injects their Q\&A pairs as few-shot hints, and lets the model leverage this context for improved answers.
+
+Our RAG pipeline boosts VQA accuracy from \textbf{42.33\%} to \textbf{51.33\%} (+9pp) on a 100-sample VQAv2 evaluation set. Error analysis reveals 63\% of remaining errors stem from the model \emph{ignoring} injected context, motivating \textbf{QLoRA fine-tuning} on a hints-style prompt format.
+
+% =====================================================================
+\section{Introduction}
+% =====================================================================
+
+\subsection{Problem Statement}
+
+Standard VQA models encode image and question independently, then fuse them to predict an answer. This faces limitations when questions are ambiguous (``What sport is being played?'' with partial cues), when answer formatting varies, or when subtle visual details benefit from exemplar context.
+
+\subsection{Proposed Solution}
+
+\textbf{RAG-VQA} augments BLIP-2 with external visual evidence:
+\begin{enumerate}[leftmargin=1.5cm]
+    \item \textbf{Retrieve} visually similar images from a knowledge base using CLIP + FAISS.
+    \item \textbf{Fuse} image and text similarity scores with weight $\alpha$.
+    \item \textbf{Gate} the retrieval using confidence threshold $\tau$.
+    \item \textbf{Inject} retrieved Q\&A pairs as few-shot context into BLIP-2's prompt.
+    \item \textbf{Generate} a short answer conditioned on both query image and retrieved context.
+\end{enumerate}
+
+% =====================================================================
+\section{Technology Stack}
+% =====================================================================
+
+\begin{table}[H]
+\centering
+\caption{Technology stack.}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{} l l X @{}}
+\toprule
+\textbf{Category} & \textbf{Technology} & \textbf{Purpose} \\
+\midrule
+VQA Model & BLIP-2 (OPT-2.7B) & Vision-language generator with Q-Former bridge \\
+Retrieval & CLIP ViT-B/32 + FAISS & Dual-encoder embeddings (512-d) + cosine search \\
+Fine-Tuning & QLoRA (4-bit NF4) + PEFT & Memory-efficient LoRA on q\_proj, v\_proj \\
+Framework & PyTorch, HuggingFace & Model loading, tokenization, streaming datasets \\
+Dataset & VQAv2 (lmms-lab) & COCO images, 10 human answers per question \\
+Deployment & Netlify + Chart.js & Interactive project dashboard \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% =====================================================================
+\section{System Architecture}
+% =====================================================================
+
+\subsection{Pipeline Overview}
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.95\textwidth}{
+\centering
+\textbf{RAG-VQA Pipeline}\\[0.4cm]
+\begin{tabular}{ccccccccc}
+\fbox{\parbox{1.5cm}{\centering\small\textbf{Input}\\Image +\\Question}}
+& $\rightarrow$ &
+\fbox{\parbox{2cm}{\centering\small\textbf{CLIP}\\Retriever\\(512-d)}}
+& $\rightarrow$ &
+\fbox{\parbox{2cm}{\centering\small\textbf{Fusion \&}\\Gating\\$\alpha$, $\tau$}}
+& $\rightarrow$ &
+\fbox{\parbox{2cm}{\centering\small\textbf{BLIP-2}\\Generator\\(4-bit)}}
+& $\rightarrow$ &
+\fbox{\parbox{1.5cm}{\centering\small\textbf{Output}\\1--3 word\\answer}}
+\end{tabular}
+}}
+\caption{High-level pipeline architecture.}
+\end{figure}
+
+\subsection{Score Fusion \& Gating}
+
+For each retrieval candidate, we compute a fused score:
+\begin{equation}
+    \text{score}_{\text{fused}} = \alpha \cdot s_{\text{img}} + (1 - \alpha) \cdot s_{\text{txt}}
+\end{equation}
+
+where $\alpha \in [0,1]$ is a manually swept hyperparameter. Candidates are ranked by fused score and top-3 are returned. A confidence gate checks if $\text{score}_{\text{fused}}^{(1)} \geq \tau$; if not, the system falls back to baseline inference without context.
+
+\subsection{BLIP-2 Generation}
+
+BLIP-2 has three components: (1) frozen ViT image encoder, (2) Q-Former that converts visual features into soft prompt tokens, and (3) frozen OPT-2.7B that generates the answer. We use two prompt formats:
+
+\textbf{Few-shot} (pre-trained RAG):
+\begin{lstlisting}[language={}]
+Q: How many engines? A: 4
+Q: How many planes? A: 1
+Q: What airline does the plane fly for? A:
+\end{lstlisting}
+
+\textbf{Hints} (fine-tuned RAG):
+\begin{lstlisting}[language={}]
+Answer with 1-3 words. Hints may be wrong.
+Hints:
+- Similar image suggests: tennis
+- Similar image suggests: racket
+Question: What sport is being played?
+Answer:
+\end{lstlisting}
+
+\subsection{4-Bit Quantization}
+
+All inference and training uses NF4 quantization via BitsAndBytes, reducing memory from $\sim$10GB to $\sim$2.5GB and enabling single-GPU ($\leq$8GB VRAM) operation.
+
+% =====================================================================
+\section{Dataset and Evaluation}
+% =====================================================================
+
+We use \textbf{VQAv2} (lmms-lab/VQAv2) with COCO images and 10 human answers per question. To ensure zero data leakage, we partition the validation split:
+
+\begin{table}[H]
+\centering
+\caption{Disjoint data splits.}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} l l r l @{}}
+\toprule
+\textbf{Split} & \textbf{Range} & \textbf{Size} & \textbf{Purpose} \\
+\midrule
+Knowledge Base & val[0:5000] & 5,000 & CLIP-indexed retrieval corpus \\
+Evaluation & val[5000:5100] & 100 & All ablation experiments \\
+Fine-tune & val[5100:8100] & 3,000 & QLoRA hints-format training \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Metric}: Official VQAv2 soft accuracy: $\text{acc} = \min(1,\; \text{matching\_answers} / 3)$, with normalization (lowercase, remove articles/punctuation).
+
+% =====================================================================
+\section{Experiments and Results}
+% =====================================================================
+
+\subsection{Ablation Study}
+
+\begin{table}[H]
+\centering
+\caption{Ablation results (KB=5000, top\_k=3, candidate\_k=30).}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} l c c c c c @{}}
+\toprule
+\textbf{Config} & $\boldsymbol{\alpha}$ & $\boldsymbol{\tau}$ & \textbf{RAG Used} & \textbf{Accuracy} & $\boldsymbol{\Delta}$ \\
+\midrule
+Baseline (no RAG) & --- & --- & 0\% & 42.33\% & --- \\
+Text-only & 0.0 & 0.0 & 100\% & 41.33\% & \textcolor{red}{--1.00} \\
+Balanced & 0.5 & 0.0 & 100\% & 46.33\% & \textcolor{green!60!black}{+4.00} \\
+Balanced + gate & 0.5 & 0.5 & 71\% & 47.33\% & \textcolor{green!60!black}{+5.00} \\
+\textbf{Image-only} & \textbf{1.0} & \textbf{0.0} & \textbf{100\%} & \textbf{51.33\%} & \textcolor{green!60!black}{\textbf{+9.00}} \\
+Image-only + gate & 1.0 & 0.75 & 59\% & 49.33\% & \textcolor{green!60!black}{+7.00} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Key findings}: (1) Image-only retrieval ($\alpha{=}1.0$) achieves best accuracy; text-only \emph{hurts} performance. (2) All image-weighted configs outperform baseline (+4 to +9pp). (3) Gating trades peak accuracy for precision by filtering low-confidence retrievals.
+
+\subsection{Error Analysis}
+
+We categorize 46 incorrect predictions from the best config ($\alpha{=}1.0$, $\tau{=}0.0$):
+
+\begin{table}[H]
+\centering
+\caption{Error breakdown (46 incorrect predictions).}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} l r r p{7cm} @{}}
+\toprule
+\textbf{Category} & \textbf{Count} & \textbf{\%} & \textbf{Description} \\
+\midrule
+Model Ignored Context & 29 & 63\% & Relevant hints provided but OPT-2.7B has no learned mechanism to attend to few-shot Q\&A context. \\
+Wrong Images Retrieved & 9 & 20\% & CLIP matched coarse scene features, missing fine-grained details the question targets. \\
+Misleading Answers & 8 & 17\% & Visually similar images with Q\&A for a \emph{different} question, actively steering model wrong. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The dominant failure (63\%) is the model \textbf{ignoring context}, not retrieval quality. This directly motivated QLoRA fine-tuning.
+
+\subsection{QLoRA Fine-Tuning}
+
+\begin{table}[H]
+\centering
+\caption{QLoRA configuration.}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} l l @{}}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+LoRA rank / alpha & $r{=}16$, $\alpha{=}32$ (scaling $2\times$) \\
+Target modules & q\_proj, v\_proj in OPT-2.7B \\
+Trainable params & 5.2M / 3.75B (\textbf{0.14\%}) \\
+Quantization & 4-bit NF4, double quantization \\
+Effective batch size & 2 $\times$ 8 grad\_accum = 16 \\
+Learning rate & $1 \times 10^{-4}$, AdamW \\
+Data & 3,000 samples; 15\% no-hints for baseline preservation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Training progress.}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} c c c c @{}}
+\toprule
+\textbf{Epoch} & \textbf{Avg Loss} & \textbf{Time} & \textbf{Sanity Exact-Match} \\
+\midrule
+1 & 3.9899 & 18.6 min & 0.00\% \\
+2 & 2.9431 & 18.1 min & 1.00\% \\
+3 & 2.7019 & 18.4 min & 3.00\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Loss drops from 3.99 to 2.70; the model transitions from completely ignoring hints to beginning to follow them, validating that QLoRA can teach context-awareness with only 0.14\% trainable parameters.
+
+% =====================================================================
+\section{Qualitative Examples}
+% =====================================================================
+
+\begin{table}[H]
+\centering
+\caption{RAG success cases ($\alpha{=}1.0$).}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} p{4cm} l l l @{}}
+\toprule
+\textbf{Question} & \textbf{Baseline} & \textbf{RAG} & \textbf{Ground Truth} \\
+\midrule
+What airline does the plane fly for? & United Airlines & American Airlines & American Airlines \\
+How are the eggs cooked? & not & scrambled & scrambled \\
+Is it morning or evening? & morning & evening & evening \\
+How much time is left? & None & 15 minutes & 15 minutes \\
+Is the skier going downhill? & no & yes & yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =====================================================================
+\section{Reproducibility}
+% =====================================================================
+
+\begin{lstlisting}[language=bash, caption={Full reproduction pipeline.}]
+pip install torch transformers peft bitsandbytes faiss-cpu datasets tqdm Pillow
+python run.py infer --num_samples 100 --offset 5000
+python run.py rag-build --num_samples 5000
+python run.py rag-infer --num_samples 100 --alpha 1.0 --tau 0.0
+python run.py eval
+python run.py rag-make-train --num_samples 3000
+python run.py rag-finetune --train_jsonl data/rag_train.jsonl --epochs 3
+\end{lstlisting}
+
+% =====================================================================
+\section{Individual Contributions}
+% =====================================================================
+
+\subsection{Nandita Menon}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+\toprule
+\textbf{Area} & \textbf{Contributions} \\
+\midrule
+RAG Pipeline & Designed and implemented the retrieval-augmented generation pipeline: CLIP dual-modal encoding, FAISS index construction, score fusion ($\alpha$-weighting), confidence gating ($\tau$ threshold), and the \texttt{RAGRetriever} class. \\
+\addlinespace
+QLoRA Fine-Tuning & Implemented the fine-tuning infrastructure: 4-bit NF4 quantization, LoRA adapter setup (q\_proj, v\_proj), training loop with gradient accumulation, checkpoint management. Designed the hints-style prompt format. \\
+\addlinespace
+BLIP-2 Integration & Implemented model loading with 4-bit quantization, baseline/few-shot/hints inference modes, and answer post-processing. \\
+\addlinespace
+Training Data & Built the training data generation pipeline (\texttt{rag\_make\_train\_jsonl.py}) with automated hint retrieval and 15\% no-hints ratio. \\
+\addlinespace
+Project Dashboard & Developed the Netlify dashboard with Chart.js visualizations, inference traces, demo gallery, and responsive design. \\
+\addlinespace
+CLI \& Integration & Designed the unified CLI (\texttt{run.py}) with subcommands for all pipeline stages. End-to-end integration and deployment. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Jillian Priscilla}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+\toprule
+\textbf{Area} & \textbf{Contributions} \\
+\midrule
+Ablation Experiments & Executed the ablation study across 6 configurations, varying $\alpha$ and $\tau$. Collected prediction outputs and debug context logs. \\
+\addlinespace
+Evaluation & Implemented VQA soft accuracy metric following official VQAv2 protocol, with per-question-type breakdown. \\
+\addlinespace
+Documentation & Prepared speaker notes for midterm presentation. Contributed to report writing. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Anushree Ashok}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+\toprule
+\textbf{Area} & \textbf{Contributions} \\
+\midrule
+Dataset Pipeline & Implemented VQAv2 streaming loader with offset-based disjoint splits ensuring zero data leakage. \\
+\addlinespace
+Error Analysis & Categorized 46 incorrect predictions into three failure modes (ignored context, wrong retrieval, misleading answers). \\
+\addlinespace
+Visualization & Created demo gallery image extraction, selected qualitative examples, and contributed to chart design. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Contribution Summary}
+
+\begin{table}[H]
+\centering
+\caption{Contribution matrix.}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{} l c c c @{}}
+\toprule
+\textbf{Component} & \textbf{Nandita} & \textbf{Jillian} & \textbf{Anushree} \\
+\midrule
+RAG Pipeline (retrieval, fusion, gating) & \textbf{Lead} & Support & Support \\
+BLIP-2 Model \& Inference & \textbf{Lead} & Support & --- \\
+QLoRA Fine-Tuning & \textbf{Lead} & Support & --- \\
+Training Data Generation & \textbf{Lead} & --- & Support \\
+Project Dashboard \& Deployment & \textbf{Lead} & Support & Support \\
+CLI Integration (\texttt{run.py}) & \textbf{Lead} & --- & --- \\
+Ablation Experiments & Support & \textbf{Lead} & Support \\
+Evaluation Metric & Support & \textbf{Lead} & --- \\
+Dataset \& Data Splits & --- & Support & \textbf{Lead} \\
+Error Analysis & Support & --- & \textbf{Lead} \\
+Visualization \& Demo Gallery & Support & --- & \textbf{Lead} \\
+Report \& Presentation & Support & \textbf{Lead} & Support \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =====================================================================
+\section{Conclusion and Future Work}
+% =====================================================================
+
+\subsection{Conclusion}
+
+\begin{enumerate}[leftmargin=1.5cm]
+    \item RAG improves VQA accuracy by \textbf{+9pp} (42.33\% $\rightarrow$ 51.33\%) with image-only retrieval.
+    \item Image similarity dominates; text-only retrieval \emph{hurts} performance.
+    \item The bottleneck is context utilization (63\% ignored), not retrieval quality (20\%).
+    \item QLoRA fine-tuning (0.14\% params) teaches context-awareness via hints prompts.
+    \item Confidence gating ($\tau$) provides a precision--recall tradeoff.
+\end{enumerate}
+
+\subsection{Future Work}
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item Scale KB to 50,000+ images; upgrade to CLIP ViT-L/14 (768-d).
+    \item Replace manual $\alpha$ with a learned per-query fusion module.
+    \item Extended fine-tuning with more epochs and full VQAv2 test evaluation.
+    \item Larger LLM backbone (OPT-6.7B or FlanT5-XXL).
+\end{itemize}
+
+% =====================================================================
+\section*{References}
+\addcontentsline{toc}{section}{References}
+% =====================================================================
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=1.5cm]
+    \item Li, J., et al. (2023). BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models. \textit{ICML 2023}.
+    \item Radford, A., et al. (2021). Learning Transferable Visual Models From Natural Language Supervision. \textit{ICML 2021}.
+    \item Goyal, Y., et al. (2017). Making the V in VQA Matter. \textit{CVPR 2017}.
+    \item Johnson, J., Douze, M., \& J\'{e}gou, H. (2019). Billion-scale similarity search with GPUs. \textit{IEEE Trans. Big Data}.
+    \item Dettmers, T., et al. (2023). QLoRA: Efficient Finetuning of Quantized Language Models. \textit{NeurIPS 2023}.
+    \item Hu, E. J., et al. (2022). LoRA: Low-Rank Adaptation of Large Language Models. \textit{ICLR 2022}.
+    \item Lewis, P., et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. \textit{NeurIPS 2020}.
+    \item Zhang, S., et al. (2022). OPT: Open Pre-trained Transformer Language Models. \textit{arXiv:2205.01068}.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG-VQA: Retrieval-Augmented Visual Question Answering</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <h1>RAG-VQA</h1>
+            <p class="subtitle">Retrieval-Augmented Visual Question Answering with BLIP-2</p>
+            <p class="meta">Masters of AI &mdash; Computer Vision Midterm Project</p>
+        </div>
+    </header>
+
+    <!-- Nav -->
+    <nav class="sticky-nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#overview">Overview</a>
+            <a href="#data">Data</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#experiments">Experiments</a>
+            <a href="#error-analysis">Error Analysis</a>
+            <a href="#finetuning">Fine-Tuning</a>
+            <a href="#traces">Traces</a>
+            <a href="#demo">Demo</a>
+            <a href="#examples">Examples</a>
+            <a href="#repro">Reproducibility</a>
+        </div>
+    </nav>
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2>Project Overview</h2>
+            <div class="card-row">
+                <div class="card">
+                    <div class="card-icon">&#128218;</div>
+                    <h3>Problem</h3>
+                    <p>Standard VQA models answer using only the query image. When questions are ambiguous or answers require disambiguation (e.g., &ldquo;tennis&rdquo; vs &ldquo;badminton&rdquo;), a single image may not provide enough signal.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128161;</div>
+                    <h3>Approach</h3>
+                    <p>We augment BLIP-2 with a retrieval pipeline: find visually similar images from a knowledge base, inject their Q&amp;A pairs as few-shot hints, and let the model leverage this visual exemplar context for disambiguation and answer formatting.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#127942;</div>
+                    <h3>Result</h3>
+                    <p>RAG boosts VQA accuracy from <strong>42.33%</strong> to <strong>51.33%</strong> (+9pp) on our evaluation set, with the best configuration using pure image-similarity retrieval (&alpha;=1.0).</p>
+                </div>
+            </div>
+
+            <div class="tech-stack">
+                <h3>Tech Stack</h3>
+                <div class="badges">
+                    <span class="badge">BLIP-2 (OPT-2.7B)</span>
+                    <span class="badge">4-bit QLoRA</span>
+                    <span class="badge">CLIP ViT-B/32</span>
+                    <span class="badge">FAISS</span>
+                    <span class="badge">VQAv2</span>
+                    <span class="badge">PyTorch</span>
+                    <span class="badge">HuggingFace</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data -->
+    <section id="data" class="section alt-bg">
+        <div class="container">
+            <h2>Dataset &amp; Evaluation</h2>
+            <p class="section-desc">VQAv2 (lmms-lab/VQAv2) &mdash; open-ended questions on COCO images, 10 human answers per question</p>
+
+            <div class="card-row">
+                <div class="card">
+                    <h3>VQAv2 at a Glance</h3>
+                    <ul class="config-list">
+                        <li><span>Source:</span> lmms-lab/VQAv2 (HuggingFace)</li>
+                        <li><span>Images:</span> COCO 2014 val split</li>
+                        <li><span>Answers:</span> 10 human annotations per question</li>
+                        <li><span>Answer type:</span> Open-ended, 1-3 words</li>
+                        <li><span>Question types:</span> yes/no, number, other</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Disjoint Splits</h3>
+                    <table class="results-table compact">
+                        <thead>
+                            <tr><th>Split</th><th>Range</th><th>Size</th><th>Purpose</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Knowledge Base</td><td>val[0 : 5000]</td><td>5,000</td><td>CLIP-indexed retrieval corpus</td></tr>
+                            <tr><td>Evaluation</td><td>val[5000 : 5100]</td><td>100</td><td>All ablation experiments</td></tr>
+                            <tr><td>Fine-tune</td><td>val[5100 : 8100]</td><td>3,000</td><td>QLoRA hints-format training</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="prompt-note">No image or Q&amp;A pair appears in more than one split &mdash; zero data leakage.</p>
+                </div>
+                <div class="card">
+                    <h3>Evaluation Metric</h3>
+                    <p>We use the <strong>official VQAv2 soft accuracy</strong>:</p>
+                    <pre class="prompt-example">accuracy = min(1, matching_answers / 3)</pre>
+                    <p class="prompt-note">Each question has 10 human answers. We count how many match our prediction (after normalizing lowercase, removing articles &amp; punctuation). Dividing by 3 means an answer agreed upon by &ge;3 annotators gets full credit. This rewards common answers without requiring unanimous agreement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section id="architecture" class="section">
+        <div class="container">
+            <h2>System Architecture</h2>
+            <div class="arch-diagram">
+                <div class="arch-flow">
+                    <div class="arch-box input">
+                        <div class="arch-label">Input</div>
+                        <div>Query Image + Question</div>
+                    </div>
+                    <div class="arch-arrow">&rarr;</div>
+                    <div class="arch-box retriever">
+                        <div class="arch-label">CLIP Retriever</div>
+                        <div>Encode image &amp; text with CLIP ViT-B/32</div>
+                        <div class="arch-detail">FAISS IndexFlatIP (cosine similarity)</div>
+                    </div>
+                    <div class="arch-arrow">&rarr;</div>
+                    <div class="arch-box fusion">
+                        <div class="arch-label">Fusion &amp; Gating</div>
+                        <div>score = &alpha;&middot;img + (1-&alpha;)&middot;txt</div>
+                        <div class="arch-detail">Gate: use RAG if score &ge; &tau;</div>
+                    </div>
+                    <div class="arch-arrow">&rarr;</div>
+                    <div class="arch-box generator">
+                        <div class="arch-label">BLIP-2 Generator</div>
+                        <div>Few-shot or Hints prompt</div>
+                        <div class="arch-detail">4-bit quantized, beam search</div>
+                    </div>
+                    <div class="arch-arrow">&rarr;</div>
+                    <div class="arch-box output">
+                        <div class="arch-label">Output</div>
+                        <div>Short Answer (1-3 words)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-row" style="margin-top:2rem;">
+                <div class="card small">
+                    <h3>Knowledge Base</h3>
+                    <p><strong>5,000</strong> VQAv2 validation samples used as retrieval corpus (disjoint from eval). Dual FAISS indices for image and text embeddings (512-d, L2-normalized, cosine via inner product).</p>
+                </div>
+                <div class="card small">
+                    <h3>Retrieval</h3>
+                    <p>Search top-30 candidates in each index, take union, re-rank by fused score, return top-3. All on CPU.</p>
+                </div>
+                <div class="card small">
+                    <h3>Disjoint Splits</h3>
+                    <p>KB: val[0:5000], Eval: val[5000:5100], Fine-tune: val[5100:8100]. Zero data leakage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiments -->
+    <section id="experiments" class="section alt-bg">
+        <div class="container">
+            <h2>Ablation Experiments</h2>
+            <p class="section-desc">All experiments on 100 VQAv2 validation samples (offset=5000), KB size=5000.</p>
+
+            <div class="results-grid">
+                <div class="chart-container">
+                    <canvas id="ablationChart"></canvas>
+                </div>
+                <div class="results-table-wrap">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Config</th>
+                                <th>&alpha;</th>
+                                <th>&tau;</th>
+                                <th>RAG Used</th>
+                                <th>Accuracy</th>
+                                <th>&Delta; vs Baseline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="baseline-row">
+                                <td>Baseline (no RAG)</td>
+                                <td>&mdash;</td>
+                                <td>&mdash;</td>
+                                <td>0%</td>
+                                <td><strong>42.33%</strong></td>
+                                <td>&mdash;</td>
+                            </tr>
+                            <tr>
+                                <td>Text-only</td>
+                                <td>0.0</td>
+                                <td>0.0</td>
+                                <td>100%</td>
+                                <td>41.33%</td>
+                                <td class="neg">-1.00</td>
+                            </tr>
+                            <tr>
+                                <td>Balanced</td>
+                                <td>0.5</td>
+                                <td>0.0</td>
+                                <td>100%</td>
+                                <td>46.33%</td>
+                                <td class="pos">+4.00</td>
+                            </tr>
+                            <tr>
+                                <td>Balanced + gate</td>
+                                <td>0.5</td>
+                                <td>0.5</td>
+                                <td>71%</td>
+                                <td>47.33%</td>
+                                <td class="pos">+5.00</td>
+                            </tr>
+                            <tr class="best-row">
+                                <td>Image-only</td>
+                                <td>1.0</td>
+                                <td>0.0</td>
+                                <td>100%</td>
+                                <td><strong>51.33%</strong></td>
+                                <td class="pos"><strong>+9.00</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Image-only + gate</td>
+                                <td>1.0</td>
+                                <td>0.75</td>
+                                <td>59%</td>
+                                <td>49.33%</td>
+                                <td class="pos">+7.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="insights">
+                <h3>Key Findings</h3>
+                <ul>
+                    <li><strong>Image similarity dominates:</strong> &alpha;=1.0 (image-only retrieval) achieves the best accuracy. Text-based retrieval (&alpha;=0.0) actually <em>hurts</em> performance, suggesting question text similarity is a poor proxy for answer relevance.</li>
+                    <li><strong>RAG consistently helps:</strong> All image-weighted configs outperform baseline, with the best showing a +9pp improvement.</li>
+                    <li><strong>Gating trades recall for precision:</strong> Higher &tau; reduces RAG usage and slightly lowers peak accuracy, but may improve robustness on out-of-distribution queries.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Error Analysis -->
+    <section id="error-analysis" class="section">
+        <div class="container">
+            <h2>Error Analysis</h2>
+            <p class="section-desc">Deep dive into 46 incorrect predictions from best config (&alpha;=1.0, &tau;=0.0)</p>
+
+            <div class="results-grid">
+                <div class="chart-container">
+                    <canvas id="errorChart"></canvas>
+                </div>
+                <div class="error-cards">
+                    <div class="error-card" style="border-left: 4px solid #ef4444;">
+                        <div class="error-pct">63%</div>
+                        <h3>Model Ignored Context</h3>
+                        <p>BLIP-2 received relevant hints but generated an answer unrelated to the retrieved context. The pre-trained model wasn't trained to attend to few-shot Q&A context.</p>
+                        <p class="error-count">29 / 46 errors</p>
+                    </div>
+                    <div class="error-card" style="border-left: 4px solid #f59e0b;">
+                        <div class="error-pct">20%</div>
+                        <h3>Wrong Images Retrieved</h3>
+                        <p>CLIP retrieved visually dissimilar images whose Q&A pairs were irrelevant. Retrieval quality bottleneck.</p>
+                        <p class="error-count">9 / 46 errors</p>
+                    </div>
+                    <div class="error-card" style="border-left: 4px solid #3b82f6;">
+                        <div class="error-pct">17%</div>
+                        <h3>Misleading Answers</h3>
+                        <p>Retrieved images were visually similar but had misleading Q&A pairs that steered the model toward incorrect answers.</p>
+                        <p class="error-count">8 / 46 errors</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insights">
+                <h3>Implication</h3>
+                <p>The dominant failure mode (63%) is the model <strong>ignoring context</strong>, not retrieval quality. This motivates QLoRA fine-tuning to teach BLIP-2 to attend to RAG hints.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fine-Tuning -->
+    <section id="finetuning" class="section alt-bg">
+        <div class="container">
+            <h2>QLoRA Fine-Tuning</h2>
+            <p class="section-desc">Teaching BLIP-2 to follow RAG context via Hints-style prompt training</p>
+
+            <div class="card-row">
+                <div class="card">
+                    <h3>Training Setup</h3>
+                    <ul class="config-list">
+                        <li><span>Adapter:</span> LoRA (r=16, &alpha;=32)</li>
+                        <li><span>Target:</span> q_proj, v_proj in OPT-2.7B</li>
+                        <li><span>Trainable:</span> 5.2M / 3.75B (0.14%)</li>
+                        <li><span>Quantization:</span> NF4 (4-bit)</li>
+                        <li><span>Batch:</span> 2 &times; 8 grad_accum = 16 effective</li>
+                        <li><span>LR:</span> 1e-4, AdamW</li>
+                        <li><span>Data:</span> 3,000 samples (val[5100:8100])</li>
+                        <li><span>No-hints ratio:</span> 15% (baseline preservation)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Hints Prompt Format</h3>
+                    <pre class="prompt-example">Answer with 1-3 words. Hints may be wrong.
+Hints:
+- Similar image suggests: tennis
+- Similar image suggests: racket
+- Similar image suggests: outdoor
+Question: What sport is being played?
+Answer:</pre>
+                    <p class="prompt-note">15% of training samples omit hints to preserve baseline capability during gated fallback.</p>
+                </div>
+                <div class="card">
+                    <h3>Training Progress</h3>
+                    <div class="chart-container small">
+                        <canvas id="lossChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insights">
+                <h3>Training Results</h3>
+                <table class="results-table compact">
+                    <thead>
+                        <tr><th>Epoch</th><th>Avg Loss</th><th>Time</th><th>Sanity exact-match (tiny slice)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>3.9899</td><td>18.6 min</td><td>0.00%</td></tr>
+                        <tr><td>2</td><td>2.9431</td><td>18.1 min</td><td>1.00%</td></tr>
+                        <tr><td>3</td><td>2.7019</td><td>18.4 min</td><td>3.00%</td></tr>
+                    </tbody>
+                </table>
+                <p>Loss decreases steadily (3.99 &rarr; 2.70), indicating the model is learning the hints format. The &ldquo;sanity exact-match&rdquo; column uses a quick exact-match check on a tiny slice of eval data during training &mdash; it underestimates real accuracy because it doesn&rsquo;t apply VQAv2 soft scoring or answer normalization. The real test is full inference + eval after training.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traces -->
+    <section id="traces" class="section">
+        <div class="container">
+            <h2>Inference Traces</h2>
+            <p class="section-desc">Real traces from the best config (&alpha;=1.0, &tau;=0.0) showing baseline vs RAG predictions</p>
+
+            <div id="traces-container" class="traces-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Gallery -->
+    <section id="demo" class="section alt-bg">
+        <div class="container">
+            <h2>Demo Gallery</h2>
+            <p class="section-desc">Qualitative examples showing when RAG helps, hurts, or is ignored. Click to expand.</p>
+            <div id="demo-container" class="demo-grid"></div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section id="examples" class="section">
+        <div class="container">
+            <h2>Prediction Examples</h2>
+            <p class="section-desc">Sample predictions from RAG-VQA (&alpha;=1.0) showing retrieved context and model answers</p>
+
+            <div id="examples-container" class="examples-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Reproducibility -->
+    <section id="repro" class="section">
+        <div class="container">
+            <h2>Reproducibility</h2>
+            <p class="section-desc">All commands to reproduce our results from scratch</p>
+
+            <div class="repro-steps">
+                <div class="repro-step">
+                    <div class="repro-num">1</div>
+                    <div class="repro-content">
+                        <h3>Install dependencies</h3>
+                        <div class="cmd-block">
+                            <code>pip install torch transformers peft bitsandbytes faiss-cpu datasets tqdm Pillow</code>
+                            <button class="copy-btn" onclick="copyCmd(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="repro-step">
+                    <div class="repro-num">2</div>
+                    <div class="repro-content">
+                        <h3>Run baseline inference (100 samples)</h3>
+                        <div class="cmd-block">
+                            <code>python run.py infer --num_samples 100</code>
+                            <button class="copy-btn" onclick="copyCmd(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="repro-step">
+                    <div class="repro-num">3</div>
+                    <div class="repro-content">
+                        <h3>Build RAG knowledge base (5000 images)</h3>
+                        <div class="cmd-block">
+                            <code>python run.py rag-build --num_samples 5000</code>
+                            <button class="copy-btn" onclick="copyCmd(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="repro-step">
+                    <div class="repro-num">4</div>
+                    <div class="repro-content">
+                        <h3>Run RAG inference (best config: &alpha;=1.0)</h3>
+                        <div class="cmd-block">
+                            <code>python run.py rag-infer --num_samples 100 --alpha 1.0 --tau 0.0 --candidate_k 30</code>
+                            <button class="copy-btn" onclick="copyCmd(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="repro-step">
+                    <div class="repro-num">5</div>
+                    <div class="repro-content">
+                        <h3>Evaluate predictions</h3>
+                        <div class="cmd-block">
+                            <code>python run.py eval</code>
+                            <button class="copy-btn" onclick="copyCmd(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="repro-step">
+                    <div class="repro-num">6</div>
+                    <div class="repro-content">
+                        <h3>Generate training data &amp; fine-tune</h3>
+                        <div class="cmd-block">
+                            <code>python run.py rag-make-train --num_samples 3000</code>
+                            <button class="copy-btn" onclick="copyCmd(this)">Copy</button>
+                        </div>
+                        <div class="cmd-block" style="margin-top:0.5rem;">
+                            <code>python run.py rag-finetune --epochs 3</code>
+                            <button class="copy-btn" onclick="copyCmd(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>RAG-VQA Project &mdash; Computer Vision Midterm &mdash; Built with BLIP-2, CLIP, FAISS, and PyTorch</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

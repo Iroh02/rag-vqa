@@ -1,0 +1,2902 @@
+[
+  {
+    "question_id": 2529010,
+    "question": "Is there snow on the ground?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is there snow on the ground?",
+        "answer": "no",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Is there snow on the ground?",
+        "answer": "yes",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Is there snow?",
+        "answer": "yes",
+        "score": 0.9758,
+        "img_score": 0.0,
+        "q_score": 0.9758
+      }
+    ]
+  },
+  {
+    "question_id": 2532000,
+    "question": "Is the skier going downhill?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Has the skier fallen?",
+        "answer": "yes",
+        "score": 0.9534,
+        "img_score": 0.0,
+        "q_score": 0.9534
+      },
+      {
+        "question": "Are the skiers in a competition?",
+        "answer": "yes",
+        "score": 0.9517,
+        "img_score": 0.0,
+        "q_score": 0.9517
+      },
+      {
+        "question": "What does it look like the skier is doing?",
+        "answer": "falling",
+        "score": 0.9402,
+        "img_score": 0.0,
+        "q_score": 0.9402
+      }
+    ]
+  },
+  {
+    "question_id": 2532001,
+    "question": "How do you know this skier is not alone on the mountain?",
+    "answer": "I don't",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this skier a female?",
+        "answer": "yes",
+        "score": 0.9152,
+        "img_score": 0.0,
+        "q_score": 0.9152
+      },
+      {
+        "question": "Is this person good at skiing?",
+        "answer": "no",
+        "score": 0.9142,
+        "img_score": 0.7801,
+        "q_score": 0.9142
+      },
+      {
+        "question": "Are the skiers in a competition?",
+        "answer": "yes",
+        "score": 0.9127,
+        "img_score": 0.0,
+        "q_score": 0.9127
+      }
+    ]
+  },
+  {
+    "question_id": 2532002,
+    "question": "How cold is it?",
+    "answer": "very cold",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is it cold?",
+        "answer": "yes",
+        "score": 0.9816,
+        "img_score": 0.0,
+        "q_score": 0.9816
+      },
+      {
+        "question": "Is it cold?",
+        "answer": "no",
+        "score": 0.9816,
+        "img_score": 0.0,
+        "q_score": 0.9816
+      },
+      {
+        "question": "Is it cold?",
+        "answer": "yes",
+        "score": 0.9816,
+        "img_score": 0.0,
+        "q_score": 0.9816
+      }
+    ]
+  },
+  {
+    "question_id": 2532003,
+    "question": "Is it a sunny or cloudy day?",
+    "answer": "sunny",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is it a cloudy day?",
+        "answer": "yes",
+        "score": 0.9676,
+        "img_score": 0.0,
+        "q_score": 0.9676
+      },
+      {
+        "question": "Is it a cloudy day?",
+        "answer": "no",
+        "score": 0.9676,
+        "img_score": 0.0,
+        "q_score": 0.9676
+      },
+      {
+        "question": "Is it a cloudy day?",
+        "answer": "yes",
+        "score": 0.9676,
+        "img_score": 0.0,
+        "q_score": 0.9676
+      }
+    ]
+  },
+  {
+    "question_id": 2532004,
+    "question": "What color is the sky?",
+    "answer": "gray",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What color is the sky?",
+        "answer": "blue",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "blue",
+        "score": 1.0,
+        "img_score": 0.7791,
+        "q_score": 1.0
+      }
+    ]
+  },
+  {
+    "question_id": 395749000,
+    "question": "What filter is being used in this image?",
+    "answer": "black and white",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this a picture taken recently?",
+        "answer": "yes",
+        "score": 0.95,
+        "img_score": 0.0,
+        "q_score": 0.95
+      },
+      {
+        "question": "What are the words on the right side of the photo?",
+        "answer": "jamie henderson",
+        "score": 0.9496,
+        "img_score": 0.0,
+        "q_score": 0.9496
+      },
+      {
+        "question": "What colors are in the photo?",
+        "answer": "black and white",
+        "score": 0.9399,
+        "img_score": 0.0,
+        "q_score": 0.9399
+      }
+    ]
+  },
+  {
+    "question_id": 395749001,
+    "question": "Are all the people elderly?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Do the people know each other?",
+        "answer": "yes",
+        "score": 0.9349,
+        "img_score": 0.0,
+        "q_score": 0.9349
+      },
+      {
+        "question": "How many people are there?",
+        "answer": "5",
+        "score": 0.9335,
+        "img_score": 0.0,
+        "q_score": 0.9335
+      },
+      {
+        "question": "How many people are there?",
+        "answer": "8",
+        "score": 0.9335,
+        "img_score": 0.0,
+        "q_score": 0.9335
+      }
+    ]
+  },
+  {
+    "question_id": 395749002,
+    "question": "How many people can be seen?",
+    "answer": "3",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many people are in the photo?",
+        "answer": "5",
+        "score": 0.9667,
+        "img_score": 0.0,
+        "q_score": 0.9667
+      },
+      {
+        "question": "How many people are in the photo?",
+        "answer": "2",
+        "score": 0.9667,
+        "img_score": 0.0,
+        "q_score": 0.9667
+      },
+      {
+        "question": "How many people are in the photo?",
+        "answer": "1",
+        "score": 0.9667,
+        "img_score": 0.0,
+        "q_score": 0.9667
+      }
+    ]
+  },
+  {
+    "question_id": 395749003,
+    "question": "What ocean might this be?",
+    "answer": "ocean",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this man in the ocean?",
+        "answer": "yes",
+        "score": 0.9158,
+        "img_score": 0.0,
+        "q_score": 0.9158
+      },
+      {
+        "question": "Is this by a beach?",
+        "answer": "no",
+        "score": 0.9091,
+        "img_score": 0.0,
+        "q_score": 0.9091
+      },
+      {
+        "question": "What is at this location?",
+        "answer": "stop sign",
+        "score": 0.9053,
+        "img_score": 0.0,
+        "q_score": 0.9053
+      }
+    ]
+  },
+  {
+    "question_id": 395749004,
+    "question": "How many people are in the photo?",
+    "answer": "1",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many people are in the photo?",
+        "answer": "5",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "How many people are in the photo?",
+        "answer": "2",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "How many people are in the photo?",
+        "answer": "1",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      }
+    ]
+  },
+  {
+    "question_id": 395752000,
+    "question": "What color are the mums in the front of the photo?",
+    "answer": "green",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What color are the flowers in this picture?",
+        "answer": "yellow and red",
+        "score": 0.8903,
+        "img_score": 0.0,
+        "q_score": 0.8903
+      },
+      {
+        "question": "Are there any flowers in this picture?",
+        "answer": "yes",
+        "score": 0.8892,
+        "img_score": 0.0,
+        "q_score": 0.8892
+      },
+      {
+        "question": "What color are the flowers?",
+        "answer": "pink",
+        "score": 0.8768,
+        "img_score": 0.0,
+        "q_score": 0.8768
+      }
+    ]
+  },
+  {
+    "question_id": 395752001,
+    "question": "Can a mail truck fit behind the bus to pick up the mail?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is the bus driving through?",
+        "answer": "water",
+        "score": 0.8743,
+        "img_score": 0.0,
+        "q_score": 0.8743
+      },
+      {
+        "question": "What kind of bus is it?",
+        "answer": "double decker",
+        "score": 0.8735,
+        "img_score": 0.7668,
+        "q_score": 0.8735
+      },
+      {
+        "question": "What company does the bus belong to?",
+        "answer": "forth bridges",
+        "score": 0.8733,
+        "img_score": 0.0,
+        "q_score": 0.8733
+      }
+    ]
+  },
+  {
+    "question_id": 395752002,
+    "question": "What  \"Over the Rainbow\" singer sang about this vehicle?",
+    "answer": "Judy Garland",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What color is the vehicle?",
+        "answer": "red",
+        "score": 0.9269,
+        "img_score": 0.0,
+        "q_score": 0.9269
+      },
+      {
+        "question": "What color is the vehicle?",
+        "answer": "white",
+        "score": 0.9269,
+        "img_score": 0.0,
+        "q_score": 0.9269
+      },
+      {
+        "question": "Has this vehicle been customized?",
+        "answer": "yes",
+        "score": 0.9198,
+        "img_score": 0.0,
+        "q_score": 0.9198
+      }
+    ]
+  },
+  {
+    "question_id": 395752003,
+    "question": "What color are the hubcaps?",
+    "answer": "green",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Does the car have hubcaps?",
+        "answer": "no",
+        "score": 0.9493,
+        "img_score": 0.0,
+        "q_score": 0.9493
+      },
+      {
+        "question": "Does the bus have hubcaps?",
+        "answer": "yes",
+        "score": 0.9135,
+        "img_score": 0.0,
+        "q_score": 0.9135
+      },
+      {
+        "question": "What color is the bike wheels rims?",
+        "answer": "orange",
+        "score": 0.9013,
+        "img_score": 0.0,
+        "q_score": 0.9013
+      }
+    ]
+  },
+  {
+    "question_id": 395752004,
+    "question": "Is someone getting on this street car?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is there someone driving the train?",
+        "answer": "yes",
+        "score": 0.9232,
+        "img_score": 0.0,
+        "q_score": 0.9232
+      },
+      {
+        "question": "Is this train at the station?",
+        "answer": "yes",
+        "score": 0.909,
+        "img_score": 0.0,
+        "q_score": 0.909
+      },
+      {
+        "question": "Is this a passenger train?",
+        "answer": "yes",
+        "score": 0.909,
+        "img_score": 0.0,
+        "q_score": 0.909
+      }
+    ]
+  },
+  {
+    "question_id": 264683000,
+    "question": "Is this airplane inside?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this a commercial airplane?",
+        "answer": "yes",
+        "score": 0.9535,
+        "img_score": 0.6729,
+        "q_score": 0.9535
+      },
+      {
+        "question": "Where is the airplane?",
+        "answer": "hanger",
+        "score": 0.9437,
+        "img_score": 0.6498,
+        "q_score": 0.9437
+      },
+      {
+        "question": "Where is this plane?",
+        "answer": "in hangar",
+        "score": 0.9422,
+        "img_score": 0.6498,
+        "q_score": 0.9422
+      }
+    ]
+  },
+  {
+    "question_id": 264683001,
+    "question": "What airline does the plane fly for?",
+    "answer": "United Airlines",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Does the plane have four engines?",
+        "answer": "yes",
+        "score": 0.9562,
+        "img_score": 0.0,
+        "q_score": 0.9562
+      },
+      {
+        "question": "Is the plane flying?",
+        "answer": "no",
+        "score": 0.9557,
+        "img_score": 0.0,
+        "q_score": 0.9557
+      },
+      {
+        "question": "Is the plane flying too low?",
+        "answer": "no",
+        "score": 0.9535,
+        "img_score": 0.0,
+        "q_score": 0.9535
+      }
+    ]
+  },
+  {
+    "question_id": 264683002,
+    "question": "Are there planes hanging?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is the plane flying?",
+        "answer": "no",
+        "score": 0.9548,
+        "img_score": 0.0,
+        "q_score": 0.9548
+      },
+      {
+        "question": "Are the planes planning to land soon?",
+        "answer": "yes",
+        "score": 0.9351,
+        "img_score": 0.0,
+        "q_score": 0.9351
+      },
+      {
+        "question": "Is the plane getting ready to take off?",
+        "answer": "yes",
+        "score": 0.9328,
+        "img_score": 0.0,
+        "q_score": 0.9328
+      }
+    ]
+  },
+  {
+    "question_id": 264686000,
+    "question": "How many side tables are there?",
+    "answer": "2",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Does the end table have room on it?",
+        "answer": "no",
+        "score": 0.9144,
+        "img_score": 0.0,
+        "q_score": 0.9144
+      },
+      {
+        "question": "What is the table made of?",
+        "answer": "glass",
+        "score": 0.9019,
+        "img_score": 0.0,
+        "q_score": 0.9019
+      },
+      {
+        "question": "What is the table made of?",
+        "answer": "wood",
+        "score": 0.9019,
+        "img_score": 0.0,
+        "q_score": 0.9019
+      }
+    ]
+  },
+  {
+    "question_id": 264686001,
+    "question": "How many windows are on the wall?",
+    "answer": "2",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many windows are there?",
+        "answer": "2",
+        "score": 0.967,
+        "img_score": 0.0,
+        "q_score": 0.967
+      },
+      {
+        "question": "How many windows are there?",
+        "answer": "5",
+        "score": 0.967,
+        "img_score": 0.0,
+        "q_score": 0.967
+      },
+      {
+        "question": "How many windows do you see?",
+        "answer": "3",
+        "score": 0.9434,
+        "img_score": 0.0,
+        "q_score": 0.9434
+      }
+    ]
+  },
+  {
+    "question_id": 264686002,
+    "question": "Is the TV a tube or flat screen?",
+    "answer": "flat screen",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is the television on or off?",
+        "answer": "on",
+        "score": 0.922,
+        "img_score": 0.0,
+        "q_score": 0.922
+      },
+      {
+        "question": "Is the television on in this photo?",
+        "answer": "yes",
+        "score": 0.8972,
+        "img_score": 0.0,
+        "q_score": 0.8972
+      },
+      {
+        "question": "Is the television on?",
+        "answer": "yes",
+        "score": 0.8966,
+        "img_score": 0.0,
+        "q_score": 0.8966
+      }
+    ]
+  },
+  {
+    "question_id": 133619000,
+    "question": "What type of truck is it?",
+    "answer": "carlsberg",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What kind of truck is this?",
+        "answer": "carlsberg",
+        "score": 0.9899,
+        "img_score": 0.6065,
+        "q_score": 0.9899
+      },
+      {
+        "question": "What type of trucks are in the photo?",
+        "answer": "bus",
+        "score": 0.9642,
+        "img_score": 0.0,
+        "q_score": 0.9642
+      },
+      {
+        "question": "When was this truck made?",
+        "answer": "1950",
+        "score": 0.9566,
+        "img_score": 0.0,
+        "q_score": 0.9566
+      }
+    ]
+  },
+  {
+    "question_id": 133619001,
+    "question": "What time of day is it?",
+    "answer": "morning",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What time of day is it?",
+        "answer": "noon",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What time of day is it?",
+        "answer": "night",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What time of the day is it?",
+        "answer": "afternoon",
+        "score": 0.995,
+        "img_score": 0.6014,
+        "q_score": 0.995
+      }
+    ]
+  },
+  {
+    "question_id": 133619002,
+    "question": "What color is the light above the hood of the truck?",
+    "answer": "red",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What color is the truck?",
+        "answer": "red and white",
+        "score": 0.9077,
+        "img_score": 0.0,
+        "q_score": 0.9077
+      },
+      {
+        "question": "What color is the truck?",
+        "answer": "blue",
+        "score": 0.9077,
+        "img_score": 0.0,
+        "q_score": 0.9077
+      },
+      {
+        "question": "What does the sign on the back of the truck read?",
+        "answer": "hot",
+        "score": 0.895,
+        "img_score": 0.0,
+        "q_score": 0.895
+      }
+    ]
+  },
+  {
+    "question_id": 133620000,
+    "question": "Why does the woman have her hair up?",
+    "answer": "to keep it out of her face",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is the woman holding to her head?",
+        "answer": "phone",
+        "score": 0.9468,
+        "img_score": 0.0,
+        "q_score": 0.9468
+      },
+      {
+        "question": "Is the woman's hair long?",
+        "answer": "yes",
+        "score": 0.9317,
+        "img_score": 0.0,
+        "q_score": 0.9317
+      },
+      {
+        "question": "What is the woman holding?",
+        "answer": "phone",
+        "score": 0.9313,
+        "img_score": 0.0,
+        "q_score": 0.9313
+      }
+    ]
+  },
+  {
+    "question_id": 133620001,
+    "question": "Is she wearing glasses?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is the woman wearing glasses?",
+        "answer": "yes",
+        "score": 0.9501,
+        "img_score": 0.0,
+        "q_score": 0.9501
+      },
+      {
+        "question": "Is there a person wearing glasses?",
+        "answer": "no",
+        "score": 0.9493,
+        "img_score": 0.0,
+        "q_score": 0.9493
+      },
+      {
+        "question": "Is the man wearing glasses?",
+        "answer": "yes",
+        "score": 0.941,
+        "img_score": 0.0,
+        "q_score": 0.941
+      }
+    ]
+  },
+  {
+    "question_id": 133620002,
+    "question": "What is she wearing on her head?",
+    "answer": "hat",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is the person wearing on their head?",
+        "answer": "hat",
+        "score": 0.9549,
+        "img_score": 0.0,
+        "q_score": 0.9549
+      },
+      {
+        "question": "Is she wearing a hat?",
+        "answer": "yes",
+        "score": 0.9504,
+        "img_score": 0.0,
+        "q_score": 0.9504
+      },
+      {
+        "question": "What type of hat is she wearing?",
+        "answer": "cap",
+        "score": 0.9402,
+        "img_score": 0.0,
+        "q_score": 0.9402
+      }
+    ]
+  },
+  {
+    "question_id": 133620003,
+    "question": "Is the woman happy?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Does the woman look happy?",
+        "answer": "no",
+        "score": 0.975,
+        "img_score": 0.0,
+        "q_score": 0.975
+      },
+      {
+        "question": "Does this woman look happy?",
+        "answer": "no",
+        "score": 0.9648,
+        "img_score": 0.0,
+        "q_score": 0.9648
+      },
+      {
+        "question": "Is the man happy?",
+        "answer": "yes",
+        "score": 0.9561,
+        "img_score": 0.0,
+        "q_score": 0.9561
+      }
+    ]
+  },
+  {
+    "question_id": 526837000,
+    "question": "Is this man dressed for the weather?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this person wearing appropriate clothing for the weather?",
+        "answer": "yes",
+        "score": 0.9477,
+        "img_score": 0.0,
+        "q_score": 0.9477
+      },
+      {
+        "question": "Is this man dressed formally?",
+        "answer": "no",
+        "score": 0.9387,
+        "img_score": 0.0,
+        "q_score": 0.9387
+      },
+      {
+        "question": "What is he wearing?",
+        "answer": "tie",
+        "score": 0.9378,
+        "img_score": 0.0,
+        "q_score": 0.9378
+      }
+    ]
+  },
+  {
+    "question_id": 526837001,
+    "question": "What is this man holding?",
+    "answer": "wii controller",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is this man holding?",
+        "answer": "turkey",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What is this man holding?",
+        "answer": "wii controller",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What is the man holding?",
+        "answer": "glove",
+        "score": 0.9824,
+        "img_score": 0.0,
+        "q_score": 0.9824
+      }
+    ]
+  },
+  {
+    "question_id": 526837002,
+    "question": "What is covering the ground?",
+    "answer": "snow",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is covering the ground?",
+        "answer": "water",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What is covering the ground?",
+        "answer": "snow",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What is on the ground?",
+        "answer": "bricks",
+        "score": 0.9559,
+        "img_score": 0.0,
+        "q_score": 0.9559
+      }
+    ]
+  },
+  {
+    "question_id": 133622000,
+    "question": "Are these vegetables or fruits?",
+    "answer": "vegetables",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What kind of vegetable is here?",
+        "answer": "broccoli",
+        "score": 0.9367,
+        "img_score": 0.0,
+        "q_score": 0.9367
+      },
+      {
+        "question": "What vegetable is this?",
+        "answer": "broccoli",
+        "score": 0.9294,
+        "img_score": 0.0,
+        "q_score": 0.9294
+      },
+      {
+        "question": "What vegetable is this?",
+        "answer": "broccoli",
+        "score": 0.9294,
+        "img_score": 0.0,
+        "q_score": 0.9294
+      }
+    ]
+  },
+  {
+    "question_id": 133622001,
+    "question": "What is the yellow topping?",
+    "answer": "cheese",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is the yellow food?",
+        "answer": "corn",
+        "score": 0.9144,
+        "img_score": 0.0,
+        "q_score": 0.9144
+      },
+      {
+        "question": "What is the yellow drink?",
+        "answer": "soup",
+        "score": 0.8815,
+        "img_score": 0.0,
+        "q_score": 0.8815
+      },
+      {
+        "question": "What is the white stuff on the food?",
+        "answer": "onions",
+        "score": 0.8764,
+        "img_score": 0.0,
+        "q_score": 0.8764
+      }
+    ]
+  },
+  {
+    "question_id": 133622002,
+    "question": "Is this a high class dish?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this a healthy dish?",
+        "answer": "no",
+        "score": 0.9542,
+        "img_score": 0.0,
+        "q_score": 0.9542
+      },
+      {
+        "question": "Is this a healthy dish?",
+        "answer": "yes",
+        "score": 0.9542,
+        "img_score": 0.7478,
+        "q_score": 0.9542
+      },
+      {
+        "question": "Is this meal made by a chef?",
+        "answer": "yes",
+        "score": 0.9524,
+        "img_score": 0.728,
+        "q_score": 0.9524
+      }
+    ]
+  },
+  {
+    "question_id": 133622003,
+    "question": "What is the long thin food with seeds?",
+    "answer": "quinoa",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is the white stuff on the food?",
+        "answer": "onions",
+        "score": 0.8904,
+        "img_score": 0.0,
+        "q_score": 0.8904
+      },
+      {
+        "question": "Is this food healthy?",
+        "answer": "yes",
+        "score": 0.8903,
+        "img_score": 0.0,
+        "q_score": 0.8903
+      },
+      {
+        "question": "Is this food healthy?",
+        "answer": "no",
+        "score": 0.8903,
+        "img_score": 0.0,
+        "q_score": 0.8903
+      }
+    ]
+  },
+  {
+    "question_id": 133622004,
+    "question": "What is the green topping?",
+    "answer": "arugula",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What kind of food is the green items?",
+        "answer": "arugula",
+        "score": 0.8977,
+        "img_score": 0.0,
+        "q_score": 0.8977
+      },
+      {
+        "question": "What is green?",
+        "answer": "plate",
+        "score": 0.8943,
+        "img_score": 0.7234,
+        "q_score": 0.8943
+      },
+      {
+        "question": "What is green?",
+        "answer": "grass",
+        "score": 0.8943,
+        "img_score": 0.0,
+        "q_score": 0.8943
+      }
+    ]
+  },
+  {
+    "question_id": 133622005,
+    "question": "What is the yellow item pictured?",
+    "answer": "Broccoli",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is the yellow object?",
+        "answer": "flower",
+        "score": 0.9406,
+        "img_score": 0.0,
+        "q_score": 0.9406
+      },
+      {
+        "question": "What is the yellow food?",
+        "answer": "corn",
+        "score": 0.915,
+        "img_score": 0.0,
+        "q_score": 0.915
+      },
+      {
+        "question": "What are the items that are in color?",
+        "answer": "fruit",
+        "score": 0.9087,
+        "img_score": 0.0,
+        "q_score": 0.9087
+      }
+    ]
+  },
+  {
+    "question_id": 133622006,
+    "question": "How are the eggs cooked?",
+    "answer": "scrambled",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How are the eggs cooked?",
+        "answer": "scrambled",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Does the man know how to cook?",
+        "answer": "yes",
+        "score": 0.9086,
+        "img_score": 0.0,
+        "q_score": 0.9086
+      },
+      {
+        "question": "Are these chicken eggs?",
+        "answer": "no",
+        "score": 0.901,
+        "img_score": 0.0,
+        "q_score": 0.901
+      }
+    ]
+  },
+  {
+    "question_id": 133622007,
+    "question": "What vegetable is this?",
+    "answer": "broccoli",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What vegetable is this?",
+        "answer": "broccoli",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What vegetable is this?",
+        "answer": "broccoli",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What kind of vegetable is here?",
+        "answer": "broccoli",
+        "score": 0.9608,
+        "img_score": 0.0,
+        "q_score": 0.9608
+      }
+    ]
+  },
+  {
+    "question_id": 133622008,
+    "question": "What kinds of food are on the plate?",
+    "answer": "pizza, hot dog",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What food is on the plate?",
+        "answer": "pizza",
+        "score": 0.9872,
+        "img_score": 0.0,
+        "q_score": 0.9872
+      },
+      {
+        "question": "What food is on the plate?",
+        "answer": "hot dog",
+        "score": 0.9872,
+        "img_score": 0.0,
+        "q_score": 0.9872
+      },
+      {
+        "question": "What food is on the plate?",
+        "answer": "cheesecake",
+        "score": 0.9872,
+        "img_score": 0.0,
+        "q_score": 0.9872
+      }
+    ]
+  },
+  {
+    "question_id": 22271000,
+    "question": "Is this a bright and sunny day?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is it a bright sunny day?",
+        "answer": "yes",
+        "score": 0.9931,
+        "img_score": 0.0,
+        "q_score": 0.9931
+      },
+      {
+        "question": "Is this a sunny day?",
+        "answer": "yes",
+        "score": 0.9789,
+        "img_score": 0.0,
+        "q_score": 0.9789
+      },
+      {
+        "question": "Is it a sunny day?",
+        "answer": "no",
+        "score": 0.9778,
+        "img_score": 0.0,
+        "q_score": 0.9778
+      }
+    ]
+  },
+  {
+    "question_id": 22271001,
+    "question": "Are there people in the picture?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is there any people in the picture?",
+        "answer": "yes",
+        "score": 0.9937,
+        "img_score": 0.0,
+        "q_score": 0.9937
+      },
+      {
+        "question": "Are there any people in the picture?",
+        "answer": "no",
+        "score": 0.9936,
+        "img_score": 0.0,
+        "q_score": 0.9936
+      },
+      {
+        "question": "Are there other people in the picture?",
+        "answer": "yes",
+        "score": 0.9889,
+        "img_score": 0.0,
+        "q_score": 0.9889
+      }
+    ]
+  },
+  {
+    "question_id": 22271002,
+    "question": "What is the name of the street sign on the ground?",
+    "answer": "prairie",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What street is this sign located?",
+        "answer": "prairie",
+        "score": 0.9227,
+        "img_score": 0.0,
+        "q_score": 0.9227
+      },
+      {
+        "question": "Does the street sign spell a different word read backwards?",
+        "answer": "yes",
+        "score": 0.9182,
+        "img_score": 0.0,
+        "q_score": 0.9182
+      },
+      {
+        "question": "What are the street names at this intersection?",
+        "answer": "prairie",
+        "score": 0.9146,
+        "img_score": 0.0,
+        "q_score": 0.9146
+      }
+    ]
+  },
+  {
+    "question_id": 133629000,
+    "question": "Is this a public place?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this a park?",
+        "answer": "yes",
+        "score": 0.9466,
+        "img_score": 0.0,
+        "q_score": 0.9466
+      },
+      {
+        "question": "Is this a park?",
+        "answer": "no",
+        "score": 0.9466,
+        "img_score": 0.0,
+        "q_score": 0.9466
+      },
+      {
+        "question": "Is this in a big city?",
+        "answer": "yes",
+        "score": 0.9441,
+        "img_score": 0.0,
+        "q_score": 0.9441
+      }
+    ]
+  },
+  {
+    "question_id": 133629001,
+    "question": "What color is the desk?",
+    "answer": "black",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What color is the table?",
+        "answer": "white",
+        "score": 0.9352,
+        "img_score": 0.0,
+        "q_score": 0.9352
+      },
+      {
+        "question": "What job is done at this desk?",
+        "answer": "dispatch",
+        "score": 0.9152,
+        "img_score": 0.0,
+        "q_score": 0.9152
+      },
+      {
+        "question": "What color is the table top?",
+        "answer": "green",
+        "score": 0.907,
+        "img_score": 0.0,
+        "q_score": 0.907
+      }
+    ]
+  },
+  {
+    "question_id": 133629002,
+    "question": "How many chairs have wheels?",
+    "answer": "1",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many chairs are there?",
+        "answer": "1",
+        "score": 0.9506,
+        "img_score": 0.0,
+        "q_score": 0.9506
+      },
+      {
+        "question": "How many chairs are in the photo?",
+        "answer": "1",
+        "score": 0.9136,
+        "img_score": 0.0,
+        "q_score": 0.9136
+      },
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "score": 0.9105,
+        "img_score": 0.7587,
+        "q_score": 0.9105
+      }
+    ]
+  },
+  {
+    "question_id": 133629003,
+    "question": "Is this chair in the way of people who might walk through?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "This chair will be covered in what?",
+        "answer": "fur",
+        "score": 0.9364,
+        "img_score": 0.0,
+        "q_score": 0.9364
+      },
+      {
+        "question": "What is on the chair?",
+        "answer": "pillow",
+        "score": 0.9237,
+        "img_score": 0.0,
+        "q_score": 0.9237
+      },
+      {
+        "question": "What is on the white chair?",
+        "answer": "pillow",
+        "score": 0.9178,
+        "img_score": 0.0,
+        "q_score": 0.9178
+      }
+    ]
+  },
+  {
+    "question_id": 133629004,
+    "question": "Can these items be used to make food?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Are any of these items edible?",
+        "answer": "no",
+        "score": 0.9217,
+        "img_score": 0.0,
+        "q_score": 0.9217
+      },
+      {
+        "question": "What do you use these for?",
+        "answer": "bathroom",
+        "score": 0.9152,
+        "img_score": 0.0,
+        "q_score": 0.9152
+      },
+      {
+        "question": "What are these items used for?",
+        "answer": "makeup",
+        "score": 0.9103,
+        "img_score": 0.0,
+        "q_score": 0.9103
+      }
+    ]
+  },
+  {
+    "question_id": 133629005,
+    "question": "What do people do here?",
+    "answer": "playing wii",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What are the people doing?",
+        "answer": "playing wii",
+        "score": 0.9671,
+        "img_score": 0.0,
+        "q_score": 0.9671
+      },
+      {
+        "question": "What are the people doing?",
+        "answer": "flying kite",
+        "score": 0.9671,
+        "img_score": 0.0,
+        "q_score": 0.9671
+      },
+      {
+        "question": "What are the people doing?",
+        "answer": "riding",
+        "score": 0.9671,
+        "img_score": 0.0,
+        "q_score": 0.9671
+      }
+    ]
+  },
+  {
+    "question_id": 133629006,
+    "question": "What color is the lampshade?",
+    "answer": "blue",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What color is the lamp?",
+        "answer": "brown",
+        "score": 0.9411,
+        "img_score": 0.0,
+        "q_score": 0.9411
+      },
+      {
+        "question": "What color is lamp?",
+        "answer": "blue",
+        "score": 0.9263,
+        "img_score": 0.0,
+        "q_score": 0.9263
+      },
+      {
+        "question": "Is the lamp on?",
+        "answer": "no",
+        "score": 0.896,
+        "img_score": 0.0,
+        "q_score": 0.896
+      }
+    ]
+  },
+  {
+    "question_id": 133629007,
+    "question": "What type of computer is on the desk?",
+    "answer": "dell",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What type of computer is this?",
+        "answer": "dell",
+        "score": 0.9409,
+        "img_score": 0.0,
+        "q_score": 0.9409
+      },
+      {
+        "question": "Is there a computer on the desk?",
+        "answer": "yes",
+        "score": 0.9367,
+        "img_score": 0.0,
+        "q_score": 0.9367
+      },
+      {
+        "question": "Is the owner of the computer able to work on it?",
+        "answer": "yes",
+        "score": 0.9366,
+        "img_score": 0.0,
+        "q_score": 0.9366
+      }
+    ]
+  },
+  {
+    "question_id": 133631000,
+    "question": "Which is longer, the Elephant's tusks or the Elephant's trunk?",
+    "answer": "trunk",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Do the elephants have tusks?",
+        "answer": "yes",
+        "score": 0.9451,
+        "img_score": 0.0,
+        "q_score": 0.9451
+      },
+      {
+        "question": "Do all of the elephants have tusks?",
+        "answer": "no",
+        "score": 0.9428,
+        "img_score": 0.0,
+        "q_score": 0.9428
+      },
+      {
+        "question": "What is the elephant's trunk pointing at?",
+        "answer": "ground",
+        "score": 0.9309,
+        "img_score": 0.0,
+        "q_score": 0.9309
+      }
+    ]
+  },
+  {
+    "question_id": 133631001,
+    "question": "Is it sunny out?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is it sunny out?",
+        "answer": "yes",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Is it sunny out?",
+        "answer": "no",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Is it sunny?",
+        "answer": "no",
+        "score": 0.9864,
+        "img_score": 0.0,
+        "q_score": 0.9864
+      }
+    ]
+  },
+  {
+    "question_id": 133631002,
+    "question": "Does the elephant need water?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is the elephant in the water?",
+        "answer": "no",
+        "score": 0.9602,
+        "img_score": 0.0,
+        "q_score": 0.9602
+      },
+      {
+        "question": "Do the elephants like getting wet?",
+        "answer": "yes",
+        "score": 0.955,
+        "img_score": 0.0,
+        "q_score": 0.955
+      },
+      {
+        "question": "What is the elephant doing?",
+        "answer": "drinking",
+        "score": 0.9536,
+        "img_score": 0.9014,
+        "q_score": 0.9536
+      }
+    ]
+  },
+  {
+    "question_id": 2562000,
+    "question": "What is the color scheme of the photo?",
+    "answer": "black and white",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What colors are in the photo?",
+        "answer": "black and white",
+        "score": 0.9601,
+        "img_score": 0.0,
+        "q_score": 0.9601
+      },
+      {
+        "question": "Is this a color photo?",
+        "answer": "yes",
+        "score": 0.945,
+        "img_score": 0.0,
+        "q_score": 0.945
+      },
+      {
+        "question": "Is this a color photo?",
+        "answer": "no",
+        "score": 0.945,
+        "img_score": 0.0,
+        "q_score": 0.945
+      }
+    ]
+  },
+  {
+    "question_id": 2562001,
+    "question": "Are all the men tennis players?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this a professional tennis player?",
+        "answer": "no",
+        "score": 0.9305,
+        "img_score": 0.0,
+        "q_score": 0.9305
+      },
+      {
+        "question": "How old is the tennis player?",
+        "answer": "15",
+        "score": 0.9302,
+        "img_score": 0.0,
+        "q_score": 0.9302
+      },
+      {
+        "question": "Does the man enjoy tennis?",
+        "answer": "yes",
+        "score": 0.9298,
+        "img_score": 0.0,
+        "q_score": 0.9298
+      }
+    ]
+  },
+  {
+    "question_id": 2562002,
+    "question": "Is the man wearing a wristband?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is the dark man wearing bracelets?",
+        "answer": "no",
+        "score": 0.9663,
+        "img_score": 0.0,
+        "q_score": 0.9663
+      },
+      {
+        "question": "Does the man have on a watch?",
+        "answer": "no",
+        "score": 0.941,
+        "img_score": 0.0,
+        "q_score": 0.941
+      },
+      {
+        "question": "What does he have in his right hand?",
+        "answer": "bat",
+        "score": 0.9397,
+        "img_score": 0.0,
+        "q_score": 0.9397
+      }
+    ]
+  },
+  {
+    "question_id": 2562003,
+    "question": "What two brands are shown advertised behind the tennis player?",
+    "answer": "Nike and adidas",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this a professional tennis player?",
+        "answer": "no",
+        "score": 0.8837,
+        "img_score": 0.0,
+        "q_score": 0.8837
+      },
+      {
+        "question": "Is the tennis player facing the net?",
+        "answer": "yes",
+        "score": 0.8669,
+        "img_score": 0.0,
+        "q_score": 0.8669
+      },
+      {
+        "question": "Is this tennis player hitting or receiving the ball?",
+        "answer": "hitting",
+        "score": 0.866,
+        "img_score": 0.0,
+        "q_score": 0.866
+      }
+    ]
+  },
+  {
+    "question_id": 2562004,
+    "question": "What sport is being played?",
+    "answer": "tennis",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What sport is being played?",
+        "answer": "skateboarding",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What sport is being played?",
+        "answer": "tennis",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What sport is being played?",
+        "answer": "tennis",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      }
+    ]
+  },
+  {
+    "question_id": 133636000,
+    "question": "What is the number on the left parking meter?",
+    "answer": "2",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many parking meters do you see?",
+        "answer": "2",
+        "score": 0.9129,
+        "img_score": 0.7146,
+        "q_score": 0.9129
+      },
+      {
+        "question": "Are the parking meters being used?",
+        "answer": "no",
+        "score": 0.9094,
+        "img_score": 0.7146,
+        "q_score": 0.9094
+      },
+      {
+        "question": "Does the meter need more money?",
+        "answer": "yes",
+        "score": 0.831,
+        "img_score": 0.7069,
+        "q_score": 0.831
+      }
+    ]
+  },
+  {
+    "question_id": 133636001,
+    "question": "How much time is left?",
+    "answer": "4:05",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is that the right time?",
+        "answer": "yes",
+        "score": 0.9706,
+        "img_score": 0.0,
+        "q_score": 0.9706
+      },
+      {
+        "question": "Is the time correct?",
+        "answer": "yes",
+        "score": 0.9663,
+        "img_score": 0.0,
+        "q_score": 0.9663
+      },
+      {
+        "question": "What time is this?",
+        "answer": "4:05",
+        "score": 0.9537,
+        "img_score": 0.0,
+        "q_score": 0.9537
+      }
+    ]
+  },
+  {
+    "question_id": 133636002,
+    "question": "What number is the parking meter on the right?",
+    "answer": "2",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many parking meters do you see?",
+        "answer": "2",
+        "score": 0.9283,
+        "img_score": 0.7146,
+        "q_score": 0.9283
+      },
+      {
+        "question": "Are the parking meters being used?",
+        "answer": "no",
+        "score": 0.9219,
+        "img_score": 0.7146,
+        "q_score": 0.9219
+      },
+      {
+        "question": "Does the meter need more money?",
+        "answer": "yes",
+        "score": 0.8503,
+        "img_score": 0.7069,
+        "q_score": 0.8503
+      }
+    ]
+  },
+  {
+    "question_id": 133636003,
+    "question": "Is there any cars on the street?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is there any cars on the street?",
+        "answer": "yes",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Are there any people in the street?",
+        "answer": "yes",
+        "score": 0.9577,
+        "img_score": 0.0,
+        "q_score": 0.9577
+      },
+      {
+        "question": "Are the cars on the road?",
+        "answer": "yes",
+        "score": 0.9549,
+        "img_score": 0.0,
+        "q_score": 0.9549
+      }
+    ]
+  },
+  {
+    "question_id": 133636004,
+    "question": "Are the meters rusted?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Does the meter need more money?",
+        "answer": "yes",
+        "score": 0.8558,
+        "img_score": 0.7069,
+        "q_score": 0.8558
+      },
+      {
+        "question": "Are the parking meters being used?",
+        "answer": "no",
+        "score": 0.8097,
+        "img_score": 0.7146,
+        "q_score": 0.8097
+      },
+      {
+        "question": "Are these devices really outdated?",
+        "answer": "yes",
+        "score": 0.7864,
+        "img_score": 0.0,
+        "q_score": 0.7864
+      }
+    ]
+  },
+  {
+    "question_id": 133636005,
+    "question": "Is there time remaining on the meter?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Does the meter need more money?",
+        "answer": "yes",
+        "score": 0.943,
+        "img_score": 0.7069,
+        "q_score": 0.943
+      },
+      {
+        "question": "What time does the clock say?",
+        "answer": "6:55",
+        "score": 0.9317,
+        "img_score": 0.0,
+        "q_score": 0.9317
+      },
+      {
+        "question": "What time does the clock say?",
+        "answer": "11:10",
+        "score": 0.9317,
+        "img_score": 0.0,
+        "q_score": 0.9317
+      }
+    ]
+  },
+  {
+    "question_id": 133636006,
+    "question": "How many meters are there?",
+    "answer": "2",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many people is there?",
+        "answer": "2",
+        "score": 0.8957,
+        "img_score": 0.0,
+        "q_score": 0.8957
+      },
+      {
+        "question": "How many people are there?",
+        "answer": "5",
+        "score": 0.892,
+        "img_score": 0.0,
+        "q_score": 0.892
+      },
+      {
+        "question": "How many people are there?",
+        "answer": "8",
+        "score": 0.892,
+        "img_score": 0.0,
+        "q_score": 0.892
+      }
+    ]
+  },
+  {
+    "question_id": 133645000,
+    "question": "Is there someone on the bench?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is behind the people on the bench?",
+        "answer": "train",
+        "score": 0.9552,
+        "img_score": 0.0,
+        "q_score": 0.9552
+      },
+      {
+        "question": "Is there a backpack on the bench?",
+        "answer": "yes",
+        "score": 0.9502,
+        "img_score": 0.0,
+        "q_score": 0.9502
+      },
+      {
+        "question": "What is behind the bench?",
+        "answer": "vending machines",
+        "score": 0.9483,
+        "img_score": 0.0,
+        "q_score": 0.9483
+      }
+    ]
+  },
+  {
+    "question_id": 133645001,
+    "question": "Are the street lights turned on?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Are street lights on?",
+        "answer": "yes",
+        "score": 0.9872,
+        "img_score": 0.0,
+        "q_score": 0.9872
+      },
+      {
+        "question": "Are the streetlamps on?",
+        "answer": "no",
+        "score": 0.9587,
+        "img_score": 0.0,
+        "q_score": 0.9587
+      },
+      {
+        "question": "Are the lights on?",
+        "answer": "no",
+        "score": 0.9517,
+        "img_score": 0.0,
+        "q_score": 0.9517
+      }
+    ]
+  },
+  {
+    "question_id": 133645002,
+    "question": "Is the water clear?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is the water clear?",
+        "answer": "yes",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Is the water clear?",
+        "answer": "no",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Is the water on?",
+        "answer": "yes",
+        "score": 0.9573,
+        "img_score": 0.0,
+        "q_score": 0.9573
+      }
+    ]
+  },
+  {
+    "question_id": 133645003,
+    "question": "What type of boat is in the water?",
+    "answer": "boat",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is the boat in the foreground?",
+        "answer": "no",
+        "score": 0.9378,
+        "img_score": 0.0,
+        "q_score": 0.9378
+      },
+      {
+        "question": "Where is this boat going?",
+        "answer": "nowhere",
+        "score": 0.9369,
+        "img_score": 0.0,
+        "q_score": 0.9369
+      },
+      {
+        "question": "What is the main color of the boat?",
+        "answer": "white",
+        "score": 0.9332,
+        "img_score": 0.0,
+        "q_score": 0.9332
+      }
+    ]
+  },
+  {
+    "question_id": 264718000,
+    "question": "How long is the parking on the street?",
+    "answer": "2 hours",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Are there a lot of cars parked on the street?",
+        "answer": "no",
+        "score": 0.9424,
+        "img_score": 0.0,
+        "q_score": 0.9424
+      },
+      {
+        "question": "What kind of vehicles are parked on the street?",
+        "answer": "motorcycles",
+        "score": 0.929,
+        "img_score": 0.0,
+        "q_score": 0.929
+      },
+      {
+        "question": "Are there cars parked?",
+        "answer": "no",
+        "score": 0.9265,
+        "img_score": 0.81,
+        "q_score": 0.9265
+      }
+    ]
+  },
+  {
+    "question_id": 264718001,
+    "question": "Do you have to pay to park here?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What would a person park here?",
+        "answer": "car",
+        "score": 0.9393,
+        "img_score": 0.0,
+        "q_score": 0.9393
+      },
+      {
+        "question": "Can a normal car park here?",
+        "answer": "no",
+        "score": 0.9295,
+        "img_score": 0.0,
+        "q_score": 0.9295
+      },
+      {
+        "question": "Are there cars parked?",
+        "answer": "no",
+        "score": 0.9195,
+        "img_score": 0.81,
+        "q_score": 0.9195
+      }
+    ]
+  },
+  {
+    "question_id": 264718002,
+    "question": "Which side of the sign is the road on?",
+    "answer": "peter",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What street does the sign say?",
+        "answer": "peter",
+        "score": 0.9338,
+        "img_score": 0.0,
+        "q_score": 0.9338
+      },
+      {
+        "question": "What should one do when approaching the sign?",
+        "answer": "go one way",
+        "score": 0.9249,
+        "img_score": 0.0,
+        "q_score": 0.9249
+      },
+      {
+        "question": "Is the sign clean?",
+        "answer": "no",
+        "score": 0.9247,
+        "img_score": 0.0,
+        "q_score": 0.9247
+      }
+    ]
+  },
+  {
+    "question_id": 264718003,
+    "question": "What does the sign read?",
+    "answer": "one way",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What does the sign read?",
+        "answer": "one way",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What does the sign read?",
+        "answer": "stop",
+        "score": 1.0,
+        "img_score": 0.81,
+        "q_score": 1.0
+      },
+      {
+        "question": "What does the sign say?",
+        "answer": "stop",
+        "score": 0.9861,
+        "img_score": 0.0,
+        "q_score": 0.9861
+      }
+    ]
+  },
+  {
+    "question_id": 264718004,
+    "question": "What does the sign say?",
+    "answer": "railroad crossing",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What does the sign say?",
+        "answer": "stop",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What does the sign say?",
+        "answer": "railroad crossing",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What does the sign say?",
+        "answer": "stop",
+        "score": 1.0,
+        "img_score": 0.81,
+        "q_score": 1.0
+      }
+    ]
+  },
+  {
+    "question_id": 264718005,
+    "question": "What phone number is on the sign?",
+    "answer": "914-914-914",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What number is on the sign?",
+        "answer": "300",
+        "score": 0.9747,
+        "img_score": 0.0,
+        "q_score": 0.9747
+      },
+      {
+        "question": "What number is on sign?",
+        "answer": "6",
+        "score": 0.9635,
+        "img_score": 0.0,
+        "q_score": 0.9635
+      },
+      {
+        "question": "What name is on the sign?",
+        "answer": "scott wells",
+        "score": 0.9616,
+        "img_score": 0.0,
+        "q_score": 0.9616
+      }
+    ]
+  },
+  {
+    "question_id": 264718006,
+    "question": "What modes of transportation are in the picture?",
+    "answer": "cars",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many modes of transportation are depicted?",
+        "answer": "0",
+        "score": 0.9692,
+        "img_score": 0.0,
+        "q_score": 0.9692
+      },
+      {
+        "question": "What mode of transportation is this?",
+        "answer": "plane",
+        "score": 0.9533,
+        "img_score": 0.0,
+        "q_score": 0.9533
+      },
+      {
+        "question": "What are they riding?",
+        "answer": "motorcycles",
+        "score": 0.9005,
+        "img_score": 0.0,
+        "q_score": 0.9005
+      }
+    ]
+  },
+  {
+    "question_id": 264718007,
+    "question": "What sign is to the right of the photo?",
+    "answer": "parking lot",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What does the sign say?",
+        "answer": "stop",
+        "score": 0.9516,
+        "img_score": 0.0,
+        "q_score": 0.9516
+      },
+      {
+        "question": "What does the sign say?",
+        "answer": "railroad crossing",
+        "score": 0.9516,
+        "img_score": 0.0,
+        "q_score": 0.9516
+      },
+      {
+        "question": "What does the sign say?",
+        "answer": "stop",
+        "score": 0.9516,
+        "img_score": 0.81,
+        "q_score": 0.9516
+      }
+    ]
+  },
+  {
+    "question_id": 133648000,
+    "question": "Is the bat blue?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What color is the bat?",
+        "answer": "tan",
+        "score": 0.9368,
+        "img_score": 0.0,
+        "q_score": 0.9368
+      },
+      {
+        "question": "Is there a blue object?",
+        "answer": "yes",
+        "score": 0.8992,
+        "img_score": 0.0,
+        "q_score": 0.8992
+      },
+      {
+        "question": "Is the court blue?",
+        "answer": "no",
+        "score": 0.8942,
+        "img_score": 0.0,
+        "q_score": 0.8942
+      }
+    ]
+  },
+  {
+    "question_id": 133648001,
+    "question": "Is the photo colored?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this a color photo?",
+        "answer": "yes",
+        "score": 0.9709,
+        "img_score": 0.0,
+        "q_score": 0.9709
+      },
+      {
+        "question": "Is this a color photo?",
+        "answer": "no",
+        "score": 0.9709,
+        "img_score": 0.0,
+        "q_score": 0.9709
+      },
+      {
+        "question": "Is this photo color?",
+        "answer": "no",
+        "score": 0.967,
+        "img_score": 0.0,
+        "q_score": 0.967
+      }
+    ]
+  },
+  {
+    "question_id": 133648002,
+    "question": "What color is the home plate umpire's shirt?",
+    "answer": "blue",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is the umpire at home plate?",
+        "answer": "yes",
+        "score": 0.9025,
+        "img_score": 0.0,
+        "q_score": 0.9025
+      },
+      {
+        "question": "What color uniform is the batter wearing?",
+        "answer": "white",
+        "score": 0.8438,
+        "img_score": 0.0,
+        "q_score": 0.8438
+      },
+      {
+        "question": "What color is the batters jersey?",
+        "answer": "white",
+        "score": 0.8434,
+        "img_score": 0.0,
+        "q_score": 0.8434
+      }
+    ]
+  },
+  {
+    "question_id": 133648003,
+    "question": "Which game are they playing?",
+    "answer": "baseball",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What game are they playing?",
+        "answer": "baseball",
+        "score": 0.9859,
+        "img_score": 0.8207,
+        "q_score": 0.9859
+      },
+      {
+        "question": "What game are they playing?",
+        "answer": "soccer",
+        "score": 0.9859,
+        "img_score": 0.0,
+        "q_score": 0.9859
+      },
+      {
+        "question": "What game are they playing?",
+        "answer": "baseball",
+        "score": 0.9859,
+        "img_score": 0.0,
+        "q_score": 0.9859
+      }
+    ]
+  },
+  {
+    "question_id": 459182000,
+    "question": "What are they carrying?",
+    "answer": "surfboard",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is the person carrying?",
+        "answer": "surfboard",
+        "score": 0.939,
+        "img_score": 0.8425,
+        "q_score": 0.939
+      },
+      {
+        "question": "What is the lady carrying?",
+        "answer": "surfboard",
+        "score": 0.9303,
+        "img_score": 0.0,
+        "q_score": 0.9303
+      },
+      {
+        "question": "What are they walking toward?",
+        "answer": "kite",
+        "score": 0.9179,
+        "img_score": 0.0,
+        "q_score": 0.9179
+      }
+    ]
+  },
+  {
+    "question_id": 459182001,
+    "question": "What is in the foreground?",
+    "answer": "rocks",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is in the background?",
+        "answer": "rocks",
+        "score": 0.9463,
+        "img_score": 0.0,
+        "q_score": 0.9463
+      },
+      {
+        "question": "What is in the picture?",
+        "answer": "book",
+        "score": 0.9446,
+        "img_score": 0.0,
+        "q_score": 0.9446
+      },
+      {
+        "question": "Are there people in the image?",
+        "answer": "yes",
+        "score": 0.9415,
+        "img_score": 0.0,
+        "q_score": 0.9415
+      }
+    ]
+  },
+  {
+    "question_id": 459182002,
+    "question": "How many people are there?",
+    "answer": "4",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many people are there?",
+        "answer": "7",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "How many people are there?",
+        "answer": "8",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "How many people are there?",
+        "answer": "5",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      }
+    ]
+  },
+  {
+    "question_id": 395801000,
+    "question": "Is it morning or evening?",
+    "answer": "no",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is it evening?",
+        "answer": "yes",
+        "score": 0.9603,
+        "img_score": 0.0,
+        "q_score": 0.9603
+      },
+      {
+        "question": "Is it evening?",
+        "answer": "no",
+        "score": 0.9603,
+        "img_score": 0.0,
+        "q_score": 0.9603
+      },
+      {
+        "question": "Is this the morning?",
+        "answer": "yes",
+        "score": 0.9559,
+        "img_score": 0.0,
+        "q_score": 0.9559
+      }
+    ]
+  },
+  {
+    "question_id": 395801001,
+    "question": "How much does parking in the lot cost?",
+    "answer": "$1.50",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Which direction should you turn to find parking?",
+        "answer": "right",
+        "score": 0.9091,
+        "img_score": 0.0,
+        "q_score": 0.9091
+      },
+      {
+        "question": "Are there a lot of cars parked on the street?",
+        "answer": "no",
+        "score": 0.9034,
+        "img_score": 0.0,
+        "q_score": 0.9034
+      },
+      {
+        "question": "Who is in the parking lot?",
+        "answer": "boy",
+        "score": 0.8996,
+        "img_score": 0.0,
+        "q_score": 0.8996
+      }
+    ]
+  },
+  {
+    "question_id": 395801002,
+    "question": "What is on the road?",
+    "answer": "cars",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Are the cars on the road?",
+        "answer": "yes",
+        "score": 0.9499,
+        "img_score": 0.0,
+        "q_score": 0.9499
+      },
+      {
+        "question": "Where does the road lead too?",
+        "answer": "ahead",
+        "score": 0.9471,
+        "img_score": 0.0,
+        "q_score": 0.9471
+      },
+      {
+        "question": "What is moving on the street?",
+        "answer": "bus",
+        "score": 0.9326,
+        "img_score": 0.0,
+        "q_score": 0.9326
+      }
+    ]
+  },
+  {
+    "question_id": 395801003,
+    "question": "How many people are in the picture?",
+    "answer": "5",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many people are in the picture?",
+        "answer": "5",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "How many people are in the picture?",
+        "answer": "2",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "How many people are in the picture?",
+        "answer": "20",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      }
+    ]
+  },
+  {
+    "question_id": 395801004,
+    "question": "Do the people know each other?",
+    "answer": "yes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Do the people know each other?",
+        "answer": "yes",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "Did these people run into each other?",
+        "answer": "no",
+        "score": 0.9604,
+        "img_score": 0.0,
+        "q_score": 0.9604
+      },
+      {
+        "question": "What are the people are doing?",
+        "answer": "surfing",
+        "score": 0.9602,
+        "img_score": 0.0,
+        "q_score": 0.9602
+      }
+    ]
+  },
+  {
+    "question_id": 395801005,
+    "question": "How could you carry things if you were riding this bike?",
+    "answer": "on your back",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is this a motorcycle or bike?",
+        "answer": "motorcycle",
+        "score": 0.9408,
+        "img_score": 0.0,
+        "q_score": 0.9408
+      },
+      {
+        "question": "Does this bike travel often?",
+        "answer": "no",
+        "score": 0.9406,
+        "img_score": 0.0,
+        "q_score": 0.9406
+      },
+      {
+        "question": "What is the bike on?",
+        "answer": "grass",
+        "score": 0.9391,
+        "img_score": 0.0,
+        "q_score": 0.9391
+      }
+    ]
+  },
+  {
+    "question_id": 395801006,
+    "question": "How many people are in this scene?",
+    "answer": "1",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many people are in this scene?",
+        "answer": "1",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "How many people are in the picture?",
+        "answer": "5",
+        "score": 0.9527,
+        "img_score": 0.0,
+        "q_score": 0.9527
+      },
+      {
+        "question": "How many people are in the picture?",
+        "answer": "2",
+        "score": 0.9527,
+        "img_score": 0.0,
+        "q_score": 0.9527
+      }
+    ]
+  },
+  {
+    "question_id": 395801007,
+    "question": "What time is it?",
+    "answer": "3:24",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What time is it?",
+        "answer": "3:24",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What time is it?",
+        "answer": "4:40",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What time is it?",
+        "answer": "12:44",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      }
+    ]
+  },
+  {
+    "question_id": 264730000,
+    "question": "How many arches are under the clock?",
+    "answer": "3",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What does the clock say?",
+        "answer": "3:24",
+        "score": 0.9132,
+        "img_score": 0.0,
+        "q_score": 0.9132
+      },
+      {
+        "question": "Where is the clock located?",
+        "answer": "on building",
+        "score": 0.9064,
+        "img_score": 0.0,
+        "q_score": 0.9064
+      },
+      {
+        "question": "What is the clock saying the time is?",
+        "answer": "3:24",
+        "score": 0.9057,
+        "img_score": 0.0,
+        "q_score": 0.9057
+      }
+    ]
+  },
+  {
+    "question_id": 264730001,
+    "question": "What time is it?",
+    "answer": "3:24",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What time is it?",
+        "answer": "3:24",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What time is it?",
+        "answer": "4:40",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      },
+      {
+        "question": "What time is it?",
+        "answer": "12:44",
+        "score": 1.0,
+        "img_score": 0.0,
+        "q_score": 1.0
+      }
+    ]
+  },
+  {
+    "question_id": 264730002,
+    "question": "Is a daytime or nighttime scene depicted?",
+    "answer": "daytime",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "Is it daytime or nighttime?",
+        "answer": "daytime",
+        "score": 0.9414,
+        "img_score": 0.0,
+        "q_score": 0.9414
+      },
+      {
+        "question": "Is it daytime or night in the picture?",
+        "answer": "daytime",
+        "score": 0.9375,
+        "img_score": 0.0,
+        "q_score": 0.9375
+      },
+      {
+        "question": "Is this a night or daytime scene?",
+        "answer": "night",
+        "score": 0.924,
+        "img_score": 0.0,
+        "q_score": 0.924
+      }
+    ]
+  },
+  {
+    "question_id": 264730003,
+    "question": "What kind of numbers are on the clock?",
+    "answer": "Roman numerals",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What type of numbers are on the clock?",
+        "answer": "numerical",
+        "score": 0.9968,
+        "img_score": 0.0,
+        "q_score": 0.9968
+      },
+      {
+        "question": "What time is shown on the clock?",
+        "answer": "8:05",
+        "score": 0.9731,
+        "img_score": 0.0,
+        "q_score": 0.9731
+      },
+      {
+        "question": "What time does it say on the clock?",
+        "answer": "9:10",
+        "score": 0.9726,
+        "img_score": 0.7095,
+        "q_score": 0.9726
+      }
+    ]
+  },
+  {
+    "question_id": 2587000,
+    "question": "Which food contains the most potassium?",
+    "answer": "Potatoes",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "How many different types of food are there?",
+        "answer": "1",
+        "score": 0.8685,
+        "img_score": 0.0,
+        "q_score": 0.8685
+      },
+      {
+        "question": "How many of these foods are vegetables?",
+        "answer": "5",
+        "score": 0.8625,
+        "img_score": 0.0,
+        "q_score": 0.8625
+      },
+      {
+        "question": "Are these foods eaten half way?",
+        "answer": "no",
+        "score": 0.8592,
+        "img_score": 0.0,
+        "q_score": 0.8592
+      }
+    ]
+  },
+  {
+    "question_id": 2587001,
+    "question": "What is not healthy in the baggie?",
+    "answer": "donut",
+    "rag_used": true,
+    "retrieved": [
+      {
+        "question": "What is in the package?",
+        "answer": "butter",
+        "score": 0.8648,
+        "img_score": 0.0,
+        "q_score": 0.8648
+      },
+      {
+        "question": "Is this food healthy?",
+        "answer": "yes",
+        "score": 0.8617,
+        "img_score": 0.0,
+        "q_score": 0.8617
+      },
+      {
+        "question": "Is this food healthy?",
+        "answer": "no",
+        "score": 0.8617,
+        "img_score": 0.0,
+        "q_score": 0.8617
+      }
+    ]
+  }
+]
