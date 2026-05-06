@@ -258,7 +258,8 @@ def train(num_train_samples=5000, num_epochs=NUM_EPOCHS):
 
 def train_rag(train_jsonl, eval_jsonl=None, num_epochs=NUM_EPOCHS,
               batch_size=RAG_BATCH_SIZE, grad_accum=RAG_GRAD_ACCUM,
-              lr=RAG_LR):
+              lr=RAG_LR, checkpoint_prefix="rag_checkpoint",
+              resume_from=None, epoch_offset=0):
     """Run QLoRA fine-tuning on RAG-augmented JSONL prompts.
 
     Args:
@@ -269,7 +270,13 @@ def train_rag(train_jsonl, eval_jsonl=None, num_epochs=NUM_EPOCHS,
         grad_accum: Gradient accumulation steps
         lr: Learning rate
     """
-    model, processor = setup_model_for_training()
+    if resume_from:
+        from src.model import load_finetuned_model
+        print(f"Resuming from checkpoint: {resume_from}")
+        model, processor = load_finetuned_model(resume_from)
+        model = prepare_model_for_kbit_training(model)
+    else:
+        model, processor = setup_model_for_training()
 
     # Load training data: JSONL for prompts, VQAv2 for images
     print(f"\nLoading training JSONL: {train_jsonl}")
@@ -299,7 +306,8 @@ def train_rag(train_jsonl, eval_jsonl=None, num_epochs=NUM_EPOCHS,
         batch_size=batch_size,
         grad_accum=grad_accum,
         lr=lr,
-        checkpoint_prefix="rag_checkpoint",
+        checkpoint_prefix=checkpoint_prefix,
+        epoch_offset=epoch_offset,
     )
     return model, processor
 
@@ -316,7 +324,7 @@ def _read_jsonl_meta(jsonl_path):
 def _run_training_loop(model, processor, train_dataset, eval_dataset=None,
                        num_epochs=NUM_EPOCHS, batch_size=RAG_BATCH_SIZE,
                        grad_accum=RAG_GRAD_ACCUM, lr=RAG_LR,
-                       checkpoint_prefix="checkpoint"):
+                       checkpoint_prefix="checkpoint", epoch_offset=0):
     """Shared training loop for both raw VQAv2 and RAG JSONL training."""
     dataloader = DataLoader(
         train_dataset,
@@ -373,7 +381,7 @@ def _run_training_loop(model, processor, train_dataset, eval_dataset=None,
               f"time={epoch_time:.1f}s")
 
         # Save checkpoint
-        checkpoint_path = CHECKPOINTS_DIR / f"{checkpoint_prefix}_epoch_{epoch+1}"
+        checkpoint_path = CHECKPOINTS_DIR / f"{checkpoint_prefix}_epoch_{epoch+1+epoch_offset}"
         model.save_pretrained(str(checkpoint_path))
         print(f"Checkpoint saved to {checkpoint_path}")
 

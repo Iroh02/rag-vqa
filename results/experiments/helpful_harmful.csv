@@ -1,0 +1,101 @@
+question_id,question,ground_truth,baseline_pred,rag_pred,baseline_acc,rag_acc,delta,verdict
+2529010,Is there snow on the ground?,no | no | no,no,no,1.0,1.0,0.0,neutral
+2532000,Is the skier going downhill?,no | no | yes,no,yes,1.0,1.0,0.0,neutral
+2532001,How do you know this skier is not alone on the mountain?,someone had to take photo | tracks | other ski tracks and footprints,You don't,I don't,0.0,0.0,0.0,neutral
+2532002,How cold is it?,cold | 15 degrees | freezing,sky is blue,very cold,0.0,0.0,0.0,neutral
+2532003,Is it a sunny or cloudy day?,sunny | cloudy | cloudy,sunny day,yes,0.0,0.0,0.0,neutral
+2532004,What color is the sky?,blue | blue | blue,blue,blue,1.0,1.0,0.0,neutral
+395749000,What filter is being used in this image?,black and white | black & white | black and white,black and white,black and white,1.0,1.0,0.0,neutral
+395749001,Are all the people elderly?,no | yes | no,no,no,1.0,1.0,0.0,neutral
+395749002,How many people can be seen?,4 | 4 | 4,Three,3,0.0,0.0,0.0,neutral
+395749003,What ocean might this be?,atlantic | antarctic | atlantic,Atlantic Ocean,ocean,0.6666666666666666,0.0,-0.6666666666666666,harmful
+395749004,How many people are in the photo?,4 | 4 | 4,3,3,0.0,0.0,0.0,neutral
+395752000,What color are the mums in the front of the photo?,"pink | red | pink, red, yellow",red and green,pink,0.0,0.6666666666666666,0.6666666666666666,helpful
+395752001,Can a mail truck fit behind the bus to pick up the mail?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+395752002,"What  ""Over the Rainbow"" singer sang about this vehicle?",judy garland | judy garland | train,"""Over the Rainbow""",Judy Garland,0.0,1.0,1.0,helpful
+395752003,What color are the hubcaps?,red | red | red,Red and green,green,0.0,0.0,0.0,neutral
+395752004,Is someone getting on this street car?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+264683000,Is this airplane inside?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+264683001,What airline does the plane fly for?,air france | air france | air france,United Airlines,American Airlines,0.0,0.0,0.0,neutral
+264683002,Are there planes hanging?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+264686000,How many side tables are there?,2 | 2 | 2,Three,3,0.0,0.0,0.0,neutral
+264686001,How many windows are on the wall?,3 | 3 | 3,Three,3,0.0,1.0,1.0,helpful
+264686002,Is the TV a tube or flat screen?,tube | tube | tube,tube,flat screen,1.0,0.0,-1.0,harmful
+133619000,What type of truck is it?,fire engine | fire truck | service truck,Fire truck,fire truck,1.0,1.0,0.0,neutral
+133619001,What time of day is it?,night | night | night,night,night,1.0,1.0,0.0,neutral
+133619002,What color is the light above the hood of the truck?,yellow | blue | blue,Red,red,0.0,0.0,0.0,neutral
+133620000,Why does the woman have her hair up?,uniform | on duty | uniform,Because she's a police officer,because she is a policewoman,0.0,0.0,0.0,neutral
+133620001,Is she wearing glasses?,yes | yes | yes,yes,no,1.0,0.0,-1.0,harmful
+133620002,What is she wearing on her head?,hat | helmet | hat,police helmet,hat,0.0,1.0,1.0,helpful
+133620003,Is the woman happy?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+526837000,Is this man dressed for the weather?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+526837001,What is this man holding?,ski pole | ski poles | poles,Ski poles,ski poles,1.0,1.0,0.0,neutral
+526837002,What is covering the ground?,snow | snow | snow,Snow,snow,1.0,1.0,0.0,neutral
+133622000,Are these vegetables or fruits?,vegetables | vegetables | vegetables,Vegetables,no,1.0,0.0,-1.0,harmful
+133622001,What is the yellow topping?,cheese | glaze | cheese,bacon,cheese,0.0,1.0,1.0,helpful
+133622002,Is this a high class dish?,yes | yes | no,no,no,1.0,1.0,0.0,neutral
+133622003,What is the long thin food with seeds?,broccoli | cake | cheese,Broccoli cheddar quiche,bread,0.0,0.0,0.0,neutral
+133622004,What is the green topping?,broccoli | broccoli | broccoli,Broccoli,cheese,1.0,0.0,-1.0,harmful
+133622005,What is the yellow item pictured?,cheese | cake | cheese,Broccoli and cheese quiche,Broccoli,0.0,0.0,0.0,neutral
+133622006,How are the eggs cooked?,scrambled | scramble | omelet,not,scrambled,0.0,0.6666666666666666,0.6666666666666666,helpful
+133622007,What vegetable is this?,broccoli | broccoli | broccoli,Broccoli,broccoli,1.0,1.0,0.0,neutral
+133622008,What kinds of food are on the plate?,"breakfast | spinach | eggs, spinach",Broccoli and cheese casserole,food,0.0,0.0,0.0,neutral
+22271000,Is this a bright and sunny day?,no | no | no,no,no,1.0,1.0,0.0,neutral
+22271001,Are there people in the picture?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+22271002,What is the name of the street sign on the ground?,western ave | western ave | western ave,Western Avenue,western,0.3333333333333333,1.0,0.6666666666666667,helpful
+133629000,Is this a public place?,no | no | no,no,no,1.0,1.0,0.0,neutral
+133629001,What color is the desk?,brown | brown | brown,desk is brown,black,0.0,0.3333333333333333,0.3333333333333333,helpful
+133629002,How many chairs have wheels?,1 | 1 | 1,None,none,0.0,0.0,0.0,neutral
+133629003,Is this chair in the way of people who might walk through?,no | no | no,no,no,1.0,1.0,0.0,neutral
+133629004,Can these items be used to make food?,no | no | no,no,yes,1.0,0.0,-1.0,harmful
+133629005,What do people do here?,work | work | office work,They work,work,0.0,1.0,1.0,helpful
+133629006,What color is the lampshade?,off white | white | white,lampshade is black,white,0.0,1.0,1.0,helpful
+133629007,What type of computer is on the desk?,mac | laptop | laptop,laptop computer,laptop,0.0,1.0,1.0,helpful
+133631000,"Which is longer, the Elephant's tusks or the Elephant's trunk?",trunk | trunk | trunk,Elephant's trunk,trunk,0.3333333333333333,1.0,0.6666666666666667,helpful
+133631001,Is it sunny out?,yes | yes | yes,yes,no,1.0,0.0,-1.0,harmful
+133631002,Does the elephant need water?,yes | yes | yes,no,yes,0.3333333333333333,1.0,0.6666666666666667,helpful
+2562000,What is the color scheme of the photo?,"white | white and blue | white, blue",White,blue,0.6666666666666666,0.6666666666666666,0.0,neutral
+2562001,Are all the men tennis players?,yes | no | no,no,no,1.0,1.0,0.0,neutral
+2562002,Is the man wearing a wristband?,yes | yes | yes,no,no,0.0,0.0,0.0,neutral
+2562003,What two brands are shown advertised behind the tennis player?,olympus and wta | olympus and wta | wta and olympus,Nike and Wilson,Nike and adidas,0.0,0.0,0.0,neutral
+2562004,What sport is being played?,tennis | tennis | tennis,Tennis,tennis,1.0,1.0,0.0,neutral
+133636000,What is the number on the left parking meter?,12 | 12 | 19,1,2,0.0,0.0,0.0,neutral
+133636001,How much time is left?,0 time | expired | 0,None,15 minutes,0.0,0.0,0.0,neutral
+133636002,What number is the parking meter on the right?,13 | 13 | 13,1,2,0.0,0.0,0.0,neutral
+133636003,Is there any cars on the street?,no | no | 0,no,no,1.0,1.0,0.0,neutral
+133636004,Are the meters rusted?,no | no | no,no,no,1.0,1.0,0.0,neutral
+133636005,Is there time remaining on the meter?,yes | yes | no,yes,no,0.6666666666666666,1.0,0.33333333333333337,helpful
+133636006,How many meters are there?,2 | 2 | 2,Two,2,0.0,1.0,1.0,helpful
+133645000,Is there someone on the bench?,no | no | no,no,no,1.0,1.0,0.0,neutral
+133645001,Are the street lights turned on?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+133645002,Is the water clear?,no | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+133645003,What type of boat is in the water?,private | sailboat | pontoon,motor boat,motor boat,0.0,0.0,0.0,neutral
+264718000,How long is the parking on the street?,12 hours | 2 hours | 7 spots,2 hours,2 hours,0.6666666666666666,0.6666666666666666,0.0,neutral
+264718001,Do you have to pay to park here?,yes | yes | yes,no,no,1.0,1.0,0.0,neutral
+264718002,Which side of the sign is the road on?,right | left | right,on the right,right,0.0,1.0,1.0,helpful
+264718003,What does the sign read?,2 hour parking 8am to 8pm | parking | 2 hour parking 8am-8pm,"""No Parking""",parking lot,0.0,0.0,0.0,neutral
+264718004,What does the sign say?,parking | 2 hour parking | 2 hour parking,"""No Parking""",parking lot,0.0,0.0,0.0,neutral
+264718005,What phone number is on the sign?,0 | n/a | 0,phone number is on the sign,1-800-555-5555,0.0,0.0,0.0,neutral
+264718006,What modes of transportation are in the picture?,cars | car | car,Cars and buses,cars,0.0,1.0,1.0,helpful
+264718007,What sign is to the right of the photo?,2 hour parking | parking | 2 hour parking,parking sign,parking lot,0.3333333333333333,0.0,-0.3333333333333333,harmful
+133648000,Is the bat blue?,yes | yes | yes,yes,yes,1.0,1.0,0.0,neutral
+133648001,Is the photo colored?,yes | yes | yes,no,yes,0.0,1.0,1.0,helpful
+133648002,What color is the home plate umpire's shirt?,white | black | black,blue,blue,0.0,0.0,0.0,neutral
+133648003,Which game are they playing?,baseball | baseball | baseball,baseball,this one,1.0,0.0,-1.0,harmful
+459182000,What are they carrying?,surfboards | surfboards | surfboards,surfboard,surfboards,0.3333333333333333,1.0,0.6666666666666667,helpful
+459182001,What is in the foreground?,rocks | rocks | rocks,Rocks and water,rocks,0.0,1.0,1.0,helpful
+459182002,How many people are there?,2 | 2 | 2,Two,two,0.0,0.0,0.0,neutral
+395801000,Is it morning or evening?,evening | morning | morning,morning,evening,1.0,1.0,0.0,neutral
+395801001,How much does parking in the lot cost?,nothing | free | free,$0.00,$5.00,0.0,0.0,0.0,neutral
+395801002,What is on the road?,car | car | cars,road,cars,0.0,0.3333333333333333,0.3333333333333333,helpful
+395801003,How many people are in the picture?,7 | 7 | 11,One,many,0.0,0.0,0.0,neutral
+395801004,Do the people know each other?,no | no | no,yes,yes,0.0,0.0,0.0,neutral
+395801005,How could you carry things if you were riding this bike?,there is no bike | on my back | backpack,You can't,on the back of the bike,0.0,0.0,0.0,neutral
+395801006,How many people are in this scene?,25 | 15 | 9,One,many,0.0,0.0,0.0,neutral
+395801007,What time is it?,6:00 | 6:00 | 12:30,It depends on who you ask,3:30 pm,0.0,0.0,0.0,neutral
+264730000,How many arches are under the clock?,2 | 2 | 2,None,3,0.0,0.0,0.0,neutral
+264730001,What time is it?,10:50 | 10:49 | 8:45,dark outside,night,0.0,0.0,0.0,neutral
+264730002,Is a daytime or nighttime scene depicted?,nighttime | nighttime | night,yes,yes,0.0,0.0,0.0,neutral
+264730003,What kind of numbers are on the clock?,roman numerals | roman | roman numerals,numbers on the clock are the numbers on the,12:00,0.0,0.0,0.0,neutral
+2587000,Which food contains the most potassium?,banana | banana | banana,Bananas,Potatoes,0.0,0.0,0.0,neutral
+2587001,What is not healthy in the baggie?,donut | doughnut | donut,donut and the banana,donut and banana,0.0,0.0,0.0,neutral

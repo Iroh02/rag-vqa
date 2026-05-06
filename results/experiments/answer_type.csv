@@ -1,0 +1,101 @@
+question_id,question,type,question_type,baseline_acc,rag_acc
+2529010,Is there snow on the ground?,yes/no,is there,1.0,1.0
+2532000,Is the skier going downhill?,yes/no,is the,1.0,1.0
+2532001,How do you know this skier is not alone on the mountain?,open,how,0.0,0.0
+2532002,How cold is it?,open,how,0.0,0.0
+2532003,Is it a sunny or cloudy day?,yes/no,is it,0.0,0.0
+2532004,What color is the sky?,open,what color is the,1.0,1.0
+395749000,What filter is being used in this image?,open,what,1.0,1.0
+395749001,Are all the people elderly?,open,are,1.0,1.0
+395749002,How many people can be seen?,open,how many,0.0,0.0
+395749003,What ocean might this be?,open,what,0.6666666666666666,0.0
+395749004,How many people are in the photo?,open,how many people are in,0.0,0.0
+395752000,What color are the mums in the front of the photo?,open,what color are the,0.0,0.6666666666666666
+395752001,Can a mail truck fit behind the bus to pick up the mail?,open,none of the above,1.0,1.0
+395752002,"What  ""Over the Rainbow"" singer sang about this vehicle?",open,what,0.0,1.0
+395752003,What color are the hubcaps?,open,what color are the,0.0,0.0
+395752004,Is someone getting on this street car?,open,is,1.0,1.0
+264683000,Is this airplane inside?,yes/no,is this,1.0,1.0
+264683001,What airline does the plane fly for?,open,what,0.0,0.0
+264683002,Are there planes hanging?,yes/no,are there,1.0,1.0
+264686000,How many side tables are there?,open,how many,0.0,0.0
+264686001,How many windows are on the wall?,open,how many,0.0,1.0
+264686002,Is the TV a tube or flat screen?,yes/no,is the,1.0,0.0
+133619000,What type of truck is it?,open,what type of,1.0,1.0
+133619001,What time of day is it?,open,what time,1.0,1.0
+133619002,What color is the light above the hood of the truck?,open,what color is the,0.0,0.0
+133620000,Why does the woman have her hair up?,open,why,0.0,0.0
+133620001,Is she wearing glasses?,open,is,1.0,0.0
+133620002,What is she wearing on her head?,open,what is,0.0,1.0
+133620003,Is the woman happy?,yes/no,is the woman,1.0,1.0
+526837000,Is this man dressed for the weather?,yes/no,is this,1.0,1.0
+526837001,What is this man holding?,open,what is this,1.0,1.0
+526837002,What is covering the ground?,open,what is,1.0,1.0
+133622000,Are these vegetables or fruits?,yes/no,are these,1.0,0.0
+133622001,What is the yellow topping?,open,what is the,0.0,1.0
+133622002,Is this a high class dish?,yes/no,is this a,1.0,1.0
+133622003,What is the long thin food with seeds?,open,what is the,0.0,0.0
+133622004,What is the green topping?,open,what is the,1.0,0.0
+133622005,What is the yellow item pictured?,open,what is the,0.0,0.0
+133622006,How are the eggs cooked?,open,how,0.0,0.6666666666666666
+133622007,What vegetable is this?,open,what,1.0,1.0
+133622008,What kinds of food are on the plate?,open,what,0.0,0.0
+22271000,Is this a bright and sunny day?,yes/no,is this a,1.0,1.0
+22271001,Are there people in the picture?,yes/no,are there,1.0,1.0
+22271002,What is the name of the street sign on the ground?,open,what is the name,0.3333333333333333,1.0
+133629000,Is this a public place?,yes/no,is this a,1.0,1.0
+133629001,What color is the desk?,open,what color is the,0.0,0.3333333333333333
+133629002,How many chairs have wheels?,open,how many,0.0,0.0
+133629003,Is this chair in the way of people who might walk through?,yes/no,is this,1.0,1.0
+133629004,Can these items be used to make food?,open,none of the above,1.0,0.0
+133629005,What do people do here?,open,what,0.0,1.0
+133629006,What color is the lampshade?,open,what color is the,0.0,1.0
+133629007,What type of computer is on the desk?,open,what type of,0.0,1.0
+133631000,"Which is longer, the Elephant's tusks or the Elephant's trunk?",open,which,0.3333333333333333,1.0
+133631001,Is it sunny out?,yes/no,is it,1.0,0.0
+133631002,Does the elephant need water?,yes/no,does the,0.3333333333333333,1.0
+2562000,What is the color scheme of the photo?,open,what is the,0.6666666666666666,0.6666666666666666
+2562001,Are all the men tennis players?,open,are,1.0,1.0
+2562002,Is the man wearing a wristband?,yes/no,is the man,0.0,0.0
+2562003,What two brands are shown advertised behind the tennis player?,open,what,0.0,0.0
+2562004,What sport is being played?,open,what sport is,1.0,1.0
+133636000,What is the number on the left parking meter?,open,what is the,0.0,0.0
+133636001,How much time is left?,open,how,0.0,0.0
+133636002,What number is the parking meter on the right?,open,what number is,0.0,0.0
+133636003,Is there any cars on the street?,yes/no,is there,1.0,1.0
+133636004,Are the meters rusted?,yes/no,are the,1.0,1.0
+133636005,Is there time remaining on the meter?,yes/no,is there,0.6666666666666666,1.0
+133636006,How many meters are there?,open,how many,0.0,1.0
+133645000,Is there someone on the bench?,yes/no,is there,1.0,1.0
+133645001,Are the street lights turned on?,yes/no,are the,1.0,1.0
+133645002,Is the water clear?,yes/no,is the,1.0,1.0
+133645003,What type of boat is in the water?,open,what type of,0.0,0.0
+264718000,How long is the parking on the street?,open,how,0.6666666666666666,0.6666666666666666
+264718001,Do you have to pay to park here?,yes/no,do you,1.0,1.0
+264718002,Which side of the sign is the road on?,open,which,0.0,1.0
+264718003,What does the sign read?,open,what does the,0.0,0.0
+264718004,What does the sign say?,open,what does the,0.0,0.0
+264718005,What phone number is on the sign?,open,what,0.0,0.0
+264718006,What modes of transportation are in the picture?,open,what,0.0,1.0
+264718007,What sign is to the right of the photo?,open,what,0.3333333333333333,0.0
+133648000,Is the bat blue?,yes/no,is the,1.0,1.0
+133648001,Is the photo colored?,yes/no,is the,0.0,1.0
+133648002,What color is the home plate umpire's shirt?,open,what color is the,0.0,0.0
+133648003,Which game are they playing?,open,which,1.0,0.0
+459182000,What are they carrying?,open,what are,0.3333333333333333,1.0
+459182001,What is in the foreground?,open,what is in the,0.0,1.0
+459182002,How many people are there?,open,how many people are,0.0,0.0
+395801000,Is it morning or evening?,yes/no,is it,1.0,1.0
+395801001,How much does parking in the lot cost?,open,how,0.0,0.0
+395801002,What is on the road?,open,what is on the,0.0,0.3333333333333333
+395801003,How many people are in the picture?,open,how many people are in,0.0,0.0
+395801004,Do the people know each other?,open,do,0.0,0.0
+395801005,How could you carry things if you were riding this bike?,open,how,0.0,0.0
+395801006,How many people are in this scene?,open,how many people are in,0.0,0.0
+395801007,What time is it?,open,what time,0.0,0.0
+264730000,How many arches are under the clock?,open,how many,0.0,0.0
+264730001,What time is it?,open,what time,0.0,0.0
+264730002,Is a daytime or nighttime scene depicted?,open,is,0.0,0.0
+264730003,What kind of numbers are on the clock?,open,what kind of,0.0,0.0
+2587000,Which food contains the most potassium?,open,which,0.0,0.0
+2587001,What is not healthy in the baggie?,open,what is,0.0,0.0

@@ -1,21 +1,21 @@
 {
-  "overall_accuracy": 0.20666666666666667,
+  "overall_accuracy": 0.04,
   "num_evaluated": 100,
   "per_type_accuracy": {
     "are": {
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "count": 2
     },
     "are the": {
-      "accuracy": 0.5,
+      "accuracy": 0.0,
       "count": 2
     },
     "are there": {
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "count": 2
     },
     "are these": {
-      "accuracy": 0.0,
+      "accuracy": 1.0,
       "count": 1
     },
     "do": {
@@ -31,7 +31,7 @@
       "count": 1
     },
     "how": {
-      "accuracy": 0.0,
+      "accuracy": 0.14285714285714285,
       "count": 7
     },
     "how many": {
@@ -55,7 +55,7 @@
       "count": 3
     },
     "is the": {
-      "accuracy": 0.4,
+      "accuracy": 0.0,
       "count": 5
     },
     "is the man": {
@@ -67,19 +67,19 @@
       "count": 1
     },
     "is there": {
-      "accuracy": 0.41666666666666663,
+      "accuracy": 0.0,
       "count": 4
     },
     "is this": {
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "count": 3
     },
     "is this a": {
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "count": 3
     },
     "none of the above": {
-      "accuracy": 0.8333333333333333,
+      "accuracy": 0.0,
       "count": 2
     },
     "what": {
@@ -87,7 +87,7 @@
       "count": 11
     },
     "what are": {
-      "accuracy": 0.0,
+      "accuracy": 1.0,
       "count": 1
     },
     "what color are the": {
@@ -115,7 +115,7 @@
       "count": 1
     },
     "what is the": {
-      "accuracy": 0.38888888888888884,
+      "accuracy": 0.0,
       "count": 6
     },
     "what is the name": {
@@ -135,7 +135,7 @@
       "count": 1
     },
     "what sport is": {
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "count": 1
     },
     "what time": {
@@ -143,11 +143,11 @@
       "count": 3
     },
     "what type of": {
-      "accuracy": 0.3333333333333333,
+      "accuracy": 0.0,
       "count": 3
     },
     "which": {
-      "accuracy": 0.0,
+      "accuracy": 0.25,
       "count": 4
     },
     "why": {
@@ -159,31 +159,31 @@
     {
       "question_id": 2529010,
       "question": "Is there snow on the ground?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "no",
         "no",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is there"
     },
     {
       "question_id": 2532000,
       "question": "Is the skier going downhill?",
-      "predicted": "no",
+      "predicted": "noyesup",
       "ground_truth": [
         "no",
         "no",
         "yes"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is the"
     },
     {
       "question_id": 2532001,
       "question": "How do you know this skier is not alone on the mountain?",
-      "predicted": "noothe",
+      "predicted": "noothers",
       "ground_truth": [
         "someone had to take photo",
         "tracks",
@@ -195,19 +195,19 @@
     {
       "question_id": 2532002,
       "question": "How cold is it?",
-      "predicted": "verycold0 -0.5",
+      "predicted": "cold",
       "ground_truth": [
         "cold",
         "15 degrees",
         "freezing"
       ],
-      "accuracy": 0.0,
+      "accuracy": 1.0,
       "question_type": "how"
     },
     {
       "question_id": 2532003,
       "question": "Is it a sunny or cloudy day?",
-      "predicted": "cloudy and sunnycloud",
+      "predicted": "cloudyyes",
       "ground_truth": [
         "sunny",
         "cloudy",
@@ -219,7 +219,7 @@
     {
       "question_id": 2532004,
       "question": "What color is the sky?",
-      "predicted": "blueblueblue and",
+      "predicted": "bluewhit",
       "ground_truth": [
         "blue",
         "blue",
@@ -231,7 +231,7 @@
     {
       "question_id": 395749000,
       "question": "What filter is being used in this image?",
-      "predicted": "black andwhitenofilter",
+      "predicted": "",
       "ground_truth": [
         "black and white",
         "black & white",
@@ -243,19 +243,19 @@
     {
       "question_id": 395749001,
       "question": "Are all the people elderly?",
-      "predicted": "yes",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "no",
         "yes",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "are"
     },
     {
       "question_id": 395749002,
       "question": "How many people can be seen?",
-      "predicted": "345",
+      "predicted": "45 strutConnector",
       "ground_truth": [
         "4",
         "4",
@@ -267,7 +267,7 @@
     {
       "question_id": 395749003,
       "question": "What ocean might this be?",
-      "predicted": "seacea",
+      "predicted": "seaceanus",
       "ground_truth": [
         "atlantic",
         "antarctic",
@@ -279,7 +279,7 @@
     {
       "question_id": 395749004,
       "question": "How many people are in the photo?",
-      "predicted": "345",
+      "predicted": "45 strutConnector",
       "ground_truth": [
         "4",
         "4",
@@ -291,7 +291,7 @@
     {
       "question_id": 395752000,
       "question": "What color are the mums in the front of the photo?",
-      "predicted": "red andgreenorange",
+      "predicted": "green andred",
       "ground_truth": [
         "pink",
         "red",
@@ -303,19 +303,19 @@
     {
       "question_id": 395752001,
       "question": "Can a mail truck fit behind the bus to pick up the mail?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "yes",
         "yes",
         "yes"
       ],
-      "accuracy": 0.6666666666666666,
+      "accuracy": 0.0,
       "question_type": "none of the above"
     },
     {
       "question_id": 395752002,
       "question": "What  \"Over the Rainbow\" singer sang about this vehicle?",
-      "predicted": "rainbows andtrolleys",
+      "predicted": "nothingt",
       "ground_truth": [
         "judy garland",
         "judy garland",
@@ -327,7 +327,7 @@
     {
       "question_id": 395752003,
       "question": "What color are the hubcaps?",
-      "predicted": "redgre",
+      "predicted": "greenred",
       "ground_truth": [
         "red",
         "red",
@@ -339,7 +339,7 @@
     {
       "question_id": 395752004,
       "question": "Is someone getting on this street car?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -351,19 +351,19 @@
     {
       "question_id": 264683000,
       "question": "Is this airplane inside?",
-      "predicted": "yes",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
         "yes"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is this"
     },
     {
       "question_id": 264683001,
       "question": "What airline does the plane fly for?",
-      "predicted": "americ",
+      "predicted": "airfran",
       "ground_truth": [
         "air france",
         "air france",
@@ -375,19 +375,19 @@
     {
       "question_id": 264683002,
       "question": "Are there planes hanging?",
-      "predicted": "yes",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
         "yes"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "are there"
     },
     {
       "question_id": 264686000,
       "question": "How many side tables are there?",
-      "predicted": "321",
+      "predicted": "21and",
       "ground_truth": [
         "2",
         "2",
@@ -399,7 +399,7 @@
     {
       "question_id": 264686001,
       "question": "How many windows are on the wall?",
-      "predicted": "324",
+      "predicted": "42and",
       "ground_truth": [
         "3",
         "3",
@@ -411,7 +411,7 @@
     {
       "question_id": 264686002,
       "question": "Is the TV a tube or flat screen?",
-      "predicted": "flatsc",
+      "predicted": "flatscre",
       "ground_truth": [
         "tube",
         "tube",
@@ -423,7 +423,7 @@
     {
       "question_id": 133619000,
       "question": "What type of truck is it?",
-      "predicted": "firetr",
+      "predicted": "firetruck",
       "ground_truth": [
         "fire engine",
         "fire truck",
@@ -435,7 +435,7 @@
     {
       "question_id": 133619001,
       "question": "What time of day is it?",
-      "predicted": "nightt",
+      "predicted": "nightday",
       "ground_truth": [
         "night",
         "night",
@@ -447,7 +447,7 @@
     {
       "question_id": 133619002,
       "question": "What color is the light above the hood of the truck?",
-      "predicted": "redora",
+      "predicted": "redorang",
       "ground_truth": [
         "yellow",
         "blue",
@@ -459,7 +459,7 @@
     {
       "question_id": 133620000,
       "question": "Why does the woman have her hair up?",
-      "predicted": "concealing her face",
+      "predicted": "security andno",
       "ground_truth": [
         "uniform",
         "on duty",
@@ -471,7 +471,7 @@
     {
       "question_id": 133620001,
       "question": "Is she wearing glasses?",
-      "predicted": "yesnoy",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -483,7 +483,7 @@
     {
       "question_id": 133620002,
       "question": "What is she wearing on her head?",
-      "predicted": "hat andglassesgloves",
+      "predicted": "hat,glas",
       "ground_truth": [
         "hat",
         "helmet",
@@ -495,7 +495,7 @@
     {
       "question_id": 133620003,
       "question": "Is the woman happy?",
-      "predicted": "yesnoy",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -507,19 +507,19 @@
     {
       "question_id": 526837000,
       "question": "Is this man dressed for the weather?",
-      "predicted": "yes",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
         "yes"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is this"
     },
     {
       "question_id": 526837001,
       "question": "What is this man holding?",
-      "predicted": "skis and polesskies",
+      "predicted": "skis poles",
       "ground_truth": [
         "ski pole",
         "ski poles",
@@ -531,7 +531,7 @@
     {
       "question_id": 526837002,
       "question": "What is covering the ground?",
-      "predicted": "snowfa",
+      "predicted": "snowing",
       "ground_truth": [
         "snow",
         "snow",
@@ -543,55 +543,55 @@
     {
       "question_id": 133622000,
       "question": "Are these vegetables or fruits?",
-      "predicted": "vegeta",
+      "predicted": "vegetables",
       "ground_truth": [
         "vegetables",
         "vegetables",
         "vegetables"
       ],
-      "accuracy": 0.0,
+      "accuracy": 1.0,
       "question_type": "are these"
     },
     {
       "question_id": 133622001,
       "question": "What is the yellow topping?",
-      "predicted": "cheese",
+      "predicted": "cheese andon",
       "ground_truth": [
         "cheese",
         "glaze",
         "cheese"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "what is the"
     },
     {
       "question_id": 133622002,
       "question": "Is this a high class dish?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "yes",
         "yes",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is this a"
     },
     {
       "question_id": 133622003,
       "question": "What is the long thin food with seeds?",
-      "predicted": "cake",
+      "predicted": "cakeepot",
       "ground_truth": [
         "broccoli",
         "cake",
         "cheese"
       ],
-      "accuracy": 0.3333333333333333,
+      "accuracy": 0.0,
       "question_type": "what is the"
     },
     {
       "question_id": 133622004,
       "question": "What is the green topping?",
-      "predicted": "broccoliccoli andcheese",
+      "predicted": "broccoli andche",
       "ground_truth": [
         "broccoli",
         "broccoli",
@@ -603,19 +603,19 @@
     {
       "question_id": 133622005,
       "question": "What is the yellow item pictured?",
-      "predicted": "cheese",
+      "predicted": "cheeseca",
       "ground_truth": [
         "cheese",
         "cake",
         "cheese"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "what is the"
     },
     {
       "question_id": 133622006,
       "question": "How are the eggs cooked?",
-      "predicted": "panfri",
+      "predicted": "fried andon",
       "ground_truth": [
         "scrambled",
         "scramble",
@@ -627,7 +627,7 @@
     {
       "question_id": 133622007,
       "question": "What vegetable is this?",
-      "predicted": "broccoliccoli andccoliccoli",
+      "predicted": "broccoli andc",
       "ground_truth": [
         "broccoli",
         "broccoli",
@@ -639,7 +639,7 @@
     {
       "question_id": 133622008,
       "question": "What kinds of food are on the plate?",
-      "predicted": "breakf",
+      "predicted": "cake andbroccoli",
       "ground_truth": [
         "breakfast",
         "spinach",
@@ -651,31 +651,31 @@
     {
       "question_id": 22271000,
       "question": "Is this a bright and sunny day?",
-      "predicted": "no",
+      "predicted": "noyesnight",
       "ground_truth": [
         "no",
         "no",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is this a"
     },
     {
       "question_id": 22271001,
       "question": "Are there people in the picture?",
-      "predicted": "yes",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
         "yes"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "are there"
     },
     {
       "question_id": 22271002,
       "question": "What is the name of the street sign on the ground?",
-      "predicted": "westew",
+      "predicted": "western6",
       "ground_truth": [
         "western ave",
         "western ave",
@@ -687,19 +687,19 @@
     {
       "question_id": 133629000,
       "question": "Is this a public place?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "no",
         "no",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is this a"
     },
     {
       "question_id": 133629001,
       "question": "What color is the desk?",
-      "predicted": "brown andblackbrownandblack",
+      "predicted": "brownbla",
       "ground_truth": [
         "brown",
         "brown",
@@ -711,7 +711,7 @@
     {
       "question_id": 133629002,
       "question": "How many chairs have wheels?",
-      "predicted": "120",
+      "predicted": "02no",
       "ground_truth": [
         "1",
         "1",
@@ -723,31 +723,31 @@
     {
       "question_id": 133629003,
       "question": "Is this chair in the way of people who might walk through?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "no",
         "no",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is this"
     },
     {
       "question_id": 133629004,
       "question": "Can these items be used to make food?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "no",
         "no",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "none of the above"
     },
     {
       "question_id": 133629005,
       "question": "What do people do here?",
-      "predicted": "work,s",
+      "predicted": "work,study and",
       "ground_truth": [
         "work",
         "work",
@@ -759,7 +759,7 @@
     {
       "question_id": 133629006,
       "question": "What color is the lampshade?",
-      "predicted": "blackw",
+      "predicted": "blackbro",
       "ground_truth": [
         "off white",
         "white",
@@ -771,19 +771,19 @@
     {
       "question_id": 133629007,
       "question": "What type of computer is on the desk?",
-      "predicted": "laptop",
+      "predicted": "laptopip",
       "ground_truth": [
         "mac",
         "laptop",
         "laptop"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "what type of"
     },
     {
       "question_id": 133631000,
       "question": "Which is longer, the Elephant's tusks or the Elephant's trunk?",
-      "predicted": "tusktrunk",
+      "predicted": "tusktr",
       "ground_truth": [
         "trunk",
         "trunk",
@@ -795,7 +795,7 @@
     {
       "question_id": 133631001,
       "question": "Is it sunny out?",
-      "predicted": "noyesy",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -807,7 +807,7 @@
     {
       "question_id": 133631002,
       "question": "Does the elephant need water?",
-      "predicted": "yesnoy",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -819,7 +819,7 @@
     {
       "question_id": 2562000,
       "question": "What is the color scheme of the photo?",
-      "predicted": "white andbluewhiteand",
+      "predicted": "white andblue",
       "ground_truth": [
         "white",
         "white and blue",
@@ -831,19 +831,19 @@
     {
       "question_id": 2562001,
       "question": "Are all the men tennis players?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "yes",
         "no",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "are"
     },
     {
       "question_id": 2562002,
       "question": "Is the man wearing a wristband?",
-      "predicted": "noyesnoyes",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -855,7 +855,7 @@
     {
       "question_id": 2562003,
       "question": "What two brands are shown advertised behind the tennis player?",
-      "predicted": "wata andtennis",
+      "predicted": "wat andten",
       "ground_truth": [
         "olympus and wta",
         "olympus and wta",
@@ -867,19 +867,19 @@
     {
       "question_id": 2562004,
       "question": "What sport is being played?",
-      "predicted": "tennis",
+      "predicted": "tennisball",
       "ground_truth": [
         "tennis",
         "tennis",
         "tennis"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "what sport is"
     },
     {
       "question_id": 133636000,
       "question": "What is the number on the left parking meter?",
-      "predicted": "2 and20",
+      "predicted": "21 and",
       "ground_truth": [
         "12",
         "12",
@@ -891,7 +891,7 @@
     {
       "question_id": 133636001,
       "question": "How much time is left?",
-      "predicted": "0minut",
+      "predicted": "0minutes15",
       "ground_truth": [
         "0 time",
         "expired",
@@ -903,7 +903,7 @@
     {
       "question_id": 133636002,
       "question": "What number is the parking meter on the right?",
-      "predicted": "212 strutConnector2",
+      "predicted": "21 and",
       "ground_truth": [
         "13",
         "13",
@@ -915,7 +915,7 @@
     {
       "question_id": 133636003,
       "question": "Is there any cars on the street?",
-      "predicted": "noyes",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "no",
         "no",
@@ -927,31 +927,31 @@
     {
       "question_id": 133636004,
       "question": "Are the meters rusted?",
-      "predicted": "no",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "no",
         "no",
         "no"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "are the"
     },
     {
       "question_id": 133636005,
       "question": "Is there time remaining on the meter?",
-      "predicted": "yes",
+      "predicted": "yesno0",
       "ground_truth": [
         "yes",
         "yes",
         "no"
       ],
-      "accuracy": 0.6666666666666666,
+      "accuracy": 0.0,
       "question_type": "is there"
     },
     {
       "question_id": 133636006,
       "question": "How many meters are there?",
-      "predicted": "22",
+      "predicted": "20 and",
       "ground_truth": [
         "2",
         "2",
@@ -963,7 +963,7 @@
     {
       "question_id": 133645000,
       "question": "Is there someone on the bench?",
-      "predicted": "noyes",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "no",
         "no",
@@ -975,7 +975,7 @@
     {
       "question_id": 133645001,
       "question": "Are the street lights turned on?",
-      "predicted": "yesnoy",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -987,19 +987,19 @@
     {
       "question_id": 133645002,
       "question": "Is the water clear?",
-      "predicted": "yes",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "no",
         "yes",
         "yes"
       ],
-      "accuracy": 1.0,
+      "accuracy": 0.0,
       "question_type": "is the"
     },
     {
       "question_id": 133645003,
       "question": "What type of boat is in the water?",
-      "predicted": "boat",
+      "predicted": "boatooning",
       "ground_truth": [
         "private",
         "sailboat",
@@ -1011,7 +1011,7 @@
     {
       "question_id": 264718000,
       "question": "How long is the parking on the street?",
-      "predicted": "2hours",
+      "predicted": "2hours30",
       "ground_truth": [
         "12 hours",
         "2 hours",
@@ -1023,7 +1023,7 @@
     {
       "question_id": 264718001,
       "question": "Do you have to pay to park here?",
-      "predicted": "noyesy",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -1035,7 +1035,7 @@
     {
       "question_id": 264718002,
       "question": "Which side of the sign is the road on?",
-      "predicted": "right\u0019left",
+      "predicted": "rightsid",
       "ground_truth": [
         "right",
         "left",
@@ -1047,7 +1047,7 @@
     {
       "question_id": 264718003,
       "question": "What does the sign read?",
-      "predicted": "2parki",
+      "predicted": "2parking and",
       "ground_truth": [
         "2 hour parking 8am to 8pm",
         "parking",
@@ -1059,7 +1059,7 @@
     {
       "question_id": 264718004,
       "question": "What does the sign say?",
-      "predicted": "parking2 and2.2",
+      "predicted": "2parking and",
       "ground_truth": [
         "parking",
         "2 hour parking",
@@ -1071,7 +1071,7 @@
     {
       "question_id": 264718005,
       "question": "What phone number is on the sign?",
-      "predicted": "908929",
+      "predicted": "08738",
       "ground_truth": [
         "0",
         "n/a",
@@ -1083,7 +1083,7 @@
     {
       "question_id": 264718006,
       "question": "What modes of transportation are in the picture?",
-      "predicted": "cars,t",
+      "predicted": "cars and buses",
       "ground_truth": [
         "cars",
         "car",
@@ -1095,7 +1095,7 @@
     {
       "question_id": 264718007,
       "question": "What sign is to the right of the photo?",
-      "predicted": "parking and22park",
+      "predicted": "2parking and",
       "ground_truth": [
         "2 hour parking",
         "parking",
@@ -1107,7 +1107,7 @@
     {
       "question_id": 133648000,
       "question": "Is the bat blue?",
-      "predicted": "yesnoyesno",
+      "predicted": "yesno strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -1119,7 +1119,7 @@
     {
       "question_id": 133648001,
       "question": "Is the photo colored?",
-      "predicted": "nononoyes",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "yes",
         "yes",
@@ -1131,7 +1131,7 @@
     {
       "question_id": 133648002,
       "question": "What color is the home plate umpire's shirt?",
-      "predicted": "bluewh",
+      "predicted": "bluewhit",
       "ground_truth": [
         "white",
         "black",
@@ -1143,31 +1143,31 @@
     {
       "question_id": 133648003,
       "question": "Which game are they playing?",
-      "predicted": "baseba",
+      "predicted": "baseball",
       "ground_truth": [
         "baseball",
         "baseball",
         "baseball"
       ],
-      "accuracy": 0.0,
+      "accuracy": 1.0,
       "question_type": "which"
     },
     {
       "question_id": 459182000,
       "question": "What are they carrying?",
-      "predicted": "surfboards androcks",
+      "predicted": "surfboards",
       "ground_truth": [
         "surfboards",
         "surfboards",
         "surfboards"
       ],
-      "accuracy": 0.0,
+      "accuracy": 1.0,
       "question_type": "what are"
     },
     {
       "question_id": 459182001,
       "question": "What is in the foreground?",
-      "predicted": "beach andsurfboarders",
+      "predicted": "water andsurf",
       "ground_truth": [
         "rocks",
         "rocks",
@@ -1179,7 +1179,7 @@
     {
       "question_id": 459182002,
       "question": "How many people are there?",
-      "predicted": "22 and1",
+      "predicted": "21 and",
       "ground_truth": [
         "2",
         "2",
@@ -1191,7 +1191,7 @@
     {
       "question_id": 395801000,
       "question": "Is it morning or evening?",
-      "predicted": "mornin",
+      "predicted": "morningn",
       "ground_truth": [
         "evening",
         "morning",
@@ -1203,7 +1203,7 @@
     {
       "question_id": 395801001,
       "question": "How much does parking in the lot cost?",
-      "predicted": "0.00",
+      "predicted": "nothing0$",
       "ground_truth": [
         "nothing",
         "free",
@@ -1215,7 +1215,7 @@
     {
       "question_id": 395801002,
       "question": "What is on the road?",
-      "predicted": "signs",
+      "predicted": "streetli",
       "ground_truth": [
         "car",
         "car",
@@ -1227,7 +1227,7 @@
     {
       "question_id": 395801003,
       "question": "How many people are in the picture?",
-      "predicted": "3421",
+      "predicted": "21and",
       "ground_truth": [
         "7",
         "7",
@@ -1239,7 +1239,7 @@
     {
       "question_id": 395801004,
       "question": "Do the people know each other?",
-      "predicted": "yes",
+      "predicted": "noyes strutConnector",
       "ground_truth": [
         "no",
         "no",
@@ -1263,7 +1263,7 @@
     {
       "question_id": 395801006,
       "question": "How many people are in this scene?",
-      "predicted": "342",
+      "predicted": "24no",
       "ground_truth": [
         "25",
         "15",
@@ -1275,7 +1275,7 @@
     {
       "question_id": 395801007,
       "question": "What time is it?",
-      "predicted": "4:30pm:",
+      "predicted": "0830am",
       "ground_truth": [
         "6:00",
         "6:00",
@@ -1287,7 +1287,7 @@
     {
       "question_id": 264730000,
       "question": "How many arches are under the clock?",
-      "predicted": "232",
+      "predicted": "24",
       "ground_truth": [
         "2",
         "2",
@@ -1299,7 +1299,7 @@
     {
       "question_id": 264730001,
       "question": "What time is it?",
-      "predicted": "10:30pm10",
+      "predicted": "083000",
       "ground_truth": [
         "10:50",
         "10:49",
@@ -1311,7 +1311,7 @@
     {
       "question_id": 264730002,
       "question": "Is a daytime or nighttime scene depicted?",
-      "predicted": "nightt",
+      "predicted": "nighttim",
       "ground_truth": [
         "nighttime",
         "nighttime",
@@ -1323,7 +1323,7 @@
     {
       "question_id": 264730003,
       "question": "What kind of numbers are on the clock?",
-      "predicted": "892",
+      "predicted": "8915",
       "ground_truth": [
         "roman numerals",
         "roman",
@@ -1335,7 +1335,7 @@
     {
       "question_id": 2587000,
       "question": "Which food contains the most potassium?",
-      "predicted": "banana anddonutbananas",
+      "predicted": "banana anddon",
       "ground_truth": [
         "banana",
         "banana",
@@ -1347,7 +1347,7 @@
     {
       "question_id": 2587001,
       "question": "What is not healthy in the baggie?",
-      "predicted": "donut andbananabananas",
+      "predicted": "donut andban",
       "ground_truth": [
         "donut",
         "doughnut",

@@ -2,7 +2,7 @@
   {
     "question_id": 2529010,
     "question": "Is there snow on the ground?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -31,7 +31,7 @@
   {
     "question_id": 2532000,
     "question": "Is the skier going downhill?",
-    "answer": "no",
+    "answer": "noyesup",
     "rag_used": true,
     "retrieved": [
       {
@@ -60,7 +60,7 @@
   {
     "question_id": 2532001,
     "question": "How do you know this skier is not alone on the mountain?",
-    "answer": "noothe",
+    "answer": "noothers",
     "rag_used": true,
     "retrieved": [
       {
@@ -89,7 +89,7 @@
   {
     "question_id": 2532002,
     "question": "How cold is it?",
-    "answer": "verycold0 -0.5",
+    "answer": "cold",
     "rag_used": true,
     "retrieved": [
       {
@@ -118,7 +118,7 @@
   {
     "question_id": 2532003,
     "question": "Is it a sunny or cloudy day?",
-    "answer": "cloudy and sunnycloud",
+    "answer": "cloudyyes",
     "rag_used": true,
     "retrieved": [
       {
@@ -147,7 +147,7 @@
   {
     "question_id": 2532004,
     "question": "What color is the sky?",
-    "answer": "blueblueblue and",
+    "answer": "bluewhit",
     "rag_used": true,
     "retrieved": [
       {
@@ -176,7 +176,7 @@
   {
     "question_id": 395749000,
     "question": "What filter is being used in this image?",
-    "answer": "black andwhitenofilter",
+    "answer": "",
     "rag_used": true,
     "retrieved": [
       {
@@ -205,7 +205,7 @@
   {
     "question_id": 395749001,
     "question": "Are all the people elderly?",
-    "answer": "yes",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -234,7 +234,7 @@
   {
     "question_id": 395749002,
     "question": "How many people can be seen?",
-    "answer": "345",
+    "answer": "45 strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -263,7 +263,7 @@
   {
     "question_id": 395749003,
     "question": "What ocean might this be?",
-    "answer": "seacea",
+    "answer": "seaceanus",
     "rag_used": true,
     "retrieved": [
       {
@@ -292,7 +292,7 @@
   {
     "question_id": 395749004,
     "question": "How many people are in the photo?",
-    "answer": "345",
+    "answer": "45 strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -321,7 +321,7 @@
   {
     "question_id": 395752000,
     "question": "What color are the mums in the front of the photo?",
-    "answer": "red andgreenorange",
+    "answer": "green andred",
     "rag_used": true,
     "retrieved": [
       {
@@ -350,7 +350,7 @@
   {
     "question_id": 395752001,
     "question": "Can a mail truck fit behind the bus to pick up the mail?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -379,7 +379,7 @@
   {
     "question_id": 395752002,
     "question": "What  \"Over the Rainbow\" singer sang about this vehicle?",
-    "answer": "rainbows andtrolleys",
+    "answer": "nothingt",
     "rag_used": true,
     "retrieved": [
       {
@@ -408,7 +408,7 @@
   {
     "question_id": 395752003,
     "question": "What color are the hubcaps?",
-    "answer": "redgre",
+    "answer": "greenred",
     "rag_used": true,
     "retrieved": [
       {
@@ -437,7 +437,7 @@
   {
     "question_id": 395752004,
     "question": "Is someone getting on this street car?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -466,7 +466,7 @@
   {
     "question_id": 264683000,
     "question": "Is this airplane inside?",
-    "answer": "yes",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -495,7 +495,7 @@
   {
     "question_id": 264683001,
     "question": "What airline does the plane fly for?",
-    "answer": "americ",
+    "answer": "airfran",
     "rag_used": true,
     "retrieved": [
       {
@@ -524,7 +524,7 @@
   {
     "question_id": 264683002,
     "question": "Are there planes hanging?",
-    "answer": "yes",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -553,7 +553,7 @@
   {
     "question_id": 264686000,
     "question": "How many side tables are there?",
-    "answer": "321",
+    "answer": "21and",
     "rag_used": true,
     "retrieved": [
       {
@@ -582,7 +582,7 @@
   {
     "question_id": 264686001,
     "question": "How many windows are on the wall?",
-    "answer": "324",
+    "answer": "42and",
     "rag_used": true,
     "retrieved": [
       {
@@ -611,7 +611,7 @@
   {
     "question_id": 264686002,
     "question": "Is the TV a tube or flat screen?",
-    "answer": "flatsc",
+    "answer": "flatscre",
     "rag_used": true,
     "retrieved": [
       {
@@ -640,7 +640,7 @@
   {
     "question_id": 133619000,
     "question": "What type of truck is it?",
-    "answer": "firetr",
+    "answer": "firetruck",
     "rag_used": true,
     "retrieved": [
       {
@@ -669,7 +669,7 @@
   {
     "question_id": 133619001,
     "question": "What time of day is it?",
-    "answer": "nightt",
+    "answer": "nightday",
     "rag_used": true,
     "retrieved": [
       {
@@ -698,7 +698,7 @@
   {
     "question_id": 133619002,
     "question": "What color is the light above the hood of the truck?",
-    "answer": "redora",
+    "answer": "redorang",
     "rag_used": true,
     "retrieved": [
       {
@@ -727,7 +727,7 @@
   {
     "question_id": 133620000,
     "question": "Why does the woman have her hair up?",
-    "answer": "concealing her face",
+    "answer": "security andno",
     "rag_used": true,
     "retrieved": [
       {
@@ -756,7 +756,7 @@
   {
     "question_id": 133620001,
     "question": "Is she wearing glasses?",
-    "answer": "yesnoy",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -785,7 +785,7 @@
   {
     "question_id": 133620002,
     "question": "What is she wearing on her head?",
-    "answer": "hat andglassesgloves",
+    "answer": "hat,glas",
     "rag_used": true,
     "retrieved": [
       {
@@ -814,7 +814,7 @@
   {
     "question_id": 133620003,
     "question": "Is the woman happy?",
-    "answer": "yesnoy",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -843,7 +843,7 @@
   {
     "question_id": 526837000,
     "question": "Is this man dressed for the weather?",
-    "answer": "yes",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -872,7 +872,7 @@
   {
     "question_id": 526837001,
     "question": "What is this man holding?",
-    "answer": "skis and polesskies",
+    "answer": "skis poles",
     "rag_used": true,
     "retrieved": [
       {
@@ -901,7 +901,7 @@
   {
     "question_id": 526837002,
     "question": "What is covering the ground?",
-    "answer": "snowfa",
+    "answer": "snowing",
     "rag_used": true,
     "retrieved": [
       {
@@ -930,7 +930,7 @@
   {
     "question_id": 133622000,
     "question": "Are these vegetables or fruits?",
-    "answer": "vegeta",
+    "answer": "vegetables",
     "rag_used": true,
     "retrieved": [
       {
@@ -959,7 +959,7 @@
   {
     "question_id": 133622001,
     "question": "What is the yellow topping?",
-    "answer": "cheese",
+    "answer": "cheese andon",
     "rag_used": true,
     "retrieved": [
       {
@@ -988,7 +988,7 @@
   {
     "question_id": 133622002,
     "question": "Is this a high class dish?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1017,7 +1017,7 @@
   {
     "question_id": 133622003,
     "question": "What is the long thin food with seeds?",
-    "answer": "cake",
+    "answer": "cakeepot",
     "rag_used": true,
     "retrieved": [
       {
@@ -1046,7 +1046,7 @@
   {
     "question_id": 133622004,
     "question": "What is the green topping?",
-    "answer": "broccoliccoli andcheese",
+    "answer": "broccoli andche",
     "rag_used": true,
     "retrieved": [
       {
@@ -1075,7 +1075,7 @@
   {
     "question_id": 133622005,
     "question": "What is the yellow item pictured?",
-    "answer": "cheese",
+    "answer": "cheeseca",
     "rag_used": true,
     "retrieved": [
       {
@@ -1104,7 +1104,7 @@
   {
     "question_id": 133622006,
     "question": "How are the eggs cooked?",
-    "answer": "panfri",
+    "answer": "fried andon",
     "rag_used": true,
     "retrieved": [
       {
@@ -1133,7 +1133,7 @@
   {
     "question_id": 133622007,
     "question": "What vegetable is this?",
-    "answer": "broccoliccoli andccoliccoli",
+    "answer": "broccoli andc",
     "rag_used": true,
     "retrieved": [
       {
@@ -1162,7 +1162,7 @@
   {
     "question_id": 133622008,
     "question": "What kinds of food are on the plate?",
-    "answer": "breakf",
+    "answer": "cake andbroccoli",
     "rag_used": true,
     "retrieved": [
       {
@@ -1191,7 +1191,7 @@
   {
     "question_id": 22271000,
     "question": "Is this a bright and sunny day?",
-    "answer": "no",
+    "answer": "noyesnight",
     "rag_used": true,
     "retrieved": [
       {
@@ -1220,7 +1220,7 @@
   {
     "question_id": 22271001,
     "question": "Are there people in the picture?",
-    "answer": "yes",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1249,7 +1249,7 @@
   {
     "question_id": 22271002,
     "question": "What is the name of the street sign on the ground?",
-    "answer": "westew",
+    "answer": "western6",
     "rag_used": true,
     "retrieved": [
       {
@@ -1278,7 +1278,7 @@
   {
     "question_id": 133629000,
     "question": "Is this a public place?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1307,7 +1307,7 @@
   {
     "question_id": 133629001,
     "question": "What color is the desk?",
-    "answer": "brown andblackbrownandblack",
+    "answer": "brownbla",
     "rag_used": true,
     "retrieved": [
       {
@@ -1336,7 +1336,7 @@
   {
     "question_id": 133629002,
     "question": "How many chairs have wheels?",
-    "answer": "120",
+    "answer": "02no",
     "rag_used": true,
     "retrieved": [
       {
@@ -1365,7 +1365,7 @@
   {
     "question_id": 133629003,
     "question": "Is this chair in the way of people who might walk through?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1394,7 +1394,7 @@
   {
     "question_id": 133629004,
     "question": "Can these items be used to make food?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1423,7 +1423,7 @@
   {
     "question_id": 133629005,
     "question": "What do people do here?",
-    "answer": "work,s",
+    "answer": "work,study and",
     "rag_used": true,
     "retrieved": [
       {
@@ -1452,7 +1452,7 @@
   {
     "question_id": 133629006,
     "question": "What color is the lampshade?",
-    "answer": "blackw",
+    "answer": "blackbro",
     "rag_used": true,
     "retrieved": [
       {
@@ -1481,7 +1481,7 @@
   {
     "question_id": 133629007,
     "question": "What type of computer is on the desk?",
-    "answer": "laptop",
+    "answer": "laptopip",
     "rag_used": true,
     "retrieved": [
       {
@@ -1510,7 +1510,7 @@
   {
     "question_id": 133631000,
     "question": "Which is longer, the Elephant's tusks or the Elephant's trunk?",
-    "answer": "tusktrunk",
+    "answer": "tusktr",
     "rag_used": true,
     "retrieved": [
       {
@@ -1539,7 +1539,7 @@
   {
     "question_id": 133631001,
     "question": "Is it sunny out?",
-    "answer": "noyesy",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1568,7 +1568,7 @@
   {
     "question_id": 133631002,
     "question": "Does the elephant need water?",
-    "answer": "yesnoy",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1597,7 +1597,7 @@
   {
     "question_id": 2562000,
     "question": "What is the color scheme of the photo?",
-    "answer": "white andbluewhiteand",
+    "answer": "white andblue",
     "rag_used": true,
     "retrieved": [
       {
@@ -1626,7 +1626,7 @@
   {
     "question_id": 2562001,
     "question": "Are all the men tennis players?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1655,7 +1655,7 @@
   {
     "question_id": 2562002,
     "question": "Is the man wearing a wristband?",
-    "answer": "noyesnoyes",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1684,7 +1684,7 @@
   {
     "question_id": 2562003,
     "question": "What two brands are shown advertised behind the tennis player?",
-    "answer": "wata andtennis",
+    "answer": "wat andten",
     "rag_used": true,
     "retrieved": [
       {
@@ -1713,7 +1713,7 @@
   {
     "question_id": 2562004,
     "question": "What sport is being played?",
-    "answer": "tennis",
+    "answer": "tennisball",
     "rag_used": true,
     "retrieved": [
       {
@@ -1742,7 +1742,7 @@
   {
     "question_id": 133636000,
     "question": "What is the number on the left parking meter?",
-    "answer": "2 and20",
+    "answer": "21 and",
     "rag_used": true,
     "retrieved": [
       {
@@ -1771,7 +1771,7 @@
   {
     "question_id": 133636001,
     "question": "How much time is left?",
-    "answer": "0minut",
+    "answer": "0minutes15",
     "rag_used": true,
     "retrieved": [
       {
@@ -1800,7 +1800,7 @@
   {
     "question_id": 133636002,
     "question": "What number is the parking meter on the right?",
-    "answer": "212 strutConnector2",
+    "answer": "21 and",
     "rag_used": true,
     "retrieved": [
       {
@@ -1829,7 +1829,7 @@
   {
     "question_id": 133636003,
     "question": "Is there any cars on the street?",
-    "answer": "noyes",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1858,7 +1858,7 @@
   {
     "question_id": 133636004,
     "question": "Are the meters rusted?",
-    "answer": "no",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1887,7 +1887,7 @@
   {
     "question_id": 133636005,
     "question": "Is there time remaining on the meter?",
-    "answer": "yes",
+    "answer": "yesno0",
     "rag_used": true,
     "retrieved": [
       {
@@ -1916,7 +1916,7 @@
   {
     "question_id": 133636006,
     "question": "How many meters are there?",
-    "answer": "22",
+    "answer": "20 and",
     "rag_used": true,
     "retrieved": [
       {
@@ -1945,7 +1945,7 @@
   {
     "question_id": 133645000,
     "question": "Is there someone on the bench?",
-    "answer": "noyes",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -1974,7 +1974,7 @@
   {
     "question_id": 133645001,
     "question": "Are the street lights turned on?",
-    "answer": "yesnoy",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -2003,7 +2003,7 @@
   {
     "question_id": 133645002,
     "question": "Is the water clear?",
-    "answer": "yes",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -2032,7 +2032,7 @@
   {
     "question_id": 133645003,
     "question": "What type of boat is in the water?",
-    "answer": "boat",
+    "answer": "boatooning",
     "rag_used": true,
     "retrieved": [
       {
@@ -2061,7 +2061,7 @@
   {
     "question_id": 264718000,
     "question": "How long is the parking on the street?",
-    "answer": "2hours",
+    "answer": "2hours30",
     "rag_used": true,
     "retrieved": [
       {
@@ -2090,7 +2090,7 @@
   {
     "question_id": 264718001,
     "question": "Do you have to pay to park here?",
-    "answer": "noyesy",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -2119,7 +2119,7 @@
   {
     "question_id": 264718002,
     "question": "Which side of the sign is the road on?",
-    "answer": "right\u0019left",
+    "answer": "rightsid",
     "rag_used": true,
     "retrieved": [
       {
@@ -2148,7 +2148,7 @@
   {
     "question_id": 264718003,
     "question": "What does the sign read?",
-    "answer": "2parki",
+    "answer": "2parking and",
     "rag_used": true,
     "retrieved": [
       {
@@ -2177,7 +2177,7 @@
   {
     "question_id": 264718004,
     "question": "What does the sign say?",
-    "answer": "parking2 and2.2",
+    "answer": "2parking and",
     "rag_used": true,
     "retrieved": [
       {
@@ -2206,7 +2206,7 @@
   {
     "question_id": 264718005,
     "question": "What phone number is on the sign?",
-    "answer": "908929",
+    "answer": "08738",
     "rag_used": true,
     "retrieved": [
       {
@@ -2235,7 +2235,7 @@
   {
     "question_id": 264718006,
     "question": "What modes of transportation are in the picture?",
-    "answer": "cars,t",
+    "answer": "cars and buses",
     "rag_used": true,
     "retrieved": [
       {
@@ -2264,7 +2264,7 @@
   {
     "question_id": 264718007,
     "question": "What sign is to the right of the photo?",
-    "answer": "parking and22park",
+    "answer": "2parking and",
     "rag_used": true,
     "retrieved": [
       {
@@ -2293,7 +2293,7 @@
   {
     "question_id": 133648000,
     "question": "Is the bat blue?",
-    "answer": "yesnoyesno",
+    "answer": "yesno strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -2322,7 +2322,7 @@
   {
     "question_id": 133648001,
     "question": "Is the photo colored?",
-    "answer": "nononoyes",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -2351,7 +2351,7 @@
   {
     "question_id": 133648002,
     "question": "What color is the home plate umpire's shirt?",
-    "answer": "bluewh",
+    "answer": "bluewhit",
     "rag_used": true,
     "retrieved": [
       {
@@ -2380,7 +2380,7 @@
   {
     "question_id": 133648003,
     "question": "Which game are they playing?",
-    "answer": "baseba",
+    "answer": "baseball",
     "rag_used": true,
     "retrieved": [
       {
@@ -2409,7 +2409,7 @@
   {
     "question_id": 459182000,
     "question": "What are they carrying?",
-    "answer": "surfboards androcks",
+    "answer": "surfboards",
     "rag_used": true,
     "retrieved": [
       {
@@ -2438,7 +2438,7 @@
   {
     "question_id": 459182001,
     "question": "What is in the foreground?",
-    "answer": "beach andsurfboarders",
+    "answer": "water andsurf",
     "rag_used": true,
     "retrieved": [
       {
@@ -2467,7 +2467,7 @@
   {
     "question_id": 459182002,
     "question": "How many people are there?",
-    "answer": "22 and1",
+    "answer": "21 and",
     "rag_used": true,
     "retrieved": [
       {
@@ -2496,7 +2496,7 @@
   {
     "question_id": 395801000,
     "question": "Is it morning or evening?",
-    "answer": "mornin",
+    "answer": "morningn",
     "rag_used": true,
     "retrieved": [
       {
@@ -2525,7 +2525,7 @@
   {
     "question_id": 395801001,
     "question": "How much does parking in the lot cost?",
-    "answer": "0.00",
+    "answer": "nothing0$",
     "rag_used": true,
     "retrieved": [
       {
@@ -2554,7 +2554,7 @@
   {
     "question_id": 395801002,
     "question": "What is on the road?",
-    "answer": "signs",
+    "answer": "streetli",
     "rag_used": true,
     "retrieved": [
       {
@@ -2583,7 +2583,7 @@
   {
     "question_id": 395801003,
     "question": "How many people are in the picture?",
-    "answer": "3421",
+    "answer": "21and",
     "rag_used": true,
     "retrieved": [
       {
@@ -2612,7 +2612,7 @@
   {
     "question_id": 395801004,
     "question": "Do the people know each other?",
-    "answer": "yes",
+    "answer": "noyes strutConnector",
     "rag_used": true,
     "retrieved": [
       {
@@ -2670,7 +2670,7 @@
   {
     "question_id": 395801006,
     "question": "How many people are in this scene?",
-    "answer": "342",
+    "answer": "24no",
     "rag_used": true,
     "retrieved": [
       {
@@ -2699,7 +2699,7 @@
   {
     "question_id": 395801007,
     "question": "What time is it?",
-    "answer": "4:30pm:",
+    "answer": "0830am",
     "rag_used": true,
     "retrieved": [
       {
@@ -2728,7 +2728,7 @@
   {
     "question_id": 264730000,
     "question": "How many arches are under the clock?",
-    "answer": "232",
+    "answer": "24",
     "rag_used": true,
     "retrieved": [
       {
@@ -2757,7 +2757,7 @@
   {
     "question_id": 264730001,
     "question": "What time is it?",
-    "answer": "10:30pm10",
+    "answer": "083000",
     "rag_used": true,
     "retrieved": [
       {
@@ -2786,7 +2786,7 @@
   {
     "question_id": 264730002,
     "question": "Is a daytime or nighttime scene depicted?",
-    "answer": "nightt",
+    "answer": "nighttim",
     "rag_used": true,
     "retrieved": [
       {
@@ -2815,7 +2815,7 @@
   {
     "question_id": 264730003,
     "question": "What kind of numbers are on the clock?",
-    "answer": "892",
+    "answer": "8915",
     "rag_used": true,
     "retrieved": [
       {
@@ -2844,7 +2844,7 @@
   {
     "question_id": 2587000,
     "question": "Which food contains the most potassium?",
-    "answer": "banana anddonutbananas",
+    "answer": "banana anddon",
     "rag_used": true,
     "retrieved": [
       {
@@ -2873,7 +2873,7 @@
   {
     "question_id": 2587001,
     "question": "What is not healthy in the baggie?",
-    "answer": "donut andbananabananas",
+    "answer": "donut andban",
     "rag_used": true,
     "retrieved": [
       {

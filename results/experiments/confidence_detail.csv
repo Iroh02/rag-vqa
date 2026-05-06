@@ -1,0 +1,101 @@
+question_id,question,top1_score,margin,rag_acc
+2529010,Is there snow on the ground?,1.0,0.0,1.0
+2532000,Is the skier going downhill?,0.8235,0.0,1.0
+2532001,How do you know this skier is not alone on the mountain?,0.8235,0.0,0.0
+2532002,How cold is it?,0.8235,0.0,0.0
+2532003,Is it a sunny or cloudy day?,0.8235,0.0,0.0
+2532004,What color is the sky?,0.8235,0.0,1.0
+395749000,What filter is being used in this image?,0.7899,0.0,1.0
+395749001,Are all the people elderly?,0.7899,0.0,1.0
+395749002,How many people can be seen?,0.7899,0.0,0.0
+395749003,What ocean might this be?,0.7899,0.0,0.0
+395749004,How many people are in the photo?,0.7899,0.0,0.0
+395752000,What color are the mums in the front of the photo?,0.7668,0.0,0.6666666666666666
+395752001,Can a mail truck fit behind the bus to pick up the mail?,0.7668,0.0,1.0
+395752002,"What  ""Over the Rainbow"" singer sang about this vehicle?",0.7668,0.0,1.0
+395752003,What color are the hubcaps?,0.7668,0.0,0.0
+395752004,Is someone getting on this street car?,0.7668,0.0,1.0
+264683000,Is this airplane inside?,0.7008,0.0,1.0
+264683001,What airline does the plane fly for?,0.7008,0.0,0.0
+264683002,Are there planes hanging?,0.7008,0.0,1.0
+264686000,How many side tables are there?,0.8593,0.0,0.0
+264686001,How many windows are on the wall?,0.8593,0.0,1.0
+264686002,Is the TV a tube or flat screen?,0.8593,0.0,0.0
+133619000,What type of truck is it?,0.6124,0.0,1.0
+133619001,What time of day is it?,0.6124,0.0,1.0
+133619002,What color is the light above the hood of the truck?,0.6124,0.0,0.0
+133620000,Why does the woman have her hair up?,0.673,0.0,0.0
+133620001,Is she wearing glasses?,0.673,0.0,0.0
+133620002,What is she wearing on her head?,0.673,0.0,1.0
+133620003,Is the woman happy?,0.673,0.0,1.0
+526837000,Is this man dressed for the weather?,0.8984,0.0,1.0
+526837001,What is this man holding?,0.8984,0.0,1.0
+526837002,What is covering the ground?,0.8984,0.0,1.0
+133622000,Are these vegetables or fruits?,0.7478,0.0,0.0
+133622001,What is the yellow topping?,0.7478,0.0,1.0
+133622002,Is this a high class dish?,0.7478,0.0,1.0
+133622003,What is the long thin food with seeds?,0.7478,0.0,0.0
+133622004,What is the green topping?,0.7478,0.0,0.0
+133622005,What is the yellow item pictured?,0.7478,0.0,0.0
+133622006,How are the eggs cooked?,0.7478,0.0,0.6666666666666666
+133622007,What vegetable is this?,0.7478,0.0,1.0
+133622008,What kinds of food are on the plate?,0.7478,0.0,0.0
+22271000,Is this a bright and sunny day?,0.649,0.0,1.0
+22271001,Are there people in the picture?,0.649,0.0,1.0
+22271002,What is the name of the street sign on the ground?,0.649,0.0,1.0
+133629000,Is this a public place?,0.8375,0.0,1.0
+133629001,What color is the desk?,0.8375,0.0,0.3333333333333333
+133629002,How many chairs have wheels?,0.8375,0.0,0.0
+133629003,Is this chair in the way of people who might walk through?,0.8375,0.0,1.0
+133629004,Can these items be used to make food?,0.8375,0.0,0.0
+133629005,What do people do here?,0.8375,0.0,1.0
+133629006,What color is the lampshade?,0.8375,0.0,1.0
+133629007,What type of computer is on the desk?,0.8375,0.0,1.0
+133631000,"Which is longer, the Elephant's tusks or the Elephant's trunk?",0.9014,0.0,1.0
+133631001,Is it sunny out?,0.9014,0.0,0.0
+133631002,Does the elephant need water?,0.9014,0.0,1.0
+2562000,What is the color scheme of the photo?,0.8035,0.0,0.6666666666666666
+2562001,Are all the men tennis players?,0.8035,0.0,1.0
+2562002,Is the man wearing a wristband?,0.8035,0.0,0.0
+2562003,What two brands are shown advertised behind the tennis player?,0.8035,0.0,0.0
+2562004,What sport is being played?,0.8035,0.0,1.0
+133636000,What is the number on the left parking meter?,0.719,0.0,0.0
+133636001,How much time is left?,0.719,0.0,0.0
+133636002,What number is the parking meter on the right?,0.719,0.0,0.0
+133636003,Is there any cars on the street?,0.719,0.0,1.0
+133636004,Are the meters rusted?,0.719,0.0,1.0
+133636005,Is there time remaining on the meter?,0.719,0.0,1.0
+133636006,How many meters are there?,0.719,0.0,1.0
+133645000,Is there someone on the bench?,0.7431,0.0,1.0
+133645001,Are the street lights turned on?,0.7431,0.0,1.0
+133645002,Is the water clear?,0.7431,0.0,1.0
+133645003,What type of boat is in the water?,0.7431,0.0,0.0
+264718000,How long is the parking on the street?,0.81,0.0,0.6666666666666666
+264718001,Do you have to pay to park here?,0.81,0.0,1.0
+264718002,Which side of the sign is the road on?,0.81,0.0,1.0
+264718003,What does the sign read?,0.81,0.0,0.0
+264718004,What does the sign say?,0.81,0.0,0.0
+264718005,What phone number is on the sign?,0.81,0.0,0.0
+264718006,What modes of transportation are in the picture?,0.81,0.0,1.0
+264718007,What sign is to the right of the photo?,0.81,0.0,0.0
+133648000,Is the bat blue?,0.8378,0.0,1.0
+133648001,Is the photo colored?,0.8378,0.0,1.0
+133648002,What color is the home plate umpire's shirt?,0.8378,0.0,0.0
+133648003,Which game are they playing?,0.8378,0.0,0.0
+459182000,What are they carrying?,0.8438,0.0,1.0
+459182001,What is in the foreground?,0.8438,0.0,1.0
+459182002,How many people are there?,0.8438,0.0,0.0
+395801000,Is it morning or evening?,0.6964,0.0,1.0
+395801001,How much does parking in the lot cost?,0.6964,0.0,0.0
+395801002,What is on the road?,0.6964,0.0,0.3333333333333333
+395801003,How many people are in the picture?,0.6964,0.0,0.0
+395801004,Do the people know each other?,0.6964,0.0,0.0
+395801005,How could you carry things if you were riding this bike?,0.6964,0.0,0.0
+395801006,How many people are in this scene?,0.6964,0.0,0.0
+395801007,What time is it?,0.6964,0.0,0.0
+264730000,How many arches are under the clock?,0.774,0.0,0.0
+264730001,What time is it?,0.774,0.0,0.0
+264730002,Is a daytime or nighttime scene depicted?,0.774,0.0,0.0
+264730003,What kind of numbers are on the clock?,0.774,0.0,0.0
+2587000,Which food contains the most potassium?,0.8035,0.0,0.0
+2587001,What is not healthy in the baggie?,0.8035,0.0,0.0

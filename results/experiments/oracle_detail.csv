@@ -1,0 +1,101 @@
+question_id,question,ground_truth,retrieved_answers,retrieved_scores,oracle@1,oracle@3,oracle@5
+2529010,Is there snow on the ground?,no | no | no,2 stories | pm | houses,1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0
+2532000,Is the skier going downhill?,no | no | yes,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.3333333333333333,0.3333333333333333,0.3333333333333333
+2532001,How do you know this skier is not alone on the mountain?,someone had to take photo | tracks | other ski tracks and footprints,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.0,0.0,0.0
+2532002,How cold is it?,cold | 15 degrees | freezing,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.0,0.0,0.0
+2532003,Is it a sunny or cloudy day?,sunny | cloudy | cloudy,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.0,0.0,0.0
+2532004,What color is the sky?,blue | blue | blue,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.0,0.0,0.0
+395749000,What filter is being used in this image?,black and white | black & white | black and white,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
+395749001,Are all the people elderly?,no | yes | no,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
+395749002,How many people can be seen?,4 | 4 | 4,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
+395749003,What ocean might this be?,atlantic | antarctic | atlantic,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
+395749004,How many people are in the photo?,4 | 4 | 4,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
+395752000,What color are the mums in the front of the photo?,"pink | red | pink, red, yellow",13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,0.3333333333333333,0.3333333333333333
+395752001,Can a mail truck fit behind the bus to pick up the mail?,yes | yes | yes,13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,0.0,0.0
+395752002,"What  ""Over the Rainbow"" singer sang about this vehicle?",judy garland | judy garland | train,13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,0.0,0.0
+395752003,What color are the hubcaps?,red | red | red,13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,1.0,1.0
+395752004,Is someone getting on this street car?,yes | yes | yes,13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,0.0,0.0
+264683000,Is this airplane inside?,yes | yes | yes,4 | 1 | yes,0.7008 | 0.7008 | 0.7008,0.0,1.0,1.0
+264683001,What airline does the plane fly for?,air france | air france | air france,4 | 1 | yes,0.7008 | 0.7008 | 0.7008,0.0,0.0,0.0
+264683002,Are there planes hanging?,yes | yes | yes,4 | 1 | yes,0.7008 | 0.7008 | 0.7008,0.0,1.0,1.0
+264686000,How many side tables are there?,2 | 2 | 2,books | no | living room,0.8593 | 0.8593 | 0.8593,0.0,0.0,0.0
+264686001,How many windows are on the wall?,3 | 3 | 3,books | no | living room,0.8593 | 0.8593 | 0.8593,0.0,0.0,0.0
+264686002,Is the TV a tube or flat screen?,tube | tube | tube,books | no | living room,0.8593 | 0.8593 | 0.8593,0.0,0.0,0.0
+133619000,What type of truck is it?,fire engine | fire truck | service truck,yes | no | yes,0.6124 | 0.6124 | 0.6124,0.0,0.0,0.0
+133619001,What time of day is it?,night | night | night,yes | no | yes,0.6124 | 0.6124 | 0.6124,0.0,0.0,0.0
+133619002,What color is the light above the hood of the truck?,yellow | blue | blue,yes | no | yes,0.6124 | 0.6124 | 0.6124,0.0,0.0,0.0
+133620000,Why does the woman have her hair up?,uniform | on duty | uniform,no | no | chess,0.6730 | 0.6730 | 0.6730,0.0,0.0,0.0
+133620001,Is she wearing glasses?,yes | yes | yes,no | no | chess,0.6730 | 0.6730 | 0.6730,0.0,0.0,0.0
+133620002,What is she wearing on her head?,hat | helmet | hat,no | no | chess,0.6730 | 0.6730 | 0.6730,0.0,0.0,0.0
+133620003,Is the woman happy?,yes | yes | yes,no | no | chess,0.6730 | 0.6730 | 0.6730,0.0,0.0,0.0
+526837000,Is this man dressed for the weather?,yes | yes | yes,skiing | red | yes,0.8984 | 0.8984 | 0.8984,0.0,1.0,1.0
+526837001,What is this man holding?,ski pole | ski poles | poles,skiing | red | yes,0.8984 | 0.8984 | 0.8984,0.0,0.0,0.0
+526837002,What is covering the ground?,snow | snow | snow,skiing | red | yes,0.8984 | 0.8984 | 0.8984,0.0,0.0,0.0
+133622000,Are these vegetables or fruits?,vegetables | vegetables | vegetables,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
+133622001,What is the yellow topping?,cheese | glaze | cheese,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
+133622002,Is this a high class dish?,yes | yes | no,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.3333333333333333,0.3333333333333333
+133622003,What is the long thin food with seeds?,broccoli | cake | cheese,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
+133622004,What is the green topping?,broccoli | broccoli | broccoli,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
+133622005,What is the yellow item pictured?,cheese | cake | cheese,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
+133622006,How are the eggs cooked?,scrambled | scramble | omelet,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
+133622007,What vegetable is this?,broccoli | broccoli | broccoli,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
+133622008,What kinds of food are on the plate?,"breakfast | spinach | eggs, spinach",food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
+22271000,Is this a bright and sunny day?,no | no | no,yes | corona | no,0.6490 | 0.6490 | 0.6490,0.0,1.0,1.0
+22271001,Are there people in the picture?,yes | yes | yes,yes | corona | no,0.6490 | 0.6490 | 0.6490,1.0,1.0,1.0
+22271002,What is the name of the street sign on the ground?,western ave | western ave | western ave,yes | corona | no,0.6490 | 0.6490 | 0.6490,0.0,0.0,0.0
+133629000,Is this a public place?,no | no | no,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,1.0,1.0
+133629001,What color is the desk?,brown | brown | brown,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
+133629002,How many chairs have wheels?,1 | 1 | 1,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
+133629003,Is this chair in the way of people who might walk through?,no | no | no,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,1.0,1.0
+133629004,Can these items be used to make food?,no | no | no,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,1.0,1.0
+133629005,What do people do here?,work | work | office work,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
+133629006,What color is the lampshade?,off white | white | white,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
+133629007,What type of computer is on the desk?,mac | laptop | laptop,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
+133631000,"Which is longer, the Elephant's tusks or the Elephant's trunk?",trunk | trunk | trunk,no | yes | no,0.9014 | 0.9014 | 0.9014,0.0,0.0,0.0
+133631001,Is it sunny out?,yes | yes | yes,no | yes | no,0.9014 | 0.9014 | 0.9014,0.0,1.0,1.0
+133631002,Does the elephant need water?,yes | yes | yes,no | yes | no,0.9014 | 0.9014 | 0.9014,0.0,1.0,1.0
+2562000,What is the color scheme of the photo?,"white | white and blue | white, blue",backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
+2562001,Are all the men tennis players?,yes | no | no,backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.6666666666666666,0.6666666666666666
+2562002,Is the man wearing a wristband?,yes | yes | yes,backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
+2562003,What two brands are shown advertised behind the tennis player?,olympus and wta | olympus and wta | wta and olympus,backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
+2562004,What sport is being played?,tennis | tennis | tennis,backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
+133636000,What is the number on the left parking meter?,12 | 12 | 19,no | off | wall,0.7190 | 0.7190 | 0.7190,0.0,0.0,0.0
+133636001,How much time is left?,0 time | expired | 0,no | off | wall,0.7190 | 0.7190 | 0.7190,0.0,0.0,0.0
+133636002,What number is the parking meter on the right?,13 | 13 | 13,no | off | wall,0.7190 | 0.7190 | 0.7190,0.0,0.0,0.0
+133636003,Is there any cars on the street?,no | no | 0,no | off | wall,0.7190 | 0.7190 | 0.7190,0.6666666666666666,0.6666666666666666,0.6666666666666666
+133636004,Are the meters rusted?,no | no | no,no | off | wall,0.7190 | 0.7190 | 0.7190,1.0,1.0,1.0
+133636005,Is there time remaining on the meter?,yes | yes | no,no | off | wall,0.7190 | 0.7190 | 0.7190,0.3333333333333333,0.3333333333333333,0.3333333333333333
+133636006,How many meters are there?,2 | 2 | 2,no | off | wall,0.7190 | 0.7190 | 0.7190,0.0,0.0,0.0
+133645000,Is there someone on the bench?,no | no | no,trunks | stone | 4,0.7431 | 0.7431 | 0.7431,0.0,0.0,0.0
+133645001,Are the street lights turned on?,yes | yes | yes,trunks | stone | 4,0.7431 | 0.7431 | 0.7431,0.0,0.0,0.0
+133645002,Is the water clear?,no | yes | yes,trunks | stone | 4,0.7431 | 0.7431 | 0.7431,0.0,0.0,0.0
+133645003,What type of boat is in the water?,private | sailboat | pontoon,trunks | stone | 4,0.7431 | 0.7431 | 0.7431,0.0,0.0,0.0
+264718000,How long is the parking on the street?,12 hours | 2 hours | 7 spots,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
+264718001,Do you have to pay to park here?,yes | yes | yes,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
+264718002,Which side of the sign is the road on?,right | left | right,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
+264718003,What does the sign read?,2 hour parking 8am to 8pm | parking | 2 hour parking 8am-8pm,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
+264718004,What does the sign say?,parking | 2 hour parking | 2 hour parking,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
+264718005,What phone number is on the sign?,0 | n/a | 0,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
+264718006,What modes of transportation are in the picture?,cars | car | car,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
+264718007,What sign is to the right of the photo?,2 hour parking | parking | 2 hour parking,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
+133648000,Is the bat blue?,yes | yes | yes,shoes | bat | yes,0.8378 | 0.8378 | 0.8378,0.0,1.0,1.0
+133648001,Is the photo colored?,yes | yes | yes,shoes | bat | yes,0.8378 | 0.8378 | 0.8378,0.0,1.0,1.0
+133648002,What color is the home plate umpire's shirt?,white | black | black,shoes | bat | yes,0.8378 | 0.8378 | 0.8378,0.0,0.0,0.0
+133648003,Which game are they playing?,baseball | baseball | baseball,shoes | bat | yes,0.8378 | 0.8378 | 0.8378,0.0,0.0,0.0
+459182000,What are they carrying?,surfboards | surfboards | surfboards,yes | yes | rear,0.8438 | 0.8438 | 0.8438,0.0,0.0,0.0
+459182001,What is in the foreground?,rocks | rocks | rocks,yes | yes | rear,0.8438 | 0.8438 | 0.8438,0.0,0.0,0.0
+459182002,How many people are there?,2 | 2 | 2,yes | yes | rear,0.8438 | 0.8438 | 0.8438,0.0,0.0,0.0
+395801000,Is it morning or evening?,evening | morning | morning,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
+395801001,How much does parking in the lot cost?,nothing | free | free,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
+395801002,What is on the road?,car | car | cars,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
+395801003,How many people are in the picture?,7 | 7 | 11,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
+395801004,Do the people know each other?,no | no | no,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
+395801005,How could you carry things if you were riding this bike?,there is no bike | on my back | backpack,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
+395801006,How many people are in this scene?,25 | 15 | 9,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
+395801007,What time is it?,6:00 | 6:00 | 12:30,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
+264730000,How many arches are under the clock?,2 | 2 | 2,yes | yes | yes,0.7740 | 0.7740 | 0.7740,0.0,0.0,0.0
+264730001,What time is it?,10:50 | 10:49 | 8:45,yes | yes | yes,0.7740 | 0.7740 | 0.7740,0.0,0.0,0.0
+264730002,Is a daytime or nighttime scene depicted?,nighttime | nighttime | night,yes | yes | yes,0.7740 | 0.7740 | 0.7740,0.0,0.0,0.0
+264730003,What kind of numbers are on the clock?,roman numerals | roman | roman numerals,yes | yes | yes,0.7740 | 0.7740 | 0.7740,0.0,0.0,0.0
+2587000,Which food contains the most potassium?,banana | banana | banana,1 | bunch | 1,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
+2587001,What is not healthy in the baggie?,donut | doughnut | donut,1 | bunch | 1,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0

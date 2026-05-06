@@ -137,13 +137,26 @@ def build_hints_prompt(question, retrieved_examples):
     return "\n".join(lines)
 
 
-def _clean_hints_output(raw_answer):
-    """Remove repetition artifacts from fine-tuned model output.
+import re as _re
 
-    The fine-tuned model sometimes generates repeated tokens like
-    'noyesnonoyesno' or 'cloudycloudyyes'. We extract the first clean phrase.
+def _clean_hints_output(raw_answer):
+    """Extract first clean 1-3 word answer from fine-tuned model output.
+
+    Handles run-on concatenation like 'blueblueblue', 'verycold0 -0.5',
+    'black andwhitenofilter' by taking only the first meaningful words.
     """
-    # Split into words and deduplicate consecutive repeats
+    if not raw_answer:
+        return raw_answer
+
+    # Stop at first digit-then-symbol noise (e.g. "verycold0 -0.5" -> "verycold")
+    raw_answer = _re.split(r'\d+\s*[-–]', raw_answer)[0].strip()
+
+    # Stop at common noise suffixes
+    for noise in ["nofilter", "nofilt", "filter"]:
+        if noise in raw_answer.lower() and len(raw_answer) > len(noise):
+            raw_answer = raw_answer.lower().split(noise)[0].strip()
+
+    # Split into words, deduplicate consecutive repeats, cap at 3
     words = raw_answer.split()
     if not words:
         return raw_answer
@@ -152,26 +165,22 @@ def _clean_hints_output(raw_answer):
     for w in words[1:]:
         if w.lower() != deduped[-1].lower():
             deduped.append(w)
-
-    # Cap at 3 words
     clean = " ".join(deduped[:3])
 
-    # If still looks like a run-on (no spaces, > 10 chars), take first 'word'
-    # by splitting at the point where a repeated pattern starts
-    if " " not in raw_answer and len(raw_answer) > 10:
-        # Try to find a short prefix that repeats: e.g. "nono..." -> "no"
-        for length in range(2, 8):
-            prefix = raw_answer[:length]
-            if raw_answer.startswith(prefix * 2):
+    # Handle run-on with no spaces (e.g. "blueblueblue", "noothe")
+    if " " not in clean and len(clean) > 10:
+        for length in range(2, 9):
+            prefix = clean[:length]
+            if clean.startswith(prefix * 2):
                 return prefix
-        # Fallback: just take first 6 chars trimmed to a reasonable length
-        clean = raw_answer[:6]
+        # Fallback: take up to first repeated character sequence
+        clean = clean[:8]
 
     return clean.strip()
 
 
 def generate_answer_with_hints(model, processor, image, question,
-                                retrieved_examples, max_new_tokens=7):
+                                retrieved_examples, max_new_tokens=4):
     """Generate answer using Hints-style RAG prompt.
 
     Use with fine-tuned models trained on hints-format prompts.
@@ -189,24 +198,24 @@ def generate_answer_with_hints(model, processor, image, question,
         generated_ids = model.generate(
             **inputs,
             max_new_tokens=max_new_tokens,
-            num_beams=3,
-            early_stopping=True,
-            no_repeat_ngram_size=2,
+            do_sample=False,
+            num_beams=1,
+            repetition_penalty=2.5,
         )
 
-    # Decode only the newly generated tokens (not the prompt)
+    # Decode only newly generated tokens
     new_tokens = generated_ids[0, prompt_len:]
     answer = processor.decode(new_tokens, skip_special_tokens=True).strip()
 
-    # Strip any echoed "Answer:" prefix
+    # Strip echoed prefix
     for prefix in ["Answer:", "answer:"]:
         if answer.startswith(prefix):
             answer = answer[len(prefix):].strip()
 
-    # Stop at newline (model sometimes continues into next line)
+    # Stop at newline
     answer = answer.split("\n")[0].strip()
 
-    # Remove repetition artifacts
+    # Clean repetition artifacts
     answer = _clean_hints_output(answer)
 
     answer = _postprocess_answer(answer, question)

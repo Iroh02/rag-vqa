@@ -52,6 +52,19 @@ def main():
     rag_train_parser.add_argument("--output", type=str, default=None)
     rag_train_parser.add_argument("--no_hints_ratio", type=float, default=0.15)
 
+    # Experiments command
+    exp_parser = subparsers.add_parser("experiments", help="Run ablation experiments")
+    exp_parser.add_argument(
+        "--exp", required=True,
+        choices=["build_kb", "random_baseline", "oracle", "perfect_hint",
+                 "kb_ablation", "topk_ablation", "answer_type",
+                 "helpful_harmful", "confidence", "all"],
+    )
+    exp_parser.add_argument("--num_eval", type=int, default=500)
+    exp_parser.add_argument("--no_quantize", action="store_true")
+    exp_parser.add_argument("--kb_sizes", nargs="+", type=int,
+                            default=[500, 1000, 2000, 5000, 10000, 20000])
+
     # RAG fine-tune command
     rag_ft_parser = subparsers.add_parser("rag-finetune",
                                           help="Fine-tune BLIP-2 on RAG prompts")
@@ -61,6 +74,10 @@ def main():
     rag_ft_parser.add_argument("--batch_size", type=int, default=2)
     rag_ft_parser.add_argument("--grad_accum", type=int, default=8)
     rag_ft_parser.add_argument("--lr", type=float, default=1e-4)
+    rag_ft_parser.add_argument("--resume_from", type=str, default=None,
+                               help="Checkpoint to resume from (e.g. results/checkpoints/rag_checkpoint_epoch_3)")
+    rag_ft_parser.add_argument("--epoch_offset", type=int, default=0,
+                               help="Epoch number offset for checkpoint naming (e.g. 3 to save as epoch_4, epoch_5)")
 
     args = parser.parse_args()
 
@@ -136,6 +153,102 @@ def main():
             no_hints_ratio=args.no_hints_ratio,
         )
 
+    elif args.command == "experiments":
+        import pickle as _pickle
+        from src.config import RAG_INDEX_DIR as _RAG_INDEX_DIR
+        from src.dataset import load_vqav2 as _load_vqav2
+        from src.experiments import (
+            EVAL_OFFSET,
+            build_all_kb_sizes,
+            compute_oracle,
+            load_retriever,
+            plot_answer_type,
+            plot_confidence_vs_accuracy,
+            plot_helpful_harmful,
+            plot_kb_ablation,
+            plot_oracle,
+            plot_topk_ablation,
+            run_all,
+            run_answer_type_breakdown,
+            run_confidence_vs_accuracy,
+            run_helpful_harmful,
+            run_kb_ablation,
+            run_perfect_hint_test,
+            run_random_baseline,
+            run_topk_ablation,
+            save_prediction_pair,
+            _collect_predictions,
+            _load_models,
+        )
+
+        num_eval = args.num_eval
+        quantize = not args.no_quantize
+
+        if args.exp == "all":
+            run_all(num_eval=num_eval, quantize=quantize)
+
+        elif args.exp == "build_kb":
+            _eval_for_ids = _load_vqav2("validation", num_samples=num_eval,
+                                         offset=EVAL_OFFSET)
+            _eval_ids = {str(s.get("image_id", "")) for s in _eval_for_ids}
+            build_all_kb_sizes(sizes=tuple(args.kb_sizes), eval_image_ids=_eval_ids)
+
+        elif args.exp == "oracle":
+            # Does not load BLIP-2 — CLIP + FAISS only
+            _eval = _load_vqav2("validation", num_samples=num_eval, offset=EVAL_OFFSET)
+            _retriever = load_retriever()
+            _oracle = compute_oracle(_eval, _retriever, num_eval=num_eval)
+            plot_oracle(_oracle, rag_acc=0.5133, baseline_acc=0.4233)
+
+        else:
+            # All remaining experiments require BLIP-2
+            _eval = _load_vqav2("validation", num_samples=num_eval, offset=EVAL_OFFSET)
+            _retriever = load_retriever()
+            _model, _processor = _load_models(quantize=quantize)
+
+            if args.exp == "random_baseline":
+                with open(_RAG_INDEX_DIR / "metadata.pkl", "rb") as _f:
+                    _kb_meta = _pickle.load(_f)
+                run_random_baseline(_model, _processor, _eval,
+                                     _kb_meta, num_eval=num_eval)
+
+            elif args.exp == "perfect_hint":
+                run_perfect_hint_test(_model, _processor, _eval,
+                                       num_eval=num_eval)
+
+            elif args.exp == "topk_ablation":
+                _res = run_topk_ablation(_model, _processor, _eval,
+                                          _retriever, num_eval=num_eval)
+                plot_topk_ablation(_res, baseline_acc=0.4233)
+
+            elif args.exp == "kb_ablation":
+                _retriever.unload_clip()
+                _res = run_kb_ablation(_model, _processor, _eval,
+                                        kb_sizes=tuple(args.kb_sizes),
+                                        num_eval=num_eval)
+                plot_kb_ablation(_res, baseline_acc=0.4233)
+
+            elif args.exp in ("answer_type", "helpful_harmful", "confidence"):
+                _base_p, _rag_p, _meta = _collect_predictions(
+                    _model, _processor, _retriever, _eval, num_eval=num_eval
+                )
+                save_prediction_pair(_base_p, _rag_p, _eval[:num_eval], _meta)
+
+                if args.exp == "answer_type":
+                    _res = run_answer_type_breakdown(
+                        _base_p, _rag_p, _eval[:num_eval])
+                    plot_answer_type(_res)
+
+                elif args.exp == "helpful_harmful":
+                    _res = run_helpful_harmful(
+                        _base_p, _rag_p, _eval[:num_eval])
+                    plot_helpful_harmful(_res)
+
+                elif args.exp == "confidence":
+                    _res = run_confidence_vs_accuracy(
+                        _meta, _eval[:num_eval])
+                    plot_confidence_vs_accuracy(_res)
+
     elif args.command == "rag-finetune":
         from src.finetune import train_rag
         train_rag(
@@ -145,6 +258,8 @@ def main():
             batch_size=args.batch_size,
             grad_accum=args.grad_accum,
             lr=args.lr,
+            resume_from=args.resume_from,
+            epoch_offset=args.epoch_offset,
         )
 
     else:
