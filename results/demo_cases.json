@@ -1,0 +1,254 @@
+[
+  {
+    "question_id": "262148001",
+    "question": "What are the people in the background doing?",
+    "ground_truth": "watching",
+    "gt_all": [
+      "spectating",
+      "watching",
+      "watching"
+    ],
+    "baseline_pred": "Watching the skateboarder",
+    "baseline_acc": 0.0,
+    "rag_pred": "watching",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "What is he on top of?",
+        "answer": "picnic table",
+        "img_score": 0.9999985694885254,
+        "q_score": 0.0,
+        "score": 0.9999985694885254
+      },
+      {
+        "question": "Where is he looking?",
+        "answer": "down",
+        "img_score": 0.9999984502792358,
+        "q_score": 0.0,
+        "score": 0.9999984502792358
+      },
+      {
+        "question": "What are the people in the background doing?",
+        "answer": "watching",
+        "img_score": 0.9999984502792358,
+        "q_score": 0.9999998807907104,
+        "score": 0.9999984502792358
+      }
+    ],
+    "image_path": "data\\demo_images\\262148001.jpg",
+    "label": "RAG Helps - Open-ended (best)",
+    "leakage_warning": true
+  },
+  {
+    "question_id": "393225000",
+    "question": "What website copyrighted the picture?",
+    "ground_truth": "foodiebakercom",
+    "gt_all": [
+      "foodiebakercom",
+      "foodiebakercom",
+      "foodiebaker"
+    ],
+    "baseline_pred": "none",
+    "baseline_acc": 0.0,
+    "rag_pred": "foodiebakercom",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "Is this a creamy soup?",
+        "answer": "no",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.0,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What is to the right of the soup?",
+        "answer": "chopsticks",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.0,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What website copyrighted the picture?",
+        "answer": "foodiebakercom",
+        "img_score": 0.9999968409538269,
+        "q_score": 1.0,
+        "score": 0.9999968409538269
+      }
+    ],
+    "image_path": "data\\demo_images\\393225000.jpg",
+    "label": "RAG Helps - Open-ended (2nd)",
+    "leakage_warning": true
+  },
+  {
+    "question_id": "393225001",
+    "question": "Is this a creamy soup?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 0.0,
+    "rag_pred": "no",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "Is this a creamy soup?",
+        "answer": "no",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.9999997615814209,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What is to the right of the soup?",
+        "answer": "chopsticks",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.9097810983657837,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What website copyrighted the picture?",
+        "answer": "foodiebakercom",
+        "img_score": 0.9999968409538269,
+        "q_score": 0.0,
+        "score": 0.9999968409538269
+      }
+    ],
+    "image_path": "data\\demo_images\\393225001.jpg",
+    "label": "RAG Helps - Yes/No fixed",
+    "leakage_warning": true
+  },
+  {
+    "question_id": "393225002",
+    "question": "Is this rice noodle soup?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 1.0,
+    "rag_pred": "no",
+    "rag_acc": 0.0,
+    "delta": -1.0,
+    "verdict": "harmful",
+    "retrieved": [
+      {
+        "question": "Is this a creamy soup?",
+        "answer": "no",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.8822814226150513,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What is to the right of the soup?",
+        "answer": "chopsticks",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.8656065464019775,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What website copyrighted the picture?",
+        "answer": "foodiebakercom",
+        "img_score": 0.9999968409538269,
+        "q_score": 0.0,
+        "score": 0.9999968409538269
+      }
+    ],
+    "image_path": "data\\demo_images\\393225002.jpg",
+    "label": "RAG Hurts - Yes/No confused",
+    "leakage_warning": false
+  },
+  {
+    "question_id": "393226001",
+    "question": "How many photo's can you see?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "4"
+    ],
+    "baseline_pred": "1",
+    "baseline_acc": 1.0,
+    "rag_pred": "1",
+    "rag_acc": 1.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the man doing in the street?",
+        "answer": "walking",
+        "img_score": 0.9999961853027344,
+        "q_score": 0.0,
+        "score": 0.9999961853027344
+      },
+      {
+        "question": "How many photo's can you see?",
+        "answer": "1",
+        "img_score": 0.9999961853027344,
+        "q_score": 1.0,
+        "score": 0.9999961853027344
+      },
+      {
+        "question": "What does the truck on the left sell?",
+        "answer": "ice cream",
+        "img_score": 0.9999960660934448,
+        "q_score": 0.0,
+        "score": 0.9999960660934448
+      }
+    ],
+    "image_path": "data\\demo_images\\393226001.jpg",
+    "label": "Both Correct - No change",
+    "leakage_warning": true
+  },
+  {
+    "question_id": "262148000",
+    "question": "Where is he looking?",
+    "ground_truth": "down",
+    "gt_all": [
+      "down",
+      "down",
+      "at table"
+    ],
+    "baseline_pred": "sky",
+    "baseline_acc": 0.0,
+    "rag_pred": "up",
+    "rag_acc": 0.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is he on top of?",
+        "answer": "picnic table",
+        "img_score": 0.9999985694885254,
+        "q_score": 0.0,
+        "score": 0.9999985694885254
+      },
+      {
+        "question": "Where is he looking?",
+        "answer": "down",
+        "img_score": 0.9999984502792358,
+        "q_score": 1.0,
+        "score": 0.9999984502792358
+      },
+      {
+        "question": "What are the people in the background doing?",
+        "answer": "watching",
+        "img_score": 0.9999984502792358,
+        "q_score": 0.0,
+        "score": 0.9999984502792358
+      }
+    ],
+    "image_path": "data\\demo_images\\262148000.jpg",
+    "label": "Both Fail - Hard question",
+    "leakage_warning": true
+  }
+]

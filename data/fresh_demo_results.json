@@ -1,0 +1,1202 @@
+[
+  {
+    "question_id": "262148000",
+    "question": "Where is he looking?",
+    "ground_truth": "down",
+    "gt_all": [
+      "down",
+      "down",
+      "at table"
+    ],
+    "baseline_pred": "sky",
+    "baseline_acc": 0.0,
+    "rag_pred": "up",
+    "rag_acc": 0.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is he on top of?",
+        "answer": "picnic table",
+        "img_score": 0.9999985694885254,
+        "q_score": 0.0,
+        "score": 0.9999985694885254
+      },
+      {
+        "question": "Where is he looking?",
+        "answer": "down",
+        "img_score": 0.9999984502792358,
+        "q_score": 1.0,
+        "score": 0.9999984502792358
+      },
+      {
+        "question": "What are the people in the background doing?",
+        "answer": "watching",
+        "img_score": 0.9999984502792358,
+        "q_score": 0.0,
+        "score": 0.9999984502792358
+      }
+    ],
+    "image_path": "data\\demo_images\\262148000.jpg"
+  },
+  {
+    "question_id": "262148001",
+    "question": "What are the people in the background doing?",
+    "ground_truth": "watching",
+    "gt_all": [
+      "spectating",
+      "watching",
+      "watching"
+    ],
+    "baseline_pred": "Watching the skateboarder",
+    "baseline_acc": 0.0,
+    "rag_pred": "watching",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "What is he on top of?",
+        "answer": "picnic table",
+        "img_score": 0.9999985694885254,
+        "q_score": 0.0,
+        "score": 0.9999985694885254
+      },
+      {
+        "question": "Where is he looking?",
+        "answer": "down",
+        "img_score": 0.9999984502792358,
+        "q_score": 0.0,
+        "score": 0.9999984502792358
+      },
+      {
+        "question": "What are the people in the background doing?",
+        "answer": "watching",
+        "img_score": 0.9999984502792358,
+        "q_score": 0.9999998807907104,
+        "score": 0.9999984502792358
+      }
+    ],
+    "image_path": "data\\demo_images\\262148001.jpg"
+  },
+  {
+    "question_id": "262148002",
+    "question": "What is he on top of?",
+    "ground_truth": "picnic table",
+    "gt_all": [
+      "table",
+      "table",
+      "table"
+    ],
+    "baseline_pred": "skateboard",
+    "baseline_acc": 0.3333333333333333,
+    "rag_pred": "picnic table",
+    "rag_acc": 1.0,
+    "delta": 0.6666666666666667,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "What is he on top of?",
+        "answer": "picnic table",
+        "img_score": 0.9999985694885254,
+        "q_score": 1.0,
+        "score": 0.9999985694885254
+      },
+      {
+        "question": "Where is he looking?",
+        "answer": "down",
+        "img_score": 0.9999984502792358,
+        "q_score": 0.911988377571106,
+        "score": 0.9999984502792358
+      },
+      {
+        "question": "What are the people in the background doing?",
+        "answer": "watching",
+        "img_score": 0.9999984502792358,
+        "q_score": 0.0,
+        "score": 0.9999984502792358
+      }
+    ],
+    "image_path": "data\\demo_images\\262148002.jpg"
+  },
+  {
+    "question_id": "393225000",
+    "question": "What website copyrighted the picture?",
+    "ground_truth": "foodiebakercom",
+    "gt_all": [
+      "foodiebakercom",
+      "foodiebakercom",
+      "foodiebaker"
+    ],
+    "baseline_pred": "none",
+    "baseline_acc": 0.0,
+    "rag_pred": "foodiebakercom",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "Is this a creamy soup?",
+        "answer": "no",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.0,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What is to the right of the soup?",
+        "answer": "chopsticks",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.0,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What website copyrighted the picture?",
+        "answer": "foodiebakercom",
+        "img_score": 0.9999968409538269,
+        "q_score": 1.0,
+        "score": 0.9999968409538269
+      }
+    ],
+    "image_path": "data\\demo_images\\393225000.jpg"
+  },
+  {
+    "question_id": "393225001",
+    "question": "Is this a creamy soup?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 0.0,
+    "rag_pred": "no",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "Is this a creamy soup?",
+        "answer": "no",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.9999997615814209,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What is to the right of the soup?",
+        "answer": "chopsticks",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.9097810983657837,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What website copyrighted the picture?",
+        "answer": "foodiebakercom",
+        "img_score": 0.9999968409538269,
+        "q_score": 0.0,
+        "score": 0.9999968409538269
+      }
+    ],
+    "image_path": "data\\demo_images\\393225001.jpg"
+  },
+  {
+    "question_id": "393225002",
+    "question": "Is this rice noodle soup?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 1.0,
+    "rag_pred": "no",
+    "rag_acc": 0.0,
+    "delta": -1.0,
+    "verdict": "harmful",
+    "retrieved": [
+      {
+        "question": "Is this a creamy soup?",
+        "answer": "no",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.8822814226150513,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What is to the right of the soup?",
+        "answer": "chopsticks",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.8656065464019775,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What website copyrighted the picture?",
+        "answer": "foodiebakercom",
+        "img_score": 0.9999968409538269,
+        "q_score": 0.0,
+        "score": 0.9999968409538269
+      }
+    ],
+    "image_path": "data\\demo_images\\393225002.jpg"
+  },
+  {
+    "question_id": "393225003",
+    "question": "What is to the right of the soup?",
+    "ground_truth": "chopsticks",
+    "gt_all": [
+      "chopsticks",
+      "chopsticks",
+      "chopsticks"
+    ],
+    "baseline_pred": "bowl of noodles",
+    "baseline_acc": 0.0,
+    "rag_pred": "chopsticks",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "Is this a creamy soup?",
+        "answer": "no",
+        "img_score": 0.9999969601631165,
+        "q_score": 0.9097811579704285,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What is to the right of the soup?",
+        "answer": "chopsticks",
+        "img_score": 0.9999969601631165,
+        "q_score": 1.0,
+        "score": 0.9999969601631165
+      },
+      {
+        "question": "What website copyrighted the picture?",
+        "answer": "foodiebakercom",
+        "img_score": 0.9999968409538269,
+        "q_score": 0.0,
+        "score": 0.9999968409538269
+      }
+    ],
+    "image_path": "data\\demo_images\\393225003.jpg"
+  },
+  {
+    "question_id": "393226000",
+    "question": "What is the man doing in the street?",
+    "ground_truth": "walking",
+    "gt_all": [
+      "crossing it",
+      "walking",
+      "walking"
+    ],
+    "baseline_pred": "crossing the street",
+    "baseline_acc": 0.0,
+    "rag_pred": "walking",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "What is the man doing in the street?",
+        "answer": "walking",
+        "img_score": 0.9999961853027344,
+        "q_score": 1.0000001192092896,
+        "score": 0.9999961853027344
+      },
+      {
+        "question": "How many photo's can you see?",
+        "answer": "1",
+        "img_score": 0.9999961853027344,
+        "q_score": 0.0,
+        "score": 0.9999961853027344
+      },
+      {
+        "question": "What does the truck on the left sell?",
+        "answer": "ice cream",
+        "img_score": 0.9999960660934448,
+        "q_score": 0.0,
+        "score": 0.9999960660934448
+      }
+    ],
+    "image_path": "data\\demo_images\\393226000.jpg"
+  },
+  {
+    "question_id": "393226001",
+    "question": "How many photo's can you see?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "4"
+    ],
+    "baseline_pred": "1",
+    "baseline_acc": 1.0,
+    "rag_pred": "1",
+    "rag_acc": 1.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the man doing in the street?",
+        "answer": "walking",
+        "img_score": 0.9999961853027344,
+        "q_score": 0.0,
+        "score": 0.9999961853027344
+      },
+      {
+        "question": "How many photo's can you see?",
+        "answer": "1",
+        "img_score": 0.9999961853027344,
+        "q_score": 1.0,
+        "score": 0.9999961853027344
+      },
+      {
+        "question": "What does the truck on the left sell?",
+        "answer": "ice cream",
+        "img_score": 0.9999960660934448,
+        "q_score": 0.0,
+        "score": 0.9999960660934448
+      }
+    ],
+    "image_path": "data\\demo_images\\393226001.jpg"
+  },
+  {
+    "question_id": "393226002",
+    "question": "What does the truck on the left sell?",
+    "ground_truth": "ice cream",
+    "gt_all": [
+      "ice cream",
+      "ice cream",
+      "ice cream"
+    ],
+    "baseline_pred": "Ice cream",
+    "baseline_acc": 1.0,
+    "rag_pred": "ice cream",
+    "rag_acc": 1.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the man doing in the street?",
+        "answer": "walking",
+        "img_score": 0.9999961853027344,
+        "q_score": 0.0,
+        "score": 0.9999961853027344
+      },
+      {
+        "question": "How many photo's can you see?",
+        "answer": "1",
+        "img_score": 0.9999961853027344,
+        "q_score": 0.0,
+        "score": 0.9999961853027344
+      },
+      {
+        "question": "What does the truck on the left sell?",
+        "answer": "ice cream",
+        "img_score": 0.9999960660934448,
+        "q_score": 0.9999999403953552,
+        "score": 0.9999960660934448
+      }
+    ],
+    "image_path": "data\\demo_images\\393226002.jpg"
+  },
+  {
+    "question_id": "240301000",
+    "question": "Why is there a gap between the roof and wall?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "ventilation",
+      "provide air",
+      "to air out barn from stinky bovines"
+    ],
+    "baseline_pred": "To allow the cows to graze",
+    "baseline_acc": 0.0,
+    "rag_pred": "yes",
+    "rag_acc": 0.6666666666666666,
+    "delta": 0.6666666666666666,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "Why is there a gap between the roof and wall?",
+        "answer": "yes",
+        "img_score": 0.9999977350234985,
+        "q_score": 1.000000238418579,
+        "score": 0.9999977350234985
+      },
+      {
+        "question": "Is it daylight in this picture?",
+        "answer": "yes",
+        "img_score": 0.9999977350234985,
+        "q_score": 0.0,
+        "score": 0.9999977350234985
+      },
+      {
+        "question": "Why is the cow laying down?",
+        "answer": "tired",
+        "img_score": 0.9999977350234985,
+        "q_score": 0.0,
+        "score": 0.9999977350234985
+      }
+    ],
+    "image_path": "data\\demo_images\\240301000.jpg"
+  },
+  {
+    "question_id": "240301001",
+    "question": "Is it daylight in this picture?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 1.0,
+    "rag_pred": "yes",
+    "rag_acc": 1.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "Why is there a gap between the roof and wall?",
+        "answer": "yes",
+        "img_score": 0.9999977350234985,
+        "q_score": 0.0,
+        "score": 0.9999977350234985
+      },
+      {
+        "question": "Is it daylight in this picture?",
+        "answer": "yes",
+        "img_score": 0.9999977350234985,
+        "q_score": 1.000000238418579,
+        "score": 0.9999977350234985
+      },
+      {
+        "question": "Why is the cow laying down?",
+        "answer": "tired",
+        "img_score": 0.9999977350234985,
+        "q_score": 0.0,
+        "score": 0.9999977350234985
+      }
+    ],
+    "image_path": "data\\demo_images\\240301001.jpg"
+  },
+  {
+    "question_id": "240301002",
+    "question": "Why is the cow laying down?",
+    "ground_truth": "tired",
+    "gt_all": [
+      "tired",
+      "tired",
+      "4"
+    ],
+    "baseline_pred": "Because the cow is dead",
+    "baseline_acc": 0.0,
+    "rag_pred": "tired",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "Why is there a gap between the roof and wall?",
+        "answer": "yes",
+        "img_score": 0.9999977350234985,
+        "q_score": 0.0,
+        "score": 0.9999977350234985
+      },
+      {
+        "question": "Is it daylight in this picture?",
+        "answer": "yes",
+        "img_score": 0.9999977350234985,
+        "q_score": 0.0,
+        "score": 0.9999977350234985
+      },
+      {
+        "question": "Why is the cow laying down?",
+        "answer": "tired",
+        "img_score": 0.9999977350234985,
+        "q_score": 1.0,
+        "score": 0.9999977350234985
+      }
+    ],
+    "image_path": "data\\demo_images\\240301002.jpg"
+  },
+  {
+    "question_id": "131089000",
+    "question": "What color is the grass in this picture?",
+    "ground_truth": "green",
+    "gt_all": [
+      "gray",
+      "green",
+      "green"
+    ],
+    "baseline_pred": "Black and white",
+    "baseline_acc": 0.0,
+    "rag_pred": "black and white",
+    "rag_acc": 0.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "Did the batter hit the ball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is there a chain link fence in the image?",
+        "answer": "no",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is the boy playing baseball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      }
+    ],
+    "image_path": "data\\demo_images\\131089000.jpg"
+  },
+  {
+    "question_id": "131089001",
+    "question": "Did the batter hit the ball?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "baseline_pred": "Yes",
+    "baseline_acc": 1.0,
+    "rag_pred": "yes",
+    "rag_acc": 1.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "Did the batter hit the ball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 1.0000001192092896,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is there a chain link fence in the image?",
+        "answer": "no",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is the boy playing baseball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      }
+    ],
+    "image_path": "data\\demo_images\\131089001.jpg"
+  },
+  {
+    "question_id": "131089002",
+    "question": "How many are playing ball?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "1"
+    ],
+    "baseline_pred": "One",
+    "baseline_acc": 0.0,
+    "rag_pred": "one",
+    "rag_acc": 0.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "Did the batter hit the ball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is there a chain link fence in the image?",
+        "answer": "no",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is the boy playing baseball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      }
+    ],
+    "image_path": "data\\demo_images\\131089002.jpg"
+  },
+  {
+    "question_id": "131089003",
+    "question": "Is there a chain link fence in the image?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 0.0,
+    "rag_pred": "no",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "Did the batter hit the ball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is there a chain link fence in the image?",
+        "answer": "no",
+        "img_score": 0.9999983310699463,
+        "q_score": 1.0000001192092896,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is the boy playing baseball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      }
+    ],
+    "image_path": "data\\demo_images\\131089003.jpg"
+  },
+  {
+    "question_id": "131089004",
+    "question": "Is the boy playing baseball?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 1.0,
+    "rag_pred": "yes",
+    "rag_acc": 1.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "Did the batter hit the ball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.9052932262420654,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is there a chain link fence in the image?",
+        "answer": "no",
+        "img_score": 0.9999983310699463,
+        "q_score": 0.0,
+        "score": 0.9999983310699463
+      },
+      {
+        "question": "Is the boy playing baseball?",
+        "answer": "yes",
+        "img_score": 0.9999983310699463,
+        "q_score": 1.0,
+        "score": 0.9999983310699463
+      }
+    ],
+    "image_path": "data\\demo_images\\131089004.jpg"
+  },
+  {
+    "question_id": "262162000",
+    "question": "Is that a folding chair?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 0.0,
+    "rag_pred": "yes",
+    "rag_acc": 0.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.8799692392349243,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162000.jpg"
+  },
+  {
+    "question_id": "262162001",
+    "question": "How many beds?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "1"
+    ],
+    "baseline_pred": "One",
+    "baseline_acc": 0.0,
+    "rag_pred": "one",
+    "rag_acc": 0.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162001.jpg"
+  },
+  {
+    "question_id": "262162002",
+    "question": "What color is the bedspread?",
+    "ground_truth": "white",
+    "gt_all": [
+      "beige",
+      "white",
+      "pink"
+    ],
+    "baseline_pred": "Beige",
+    "baseline_acc": 0.6666666666666666,
+    "rag_pred": "beige",
+    "rag_acc": 0.6666666666666666,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162002.jpg"
+  },
+  {
+    "question_id": "262162003",
+    "question": "How many pictures are there?",
+    "ground_truth": "7",
+    "gt_all": [
+      "7",
+      "7",
+      "7"
+    ],
+    "baseline_pred": "lot",
+    "baseline_acc": 0.0,
+    "rag_pred": "many",
+    "rag_acc": 0.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162003.jpg"
+  },
+  {
+    "question_id": "262162004",
+    "question": "Are these twin mattresses?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 0.3333333333333333,
+    "rag_pred": "yes",
+    "rag_acc": 0.3333333333333333,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162004.jpg"
+  },
+  {
+    "question_id": "262162005",
+    "question": "How many sources of light are there?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "1"
+    ],
+    "baseline_pred": "lot",
+    "baseline_acc": 0.0,
+    "rag_pred": "2",
+    "rag_acc": 0.6666666666666666,
+    "delta": 0.6666666666666666,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162005.jpg"
+  },
+  {
+    "question_id": "262162006",
+    "question": "Is this room decorated for the 1970s?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 0.3333333333333333,
+    "rag_pred": "yes",
+    "rag_acc": 0.3333333333333333,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.9005724191665649,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162006.jpg"
+  },
+  {
+    "question_id": "262162007",
+    "question": "Are the lights on in this room?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 0.0,
+    "rag_pred": "yes",
+    "rag_acc": 0.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.9269751310348511,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162007.jpg"
+  },
+  {
+    "question_id": "262162008",
+    "question": "Are the windows big?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 1.0,
+    "rag_pred": "yes",
+    "rag_acc": 1.0,
+    "delta": 0.0,
+    "verdict": "neutral",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162008.jpg"
+  },
+  {
+    "question_id": "262162009",
+    "question": "What is the chair made of?",
+    "ground_truth": "leather",
+    "gt_all": [
+      "leather",
+      "leather",
+      "plastic"
+    ],
+    "baseline_pred": "made of wood",
+    "baseline_acc": 0.0,
+    "rag_pred": "leather",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 1.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162009.jpg"
+  },
+  {
+    "question_id": "262162010",
+    "question": "Is this room in someone's home?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "baseline_pred": "yes",
+    "baseline_acc": 1.0,
+    "rag_pred": "bedroom",
+    "rag_acc": 0.0,
+    "delta": -1.0,
+    "verdict": "harmful",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.9641954898834229,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162010.jpg"
+  },
+  {
+    "question_id": "262162011",
+    "question": "Which room is this?",
+    "ground_truth": "bedroom",
+    "gt_all": [
+      "bedroom",
+      "bedroom",
+      "bedroom"
+    ],
+    "baseline_pred": "This is a bedroom",
+    "baseline_acc": 0.0,
+    "rag_pred": "bedroom",
+    "rag_acc": 1.0,
+    "delta": 1.0,
+    "verdict": "helpful",
+    "retrieved": [
+      {
+        "question": "What is the chair made of?",
+        "answer": "leather",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "Which room is this?",
+        "answer": "bedroom",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.9999998211860657,
+        "score": 0.9999943971633911
+      },
+      {
+        "question": "What is behind the foot of the bed?",
+        "answer": "chair",
+        "img_score": 0.9999943971633911,
+        "q_score": 0.0,
+        "score": 0.9999943971633911
+      }
+    ],
+    "image_path": "data\\demo_images\\262162011.jpg"
+  }
+]

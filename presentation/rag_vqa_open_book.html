@@ -731,6 +731,71 @@
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 17 — LIVE SYSTEM DEMO
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="Switch to the terminal and run: python demo_app.py --mode cached. The browser tab should already be open at localhost:7860. Walk through the 6 curated examples in order: (1) RAG Helps - Open-ended (best) — people watching a skateboarder, BLIP-2 gives the wrong long form, RAG gives the exact answer. (2) RAG Helps - Open-ended (2nd) — copyright watermark question, BLIP-2 says 'none', RAG reads it correctly from visual memory. (3) RAG Helps - Yes/No fixed — creamy soup question reversed. (4) RAG Hurts — soup question where RAG misleads. (5) Both Correct — counting example, no change. (6) Both Fail — 'where is he looking', model struggles even with hints. Point out the Prompt & Context tab to show exactly what BLIP-2 sees.">
+  <div class="tag" style="background:var(--blue-bg);color:var(--blue);">Live Demo</div>
+  <h2>Live System Demo</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card card-blue">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:12px;">Run the Demo</div>
+        <div style="background:#0d1117;border-radius:8px;padding:14px 16px;font-family:'Fira Code','Cascadia Code',monospace;font-size:15px;line-height:1.9;">
+          <div style="color:#8b949e;"># presentation-safe cached mode</div>
+          <div><span style="color:var(--green);">$</span> <span style="color:var(--ink);">python demo_app.py --mode cached</span></div>
+          <div style="margin-top:10px;color:#8b949e;"># full live inference</div>
+          <div><span style="color:var(--green);">$</span> <span style="color:var(--ink);">python demo_app.py --mode live \</span></div>
+          <div style="padding-left:20px;color:var(--ink);">--top_k 5 --alpha 1.0</div>
+          <div style="margin-top:10px;color:var(--blue);">http://localhost:7860</div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:12px;background:var(--bg2);">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-dim);margin-bottom:10px;">What the Demo Shows</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;">
+          <li style="color:var(--green);">→ Query image + question</li>
+          <li style="color:var(--blue);">→ CLIP retrieval from 5k KB</li>
+          <li style="color:var(--ink);">→ Baseline vs RAG answer comparison</li>
+          <li style="color:var(--ink);">→ Retrieved examples with similarity scores</li>
+          <li style="color:var(--orange);">→ Exact prompt sent to BLIP-2</li>
+          <li style="color:var(--purple);">→ Auto-generated explanation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-green">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--green);margin-bottom:12px;">6 Curated Examples</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;">
+          <div style="padding:8px 12px;background:rgba(63,185,80,0.15);border-radius:6px;border-left:3px solid var(--green);">
+            <div style="font-weight:600;color:var(--green);">RAG Helps — Open-ended (best)</div>
+            <div style="color:var(--ink-dim);">People watching skateboarder · Δ = +1.0</div>
+          </div>
+          <div style="padding:8px 12px;background:rgba(63,185,80,0.15);border-radius:6px;border-left:3px solid var(--green);">
+            <div style="font-weight:600;color:var(--green);">RAG Helps — Copyright watermark</div>
+            <div style="color:var(--ink-dim);">"none" → "foodiebakercom" · Δ = +1.0</div>
+          </div>
+          <div style="padding:8px 12px;background:rgba(63,185,80,0.15);border-radius:6px;border-left:3px solid var(--green);">
+            <div style="font-weight:600;color:var(--green);">RAG Helps — Yes/No fixed</div>
+            <div style="color:var(--ink-dim);">Creamy soup: "yes" → "no" · Δ = +1.0</div>
+          </div>
+          <div style="padding:8px 12px;background:rgba(248,81,73,0.12);border-radius:6px;border-left:3px solid var(--red);">
+            <div style="font-weight:600;color:var(--red);">RAG Hurts — Yes/No confused</div>
+            <div style="color:var(--ink-dim);">Rice noodle soup: "yes" → "no" · Δ = −1.0</div>
+          </div>
+          <div style="padding:8px 12px;background:rgba(255,255,255,0.04);border-radius:6px;border-left:3px solid var(--ink-dim);">
+            <div style="font-weight:600;color:var(--ink-dim);">Both Correct — No change</div>
+            <div style="color:var(--ink-dim);">Photo count · Δ = 0</div>
+          </div>
+          <div style="padding:8px 12px;background:rgba(255,255,255,0.04);border-radius:6px;border-left:3px solid var(--ink-dim);">
+            <div style="font-weight:600;color:var(--ink-dim);">Both Fail — Hard question</div>
+            <div style="color:var(--ink-dim);">Direction of gaze · Δ = 0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div><!-- end deck -->
 
 <script>
