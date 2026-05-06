@@ -1,101 +1,101 @@
-question_id,question,ground_truth,retrieved_answers,retrieved_scores,oracle@1,oracle@3,oracle@5
-2529010,Is there snow on the ground?,no | no | no,2 stories | pm | houses,1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0
-2532000,Is the skier going downhill?,no | no | yes,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.3333333333333333,0.3333333333333333,0.3333333333333333
-2532001,How do you know this skier is not alone on the mountain?,someone had to take photo | tracks | other ski tracks and footprints,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.0,0.0,0.0
-2532002,How cold is it?,cold | 15 degrees | freezing,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.0,0.0,0.0
-2532003,Is it a sunny or cloudy day?,sunny | cloudy | cloudy,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.0,0.0,0.0
-2532004,What color is the sky?,blue | blue | blue,yes | yes | yes,0.8235 | 0.8235 | 0.8235,0.0,0.0,0.0
-395749000,What filter is being used in this image?,black and white | black & white | black and white,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
-395749001,Are all the people elderly?,no | yes | no,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
-395749002,How many people can be seen?,4 | 4 | 4,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
-395749003,What ocean might this be?,atlantic | antarctic | atlantic,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
-395749004,How many people are in the photo?,4 | 4 | 4,grass | sitting | 2,0.7899 | 0.7899 | 0.7899,0.0,0.0,0.0
-395752000,What color are the mums in the front of the photo?,"pink | red | pink, red, yellow",13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,0.3333333333333333,0.3333333333333333
-395752001,Can a mail truck fit behind the bus to pick up the mail?,yes | yes | yes,13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,0.0,0.0
-395752002,"What  ""Over the Rainbow"" singer sang about this vehicle?",judy garland | judy garland | train,13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,0.0,0.0
-395752003,What color are the hubcaps?,red | red | red,13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,1.0,1.0
-395752004,Is someone getting on this street car?,yes | yes | yes,13 | double decker | red,0.7668 | 0.7668 | 0.7668,0.0,0.0,0.0
-264683000,Is this airplane inside?,yes | yes | yes,4 | 1 | yes,0.7008 | 0.7008 | 0.7008,0.0,1.0,1.0
-264683001,What airline does the plane fly for?,air france | air france | air france,4 | 1 | yes,0.7008 | 0.7008 | 0.7008,0.0,0.0,0.0
-264683002,Are there planes hanging?,yes | yes | yes,4 | 1 | yes,0.7008 | 0.7008 | 0.7008,0.0,1.0,1.0
-264686000,How many side tables are there?,2 | 2 | 2,books | no | living room,0.8593 | 0.8593 | 0.8593,0.0,0.0,0.0
-264686001,How many windows are on the wall?,3 | 3 | 3,books | no | living room,0.8593 | 0.8593 | 0.8593,0.0,0.0,0.0
-264686002,Is the TV a tube or flat screen?,tube | tube | tube,books | no | living room,0.8593 | 0.8593 | 0.8593,0.0,0.0,0.0
-133619000,What type of truck is it?,fire engine | fire truck | service truck,yes | no | yes,0.6124 | 0.6124 | 0.6124,0.0,0.0,0.0
-133619001,What time of day is it?,night | night | night,yes | no | yes,0.6124 | 0.6124 | 0.6124,0.0,0.0,0.0
-133619002,What color is the light above the hood of the truck?,yellow | blue | blue,yes | no | yes,0.6124 | 0.6124 | 0.6124,0.0,0.0,0.0
-133620000,Why does the woman have her hair up?,uniform | on duty | uniform,no | no | chess,0.6730 | 0.6730 | 0.6730,0.0,0.0,0.0
-133620001,Is she wearing glasses?,yes | yes | yes,no | no | chess,0.6730 | 0.6730 | 0.6730,0.0,0.0,0.0
-133620002,What is she wearing on her head?,hat | helmet | hat,no | no | chess,0.6730 | 0.6730 | 0.6730,0.0,0.0,0.0
-133620003,Is the woman happy?,yes | yes | yes,no | no | chess,0.6730 | 0.6730 | 0.6730,0.0,0.0,0.0
-526837000,Is this man dressed for the weather?,yes | yes | yes,skiing | red | yes,0.8984 | 0.8984 | 0.8984,0.0,1.0,1.0
-526837001,What is this man holding?,ski pole | ski poles | poles,skiing | red | yes,0.8984 | 0.8984 | 0.8984,0.0,0.0,0.0
-526837002,What is covering the ground?,snow | snow | snow,skiing | red | yes,0.8984 | 0.8984 | 0.8984,0.0,0.0,0.0
-133622000,Are these vegetables or fruits?,vegetables | vegetables | vegetables,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
-133622001,What is the yellow topping?,cheese | glaze | cheese,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
-133622002,Is this a high class dish?,yes | yes | no,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.3333333333333333,0.3333333333333333
-133622003,What is the long thin food with seeds?,broccoli | cake | cheese,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
-133622004,What is the green topping?,broccoli | broccoli | broccoli,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
-133622005,What is the yellow item pictured?,cheese | cake | cheese,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
-133622006,How are the eggs cooked?,scrambled | scramble | omelet,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
-133622007,What vegetable is this?,broccoli | broccoli | broccoli,food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
-133622008,What kinds of food are on the plate?,"breakfast | spinach | eggs, spinach",food | no | no,0.7478 | 0.7478 | 0.7478,0.0,0.0,0.0
-22271000,Is this a bright and sunny day?,no | no | no,yes | corona | no,0.6490 | 0.6490 | 0.6490,0.0,1.0,1.0
-22271001,Are there people in the picture?,yes | yes | yes,yes | corona | no,0.6490 | 0.6490 | 0.6490,1.0,1.0,1.0
-22271002,What is the name of the street sign on the ground?,western ave | western ave | western ave,yes | corona | no,0.6490 | 0.6490 | 0.6490,0.0,0.0,0.0
-133629000,Is this a public place?,no | no | no,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,1.0,1.0
-133629001,What color is the desk?,brown | brown | brown,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
-133629002,How many chairs have wheels?,1 | 1 | 1,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
-133629003,Is this chair in the way of people who might walk through?,no | no | no,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,1.0,1.0
-133629004,Can these items be used to make food?,no | no | no,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,1.0,1.0
-133629005,What do people do here?,work | work | office work,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
-133629006,What color is the lampshade?,off white | white | white,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
-133629007,What type of computer is on the desk?,mac | laptop | laptop,picture | no | yes,0.8375 | 0.8375 | 0.8375,0.0,0.0,0.0
-133631000,"Which is longer, the Elephant's tusks or the Elephant's trunk?",trunk | trunk | trunk,no | yes | no,0.9014 | 0.9014 | 0.9014,0.0,0.0,0.0
-133631001,Is it sunny out?,yes | yes | yes,no | yes | no,0.9014 | 0.9014 | 0.9014,0.0,1.0,1.0
-133631002,Does the elephant need water?,yes | yes | yes,no | yes | no,0.9014 | 0.9014 | 0.9014,0.0,1.0,1.0
-2562000,What is the color scheme of the photo?,"white | white and blue | white, blue",backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
-2562001,Are all the men tennis players?,yes | no | no,backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.6666666666666666,0.6666666666666666
-2562002,Is the man wearing a wristband?,yes | yes | yes,backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
-2562003,What two brands are shown advertised behind the tennis player?,olympus and wta | olympus and wta | wta and olympus,backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
-2562004,What sport is being played?,tennis | tennis | tennis,backhand | right | no,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
-133636000,What is the number on the left parking meter?,12 | 12 | 19,no | off | wall,0.7190 | 0.7190 | 0.7190,0.0,0.0,0.0
-133636001,How much time is left?,0 time | expired | 0,no | off | wall,0.7190 | 0.7190 | 0.7190,0.0,0.0,0.0
-133636002,What number is the parking meter on the right?,13 | 13 | 13,no | off | wall,0.7190 | 0.7190 | 0.7190,0.0,0.0,0.0
-133636003,Is there any cars on the street?,no | no | 0,no | off | wall,0.7190 | 0.7190 | 0.7190,0.6666666666666666,0.6666666666666666,0.6666666666666666
-133636004,Are the meters rusted?,no | no | no,no | off | wall,0.7190 | 0.7190 | 0.7190,1.0,1.0,1.0
-133636005,Is there time remaining on the meter?,yes | yes | no,no | off | wall,0.7190 | 0.7190 | 0.7190,0.3333333333333333,0.3333333333333333,0.3333333333333333
-133636006,How many meters are there?,2 | 2 | 2,no | off | wall,0.7190 | 0.7190 | 0.7190,0.0,0.0,0.0
-133645000,Is there someone on the bench?,no | no | no,trunks | stone | 4,0.7431 | 0.7431 | 0.7431,0.0,0.0,0.0
-133645001,Are the street lights turned on?,yes | yes | yes,trunks | stone | 4,0.7431 | 0.7431 | 0.7431,0.0,0.0,0.0
-133645002,Is the water clear?,no | yes | yes,trunks | stone | 4,0.7431 | 0.7431 | 0.7431,0.0,0.0,0.0
-133645003,What type of boat is in the water?,private | sailboat | pontoon,trunks | stone | 4,0.7431 | 0.7431 | 0.7431,0.0,0.0,0.0
-264718000,How long is the parking on the street?,12 hours | 2 hours | 7 spots,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
-264718001,Do you have to pay to park here?,yes | yes | yes,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
-264718002,Which side of the sign is the road on?,right | left | right,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
-264718003,What does the sign read?,2 hour parking 8am to 8pm | parking | 2 hour parking 8am-8pm,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
-264718004,What does the sign say?,parking | 2 hour parking | 2 hour parking,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
-264718005,What phone number is on the sign?,0 | n/a | 0,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
-264718006,What modes of transportation are in the picture?,cars | car | car,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
-264718007,What sign is to the right of the photo?,2 hour parking | parking | 2 hour parking,stop | sidewalk | prairie st,0.8100 | 0.8100 | 0.8100,0.0,0.0,0.0
-133648000,Is the bat blue?,yes | yes | yes,shoes | bat | yes,0.8378 | 0.8378 | 0.8378,0.0,1.0,1.0
-133648001,Is the photo colored?,yes | yes | yes,shoes | bat | yes,0.8378 | 0.8378 | 0.8378,0.0,1.0,1.0
-133648002,What color is the home plate umpire's shirt?,white | black | black,shoes | bat | yes,0.8378 | 0.8378 | 0.8378,0.0,0.0,0.0
-133648003,Which game are they playing?,baseball | baseball | baseball,shoes | bat | yes,0.8378 | 0.8378 | 0.8378,0.0,0.0,0.0
-459182000,What are they carrying?,surfboards | surfboards | surfboards,yes | yes | rear,0.8438 | 0.8438 | 0.8438,0.0,0.0,0.0
-459182001,What is in the foreground?,rocks | rocks | rocks,yes | yes | rear,0.8438 | 0.8438 | 0.8438,0.0,0.0,0.0
-459182002,How many people are there?,2 | 2 | 2,yes | yes | rear,0.8438 | 0.8438 | 0.8438,0.0,0.0,0.0
-395801000,Is it morning or evening?,evening | morning | morning,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
-395801001,How much does parking in the lot cost?,nothing | free | free,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
-395801002,What is on the road?,car | car | cars,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
-395801003,How many people are in the picture?,7 | 7 | 11,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
-395801004,Do the people know each other?,no | no | no,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
-395801005,How could you carry things if you were riding this bike?,there is no bike | on my back | backpack,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
-395801006,How many people are in this scene?,25 | 15 | 9,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
-395801007,What time is it?,6:00 | 6:00 | 12:30,yes | night | car lights,0.6964 | 0.6964 | 0.6964,0.0,0.0,0.0
-264730000,How many arches are under the clock?,2 | 2 | 2,yes | yes | yes,0.7740 | 0.7740 | 0.7740,0.0,0.0,0.0
-264730001,What time is it?,10:50 | 10:49 | 8:45,yes | yes | yes,0.7740 | 0.7740 | 0.7740,0.0,0.0,0.0
-264730002,Is a daytime or nighttime scene depicted?,nighttime | nighttime | night,yes | yes | yes,0.7740 | 0.7740 | 0.7740,0.0,0.0,0.0
-264730003,What kind of numbers are on the clock?,roman numerals | roman | roman numerals,yes | yes | yes,0.7740 | 0.7740 | 0.7740,0.0,0.0,0.0
-2587000,Which food contains the most potassium?,banana | banana | banana,1 | bunch | 1,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
-2587001,What is not healthy in the baggie?,donut | doughnut | donut,1 | bunch | 1,0.8035 | 0.8035 | 0.8035,0.0,0.0,0.0
+question_id,image_id,question,ground_truth,retrieved_answers,retrieved_scores,oracle@1,oracle@3,oracle@5,oracle@10
+262148000,262148,Where is he looking?,down,picnic table | down | watching | not hard | no | yes | black | rail | no | yes,1.0000 | 1.0000 | 1.0000 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487,0.0,1.0,1.0,1.0
+262148001,262148,What are the people in the background doing?,watching,picnic table | down | watching | not hard | no | yes | black | rail | no | yes,1.0000 | 1.0000 | 1.0000 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487,0.0,1.0,1.0,1.0
+262148002,262148,What is he on top of?,picnic table,picnic table | down | watching | not hard | no | yes | black | rail | no | yes,1.0000 | 1.0000 | 1.0000 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487 | 0.8487,1.0,1.0,1.0,1.0
+393225000,393225,What website copyrighted the picture?,foodiebakercom,no | chopsticks | foodiebakercom | yes | 2 | white | vegetables | mat | yes | 3,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.6887 | 0.6887 | 0.6887 | 0.6887 | 0.6635 | 0.6635,0.0,1.0,1.0,1.0
+393225001,393225,Is this a creamy soup?,no,no | chopsticks | foodiebakercom | yes | 2 | white | vegetables | mat | yes | 3,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.6887 | 0.6887 | 0.6887 | 0.6887 | 0.6635 | 0.6635,1.0,1.0,1.0,1.0
+393225002,393225,Is this rice noodle soup?,yes,no | chopsticks | foodiebakercom | yes | 2 | white | vegetables | mat | yes | 3,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.6887 | 0.6887 | 0.6887 | 0.6887 | 0.6635 | 0.6635,0.0,0.0,1.0,1.0
+393225003,393225,What is to the right of the soup?,chopsticks,no | chopsticks | foodiebakercom | yes | 2 | white | vegetables | mat | yes | 3,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.6887 | 0.6887 | 0.6887 | 0.6887 | 0.6635 | 0.6635,0.0,1.0,1.0,1.0
+393226000,393226,What is the man doing in the street?,walking,walking | 1 | ice cream | nowhere | no | 1 | yes | sedan | no | hat,1.0000 | 1.0000 | 1.0000 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547,1.0,1.0,1.0,1.0
+393226001,393226,How many photo's can you see?,1,walking | 1 | ice cream | nowhere | no | 1 | yes | sedan | no | hat,1.0000 | 1.0000 | 1.0000 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547,0.0,1.0,1.0,1.0
+393226002,393226,What does the truck on the left sell?,ice cream,walking | 1 | ice cream | nowhere | no | 1 | yes | sedan | no | hat,1.0000 | 1.0000 | 1.0000 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547 | 0.7547,0.0,1.0,1.0,1.0
+240301000,240301,Why is there a gap between the roof and wall?,yes,yes | yes | tired | yes | cow | 4 | bucket | 4 | yes | 6,1.0000 | 1.0000 | 1.0000 | 0.7976 | 0.7976 | 0.7976 | 0.7976 | 0.7976 | 0.7911 | 0.7911,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.6666666666666666
+240301001,240301,Is it daylight in this picture?,yes,yes | yes | tired | yes | cow | 4 | bucket | 4 | yes | 6,1.0000 | 1.0000 | 1.0000 | 0.7976 | 0.7976 | 0.7976 | 0.7976 | 0.7976 | 0.7911 | 0.7911,1.0,1.0,1.0,1.0
+240301002,240301,Why is the cow laying down?,tired,yes | yes | tired | yes | cow | 4 | bucket | 4 | yes | 6,1.0000 | 1.0000 | 1.0000 | 0.7976 | 0.7976 | 0.7976 | 0.7976 | 0.7976 | 0.7911 | 0.7911,0.0,1.0,1.0,1.0
+131089000,131089,What color is the grass in this picture?,green,yes | no | yes | 1 | green | green | frisbee | yes | no | glove,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.8265 | 0.8265 | 0.8265 | 0.8265 | 0.8053,0.0,0.0,1.0,1.0
+131089001,131089,Did the batter hit the ball?,yes,yes | no | yes | 1 | green | green | frisbee | yes | no | glove,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.8265 | 0.8265 | 0.8265 | 0.8265 | 0.8053,1.0,1.0,1.0,1.0
+131089002,131089,How many are playing ball?,1,yes | no | yes | 1 | green | green | frisbee | yes | no | glove,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.8265 | 0.8265 | 0.8265 | 0.8265 | 0.8053,0.0,0.0,1.0,1.0
+131089003,131089,Is there a chain link fence in the image?,no,yes | no | yes | 1 | green | green | frisbee | yes | no | glove,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.8265 | 0.8265 | 0.8265 | 0.8265 | 0.8053,0.0,1.0,1.0,1.0
+131089004,131089,Is the boy playing baseball?,yes,yes | no | yes | 1 | green | green | frisbee | yes | no | glove,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.8265 | 0.8265 | 0.8265 | 0.8265 | 0.8053,1.0,1.0,1.0,1.0
+262162000,262162,Is that a folding chair?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162001,262162,How many beds?,1,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,1.0
+262162002,262162,What color is the bedspread?,white,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,0.0
+262162003,262162,How many pictures are there?,7,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162004,262162,Are these twin mattresses?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162005,262162,How many sources of light are there?,1,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,1.0
+262162006,262162,Is this room decorated for the 1970s?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162007,262162,Are the lights on in this room?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162008,262162,Are the windows big?,yes,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.3333333333333333,0.3333333333333333
+262162009,262162,What is the chair made of?,leather,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,1.0,1.0,1.0,1.0
+262162010,262162,Is this room in someone's home?,yes,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,0.0
+262162011,262162,Which room is this?,bedroom,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,1.0,1.0,1.0
+262162012,262162,Is the bed white?,yes,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162013,262162,Could this be a hotel room?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162014,262162,Is the bed made?,yes,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.6666666666666666,0.6666666666666666
+262162015,262162,Are there bed headboards present in the photo?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162016,262162,Is there a mirror in the room?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162017,262162,What kind of room is this?,bedroom,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,1.0,1.0,1.0
+262162018,262162,How many chairs are in the photo?,1,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,1.0
+262162019,262162,Is the desk cluttered?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162020,262162,Has the bed been made?,yes,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162021,262162,How many seats are there?,1,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,1.0
+262162022,262162,How many frames are on the wall?,7,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162023,262162,What color are the walls?,white,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,0.0
+262162024,262162,Are there any boxes in the room?,no,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262162025,262162,Could this be a multi-purpose room?,yes,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,0.0
+262162026,262162,What animal print does that chair resemble?,none,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.3333333333333333
+262162027,262162,What is behind the foot of the bed?,chair,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,1.0,1.0,1.0
+262162028,262162,What is the size of the bed?,queen,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,0.0
+262162029,262162,How many pictures on the wall?,7,leather | bedroom | chair | 7 | no | 1 | 7 | no | 1 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+393243000,393243,Will this kid leave the powdered sugar on his face?,yes,no | yes | donut | blonde | yes | yes | frog | fork | cake | plastic,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.7833 | 0.7833 | 0.7833 | 0.7699 | 0.7699 | 0.7699,1.0,1.0,1.0,1.0
+393243001,393243,What is the child eating?,donut,no | yes | donut | blonde | yes | yes | frog | fork | cake | plastic,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.7833 | 0.7833 | 0.7833 | 0.7699 | 0.7699 | 0.7699,0.0,1.0,1.0,1.0
+393243002,393243,Is this person wearing a tie?,no,no | yes | donut | blonde | yes | yes | frog | fork | cake | plastic,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.7833 | 0.7833 | 0.7833 | 0.7699 | 0.7699 | 0.7699,1.0,1.0,1.0,1.0
+393243003,393243,What color is the kids hair?,blonde,no | yes | donut | blonde | yes | yes | frog | fork | cake | plastic,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.7833 | 0.7833 | 0.7833 | 0.7699 | 0.7699 | 0.7699,0.0,0.0,1.0,1.0
+262175000,262175,Is the man's tie purple?,no,hat | forest | no | no | fire hydrant | brown | for when it snows | no | yes | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.6692 | 0.6692 | 0.6692 | 0.6692 | 0.6460 | 0.6460,0.0,1.0,1.0,1.0
+262175001,262175,Where was the picture taken of the man?,forest,hat | forest | no | no | fire hydrant | brown | for when it snows | no | yes | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.6692 | 0.6692 | 0.6692 | 0.6692 | 0.6460 | 0.6460,0.0,1.0,1.0,1.0
+262175002,262175,What is the man wearing on his head?,hat,hat | forest | no | no | fire hydrant | brown | for when it snows | no | yes | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.6692 | 0.6692 | 0.6692 | 0.6692 | 0.6460 | 0.6460,1.0,1.0,1.0,1.0
+262175003,262175,Is this a designer tie?,no,hat | forest | no | no | fire hydrant | brown | for when it snows | no | yes | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.6692 | 0.6692 | 0.6692 | 0.6692 | 0.6460 | 0.6460,0.0,1.0,1.0,1.0
+131108000,131108,Is this photo color?,no,no | yes | inward | red and yellow | no | green | overcast | no | yes | 3,1.0000 | 1.0000 | 1.0000 | 0.7030 | 0.7030 | 0.7030 | 0.6969 | 0.6969 | 0.6969 | 0.6877,1.0,1.0,1.0,1.0
+131108001,131108,Does the door open inward or outward?,inward,no | yes | inward | red and yellow | no | green | overcast | no | yes | 3,1.0000 | 1.0000 | 1.0000 | 0.7030 | 0.7030 | 0.7030 | 0.6969 | 0.6969 | 0.6969 | 0.6877,0.0,1.0,1.0,1.0
+131108002,131108,Is there a drainage in the pic?,yes,no | yes | inward | red and yellow | no | green | overcast | no | yes | 3,1.0000 | 1.0000 | 1.0000 | 0.7030 | 0.7030 | 0.7030 | 0.6969 | 0.6969 | 0.6969 | 0.6877,0.0,1.0,1.0,1.0
+393254000,393254,What does the sentence on the top say?,this is camping,this is camping | jeep | woods | 2 | yes | shoes | yes | 6 | wood | no,1.0000 | 1.0000 | 1.0000 | 0.6647 | 0.6647 | 0.6647 | 0.6258 | 0.6258 | 0.6258 | 0.6094,1.0,1.0,1.0,1.0
+393254001,393254,What kind of vehicle is the RV pulling on the bottom picture?,jeep,this is camping | jeep | woods | 2 | yes | shoes | yes | 6 | wood | no,1.0000 | 1.0000 | 1.0000 | 0.6647 | 0.6647 | 0.6647 | 0.6258 | 0.6258 | 0.6258 | 0.6094,0.0,1.0,1.0,1.0
+393254002,393254,Where is the camping tent?,woods,this is camping | jeep | woods | 2 | yes | shoes | yes | 6 | wood | no,1.0000 | 1.0000 | 1.0000 | 0.6647 | 0.6647 | 0.6647 | 0.6258 | 0.6258 | 0.6258 | 0.6094,0.0,1.0,1.0,1.0
+42000,42,What color are the gym shoes?,white,white | yes | red | no | yes | cushion | no | tired one | black | yes,1.0000 | 1.0000 | 1.0000 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723,1.0,1.0,1.0,1.0
+42001,42,Is there a red sandal here?,yes,white | yes | red | no | yes | cushion | no | tired one | black | yes,1.0000 | 1.0000 | 1.0000 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723,0.0,1.0,1.0,1.0
+42002,42,What color is the flip flop?,red,white | yes | red | no | yes | cushion | no | tired one | black | yes,1.0000 | 1.0000 | 1.0000 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723 | 0.7723,0.0,1.0,1.0,1.0
+131115000,131115,Are there players in the dugout?,yes,no | yes | 3 | 23 | white | catch | no | playing baseball | bat | yes,1.0000 | 1.0000 | 1.0000 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627,0.0,1.0,1.0,1.0
+131115001,131115,Is the battery looking at the ball?,no,no | yes | 3 | 23 | white | catch | no | playing baseball | bat | yes,1.0000 | 1.0000 | 1.0000 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627,1.0,1.0,1.0,1.0
+131115002,131115,How many people are on the field?,3,no | yes | 3 | 23 | white | catch | no | playing baseball | bat | yes,1.0000 | 1.0000 | 1.0000 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627 | 0.8627,0.0,1.0,1.0,1.0
+262189000,262189,How many signs?,4,4 | white | ross st | go right | england | yes | scott wells | 300 | scott wells | scott wells,1.0000 | 1.0000 | 1.0000 | 0.5210 | 0.5210 | 0.5210 | 0.5174 | 0.5174 | 0.5174 | 0.5174,1.0,1.0,1.0,1.0
+262189001,262189,What color is the Salisbury Rd. sign?,white,4 | white | ross st | go right | england | yes | scott wells | 300 | scott wells | scott wells,1.0000 | 1.0000 | 1.0000 | 0.5210 | 0.5210 | 0.5210 | 0.5174 | 0.5174 | 0.5174 | 0.5174,0.0,1.0,1.0,1.0
+262189002,262189,What does the last sign say?,ross st,4 | white | ross st | go right | england | yes | scott wells | 300 | scott wells | scott wells,1.0000 | 1.0000 | 1.0000 | 0.5210 | 0.5210 | 0.5210 | 0.5174 | 0.5174 | 0.5174 | 0.5174,0.0,1.0,1.0,1.0
+393266000,393266,What color is the sign?,red and yellow,red and yellow | no | green | go right | england | yes | yes | 2 | 2 stories | 4:40,1.0000 | 1.0000 | 1.0000 | 0.7324 | 0.7324 | 0.7324 | 0.7137 | 0.7137 | 0.7137 | 0.7137,1.0,1.0,1.0,1.0
+393266001,393266,Can you turn right or left in the tunnel?,no,red and yellow | no | green | go right | england | yes | yes | 2 | 2 stories | 4:40,1.0000 | 1.0000 | 1.0000 | 0.7324 | 0.7324 | 0.7324 | 0.7137 | 0.7137 | 0.7137 | 0.7137,0.0,1.0,1.0,1.0
+393266002,393266,What color is the plant?,green,red and yellow | no | green | go right | england | yes | yes | 2 | 2 stories | 4:40,1.0000 | 1.0000 | 1.0000 | 0.7324 | 0.7324 | 0.7324 | 0.7137 | 0.7137 | 0.7137 | 0.7137,0.0,1.0,1.0,1.0
+393267000,393267,What color is the woman's shirt on the left?,black,wine | black | they aren't | wine tasting | yes | shirts | m | white | plastic | yes,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.7147 | 0.7147 | 0.7147 | 0.7147 | 0.6818 | 0.6818,0.0,1.0,1.0,1.0
+393267001,393267,What type of beverage is being displayed?,wine,wine | black | they aren't | wine tasting | yes | shirts | m | white | plastic | yes,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.7147 | 0.7147 | 0.7147 | 0.7147 | 0.6818 | 0.6818,1.0,1.0,1.0,1.0
+393267002,393267,Why are some people wearing hats?,they aren't,wine | black | they aren't | wine tasting | yes | shirts | m | white | plastic | yes,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.7147 | 0.7147 | 0.7147 | 0.7147 | 0.6818 | 0.6818,0.0,0.3333333333333333,0.3333333333333333,0.3333333333333333
+393267003,393267,What kind of event are the people involved in?,wine tasting,wine | black | they aren't | wine tasting | yes | shirts | m | white | plastic | yes,1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.7147 | 0.7147 | 0.7147 | 0.7147 | 0.6818 | 0.6818,0.6666666666666666,0.6666666666666666,1.0,1.0
+262197000,262197,How many skyscrapers are there?,2,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,1.0,1.0
+262197001,262197,What is the color of the building in the background?,brown,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,1.0,1.0,1.0,1.0
+262197002,262197,Is there a tree in front of the building?,yes,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,1.0,1.0,1.0
+262197003,262197,Is there a person riding a bike?,no,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,1.0
+262197004,262197,Are there lights on in the two buildings?,yes,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,1.0,1.0,1.0
+262197005,262197,How many stories is the building on the left?,3,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,1.0
+262197006,262197,Is this a hospital?,yes,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,1.0,1.0,1.0
+262197007,262197,How many umbrellas do you see?,0,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,1.0
+262197008,262197,How many colors is the building on the right painted?,1,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.3333333333333333,0.3333333333333333,1.0,1.0
+262197009,262197,What is on the boy's back walking?,backpack,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.0,1.0
+262197010,262197,How many modes of transportation are depicted?,0,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,0.0,0.0,0.3333333333333333,1.0
+262197011,262197,What color is the building?,brown,brown | yes | yes | yes | 2 | no | 3 | 0 | 1 | backpack,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000,1.0,1.0,1.0,1.0
+393271000,393271,Is it still snowing in the picture?,yes,yes | yes | 8 | girl | skis | skiing | above | black | warmth | yes,1.0000 | 1.0000 | 1.0000 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539,1.0,1.0,1.0,1.0
+393271001,393271,Does this appear to be a photo of multiple exposures of the black clad snowboarder?,yes,yes | yes | 8 | girl | skis | skiing | above | black | warmth | yes,1.0000 | 1.0000 | 1.0000 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539,1.0,1.0,1.0,1.0
+393271002,393271,How many people can you see in the picture?,8,yes | yes | 8 | girl | skis | skiing | above | black | warmth | yes,1.0000 | 1.0000 | 1.0000 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539 | 0.7539,0.0,1.0,1.0,1.0
+262200000,262200,Is this an adult party?,no,birthday | boy | no | green | boy's | children | no | donut | blonde | yes,1.0000 | 1.0000 | 1.0000 | 0.6851 | 0.6851 | 0.6851 | 0.6803 | 0.6803 | 0.6803 | 0.6803,0.0,1.0,1.0,1.0
+262200001,262200,What is being celebrated?,birthday,birthday | boy | no | green | boy's | children | no | donut | blonde | yes,1.0000 | 1.0000 | 1.0000 | 0.6851 | 0.6851 | 0.6851 | 0.6803 | 0.6803 | 0.6803 | 0.6803,1.0,1.0,1.0,1.0
+262200002,262200,Who is in front of the cake with candles?,boy,birthday | boy | no | green | boy's | children | no | donut | blonde | yes,1.0000 | 1.0000 | 1.0000 | 0.6851 | 0.6851 | 0.6851 | 0.6803 | 0.6803 | 0.6803 | 0.6803,0.0,1.0,1.0,1.0
+393274000,393274,What is this vehicle?,train,platform | yes | yes | train | no | shadow | no | yes | 58872 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.9007 | 0.9007,0.0,0.3333333333333333,1.0,1.0
+393274001,393274,Can you see the hook up for the train?,no,platform | yes | yes | train | no | shadow | no | yes | 58872 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.9007 | 0.9007,0.0,0.6666666666666666,1.0,1.0
+393274002,393274,Is this train at the station?,yes,platform | yes | yes | train | no | shadow | no | yes | 58872 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.9007 | 0.9007,0.0,1.0,1.0,1.0
+393274003,393274,What is cast?,shadow,platform | yes | yes | train | no | shadow | no | yes | 58872 | no,1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.9007 | 0.9007,0.0,0.0,0.6666666666666666,1.0
