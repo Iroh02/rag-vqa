@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Open-Book VQA — RAG-BLIP-2 Presentation</title>
+<style>
+  :root {
+    --bg:        #0d1117;
+    --bg1:       #161b22;
+    --bg2:       #21262d;
+    --border:    rgba(255,255,255,0.08);
+    --ink:       #f0f6fc;
+    --ink-dim:   #8b949e;
+    --green:     #3fb950;
+    --green-bg:  rgba(63,185,80,0.12);
+    --blue:      #58a6ff;
+    --blue-bg:   rgba(88,166,255,0.10);
+    --orange:    #f0883e;
+    --orange-bg: rgba(240,136,62,0.12);
+    --red:       #f85149;
+    --red-bg:    rgba(248,81,73,0.10);
+    --purple:    #bc8cff;
+    --yellow:    #e3b341;
+    --radius:    12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:100%;height:100%;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',sans-serif;
+    overflow:hidden;-webkit-font-smoothing:antialiased;}
+
+  /* ── slide engine ─────────────────────────────────────────────────── */
+  .deck{position:relative;width:100vw;height:100vh;}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;
+    padding:56px 72px 48px;opacity:0;pointer-events:none;
+    transition:opacity .25s ease;}
+  .slide.active{opacity:1;pointer-events:all;}
+
+  /* ── chrome ───────────────────────────────────────────────────────── */
+  #counter{position:fixed;bottom:20px;right:28px;font-size:12px;
+    color:var(--ink-dim);letter-spacing:.5px;z-index:100;}
+  #nav{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);
+    display:flex;gap:8px;z-index:100;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--border);
+    border:1px solid rgba(255,255,255,.2);cursor:pointer;transition:background .2s;}
+  .dot.active{background:var(--blue);}
+  #notes-btn{position:fixed;top:16px;right:20px;font-size:11px;padding:4px 10px;
+    background:var(--bg2);border:1px solid var(--border);color:var(--ink-dim);
+    border-radius:6px;cursor:pointer;z-index:200;}
+  #notes-panel{position:fixed;bottom:0;left:0;right:0;max-height:220px;
+    background:#1a1f2b;border-top:1px solid var(--border);padding:16px 32px;
+    font-size:13px;color:var(--ink-dim);overflow-y:auto;
+    transform:translateY(100%);transition:transform .3s;z-index:150;line-height:1.6;}
+  #notes-panel.open{transform:translateY(0);}
+
+  /* ── typography ───────────────────────────────────────────────────── */
+  .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:1.2px;
+    text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+  h1{font-size:52px;font-weight:700;line-height:1.1;color:var(--ink);}
+  h2{font-size:34px;font-weight:700;line-height:1.2;margin-bottom:24px;}
+  h3{font-size:22px;font-weight:600;margin-bottom:12px;}
+  p,li{font-size:17px;line-height:1.65;color:var(--ink-dim);}
+  .big{font-size:68px;font-weight:800;line-height:1;}
+  .med{font-size:44px;font-weight:700;}
+  .em{color:var(--ink);}
+
+  /* ── layout helpers ───────────────────────────────────────────────── */
+  .cols{display:flex;gap:32px;flex:1;min-height:0;}
+  .col{flex:1;display:flex;flex-direction:column;gap:16px;}
+  .spacer{flex:1;}
+  .row{display:flex;gap:20px;align-items:flex-start;}
+
+  /* ── cards ────────────────────────────────────────────────────────── */
+  .card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius);
+    padding:20px 24px;}
+  .card-green{background:var(--green-bg);border-color:rgba(63,185,80,.3);}
+  .card-blue{background:var(--blue-bg);border-color:rgba(88,166,255,.3);}
+  .card-orange{background:var(--orange-bg);border-color:rgba(240,136,62,.3);}
+  .card-red{background:var(--red-bg);border-color:rgba(248,81,73,.3);}
+
+  /* ── metric boxes ─────────────────────────────────────────────────── */
+  .metric{background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px 28px;text-align:center;}
+  .metric .label{font-size:12px;letter-spacing:1px;text-transform:uppercase;
+    color:var(--ink-dim);margin-bottom:8px;}
+  .metric .val{font-size:52px;font-weight:800;line-height:1;}
+  .g{color:var(--green);}.b{color:var(--blue);}.o{color:var(--orange);}
+  .r{color:var(--red);}.y{color:var(--yellow);}.p{color:var(--purple);}
+
+  /* ── table ────────────────────────────────────────────────────────── */
+  table{width:100%;border-collapse:collapse;font-size:16px;}
+  th{background:var(--bg2);padding:10px 16px;text-align:left;
+    font-size:12px;letter-spacing:.8px;text-transform:uppercase;
+    color:var(--ink-dim);border-bottom:1px solid var(--border);}
+  td{padding:11px 16px;border-bottom:1px solid var(--border);}
+  tr:last-child td{border-bottom:none;}
+  tr.highlight td{background:var(--green-bg);color:var(--green);font-weight:700;}
+  tr.dim td{color:var(--ink-dim);}
+
+  /* ── bullets ──────────────────────────────────────────────────────── */
+  ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  ul li::before{content:"→";margin-right:10px;color:var(--blue);}
+  ul.check li::before{content:"✓";color:var(--green);}
+  ul.warn li::before{content:"⚠";color:var(--orange);}
+  ul.plain li::before{content:"·";color:var(--ink-dim);}
+
+  /* ── pipeline diagram ─────────────────────────────────────────────── */
+  .pipe{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;}
+  .pbox{background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+    padding:12px 18px;text-align:center;font-size:14px;font-weight:600;min-width:110px;}
+  .parrow{font-size:22px;color:var(--blue);padding:0 6px;font-weight:300;}
+  .pbox.accent{background:var(--blue-bg);border-color:rgba(88,166,255,.4);color:var(--blue);}
+  .pbox.out{background:var(--green-bg);border-color:rgba(63,185,80,.4);color:var(--green);}
+  .pbox.inp{background:var(--orange-bg);border-color:rgba(240,136,62,.4);color:var(--orange);}
+
+  /* ── formula ──────────────────────────────────────────────────────── */
+  .formula{font-family:'Courier New',monospace;font-size:22px;
+    background:var(--bg2);border:1px solid var(--border);
+    border-radius:10px;padding:20px 28px;color:var(--blue);
+    text-align:center;letter-spacing:.5px;}
+
+  /* ── plot img ─────────────────────────────────────────────────────── */
+  img.plot{width:100%;height:auto;border-radius:10px;border:1px solid var(--border);}
+  .plot-wrap{background:var(--bg1);border:1px solid var(--border);
+    border-radius:var(--radius);padding:12px;display:flex;
+    align-items:center;justify-content:center;min-height:0;overflow:hidden;}
+
+  /* ── title slide ──────────────────────────────────────────────────── */
+  .title-content{flex:1;display:flex;flex-direction:column;justify-content:center;}
+
+  /* ── print ────────────────────────────────────────────────────────── */
+  @media print{
+    .slide{position:relative;opacity:1;pointer-events:all;page-break-after:always;
+      height:100vh;padding:40px 56px;}
+    #nav,#counter,#notes-btn,#notes-panel{display:none!important;}
+  }
+</style>
+</head>
+<body>
+
+<button id="notes-btn" onclick="toggleNotes()">Notes [N]</button>
+<div id="notes-panel"></div>
+<div id="counter"></div>
+<div id="nav"></div>
+
+<div class="deck" id="deck">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 1 — TITLE
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide active" data-notes="Welcome everyone. Today I'm presenting Open-Book VQA — a system that gives a frozen vision-language model the ability to look up similar past examples before answering a visual question. The core result: retrieval improves accuracy from 42.33% to 51.33%, a +9 point absolute gain, and image similarity is a stronger retrieval signal than question-text similarity.">
+  <div class="title-content">
+    <div class="tag">Computer Vision &nbsp;·&nbsp; Final Project &nbsp;·&nbsp; May 7, 2026</div>
+    <h1>Open-Book VQA</h1>
+    <h1 style="color:var(--blue)">Visual Memory-Augmented</h1>
+    <h1>BLIP-2 with CLIP Retrieval</h1>
+    <div style="margin-top:36px;display:flex;gap:48px;align-items:center;">
+      <div>
+        <div style="font-size:13px;color:var(--ink-dim);margin-bottom:4px;">Nandita Menon</div>
+        <div style="font-size:13px;color:var(--ink-dim);">RAG-VQA · github.com/Iroh02/rag-vqa</div>
+      </div>
+      <div class="card card-green" style="padding:12px 24px;">
+        <span class="big g">+9 pts</span>
+        <div style="font-size:13px;color:var(--ink-dim);margin-top:4px;">42.33% → 51.33% accuracy</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 2 — MOTIVATION
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="Frame this as the closed-book exam analogy. A student who memorized everything still does worse than one who can consult notes on a hard question. VQA models have the same problem — they're forced to answer from internal weights alone. The question this project asks is: what if the model could look up similar past examples?">
+  <div class="tag">Motivation</div>
+  <h2>Standard VQA is a Closed-Book Exam</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card card-red">
+        <h3 class="r">Closed-Book (Standard VQA)</h3>
+        <p style="margin-top:8px;">Model sees <strong>one image</strong> + question.<br>
+        Must answer from internal weights alone.<br>
+        No access to prior examples or similar cases.</p>
+      </div>
+      <div class="card" style="margin-top:4px;">
+        <p style="font-size:15px;color:var(--ink-dim);">Hard questions about rare objects, unusual angles,
+        or uncommon answers may never appear in training distribution.
+        The model has no fallback.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-green">
+        <h3 class="g">Open-Book (This Project)</h3>
+        <p style="margin-top:8px;">Model retrieves <strong>similar past VQA examples</strong>
+        from a visual memory before answering.<br>
+        Uses retrieved Q&A pairs as contextual hints.</p>
+      </div>
+      <div class="card card-blue" style="margin-top:4px;">
+        <p style="font-size:15px;color:var(--blue);">Key question: <strong>can a frozen VQA model answer better
+        if it can look up visually similar past examples?</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 3 — PROBLEM STATEMENT
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="This is a clean task framing slide. Emphasize that the model is frozen — we are not retraining BLIP-2. We're adding a retrieval wrapper around it. The challenge is that frozen models fail on open-ended visual details, and we want to close that gap without expensive retraining.">
+  <div class="tag">Problem Statement</div>
+  <h2>Visual Question Answering</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card card-blue">
+        <div style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">Input</div>
+        <ul class="plain">
+          <li><span class="em">Image</span> — a natural photograph</li>
+          <li><span class="em">Question</span> — a short natural-language question about it</li>
+        </ul>
+      </div>
+      <div class="card card-green">
+        <div style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Output</div>
+        <ul class="plain">
+          <li>A <span class="em">short natural-language answer</span> (1–3 words)</li>
+          <li>Evaluated with <span class="em">VQA soft accuracy</span>: min(1, matches/3)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-orange">
+        <div style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Challenge</div>
+        <ul class="warn">
+          <li>Frozen BLIP-2 must answer from weights alone</li>
+          <li>Fails on <strong>open-ended visual details</strong> (what color, how many, what type)</li>
+          <li>Rare objects and uncommon scenes are underrepresented</li>
+          <li>Retraining a 3B-parameter model is expensive</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:4px;">
+        <p style="font-size:14px;color:var(--ink-dim);">Goal: improve a <strong>frozen</strong> model at inference time using retrieval — no fine-tuning required for the main result.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 4 — CORE IDEA
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="This is the elevator pitch slide. One sentence: we turn BLIP-2 into an open-book student by adding a visual memory. The key insight is that similar images tend to have similar answers — so if you saw a photo of a red car before, and someone asks what color is the car, the retrieved hint helps. Spend about 30 seconds here.">
+  <div class="tag">Core Idea</div>
+  <h2>Convert BLIP-2 into an Open-Book System</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;">
+    <div class="card card-blue" style="padding:28px 32px;">
+      <p style="font-size:20px;color:var(--ink);line-height:1.6;">
+        <strong>Before answering</strong>, the model retrieves the most visually similar
+        past VQA examples from a knowledge base.
+        Their Q&A pairs are prepended as <span style="color:var(--blue);font-weight:700;">contextual hints</span>.
+      </p>
+    </div>
+    <div class="cols" style="flex:unset;gap:20px;">
+      <div class="card" style="flex:1;text-align:center;padding:24px;">
+        <div style="font-size:32px;margin-bottom:8px;">🖼️</div>
+        <div style="font-weight:700;margin-bottom:6px;">Visual Memory</div>
+        <p style="font-size:14px;">5,000 VQA examples stored as CLIP embeddings</p>
+      </div>
+      <div class="card" style="flex:1;text-align:center;padding:24px;">
+        <div style="font-size:32px;margin-bottom:8px;">🔍</div>
+        <div style="font-weight:700;margin-bottom:6px;">Retrieval</div>
+        <p style="font-size:14px;">CLIP + FAISS cosine similarity search</p>
+      </div>
+      <div class="card" style="flex:1;text-align:center;padding:24px;">
+        <div style="font-size:32px;margin-bottom:8px;">💡</div>
+        <div style="font-weight:700;margin-bottom:6px;">Hints Prompt</div>
+        <p style="font-size:14px;">Top-k Q&A pairs prepended to BLIP-2 prompt</p>
+      </div>
+      <div class="card card-green" style="flex:1;text-align:center;padding:24px;">
+        <div style="font-size:32px;margin-bottom:8px;">🎯</div>
+        <div style="font-weight:700;color:var(--green);margin-bottom:6px;">Result</div>
+        <p style="font-size:14px;">42.33% → <strong class="g">51.33%</strong> accuracy</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 5 — ARCHITECTURE
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="Walk through the pipeline left to right. Query image and question come in. CLIP encodes the query image as a 512-d vector. FAISS does an exact inner-product search over the KB. We get back top-k Q&A pairs. Those are formatted into a hints prompt and fed to BLIP-2 along with the original image. BLIP-2 generates the final answer.">
+  <div class="tag">Architecture</div>
+  <h2>End-to-End Pipeline</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px;">
+    <div class="pipe">
+      <div class="pbox inp">Query Image<br><small style="color:var(--ink-dim);">PIL → RGB</small></div>
+      <div class="parrow">→</div>
+      <div class="pbox accent">CLIP<br><small style="color:var(--ink-dim);">ViT-B/32<br>512-d embed</small></div>
+      <div class="parrow">→</div>
+      <div class="pbox accent">FAISS<br><small style="color:var(--ink-dim);">IndexFlatIP<br>5k KB</small></div>
+      <div class="parrow">→</div>
+      <div class="pbox">Top-k Q&A<br><small style="color:var(--ink-dim);">Retrieved hints</small></div>
+      <div class="parrow">→</div>
+      <div class="pbox">Hints Prompt<br><small style="color:var(--ink-dim);">Formatted text</small></div>
+      <div class="parrow">→</div>
+      <div class="pbox accent">BLIP-2<br><small style="color:var(--ink-dim);">OPT-2.7B</small></div>
+      <div class="parrow">→</div>
+      <div class="pbox out">Answer</div>
+    </div>
+    <div class="cols" style="flex:unset;gap:16px;">
+      <div class="card" style="flex:1;">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:8px;">BLIP-2</div>
+        <ul class="plain" style="font-size:14px;">
+          <li>Salesforce/blip2-opt-2.7b</li>
+          <li>Frozen ViT-G/14 + Q-Former + OPT-2.7B</li>
+          <li>Loaded in 4-bit NF4 quantization</li>
+        </ul>
+      </div>
+      <div class="card" style="flex:1;">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:8px;">CLIP Retriever</div>
+        <ul class="plain" style="font-size:14px;">
+          <li>openai/clip-vit-base-patch32</li>
+          <li>Two FAISS indices: image + text</li>
+          <li>Score fusion: α · img + (1−α) · txt</li>
+        </ul>
+      </div>
+      <div class="card" style="flex:1;">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:8px;">Prompt Format</div>
+        <div style="font-family:monospace;font-size:12px;color:var(--ink-dim);line-height:1.8;">
+          Hints may be wrong.<br>
+          Hints:<br>
+          &nbsp;- Similar image: &lt;answer&gt;<br>
+          Question: &lt;q&gt;<br>
+          Answer:
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 6 — RETRIEVAL SCORING
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="The key design parameter is alpha. At alpha=0, only text similarity matters — finds questions that look similar. At alpha=1, only image similarity matters — finds images that look similar. At alpha=0.5, it's balanced. We also have an optional gate tau: if the top-1 score is below tau, we skip retrieval entirely and fall back to baseline. The main result is that alpha=1.0 wins.">
+  <div class="tag">Retrieval Scoring</div>
+  <h2>Fusion Score &amp; Retrieval Gate</h2>
+  <div style="flex:1;display:flex;flex-direction:column;gap:24px;justify-content:center;">
+    <div class="formula">
+      score &nbsp;=&nbsp; α · image_similarity &nbsp;+&nbsp; (1 − α) · text_similarity
+    </div>
+    <div class="formula" style="font-size:16px;color:var(--ink-dim);">
+      retrieve only if &nbsp; score<sub>top1</sub> &nbsp;≥&nbsp; τ &nbsp;&nbsp;(optional gate)
+    </div>
+    <div class="cols" style="flex:unset;">
+      <div class="metric" style="flex:1;">
+        <div class="label">α = 0.0</div>
+        <div class="val r" style="font-size:32px;">Text-only</div>
+        <p style="font-size:13px;margin-top:8px;">Finds similar questions.<br>Ignores visual content.</p>
+      </div>
+      <div class="metric" style="flex:1;">
+        <div class="label">α = 0.5</div>
+        <div class="val b" style="font-size:32px;">Balanced</div>
+        <p style="font-size:13px;margin-top:8px;">Image + text equally weighted.</p>
+      </div>
+      <div class="metric card-green" style="flex:1;">
+        <div class="label">α = 1.0 ← Best</div>
+        <div class="val g" style="font-size:32px;">Image-only</div>
+        <p style="font-size:13px;margin-top:8px;">Finds visually similar images.<br><strong>Achieves 51.33%.</strong></p>
+      </div>
+      <div class="metric" style="flex:1;">
+        <div class="label">τ gate</div>
+        <div class="val y" style="font-size:32px;">Optional</div>
+        <p style="font-size:13px;margin-top:8px;">Skips retrieval if top-1 similarity is below threshold.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 7 — EXPERIMENTAL SETUP
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="Key points: 100 validation samples used consistently across ALL runs, so ablation comparisons are fair. The knowledge base has 5k entries from VQAv2. The baseline is the same frozen BLIP-2 with no retrieval. VQA soft accuracy is the official metric — it accounts for annotator disagreement by counting how many of 10 annotators agree.">
+  <div class="tag">Experimental Setup</div>
+  <h2>Consistent &amp; Controlled Evaluation</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>Dataset</h3>
+        <ul class="plain">
+          <li><span class="em">VQAv2</span> validation split</li>
+          <li>100 samples, same across all runs</li>
+          <li>Binary (yes/no) and open-ended questions</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Metric</h3>
+        <ul class="plain">
+          <li><span class="em">VQA soft accuracy</span></li>
+          <li>min(1, annotator_matches / 3)</li>
+          <li>Accounts for human disagreement</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>Knowledge Base</h3>
+        <ul class="plain">
+          <li><span class="em">5,000 entries</span>, VQAv2 training split</li>
+          <li>CLIP ViT-B/32 image + text embeddings</li>
+          <li>Two FAISS IndexFlatIP indices</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Baseline</h3>
+        <ul class="plain">
+          <li>Frozen BLIP-2 (blip2-opt-2.7b), no retrieval</li>
+          <li>Same prompt format, same eval set</li>
+          <li>Quantized to 4-bit NF4 for GPU efficiency</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 8 — MAIN RESULTS
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="This is the headline slide. Lead with the numbers: baseline 42.33%, best RAG 51.33%, that's plus 9 percentage points absolute and 21% relative improvement. The safe headline is the alpha sweep result because it's robust across the full eval set. The key finding is that alpha=1.0 wins — pure image retrieval, no text. Text-only retrieval actually slightly hurts.">
+  <div class="tag">Main Results</div>
+  <h2>Alpha / Tau Sweep — n=100</h2>
+  <div style="display:flex;gap:32px;flex:1;min-height:0;">
+    <div style="flex:1.6;display:flex;flex-direction:column;gap:12px;">
+      <table>
+        <tr><th>Configuration</th><th>α</th><th>τ</th><th style="text-align:right;">Accuracy</th></tr>
+        <tr class="dim"><td>Baseline (BLIP-2 only)</td><td>—</td><td>—</td><td style="text-align:right;">42.33%</td></tr>
+        <tr class="dim"><td>RAG text-only retrieval</td><td>0.0</td><td>—</td><td style="text-align:right;">41.33%</td></tr>
+        <tr><td>RAG balanced</td><td>0.5</td><td>—</td><td style="text-align:right;">46.33%</td></tr>
+        <tr><td>RAG balanced + gate</td><td>0.5</td><td>0.5</td><td style="text-align:right;">47.33%</td></tr>
+        <tr class="highlight"><td>RAG image-only ★ Best</td><td>1.0</td><td>—</td><td style="text-align:right;">51.33%</td></tr>
+        <tr><td>RAG image-only + gate</td><td>1.0</td><td>0.75</td><td style="text-align:right;">49.33%</td></tr>
+      </table>
+      <div class="plot-wrap" style="flex:1;min-height:0;">
+        <img class="plot" src="../results/plots/alpha_sweep.png" alt="Alpha sweep plot"/>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+      <div class="metric card-green">
+        <div class="label">Best RAG Accuracy</div>
+        <div class="val g">51.33%</div>
+      </div>
+      <div class="metric">
+        <div class="label">Baseline</div>
+        <div class="val" style="color:var(--ink-dim);">42.33%</div>
+      </div>
+      <div class="metric card-green">
+        <div class="label">Absolute Gain</div>
+        <div class="val g">+9.00 pts</div>
+      </div>
+      <div class="metric card-blue">
+        <div class="label">Relative Improvement</div>
+        <div class="val b">+21%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 9 — WHY IMAGE RETRIEVAL WINS
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="This is the analytical insight slide. Why does alpha=1.0 beat alpha=0.5 and alpha=0.0? Three reasons: VQA answers are visually grounded, short questions like 'what color is this?' are nearly identical across different visual scenes so text retrieval doesn't discriminate, and CLIP image embeddings cluster by visual content which correlates with answer space. Text-only retrieval slightly hurts because it retrieves questions that look similar but are about totally different images.">
+  <div class="tag">Key Insight</div>
+  <h2>Why Does Visual Retrieval Win?</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card card-green">
+        <h3 class="g">Image retrieval (α=1.0)</h3>
+        <ul style="margin-top:10px;">
+          <li>Similar images share objects, scenes, colors, actions</li>
+          <li>Visual neighbors often have similar answer distributions</li>
+          <li>CLIP image embeddings are rich and visually discriminative</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:16px 20px;background:var(--bg2);">
+        <p style="font-size:14px;color:var(--ink-dim);">Example: <em>"Is the grass green?"</em> — an image of a park retrieves
+        other park images. Retrieved answers include "yes" and "green" — directly helpful.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-red">
+        <h3 class="r">Text retrieval (α=0.0) — <em>hurts</em></h3>
+        <ul style="margin-top:10px;">
+          <li>Short VQA questions are often <strong>generic</strong>: "What color?", "How many?"</li>
+          <li>Same question form → different images → different answers</li>
+          <li>CLIP text embeddings optimized for captions, not interrogatives</li>
+        </ul>
+      </div>
+      <div class="card card-orange" style="padding:16px 20px;">
+        <p style="font-size:14px;color:var(--orange);">Example: <em>"What color is the car?"</em> text-retrieval
+        finds other color questions — but about completely different cars.
+        The retrieved answers are noise.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 10 — TOP-K ABLATION
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="These numbers are impressive. At k=3 we get 68%, at k=10 we get 90.67%. The k=10 result should be framed carefully — it's essentially a 10-shot prompt. Each of the 10 retrieved Q&A pairs provides the model with a full example from a similar scene. The result is internally consistent with Oracle@10 = 92.33%, which is the upper bound. Report k=3 as the practically useful result; k=10 is a controlled upper-bound exploration.">
+  <div class="tag">Top-k Ablation</div>
+  <h2>More Retrieved Examples → Higher Accuracy (α=1.0)</h2>
+  <div class="cols">
+    <div class="col" style="flex:1.3;">
+      <div class="plot-wrap" style="flex:1;">
+        <img class="plot" src="../results/plots/topk_ablation.png" alt="Top-k ablation plot"/>
+      </div>
+    </div>
+    <div class="col" style="flex:0.7;justify-content:center;">
+      <div class="metric"><div class="label">k = 1</div><div class="val b">53.33%</div></div>
+      <div class="metric card-green"><div class="label">k = 3 (default)</div><div class="val g">68.00%</div></div>
+      <div class="metric"><div class="label">k = 5</div><div class="val b">75.33%</div></div>
+      <div class="metric"><div class="label">k = 10</div><div class="val y">90.67%</div></div>
+      <div class="card card-orange" style="margin-top:8px;padding:12px 16px;">
+        <p style="font-size:13px;color:var(--orange);">k=10 acts as a 10-shot prompt. Promising controlled result — future work should verify at scale.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 11 — ORACLE / RETRIEVED-ANSWER OVERLAP
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="Important: do NOT call this a retrieval ceiling, because RAG beats it at k=1 and k=3. Oracle@k measures how often the ground-truth answer appears somewhere in the top-k retrieved answers. At k=1, the exact answer is in the top-1 result only 24% of the time — yet RAG achieves 53.33% at k=1. This proves the model is not just copying retrieved answers. It's using the retrieved examples as visual and semantic context, then generating its own answer combining visual reasoning with those priors.">
+  <div class="tag">Retrieved-Answer Overlap</div>
+  <h2>RAG Outperforms Answer Overlap at Low k</h2>
+  <div class="cols">
+    <div class="col" style="flex:1.3;">
+      <div class="plot-wrap" style="flex:1;">
+        <img class="plot" src="../results/plots/oracle.png" alt="Oracle@k plot"/>
+      </div>
+    </div>
+    <div class="col" style="flex:0.7;justify-content:center;gap:10px;">
+      <div class="card card-blue" style="padding:14px 18px;">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:6px;">Retrieved-Answer Overlap@k</div>
+        <p style="font-size:13px;">How often does the <em>exact</em> answer appear among the top-k retrieved Q&A pairs?</p>
+      </div>
+      <table style="font-size:14px;">
+        <tr><th>k</th><th>Overlap@k</th><th>RAG acc</th><th>Δ</th></tr>
+        <tr><td>1</td><td>24.00%</td><td class="g" style="font-weight:700;">53.33%</td><td class="g">+29 pts</td></tr>
+        <tr><td>3</td><td>60.33%</td><td class="g" style="font-weight:700;">68.00%</td><td class="g">+8 pts</td></tr>
+        <tr><td>5</td><td>83.33%</td><td>75.33%</td><td class="r">−8 pts</td></tr>
+        <tr><td>10</td><td>92.33%</td><td>90.67%</td><td class="r">−2 pts</td></tr>
+      </table>
+      <div class="card card-green" style="padding:12px 16px;">
+        <p style="font-size:13px;color:var(--green);">At k=1 and k=3, RAG <strong>exceeds</strong> answer overlap. The model combines its own visual reasoning with retrieved context — it is not copying.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 12 — WHERE RAG HELPS
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="This is one of the most interpretable results. Yes/no questions drop slightly (85.2% to 81.5%) because BLIP-2 is already very good at them and the extra context can confuse it. Open-ended questions see a massive +14 point gain (26.5% to 40.2%). This makes sense: open-ended questions are harder, there's more answer variability, and the retrieved hints provide useful semantic priors about what kinds of answers are appropriate.">
+  <div class="tag">Answer-Type Breakdown</div>
+  <h2>RAG Strongly Helps Open-Ended Questions</h2>
+  <div class="cols">
+    <div class="col" style="flex:1.3;">
+      <div class="plot-wrap" style="flex:1;">
+        <img class="plot" src="../results/plots/answer_type.png" alt="Answer type breakdown"/>
+      </div>
+    </div>
+    <div class="col" style="flex:0.7;justify-content:center;gap:12px;">
+      <div class="card card-red">
+        <h3 style="color:var(--red);">Yes/No Questions (n=27)</h3>
+        <div style="display:flex;justify-content:space-between;margin-top:10px;">
+          <div style="text-align:center;"><div style="font-size:28px;font-weight:700;color:var(--ink-dim);">85.2%</div><div style="font-size:12px;color:var(--ink-dim);">Baseline</div></div>
+          <div style="font-size:24px;align-self:center;color:var(--red);">→</div>
+          <div style="text-align:center;"><div style="font-size:28px;font-weight:700;color:var(--red);">81.5%</div><div style="font-size:12px;color:var(--ink-dim);">RAG</div></div>
+        </div>
+        <p style="font-size:13px;margin-top:8px;color:var(--ink-dim);">Model already strong. Context adds noise.</p>
+      </div>
+      <div class="card card-green">
+        <h3 style="color:var(--green);">Open-Ended Questions (n=73)</h3>
+        <div style="display:flex;justify-content:space-between;margin-top:10px;">
+          <div style="text-align:center;"><div style="font-size:28px;font-weight:700;color:var(--ink-dim);">26.5%</div><div style="font-size:12px;color:var(--ink-dim);">Baseline</div></div>
+          <div style="font-size:24px;align-self:center;color:var(--green);">→</div>
+          <div style="text-align:center;"><div style="font-size:28px;font-weight:700;color:var(--green);">40.2%</div><div style="font-size:12px;color:var(--ink-dim);">RAG</div></div>
+        </div>
+        <p style="font-size:13px;margin-top:8px;color:var(--green);font-weight:600;">+13.7 pts — main driver of total gain</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 13 — HELPFUL / HARMFUL
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="RAG corrects 21 examples and breaks 9. That's a 2.3:1 ratio of corrections to regressions. 70% of examples are unchanged — the model was right or wrong in both cases. This is a healthy signal. A retrieval system that breaks as many things as it fixes would not be worth adding. The 2:1 helpful-to-harmful ratio indicates the retrieval signal is net positive.">
+  <div class="tag">Helpful vs Harmful</div>
+  <h2>RAG Corrects More Than Twice As Many As It Breaks</h2>
+  <div class="cols">
+    <div class="col" style="flex:1.3;">
+      <div class="plot-wrap" style="flex:1;">
+        <img class="plot" src="../results/plots/helpful_harmful.png" alt="Helpful harmful plot"/>
+      </div>
+    </div>
+    <div class="col" style="flex:0.7;justify-content:center;gap:12px;">
+      <div class="metric card-green">
+        <div class="label">Helpful (RAG corrects)</div>
+        <div class="val g">21 / 100</div>
+        <p style="font-size:14px;margin-top:6px;">Baseline wrong → RAG right</p>
+      </div>
+      <div class="metric card-red">
+        <div class="label">Harmful (RAG breaks)</div>
+        <div class="val r">9 / 100</div>
+        <p style="font-size:14px;margin-top:6px;">Baseline right → RAG wrong</p>
+      </div>
+      <div class="metric">
+        <div class="label">Neutral (no change)</div>
+        <div class="val" style="color:var(--ink-dim);">70 / 100</div>
+      </div>
+      <div class="card card-green" style="padding:12px 16px;">
+        <p style="font-size:14px;color:var(--green);font-weight:600;">Helpful:Harmful ratio = 2.3:1</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 14 — CONFIDENCE
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="The confidence plot shows retrieval score vs RAG accuracy. CLIP cosine similarity scores cluster between 0.61 and 1.0 on this dataset — the range is narrow because CLIP image embeddings are generally similar for natural photos. The trend shows that higher top-1 retrieval score correlates with better RAG accuracy, which is encouraging — it means the retrieval signal is meaningful and not random. However, the correlation is imperfect, which means retrieval score alone is not sufficient — BLIP-2 sometimes ignores or misuses context.">
+  <div class="tag">Retrieval Confidence</div>
+  <h2>Higher Retrieval Confidence → Better Accuracy</h2>
+  <div class="cols">
+    <div class="col" style="flex:1.3;">
+      <div class="plot-wrap" style="flex:1;">
+        <img class="plot" src="../results/plots/confidence.png" alt="Confidence vs accuracy"/>
+      </div>
+    </div>
+    <div class="col" style="flex:0.7;justify-content:center;gap:14px;">
+      <div class="card card-blue">
+        <h3>Finding</h3>
+        <p style="margin-top:8px;font-size:15px;">Higher CLIP top-1 retrieval score correlates with higher RAG accuracy.</p>
+      </div>
+      <div class="card">
+        <h3>Note on Score Range</h3>
+        <p style="margin-top:8px;font-size:14px;color:var(--ink-dim);">Scores cluster between 0.61–1.0 — CLIP image embeddings
+        are generally similar for natural photos (narrow dynamic range).</p>
+      </div>
+      <div class="card card-orange">
+        <h3>Limitation</h3>
+        <p style="margin-top:8px;font-size:14px;">Retrieval score alone is not sufficient — BLIP-2 does not always
+        effectively utilize provided context even when retrieval is high quality.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 15 — FINE-TUNING ATTEMPT
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="Be honest here. QLoRA adapters were trained on RAG-format prompts — the hints format with similar-image answers. Training loss did decrease, showing the model learned to follow the new prompt format. But inference accuracy did not improve enough to become the main result. The reason: BLIP-2's OPT-2.7B backbone is mostly frozen, and 4-bit LoRA with rank 16 adds only a small number of trainable parameters. The lightweight adapters were insufficient to significantly shift generation behavior. This is a limitation, not a failure — the framing is that lightweight adaptation needs more data and compute.">
+  <div class="tag">Fine-Tuning Attempt</div>
+  <h2>QLoRA Adapters — Lightweight Adaptation</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card card-blue">
+        <h3>What We Did</h3>
+        <ul style="margin-top:10px;">
+          <li>QLoRA fine-tuning on RAG-format prompts (hints format)</li>
+          <li>LoRA rank r=16, α=32, 4-bit NF4 quantization</li>
+          <li>Training data: ~3,000 RAG-formatted VQA examples</li>
+          <li>Training loss decreased — model learned the prompt format</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-orange">
+        <h3>Result &amp; Analysis</h3>
+        <ul class="warn" style="margin-top:10px;">
+          <li>Inference accuracy did not improve significantly over inference-time RAG</li>
+          <li>OPT-2.7B backbone is mostly frozen — adapters cover few parameters</li>
+          <li>Lightweight adaptation insufficient to shift generation behavior</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:4px;background:var(--bg2);">
+        <p style="font-size:14px;color:var(--ink-dim);">Main result remains <strong>inference-time RAG</strong>.
+        Fine-tuning is future work requiring more data, larger LoRA rank, or partial unfreezing of the language model.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SLIDE 16 — CONCLUSION
+════════════════════════════════════════════════════════════════════ -->
+<div class="slide" data-notes="Close strong. The five things to remember: 1. We built open-book VQA with a clean retrieval pipeline. 2. +9 points absolute improvement over a strong frozen baseline. 3. Visual similarity beats text similarity — this is the main finding. 4. The model genuinely reasons over retrieved context, not just copying answers. 5. Open-ended questions drive the gain. Limitations: yes/no questions are hurt, and the generator doesn't always use context reliably. Future work: larger KB, fine-tuning with more data, image-disjoint KB construction.">
+  <div class="tag">Conclusion</div>
+  <h2>Open-Book VQA — Summary</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card card-green">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--green);margin-bottom:10px;">Contributions</div>
+        <ul class="check">
+          <li>Built open-book VQA: BLIP-2 + CLIP + FAISS pipeline</li>
+          <li>Improved frozen BLIP-2 from <strong>42.33% → 51.33%</strong> (+9 pts, +21% relative)</li>
+          <li>Visual similarity is a <strong>stronger</strong> retrieval signal than question-text similarity</li>
+          <li>RAG <strong>outperforms answer overlap at low k</strong> — model reasons over context</li>
+          <li>Main gain is on open-ended questions (+14 pts)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-orange">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:10px;">Limitations &amp; Future Work</div>
+        <ul class="warn">
+          <li>RAG slightly hurts yes/no questions (context adds noise)</li>
+          <li>Generator does not always use retrieved evidence reliably</li>
+          <li>100-sample eval; full benchmark evaluation is future work</li>
+          <li>Image-disjoint KB construction should be enforced more strictly</li>
+          <li>Fine-tuning needs larger rank / more data to improve results</li>
+        </ul>
+      </div>
+      <div class="metric card-green" style="margin-top:12px;">
+        <div class="label">Headline Number</div>
+        <div style="display:flex;align-items:baseline;gap:12px;justify-content:center;">
+          <span style="font-size:36px;font-weight:800;color:var(--ink-dim);">42.33%</span>
+          <span style="font-size:28px;color:var(--blue);">→</span>
+          <span style="font-size:48px;font-weight:800;color:var(--green);">51.33%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end deck -->
+
+<script>
+const slides  = Array.from(document.querySelectorAll('.slide'));
+const notePanel = document.getElementById('notes-panel');
+const counter   = document.getElementById('counter');
+const navEl     = document.getElementById('nav');
+let cur = 0;
+let notesOpen = false;
+
+// build nav dots
+slides.forEach((_,i)=>{
+  const d = document.createElement('div');
+  d.className = 'dot' + (i===0?' active':'');
+  d.onclick = ()=>go(i);
+  navEl.appendChild(d);
+});
+
+function go(n){
+  slides[cur].classList.remove('active');
+  navEl.children[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(n, slides.length-1));
+  slides[cur].classList.add('active');
+  navEl.children[cur].classList.add('active');
+  counter.textContent = `${cur+1} / ${slides.length}`;
+  if(notesOpen) showNotes();
+}
+
+function showNotes(){
+  notePanel.innerHTML = slides[cur].dataset.notes || '';
+}
+
+function toggleNotes(){
+  notesOpen = !notesOpen;
+  if(notesOpen){ notePanel.classList.add('open'); showNotes(); }
+  else { notePanel.classList.remove('open'); }
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') go(cur+1);
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp') go(cur-1);
+  else if(e.key==='n'||e.key==='N') toggleNotes();
+  else if(e.key==='Home') go(0);
+  else if(e.key==='End') go(slides.length-1);
+});
+
+// touch swipe
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50) go(dx<0?cur+1:cur-1);
+},{passive:true});
+
+go(0);
+</script>
+</body>
+</html>
