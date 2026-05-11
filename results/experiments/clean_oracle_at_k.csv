@@ -1,0 +1,5 @@
+k,oracle_at_k_pct,kb,alpha,n_samples,notes
+1,6.0,20k_diverse,1.0,100,GT appears as whole-word in any top-k retrieved answer (image-id-disjoint)
+3,24.0,20k_diverse,1.0,100,GT appears as whole-word in any top-k retrieved answer (image-id-disjoint)
+5,36.0,20k_diverse,1.0,100,GT appears as whole-word in any top-k retrieved answer (image-id-disjoint)
+10,46.0,20k_diverse,1.0,100,GT appears as whole-word in any top-k retrieved answer (image-id-disjoint)

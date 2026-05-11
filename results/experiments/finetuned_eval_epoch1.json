@@ -1,0 +1,11 @@
+{
+  "epoch": 1,
+  "num_samples": 100,
+  "top_k": 3,
+  "alpha": 1.0,
+  "accuracies": {
+    "baseline_ft": 0.0,
+    "rag_hints_ft": 0.02333333333333333,
+    "rag_current_ft": 0.026666666666666665
+  }
+}

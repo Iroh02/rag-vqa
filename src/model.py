@@ -242,8 +242,70 @@ def load_finetuned_model(checkpoint_path, quantize=True):
     return model, processor
 
 
+def generate_from_prompt(model, processor, image, prompt, max_new_tokens=10):
+    """Run BLIP-2 on a custom prompt string (used by prompt-template ablation)."""
+    inputs = processor(images=image, text=prompt, return_tensors="pt").to(
+        model.device, torch.float16
+    )
+    with torch.no_grad():
+        generated_ids = model.generate(
+            **inputs,
+            max_new_tokens=max_new_tokens,
+            num_beams=5,
+            early_stopping=True,
+        )
+    answer = processor.batch_decode(generated_ids, skip_special_tokens=True)[0].strip()
+
+    # Strip prompt echo (BLIP-2 sometimes echoes the full prompt)
+    if answer.startswith(prompt):
+        answer = answer[len(prompt):].strip()
+    # Strip trailing 'Answer:' / 'A:' prefix
+    for prefix in ["Answer:", "answer:", "Short answer:", "A:", "a:"]:
+        if answer.startswith(prefix):
+            answer = answer[len(prefix):].strip()
+    # Stop at first newline
+    answer = answer.split("\n")[0].strip()
+
+    # Question is needed for yes/no detection — extract from prompt
+    last_q_match = None
+    for line in reversed(prompt.splitlines()):
+        if line.startswith("Q: ") or line.startswith("Question: "):
+            last_q_match = line
+            break
+    question = ""
+    if last_q_match:
+        if last_q_match.startswith("Q: "):
+            question = last_q_match[3:].rstrip(" A:")
+        else:
+            question = last_q_match[10:].strip()
+    return _postprocess_answer(answer, question)
+
+
+def generate_with_template(model, processor, image, question, retrieved,
+                            template_name, caption=None, max_new_tokens=10):
+    """Generate an answer using a named prompt template."""
+    from src.prompt_templates import build_rag_prompt
+    prompt = build_rag_prompt(template_name, question, retrieved, caption=caption)
+    return generate_from_prompt(model, processor, image, prompt, max_new_tokens=max_new_tokens), prompt
+
+
+def generate_caption(model, processor, image):
+    """Generate a free-form caption for an image using BLIP-2 (no question).
+
+    Returns a short scene description, e.g. 'a person on a skateboard in a park'.
+    """
+    inputs = processor(images=image, text="", return_tensors="pt").to(
+        model.device, torch.float16
+    )
+    with torch.no_grad():
+        generated_ids = model.generate(**inputs, max_new_tokens=30, num_beams=3)
+    caption = processor.batch_decode(generated_ids, skip_special_tokens=True)[0].strip()
+    return caption
+
+
 def generate_answer_with_context(model, processor, image, question,
-                                  retrieved_examples, max_new_tokens=10):
+                                  retrieved_examples, max_new_tokens=10,
+                                  caption=None):
     """Generate answer using retrieved examples as few-shot context.
 
     Args:
@@ -251,16 +313,28 @@ def generate_answer_with_context(model, processor, image, question,
         processor: BLIP-2 processor
         image: PIL Image
         question: question string
-        retrieved_examples: list of dicts with 'question' and 'best_answer'
+        retrieved_examples: list of dicts with 'question' and 'best_answer'/'answer'
         max_new_tokens: max tokens to generate
+        caption: optional image caption string (prepended as scene context)
 
     Returns:
         Generated answer string
     """
-    # Build few-shot context
     context_lines = []
+
+    # Optional scene caption anchors the visual context
+    if caption:
+        context_lines.append(f"Image: {caption}")
+
+    # Question-aware hints: include retrieved question so BLIP-2 can match relevance
     for ex in retrieved_examples:
-        context_lines.append(f"Q: {ex['question']} A: {ex['best_answer']}")
+        ans = ex.get("best_answer") or ex.get("answer", "")
+        ret_q = ex.get("question", "")
+        if ret_q:
+            context_lines.append(f"Q: {ret_q} A: {ans}")
+        else:
+            context_lines.append(f"A: {ans}")
+
     context_lines.append(f"Q: {question} A:")
     prompt = "\n".join(context_lines)
 

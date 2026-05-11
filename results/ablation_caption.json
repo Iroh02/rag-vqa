@@ -1,0 +1,15 @@
+{
+  "config": {
+    "num_samples": 100,
+    "top_k": 3,
+    "alpha": 1.0,
+    "caption_weight": 0.3,
+    "kb_size": 20000
+  },
+  "accuracies": {
+    "baseline": 0.4233333333333333,
+    "rag_no_caption": 0.5933333333333333,
+    "rag_caption_in_prompt": 0.57,
+    "rag_caption_full": 0.5333333333333333
+  }
+}

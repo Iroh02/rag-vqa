@@ -1,0 +1,122 @@
+[
+  {
+    "image": "cat.png",
+    "question": "what color is the cat?",
+    "baseline": "green",
+    "final": "gray",
+    "top_img_score": 0.8217,
+    "type_gate_applied": false,
+    "rag_used": true,
+    "elapsed_sec": 3.02
+  },
+  {
+    "image": "cat.png",
+    "question": "is the cat sleeping?",
+    "baseline": "yes",
+    "final": "yes",
+    "top_img_score": 0.8217,
+    "type_gate_applied": true,
+    "rag_used": true,
+    "elapsed_sec": 2.93
+  },
+  {
+    "image": "cat.png",
+    "question": "what is the cat sitting on?",
+    "baseline": "pillow",
+    "final": "pillow",
+    "top_img_score": 0.8217,
+    "type_gate_applied": false,
+    "rag_used": true,
+    "elapsed_sec": 2.76
+  },
+  {
+    "image": "pizza.png",
+    "question": "what kind of food is this?",
+    "baseline": "pizza",
+    "final": "pizza",
+    "top_img_score": 0.8773,
+    "type_gate_applied": false,
+    "rag_used": true,
+    "elapsed_sec": 2.72
+  },
+  {
+    "image": "pizza.png",
+    "question": "is this a pizza?",
+    "baseline": "yes",
+    "final": "yes",
+    "top_img_score": 0.8773,
+    "type_gate_applied": true,
+    "rag_used": true,
+    "elapsed_sec": 2.91
+  },
+  {
+    "image": "pizza.png",
+    "question": "are people eating?",
+    "baseline": "yes",
+    "final": "yes",
+    "top_img_score": 0.8773,
+    "type_gate_applied": true,
+    "rag_used": true,
+    "elapsed_sec": 2.78
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what is the person doing?",
+    "baseline": "riding a bike",
+    "final": "riding a bike",
+    "top_img_score": 0.8092,
+    "type_gate_applied": false,
+    "rag_used": true,
+    "elapsed_sec": 2.82
+  },
+  {
+    "image": "cyclist.png",
+    "question": "is the person wearing a helmet?",
+    "baseline": "yes",
+    "final": "yes",
+    "top_img_score": 0.8092,
+    "type_gate_applied": true,
+    "rag_used": true,
+    "elapsed_sec": 2.92
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what is the bike's color?",
+    "baseline": "black",
+    "final": "black",
+    "top_img_score": 0.8092,
+    "type_gate_applied": false,
+    "rag_used": true,
+    "elapsed_sec": 2.74
+  },
+  {
+    "image": "baseball.png",
+    "question": "what sport is this?",
+    "baseline": "baseball",
+    "final": "baseball",
+    "top_img_score": 0.8822,
+    "type_gate_applied": false,
+    "rag_used": true,
+    "elapsed_sec": 3.0
+  },
+  {
+    "image": "baseball.png",
+    "question": "is the player batting?",
+    "baseline": "yes",
+    "final": "yes",
+    "top_img_score": 0.8822,
+    "type_gate_applied": true,
+    "rag_used": true,
+    "elapsed_sec": 2.85
+  },
+  {
+    "image": "baseball.png",
+    "question": "what is the catcher wearing?",
+    "baseline": "catcher's mask",
+    "final": "hat",
+    "top_img_score": 0.8822,
+    "type_gate_applied": false,
+    "rag_used": true,
+    "elapsed_sec": 2.87
+  }
+]

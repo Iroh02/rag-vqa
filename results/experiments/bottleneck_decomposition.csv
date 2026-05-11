@@ -1,0 +1,5 @@
+category,count,pct_of_total,pct_of_wrong
+retrieval_then_lm,18,18.0,
+generator_smart,37,37.0,
+generator_failure,6,6.0,13.33
+retrieval_failure,39,39.0,86.67

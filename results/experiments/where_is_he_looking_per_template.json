@@ -1,0 +1,65 @@
+{
+  "qid": "262148000",
+  "question": "Where is he looking?",
+  "gt_all": [
+    "down",
+    "down",
+    "at table"
+  ],
+  "caption": "a skateboarder doing a trick on a bench",
+  "retrieved": [
+    {
+      "question": "Is anyone watching?",
+      "answer": "yes",
+      "img_score": 0.8804432153701782
+    },
+    {
+      "question": "What color is the graffiti?",
+      "answer": "blue",
+      "img_score": 0.8718051314353943
+    },
+    {
+      "question": "Is it a male or a female?",
+      "answer": "male",
+      "img_score": 0.8676446080207825
+    }
+  ],
+  "per_template": {
+    "current_prompt": {
+      "answer": "at the crowd",
+      "vqa_score": 0.0
+    },
+    "short_evidence": {
+      "answer": "yes",
+      "vqa_score": 0.0
+    },
+    "candidate_constrained": {
+      "answer": "yes, blue, male",
+      "vqa_score": 0.0
+    },
+    "question_match_priority": {
+      "answer": "",
+      "vqa_score": 0.0
+    },
+    "minimal_fewshot": {
+      "answer": "at the crowd",
+      "vqa_score": 0.0
+    },
+    "image_first": {
+      "answer": "looking at the crowd",
+      "vqa_score": 0.0
+    },
+    "evidence_noisy_warning": {
+      "answer": "yes, blue",
+      "vqa_score": 0.0
+    },
+    "caption_aware": {
+      "answer": "",
+      "vqa_score": 0.0
+    },
+    "direct_evidence_override": {
+      "answer": "",
+      "vqa_score": 0.0
+    }
+  }
+}

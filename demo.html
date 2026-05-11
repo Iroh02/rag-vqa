@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Open-Book VQA — Interactive Demo</title>
+<style>
+:root {
+  --bg:      #0d1117;
+  --bg1:     #161b22;
+  --bg2:     #21262d;
+  --bg3:     #2d333b;
+  --border:  rgba(255,255,255,0.08);
+  --ink:     #f0f6fc;
+  --dim:     #8b949e;
+  --green:   #3fb950;
+  --green-bg:#1a4731;
+  --blue:    #58a6ff;
+  --blue-bg: rgba(88,166,255,0.10);
+  --orange:  #f0883e;
+  --red:     #f85149;
+  --red-bg:  #3b1a1a;
+  --yellow:  #f6ad55;
+  --purple:  #bc8cff;
+  --radius:  10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  background:
+    radial-gradient(ellipse 1100px 600px at 12% -10%, rgba(88,166,255,0.07), transparent 60%),
+    radial-gradient(ellipse 900px 500px at 95% 5%, rgba(63,185,80,0.05), transparent 60%),
+    var(--bg);
+  color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  min-height:100vh;-webkit-font-smoothing:antialiased;
+  letter-spacing:-0.005em;
+}
+
+/* ── header ── */
+#header{background:linear-gradient(180deg, rgba(22,27,34,0.95) 0%, rgba(22,27,34,0.7) 100%);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:relative;}
+#header::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent 0%,var(--blue) 35%,var(--green) 65%,transparent 100%);opacity:.45;}
+#header h1{font-size:21px;font-weight:800;letter-spacing:-0.02em;background:linear-gradient(90deg,#f0f6fc 0%,#a8c7fa 70%,#9ae6b4 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+#header .sub{font-size:12px;color:var(--dim);margin-top:3px;letter-spacing:.01em;}
+.pill{background:var(--bg2);border:1px solid var(--border);padding:5px 12px;border-radius:20px;font-size:12px;color:var(--blue);white-space:nowrap;font-weight:500;}
+.pill.headline{background:linear-gradient(135deg, rgba(63,185,80,0.18) 0%, rgba(63,185,80,0.06) 100%);border-color:rgba(63,185,80,0.5);color:var(--green);font-weight:700;box-shadow:0 0 18px rgba(63,185,80,0.15);}
+
+/* ── tabs ── */
+#tab-bar{background:rgba(22,27,34,0.55);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);display:flex;gap:0;padding:0 28px;}
+.tab-btn{background:transparent;border:none;border-bottom:3px solid transparent;padding:14px 22px;font-size:14px;font-weight:600;color:var(--dim);cursor:pointer;font-family:inherit;transition:all .18s;letter-spacing:-0.005em;}
+.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);}
+.tab-btn:hover:not(.active){color:var(--ink);}
+.tab-content{display:none;padding:22px 28px;}
+.tab-content.active{display:block;animation:fadeUp .25s ease-out;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+/* ── panel ── */
+.panel{background:linear-gradient(180deg, var(--bg1) 0%, rgba(17,22,29,0.95) 100%);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 0 rgba(255,255,255,0.03) inset;}
+.panel h3{font-size:11px;text-transform:uppercase;letter-spacing:1.1px;color:var(--dim);margin-bottom:12px;font-weight:700;}
+.panel.compact{padding:12px 14px;}
+
+/* ── curated layout ── */
+#curated-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px;}
+.control-block label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--dim);margin-bottom:6px;font-weight:700;}
+.control-block select{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--ink);padding:10px 12px;font-size:14px;font-family:inherit;cursor:pointer;}
+
+/* ── case header ── */
+#case-header{display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:stretch;margin-bottom:14px;}
+#case-header .img-wrap{background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 26px rgba(0,0,0,0.28);}
+#case-header img{width:100%;height:240px;object-fit:cover;background:var(--bg2);display:block;}
+#case-header .img-meta{padding:10px 14px;font-size:11px;color:var(--dim);border-top:1px solid var(--border);font-family:'Fira Code',monospace;}
+.q-block{background:linear-gradient(180deg, var(--bg1) 0%, rgba(17,22,29,0.95) 100%);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 1px 0 rgba(255,255,255,0.03) inset;}
+.q-label{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:var(--blue);margin-bottom:8px;font-weight:700;}
+.q-text{font-size:24px;font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-0.015em;line-height:1.25;}
+.q-title{font-size:13px;color:var(--dim);font-style:italic;margin-bottom:12px;line-height:1.5;}
+.gt-row{display:flex;flex-wrap:wrap;gap:8px;}
+.gt-pill{background:var(--bg2);border:1px solid var(--border);padding:5px 12px;border-radius:14px;font-size:12px;color:var(--dim);}
+.gt-pill b{color:var(--green);font-weight:700;}
+.warning-strip{background:rgba(246,173,85,0.08);border:1px solid var(--yellow);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--yellow);line-height:1.5;}
+
+/* ── Visual Summary (BLIP-2 caption) ── */
+#visual-summary{
+  position:relative;
+  background:
+    radial-gradient(ellipse 600px 200px at 50% 0%, rgba(188,140,255,0.10), transparent 65%),
+    linear-gradient(180deg, rgba(188,140,255,0.05) 0%, var(--bg1) 100%);
+  border:1px solid rgba(188,140,255,0.28);
+  border-radius:14px;
+  padding:22px 28px 18px;
+  margin-bottom:14px;
+  overflow:hidden;
+  animation:heroIn .35s cubic-bezier(.2,.7,.2,1);
+}
+#visual-summary::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg, var(--purple) 0%, rgba(188,140,255,0.2) 100%);
+}
+.vs-quote{
+  display:flex;align-items:flex-start;gap:8px;
+  font-family:'Inter','Segoe UI',sans-serif;
+  font-size:clamp(18px, 2.2vw, 26px);
+  font-weight:600;line-height:1.35;color:var(--ink);
+  letter-spacing:-0.012em;
+  text-shadow:0 0 24px rgba(188,140,255,0.18);
+}
+.vs-mark{
+  font-family:'Georgia',serif;
+  font-size:clamp(34px, 3.6vw, 50px);
+  font-weight:800;color:var(--purple);
+  line-height:.6;opacity:.6;
+  flex-shrink:0;
+}
+.vs-mark:last-child{align-self:flex-end;line-height:.2;}
+.vs-text{flex:1;padding:6px 0;}
+.vs-meta{
+  display:flex;align-items:center;gap:10px;
+  margin-top:10px;padding-top:10px;
+  border-top:1px solid rgba(188,140,255,0.18);
+  font-size:11px;
+}
+.vs-label{
+  font-weight:800;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--purple);
+}
+.vs-source{color:var(--dim);font-style:italic;}
+
+/* ── HERO answer comparison (the money shot) ── */
+.answer-hero{
+  position:relative;
+  background:
+    radial-gradient(ellipse 480px 200px at 8% 50%, rgba(248,81,73,0.08), transparent 60%),
+    radial-gradient(ellipse 480px 200px at 92% 50%, rgba(63,185,80,0.10), transparent 60%),
+    linear-gradient(180deg, var(--bg1) 0%, #11161d 100%);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:30px 32px 22px;
+  margin-bottom:14px;
+  display:grid;
+  grid-template-columns:1fr 110px 1fr;
+  gap:20px;
+  align-items:center;
+  overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 12px 40px rgba(0,0,0,0.25);
+  animation:heroIn .35s cubic-bezier(.2,.7,.2,1);
+}
+@keyframes heroIn{
+  from {opacity:0; transform:translateY(8px) scale(.99);}
+  to   {opacity:1; transform:none;}
+}
+.answer-hero.helpful{
+  border-color:rgba(63,185,80,0.4);
+  box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 12px 50px rgba(63,185,80,0.18), 0 0 0 1px rgba(63,185,80,0.18);
+}
+.answer-hero::before{
+  content:'';position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%, var(--red) 12%, rgba(255,255,255,0.15) 50%, var(--green) 88%, transparent 100%);
+  opacity:.55;
+}
+.hero-side{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;}
+.hero-side.baseline{align-items:flex-end;text-align:right;}
+.hero-side.rag{align-items:flex-start;text-align:left;}
+.hero-label{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;}
+.hero-side.baseline .hero-label{color:var(--red);}
+.hero-side.rag .hero-label{color:var(--green);}
+.hero-answer{
+  font-family:'Fira Code','Cascadia Code',monospace;
+  font-size:clamp(20px, 2.4vw, 30px);
+  font-weight:800;line-height:1.15;
+  word-break:break-word;color:var(--ink);
+  max-width:100%;
+}
+.answer-hero.long-answer .hero-answer{font-size:clamp(16px, 1.8vw, 22px);}
+.hero-side.rag .hero-answer{text-shadow:0 0 28px rgba(63,185,80,0.35);}
+.answer-hero.helpful .hero-side.rag .hero-answer{animation:ragPulse 2.4s ease-in-out infinite;}
+.answer-hero.helpful .hero-side.baseline .hero-answer{opacity:.85;text-decoration:line-through;text-decoration-color:rgba(248,81,73,0.4);text-decoration-thickness:2px;}
+@keyframes ragPulse{
+  0%, 100% {text-shadow:0 0 22px rgba(63,185,80,0.30);}
+  50%      {text-shadow:0 0 38px rgba(63,185,80,0.55);}
+}
+.answer-hero.helpful .hero-arrow-tag{
+  background:linear-gradient(135deg, rgba(63,185,80,0.18) 0%, rgba(88,166,255,0.18) 100%);
+  border-color:var(--green);color:var(--green);
+  box-shadow:0 0 16px rgba(63,185,80,0.35);
+}
+.hero-state{
+  font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:800;
+  display:inline-block;padding:4px 12px;border-radius:14px;
+}
+.hero-state.ok{background:rgba(63,185,80,0.18);color:var(--green);border:1px solid rgba(63,185,80,0.45);}
+.hero-state.no{background:rgba(248,81,73,0.16);color:var(--red);border:1px solid rgba(248,81,73,0.45);}
+.hero-state.verbose{background:rgba(246,173,85,0.16);color:var(--yellow);border:1px solid rgba(246,173,85,0.45);}
+.hero-state.unk{background:var(--bg3);color:var(--dim);border:1px solid var(--border);}
+
+.hero-arrow{position:relative;display:flex;align-items:center;justify-content:center;height:60px;z-index:1;}
+.hero-arrow-line{position:absolute;left:0;right:0;top:50%;height:2px;background:linear-gradient(90deg, var(--red) 0%, var(--blue) 50%, var(--green) 100%);transform:translateY(-50%);}
+.hero-arrow-line::after{
+  content:'';position:absolute;right:-1px;top:50%;
+  width:0;height:0;
+  border-left:10px solid var(--green);
+  border-top:6px solid transparent;border-bottom:6px solid transparent;
+  transform:translateY(-50%);
+  filter:drop-shadow(0 0 6px rgba(63,185,80,0.6));
+}
+.hero-arrow-tag{
+  position:relative;z-index:2;
+  background:var(--bg);
+  border:1px solid var(--blue);color:var(--blue);
+  font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;
+  padding:5px 10px;border-radius:14px;
+  box-shadow:0 0 14px rgba(88,166,255,0.25);
+  white-space:nowrap;
+}
+
+.hero-meta-row{
+  grid-column:1 / -1;
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;
+  padding-top:18px;margin-top:10px;
+  border-top:1px solid var(--border);
+  z-index:1;position:relative;
+}
+.hero-meta-row .gt-pill{background:var(--bg2);border:1px solid var(--border);padding:5px 14px;border-radius:16px;font-size:12px;color:var(--dim);}
+.hero-meta-row .gt-pill b{color:var(--ink);font-weight:700;}
+.verdict-pill{padding:5px 14px;border-radius:16px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;}
+.verdict-pill.helpful{background:rgba(63,185,80,0.16);color:var(--green);border:1px solid rgba(63,185,80,0.5);}
+.verdict-pill.neutral{background:rgba(88,166,255,0.14);color:var(--blue);border:1px solid rgba(88,166,255,0.45);}
+.verdict-pill.harmful,.verdict-pill.noisy{background:rgba(248,81,73,0.14);color:var(--red);border:1px solid rgba(248,81,73,0.45);}
+.verdict-pill.gated{background:rgba(246,173,85,0.14);color:var(--yellow);border:1px solid rgba(246,173,85,0.45);}
+
+@media (max-width: 820px){
+  .answer-hero{grid-template-columns:1fr;text-align:left;}
+  .hero-side.baseline,.hero-side.rag{align-items:flex-start;text-align:left;}
+  .hero-arrow{height:34px;}
+  .hero-arrow-line{background:linear-gradient(180deg, var(--red) 0%, var(--blue) 50%, var(--green) 100%);width:2px;height:100%;left:50%;top:0;}
+  .hero-arrow-line::after{display:none;}
+}
+
+/* ── HERO merged layout (when baseline == RAG) ── */
+.answer-hero.merged{
+  grid-template-columns:1fr;
+  text-align:center;
+  background:
+    radial-gradient(ellipse 600px 220px at 50% 50%, rgba(63,185,80,0.10), transparent 65%),
+    linear-gradient(180deg, var(--bg1) 0%, #11161d 100%);
+  padding:34px 28px 22px;
+}
+.answer-hero.merged::before{
+  background:linear-gradient(90deg,transparent 0%, var(--green) 50%, transparent 100%);
+}
+.answer-hero.merged .hero-side,
+.answer-hero.merged .hero-arrow{display:none;}
+.answer-hero.merged .hero-merged{display:flex;flex-direction:column;align-items:center;gap:14px;z-index:1;position:relative;}
+.answer-hero .hero-merged{display:none;}
+.hero-merged .merged-label{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;color:var(--blue);}
+.hero-merged .merged-answer{
+  font-family:'Fira Code','Cascadia Code',monospace;
+  font-size:clamp(24px, 3.4vw, 38px);
+  font-weight:800;line-height:1.15;color:var(--ink);
+  text-shadow:0 0 36px rgba(63,185,80,0.35);
+  word-break:break-word;
+  max-width:760px;
+}
+.answer-hero.merged.long-answer .merged-answer{font-size:clamp(20px, 2.6vw, 28px);}
+.hero-merged .merged-checks{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.hero-merged .merged-checks .hero-state{font-size:11px;}
+.hero-merged .merged-story{font-size:13px;color:var(--ink);max-width:560px;line-height:1.55;}
+.hero-merged .merged-story b{color:var(--blue);}
+
+/* ── mode comparison table ── */
+table.modes{width:100%;border-collapse:collapse;font-size:13px;}
+table.modes th{background:var(--bg2);padding:10px 14px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--dim);font-weight:700;}
+table.modes td{padding:12px 14px;border-top:1px solid var(--border);vertical-align:top;}
+table.modes tr.headline td{background:rgba(63,185,80,0.06);}
+table.modes .ans{font-family:'Fira Code','Cascadia Code',monospace;font-size:14px;font-weight:700;color:var(--ink);}
+table.modes .badge{font-size:10px;padding:3px 9px;border-radius:10px;font-weight:700;display:inline-block;}
+table.modes .badge.ok{background:#22543d;color:#9ae6b4;}
+table.modes .badge.no{background:#742a2a;color:#feb2b2;}
+table.modes .badge.verbose{background:rgba(246,173,85,0.18);color:var(--yellow);border:1px solid var(--yellow);}
+table.modes .badge.unk{background:var(--bg3);color:var(--dim);}
+table.modes .badge-note{font-size:10px;color:var(--dim);font-style:italic;display:block;margin-top:3px;line-height:1.3;}
+table.modes .note{color:var(--dim);font-size:11px;}
+
+/* ── evidence trace ── */
+ol.evidence{list-style:none;display:flex;flex-direction:column;gap:9px;}
+ol.evidence li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:flex-start;padding:11px 13px;background:var(--bg2);border-left:3px solid var(--blue);border-radius:7px;}
+ol.evidence li .num{width:26px;height:26px;background:var(--bg);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--blue);}
+ol.evidence li .body{flex:1;}
+ol.evidence li .body .step-title{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--blue);font-weight:700;margin-bottom:4px;}
+ol.evidence li .body .step-content{font-size:13px;color:var(--ink);line-height:1.5;}
+ol.evidence li.step-caption{border-left-color:var(--purple);}
+ol.evidence li.step-caption .num,
+ol.evidence li.step-caption .step-title{color:var(--purple);}
+ol.evidence li.step-retrieve{border-left-color:var(--orange);}
+ol.evidence li.step-retrieve .num,
+ol.evidence li.step-retrieve .step-title{color:var(--orange);}
+ol.evidence li.step-prior{border-left-color:var(--yellow);}
+ol.evidence li.step-prior .num,
+ol.evidence li.step-prior .step-title{color:var(--yellow);}
+ol.evidence li.step-final{border-left-color:var(--green);}
+ol.evidence li.step-final .num,
+ol.evidence li.step-final .step-title{color:var(--green);}
+ol.evidence li.step-final .step-content{font-size:18px;font-weight:800;}
+.retrieved-mini{font-family:'Fira Code',monospace;font-size:12px;line-height:1.7;color:var(--ink);}
+.retrieved-mini .qa{display:block;}
+.retrieved-mini .qa b{color:var(--orange);}
+
+/* ── retrieved cards ── */
+.ret-item{background:var(--bg2);border-radius:8px;padding:12px 14px;margin-bottom:8px;}
+.ret-item .ret-rank{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.7px;margin-bottom:3px;}
+.ret-item .ret-q{font-size:13px;color:var(--ink);margin-bottom:4px;}
+.ret-item .ret-a{font-size:15px;font-weight:700;color:var(--orange);margin-bottom:7px;font-family:'Fira Code',monospace;}
+.score-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.score-bar-wrap{flex:1;min-width:120px;height:5px;background:var(--bg);border-radius:3px;overflow:hidden;}
+.score-bar{height:100%;background:var(--blue);border-radius:3px;}
+.score-val{font-size:11px;color:var(--dim);white-space:nowrap;font-family:'Fira Code',monospace;}
+
+/* ── priors row ── */
+.priors-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.prior-chip{background:var(--bg3);border:1px solid var(--border);padding:4px 11px;border-radius:14px;font-size:12px;color:var(--ink);font-family:'Fira Code',monospace;}
+.prior-chip.most-common{background:rgba(246,173,85,.15);border-color:var(--yellow);color:var(--yellow);font-weight:700;}
+.prior-chip.q-match{background:rgba(63,185,80,.15);border-color:var(--green);color:var(--green);font-weight:700;}
+.priors-meta{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.6;}
+.priors-meta b{color:var(--ink);}
+
+/* ── prompt code ── */
+.prompt-box{background:#0d1117;border-radius:8px;padding:13px;font-family:'Fira Code',monospace;font-size:12px;color:#a8d1ff;line-height:1.7;white-space:pre-wrap;word-break:break-word;max-height:280px;overflow-y:auto;}
+
+/* ── presenter notes ── */
+.presenter-notes{background:rgba(88,166,255,0.05);border:1px solid var(--blue);border-radius:8px;padding:14px 16px;}
+.presenter-notes h4{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:10px;}
+.presenter-notes .note-row{margin-bottom:10px;font-size:13px;line-height:1.6;}
+.presenter-notes .note-row:last-child{margin-bottom:0;}
+.presenter-notes .note-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);margin-bottom:3px;font-weight:700;}
+
+/* ── final answer panel ── */
+.final-panel{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.final-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
+.final-card.raw{border-left:3px solid var(--orange);}
+.final-card.final{border-left:3px solid var(--green);}
+.final-card .ftitle{font-size:10px;text-transform:uppercase;letter-spacing:.7px;font-weight:700;margin-bottom:6px;}
+.final-card.raw .ftitle{color:var(--orange);}
+.final-card.final .ftitle{color:var(--green);}
+.final-card .fans{font-size:24px;font-weight:800;color:var(--ink);font-family:'Fira Code',monospace;}
+.final-card .fnote{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.5;}
+
+/* ── selector toggle ── */
+.toggle-bar{background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.toggle-bar label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--ink);}
+.toggle-bar input[type=checkbox]{accent-color:var(--blue);width:16px;height:16px;}
+.toggle-bar .toggle-note{font-size:11px;color:var(--dim);font-style:italic;margin-left:auto;}
+
+/* ── multi-question live ── */
+#live-image-strip{display:flex;gap:14px;align-items:flex-start;background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius);padding:14px;position:sticky;top:0;z-index:10;}
+#drop-zone{width:140px;height:100px;border:2px dashed rgba(88,166,255,0.4);border-radius:6px;background:var(--bg2);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:11px;color:var(--dim);text-align:center;padding:8px;}
+#drop-zone:hover{border-color:var(--blue);}
+#drop-zone img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
+#live-controls{flex:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px 14px;font-size:12px;}
+#live-controls label{display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--dim);}
+#live-controls input[type=range]{flex:1;}
+
+.qa-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:14px;}
+.qa-card .qa-head{padding:13px 16px;background:var(--bg2);display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.qa-card .qa-q{font-size:14px;font-weight:600;color:var(--ink);flex:1;}
+.qa-card .qa-meta{font-size:11px;color:var(--dim);}
+.qa-card .qa-body{padding:14px 16px;display:flex;flex-direction:column;gap:14px;}
+.qa-card .ans-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ans-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;}
+.ans-card.baseline{border-left:3px solid var(--red);}
+.ans-card.rag{border-left:3px solid var(--green);}
+.ans-card .ans-title{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--dim);margin-bottom:5px;font-weight:700;}
+.ans-card.baseline .ans-title{color:var(--red);}
+.ans-card.rag .ans-title{color:var(--green);}
+.ans-card .ans-text{font-size:22px;font-weight:800;color:var(--ink);}
+.ans-card .ans-note{font-size:11px;color:var(--dim);margin-top:6px;}
+.qa-card .toggle-trace{background:transparent;border:1px solid var(--border);color:var(--dim);padding:5px 12px;border-radius:6px;cursor:pointer;font-size:11px;font-family:inherit;}
+.qa-card .toggle-trace:hover{color:var(--ink);border-color:var(--blue);}
+.qa-card .trace-body{margin-top:8px;display:none;}
+.qa-card .trace-body.open{display:block;}
+
+#live-input{position:sticky;bottom:0;background:var(--bg1);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;display:flex;gap:10px;align-items:flex-end;}
+#live-input textarea{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;color:var(--ink);font-size:14px;font-family:inherit;resize:none;height:48px;}
+#live-input button{background:var(--blue);color:#fff;border:none;padding:13px 22px;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;}
+#live-input button:disabled{opacity:.5;cursor:wait;}
+
+#api-status{font-size:11px;color:var(--dim);text-align:center;margin:6px 0;}
+.placeholder-hint{padding:30px 20px;text-align:center;color:var(--dim);font-size:13px;background:var(--bg2);border-radius:8px;border:1px dashed var(--border);}
+
+/* ── stats table ── */
+.stats-table{width:100%;border-collapse:collapse;font-size:13px;}
+.stats-table th{background:var(--bg2);padding:9px 14px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--dim);font-weight:600;}
+.stats-table td{padding:9px 14px;border-top:1px solid var(--border);}
+.stats-table tr.best-row td{color:var(--green);font-weight:700;}
+
+/* ── demo order strip ── */
+#demo-order{background:linear-gradient(135deg, rgba(88,166,255,0.07) 0%, rgba(63,185,80,0.05) 100%);border:1px solid rgba(88,166,255,0.35);border-radius:var(--radius);padding:14px 20px;margin-bottom:14px;position:relative;overflow:hidden;}
+#demo-order::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg, var(--blue) 0%, var(--green) 100%);}
+#demo-order .order-title{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--blue);margin-bottom:8px;font-weight:700;}
+#demo-order ol{margin-left:20px;font-size:12px;line-height:1.85;color:var(--ink);}
+#demo-order ol li{padding-left:2px;}
+#demo-order ol li::marker{color:var(--blue);font-weight:700;}
+#demo-order ol li i{color:var(--dim);font-style:italic;}
+</style>
+</head>
+<body>
+
+<div id="header">
+  <div>
+    <h1>Open-Book VQA — Interactive Demo</h1>
+    <div class="sub">Visual Memory-Augmented BLIP-2 with CLIP + FAISS Retrieval</div>
+  </div>
+  <div class="pill">BLIP-2 frozen</div>
+  <div class="pill">CLIP ViT-B/32</div>
+  <div class="pill">FAISS 20k diverse KB</div>
+  <div class="pill headline">42.33% → 60.33% · +18 pts · 100-sample eval</div>
+</div>
+
+<!-- Single-tab demo — Results Summary tab removed for live presentation. -->
+
+<!-- ─────────────── CURATED DEMO ─────────────── -->
+<div id="tab-demo" class="tab-content active">
+
+
+  <div id="curated-controls">
+    <div class="control-block">
+      <label>Category</label>
+      <select id="category-select" onchange="onCategoryChange()"></select>
+    </div>
+    <div class="control-block">
+      <label>Example</label>
+      <select id="case-select" onchange="onCaseChange()"></select>
+    </div>
+  </div>
+
+  <div id="case-header">
+    <div class="img-wrap">
+      <img id="query-img" src="" alt="query"/>
+      <div class="img-meta" id="img-meta">—</div>
+    </div>
+    <div class="q-block">
+      <div class="q-label" id="case-category">—</div>
+      <div class="q-text" id="q-text">—</div>
+      <div class="q-title" id="case-title">—</div>
+      <div class="gt-row">
+        <span class="gt-pill" id="gt-pill">Ground truth: <b id="gt-text">—</b></span>
+        <span class="gt-pill" id="caption-pill" style="display:none;"></span>
+      </div>
+      <div class="warning-strip" id="warning-strip" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- Visual Summary — BLIP-2 caption mode -->
+  <div id="visual-summary" style="display:none;">
+    <div class="vs-quote">
+      <span class="vs-mark">“</span>
+      <span class="vs-text" id="vs-text">—</span>
+      <span class="vs-mark">”</span>
+    </div>
+    <div class="vs-meta">
+      <span class="vs-label">Visual Summary</span>
+      <span class="vs-source">BLIP-2 caption · what the model sees, in its own words</span>
+    </div>
+  </div>
+
+  <!-- HERO answer comparison: BLIP-2 alone   →   + 20k visual memory
+       Switches to "merged" layout when baseline == RAG (both modes converge). -->
+  <div class="answer-hero" id="answer-hero">
+    <div class="hero-side baseline">
+      <div class="hero-label">Baseline · BLIP-2 alone</div>
+      <div class="hero-answer" id="hero-baseline-ans">—</div>
+      <div class="hero-state" id="hero-baseline-state">—</div>
+    </div>
+    <div class="hero-arrow">
+      <div class="hero-arrow-line"></div>
+      <div class="hero-arrow-tag">+ 20k visual memory</div>
+    </div>
+    <div class="hero-side rag">
+      <div class="hero-label">Open-Book RAG · final</div>
+      <div class="hero-answer" id="hero-rag-ans">—</div>
+      <div class="hero-state" id="hero-rag-state">—</div>
+    </div>
+    <div class="hero-merged" id="hero-merged">
+      <div class="merged-label">Baseline and RAG converge · same answer</div>
+      <div class="merged-answer" id="hero-merged-ans">—</div>
+      <div class="merged-checks">
+        <span class="hero-state" id="hero-merged-base-state">Baseline —</span>
+        <span class="hero-state" id="hero-merged-rag-state">RAG —</span>
+      </div>
+      <div class="merged-story" id="hero-merged-story">—</div>
+    </div>
+    <div class="hero-meta-row">
+      <span class="gt-pill">Human ground truth · <b id="hero-gt-text">—</b></span>
+      <span class="verdict-pill" id="hero-verdict-pill">—</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Mode Comparison · all four system variants</h3>
+    <table class="modes">
+      <thead><tr><th>Mode</th><th>Answer</th><th style="width:90px;">Correct?</th><th>Notes</th></tr></thead>
+      <tbody id="modes-body"></tbody>
+    </table>
+    <div style="font-size:11px;color:var(--dim);margin-top:10px;">
+      All numbers above are <b>precomputed against the controlled 100-sample evaluation</b>. Per-image answers reflect the actual model output for that case.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Retrieved Evidence (top-3 from 20k visual memory)</h3>
+    <div id="retrieved-list"></div>
+  </div>
+
+  <details class="panel" style="margin-bottom:14px;">
+    <summary style="cursor:pointer;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);font-weight:700;list-style:revert;">Advanced diagnostics — Reasoning Trace</summary>
+
+    <div style="margin-top:14px;">
+      <h3>Open-Book Reasoning Trace</h3>
+      <ol class="evidence" id="evidence-trace"></ol>
+      <div class="priors-meta" id="priors-meta" style="margin-top:14px;"></div>
+    </div>
+  </details>
+  <!-- Hidden but kept to satisfy showCase() writes — never rendered to the audience. -->
+  <div id="prompt-box" style="display:none;"></div>
+
+  <!-- hidden elements kept so applySelector() doesn't error if called -->
+  <div style="display:none;">
+    <input type="checkbox" id="selector-toggle"/>
+    <span id="raw-rag-ans"></span>
+    <span id="final-ans"></span>
+    <span id="selector-reason"></span>
+  </div>
+
+  <div class="panel">
+    <h3>Why this case matters</h3>
+    <div id="why-text" style="font-size:13px;line-height:1.6;color:var(--ink);"></div>
+  </div>
+
+  <div class="panel">
+    <h3>Demo Script (presenter)</h3>
+    <div id="demo-script-text" style="font-size:13px;line-height:1.7;color:var(--ink);font-style:italic;"></div>
+  </div>
+
+  <div class="presenter-notes">
+    <h4>Presenter Notes</h4>
+    <div class="note-row"><span class="note-label">What to say</span><span id="note-what-to-say">—</span></div>
+    <div class="note-row"><span class="note-label">What this proves</span><span id="note-what-it-proves">—</span></div>
+    <div class="note-row"><span class="note-label">Caveat to mention</span><span id="note-caveat">—</span></div>
+  </div>
+</div>
+
+
+<!-- Results Summary tab removed for live presentation — numbers live in slides 6/8/10. -->
+
+<script>
+// ─── state ───────────────────────────────────────────────────────────────────
+const API = 'http://localhost:8000';
+let CASES = [];
+let currentCase = null;
+
+// ─── load demo cases ─────────────────────────────────────────────────────────
+async function loadCases(){
+  try {
+    // cache-busting query string so updates appear immediately
+    const r = await fetch('results/demo_cases.json?v=' + Date.now(), {cache: 'no-store'});
+    CASES = await r.json();
+  } catch (e) {
+    document.getElementById('case-select').innerHTML = '<option>Failed to load demo_cases.json — start the static server</option>';
+    return;
+  }
+  buildSelectors();
+}
+
+// ─── selectors (Category → Example) ──────────────────────────────────────────
+// Main demo cases come first (is_main_demo == true), advanced cases under
+// a separate group label.
+function buildSelectors(){
+  const main = CASES.filter(c => c.is_main_demo);
+  const adv  = CASES.filter(c => !c.is_main_demo);
+  const allOrdered = [...main, ...adv];
+  const cats = [...new Set(allOrdered.map(c => c.category))];
+  const catSel = document.getElementById('category-select');
+  catSel.innerHTML = cats.map(c => {
+    const isAdvCat = !main.some(m => m.category === c);
+    const label = isAdvCat ? `↓ ${c} (advanced)` : c;
+    return `<option value="${c}">${label}</option>`;
+  }).join('');
+  onCategoryChange();
+}
+function onCategoryChange(){
+  const cat = document.getElementById('category-select').value;
+  const cases = CASES.filter(c => c.category === cat)
+                     .sort((a,b) => Number(!!b.is_main_demo) - Number(!!a.is_main_demo));
+  const sel = document.getElementById('case-select');
+  sel.innerHTML = cases.map((c) => `<option value="${c.id}">${c.title}${c.is_main_demo ? '' : '  (advanced)'}</option>`).join('');
+  onCaseChange();
+}
+function onCaseChange(){
+  const id = document.getElementById('case-select').value;
+  const c = CASES.find(x => x.id === id);
+  if (c) showCase(c);
+}
+
+// ─── helpers ─────────────────────────────────────────────────────────────────
+function badge(state){
+  // state: 'correct' | 'wrong' | 'verbose' | null
+  if (state === 'correct') return '<span class="badge ok">CORRECT</span>';
+  if (state === 'verbose') return '<span class="badge verbose">VERBOSE ✓<span class="badge-note">semantically right · VQA scoring penalises long form</span></span>';
+  if (state === 'wrong')   return '<span class="badge no">WRONG</span>';
+  return '<span class="badge unk">—</span>';
+}
+
+// VQA soft-accuracy classification, with a third 'verbose' state for answers
+// that contain the GT as a substring but are too long for strict VQA matching.
+function classifyAnswer(answer, gtAll){
+  if (!answer || !gtAll || !gtAll.length) return null;
+  const a = answer.trim().toLowerCase();
+  const gts = gtAll.map(g => g.trim().toLowerCase());
+  // Strict VQA: exact-string match against any annotator
+  if (gts.some(g => g === a)) return 'correct';
+  // Verbose-but-correct: contains any annotator answer as a whole-word substring
+  // AND is longer than the canonical short answer (>1 word more than GT).
+  for (const g of gts){
+    if (!g) continue;
+    const re = new RegExp('\\b' + g.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+    if (re.test(a) && a.split(/\s+/).length > g.split(/\s+/).length){
+      return 'verbose';
+    }
+  }
+  return 'wrong';
+}
+
+// Tokenise + lowercase for question similarity
+function tokens(s){
+  return new Set((s || '').toLowerCase().match(/[a-z]+/g) || []);
+}
+function jaccard(a, b){
+  const A = tokens(a), B = tokens(b);
+  if (A.size === 0 && B.size === 0) return 0;
+  const inter = [...A].filter(x => B.has(x)).length;
+  const union = new Set([...A, ...B]).size;
+  return union ? inter / union : 0;
+}
+
+// Find best question-matched candidate from retrieved
+function bestQuestionMatch(question, retrieved){
+  let best = null, bestScore = -1;
+  for (const r of retrieved){
+    const s = jaccard(question, r.question);
+    if (s > bestScore){ bestScore = s; best = {ans: r.answer, sim: s, r}; }
+  }
+  return best;
+}
+
+// Majority logic — only "majority" if appears at least twice
+function computePriors(question, retrieved){
+  const candidates = retrieved.map(r => r.answer);
+  const counts = {};
+  for (const a of candidates){
+    if (!a) continue;
+    counts[a] = (counts[a] || 0) + 1;
+  }
+  // Find any answer with count >= 2
+  let majority = null;
+  let maxCount = 0;
+  for (const [a, n] of Object.entries(counts)){
+    if (n > maxCount){ maxCount = n; majority = a; }
+  }
+  if (maxCount < 2) majority = null;
+  const qm = bestQuestionMatch(question, retrieved);
+  return { candidates, majority, questionMatch: qm };
+}
+
+// Evidence-aware selector
+function evidenceAwareSelect(question, retrieved, rawAnswer){
+  const priors = computePriors(question, retrieved);
+  // Rule 1: exact question match + image_score >= 0.90
+  const exactMatch = retrieved.find(r => r.question.trim().toLowerCase() === question.trim().toLowerCase() && r.image_score >= 0.90);
+  if (exactMatch) return { answer: exactMatch.answer, reason: `Exact question match in retrieved (rank ${exactMatch.rank}) with image_score ${exactMatch.image_score.toFixed(3)} ≥ 0.90` };
+  // Rule 2: highly similar question + image_score >= 0.90
+  if (priors.questionMatch && priors.questionMatch.sim >= 0.6 && priors.questionMatch.r.image_score >= 0.90){
+    return { answer: priors.questionMatch.ans, reason: `Strong question similarity (jaccard=${priors.questionMatch.sim.toFixed(2)}) with image_score ${priors.questionMatch.r.image_score.toFixed(3)} ≥ 0.90` };
+  }
+  // Rule 3: majority answer (>=2 votes)
+  if (priors.majority){
+    return { answer: priors.majority, reason: `Majority retrieved answer (≥2 votes)` };
+  }
+  // Rule 4: keep raw
+  return { answer: rawAnswer, reason: `No selector trigger — falling back to raw RAG answer` };
+}
+
+// ─── evidence trace renderer ────────────────────────────────────────────────
+function renderEvidence(opts){
+  const {question, caption, retrieved, candidates, majority, questionMatch, finalAnswer} = opts;
+  const steps = [];
+  steps.push({cls:'step-caption', title:'Visual summary (BLIP-2 caption)', body: caption ? `<i>"${caption}"</i>` : '<span style="color:var(--dim);">No caption generated for this case.</span>'});
+  steps.push({cls:'', title:'User question', body: `<b>${question}</b>`});
+  const retLines = retrieved.slice(0,3).map(r => `<span class="qa">[${r.rank}] Q: ${r.question} → <b>${r.answer}</b></span>`).join('');
+  steps.push({cls:'step-retrieve', title:`Retrieved ${retrieved.length} similar Q&A pairs from 20k visual memory`, body: `<div class="retrieved-mini">${retLines}</div>`});
+
+  // Priors
+  const chips = (candidates || []).map(a => {
+    let cls = 'prior-chip';
+    if (majority && a === majority) cls += ' most-common';
+    if (questionMatch && questionMatch.ans === a && a !== majority) cls += ' q-match';
+    return `<span class="${cls}">${a}</span>`;
+  }).join('');
+  let priorBody = `<div class="priors-row">${chips}</div><div class="priors-meta">`;
+  if (majority){
+    priorBody += `Majority answer (≥2 votes): <b style="color:var(--yellow);">${majority}</b>`;
+  } else {
+    priorBody += `<b>No majority answer</b> (each retrieved answer appears once)`;
+  }
+  if (questionMatch){
+    priorBody += `<br/>Best question-matched candidate: <b style="color:var(--green);">${questionMatch.ans}</b> <span style="color:var(--dim);">(jaccard ${questionMatch.sim.toFixed(2)} on question text)</span>`;
+  }
+  priorBody += `</div>`;
+  steps.push({cls:'step-prior', title:'Candidate answer priors from retrieved hints', body: priorBody});
+
+  steps.push({cls:'step-final', title:'Final answer', body: finalAnswer || '<span style="color:var(--dim);">—</span>'});
+  return steps.map((s,i) => `
+    <li class="${s.cls}">
+      <span class="num">${i+1}</span>
+      <div class="body">
+        <div class="step-title">${s.title}</div>
+        <div class="step-content">${s.body}</div>
+      </div>
+    </li>`).join('');
+}
+
+// ─── render curated case ─────────────────────────────────────────────────────
+function showCase(c){
+  currentCase = c;
+  document.getElementById('query-img').src = c.image_path.replace(/\\/g, '/');
+  document.getElementById('img-meta').textContent = `image_path: ${c.image_path.replace(/\\/g, '/')}`;
+  document.getElementById('case-category').textContent = c.category;
+  document.getElementById('q-text').textContent = c.question;
+  document.getElementById('case-title').innerHTML = c.title;
+  document.getElementById('gt-text').textContent = c.ground_truth;
+  // Caption-pill is now subsumed by the prominent Visual Summary card below.
+  document.getElementById('caption-pill').style.display = 'none';
+  const vs = document.getElementById('visual-summary');
+  if (c.caption){
+    vs.style.display = '';
+    document.getElementById('vs-text').textContent = c.caption;
+  } else {
+    vs.style.display = 'none';
+  }
+
+  // Warning strip
+  const ws = document.getElementById('warning-strip');
+  if (c.warning){
+    ws.style.display = '';
+    ws.innerHTML = `<b>⚠ Caveat:</b> ${c.warning}`;
+  } else {
+    ws.style.display = 'none';
+  }
+
+  // Mode comparison
+  const tbody = document.getElementById('modes-body');
+  const modes = [
+    {name:'Baseline BLIP-2 (frozen, no retrieval)', answer:c.baseline_answer, agg:'42.33%'},
+    {name:'5k diverse RAG',                          answer:c.rag_5k_answer,   agg:'54.67%'},
+    {name:'★ 20k diverse RAG (headline)',            answer:c.rag_20k_answer,  agg:'59.33%', headline:true},
+    {name:'20k RAG + caption in prompt',             answer:c.caption_answer,  agg:'57.00%'},
+  ];
+  tbody.innerHTML = modes.map(m => {
+    const state = classifyAnswer(m.answer, c.gt_all);
+    return `<tr ${m.headline ? 'class="headline"' : ''}>
+      <td><b>${m.name}</b></td>
+      <td><span class="ans">${m.answer}</span></td>
+      <td>${badge(state)}</td>
+      <td class="note">Aggregate: ${m.agg}</td>
+    </tr>`;
+  }).join('');
+
+  // ── HERO answer comparison ──
+  const finalRagAns = c.final_display_answer || c.rag_20k_answer || c.raw_rag_answer;
+  const baseAns     = c.baseline_answer || '—';
+  const baseState   = classifyAnswer(baseAns,     c.gt_all);
+  const ragState    = classifyAnswer(finalRagAns, c.gt_all);
+  const sameAnswer  = baseAns.trim().toLowerCase() === (finalRagAns||'').trim().toLowerCase();
+  const longAnswer  = Math.max((baseAns||'').length, (finalRagAns||'').length) >= 16;
+  const heroEl      = document.getElementById('answer-hero');
+  heroEl.classList.toggle('merged', sameAnswer);
+  heroEl.classList.toggle('long-answer', longAnswer);
+  // helpful = baseline wrong, RAG right → enable pulse + strikethrough on baseline
+  const isHelpful = !sameAnswer
+                    && (baseState === 'wrong')
+                    && (ragState === 'correct' || ragState === 'verbose');
+  heroEl.classList.toggle('helpful', isHelpful);
+
+  const stateText = (state, prefix='') =>
+    state === 'correct' ? `${prefix}✓ Correct` :
+    state === 'wrong'   ? `${prefix}✗ Wrong`   :
+    state === 'verbose' ? `${prefix}~ Verbose ✓` : `${prefix}—`;
+  const stateCls = (state) =>
+    'hero-state ' + (state === 'correct' ? 'ok' : state === 'wrong' ? 'no' : state === 'verbose' ? 'verbose' : 'unk');
+
+  if (sameAnswer){
+    document.getElementById('hero-merged-ans').textContent = finalRagAns;
+    const bm = document.getElementById('hero-merged-base-state');
+    const rm = document.getElementById('hero-merged-rag-state');
+    bm.className = stateCls(baseState); bm.textContent = stateText(baseState, 'Baseline · ');
+    rm.className = stateCls(ragState);  rm.textContent = stateText(ragState,  'RAG · ');
+    // Story: prefer authored summary; otherwise infer from outcome
+    const id = c.id || '';
+    let story;
+    if (id === 'L4_baseball_yn'){
+      story = '<b>Type-conditional router fires.</b> Yes/no questions skip retrieval — baseline already wins on yn (82.86%). Visible mechanism, not a number.';
+    } else if (baseState === 'correct' && ragState === 'correct'){
+      story = '<b>RAG is non-destructive.</b> Retrieval did not pull the model away from the right answer. ~70% of the eval looks like this.';
+    } else if (baseState === 'wrong' && ragState === 'wrong'){
+      story = '<b>Both modes wrong.</b> Retrieval surfaced no useful prior — generator falls back. Counts toward the 39/100 retrieval-bound failures.';
+    } else {
+      story = '<b>Baseline and RAG converge on the same answer.</b>';
+    }
+    document.getElementById('hero-merged-story').innerHTML = story;
+  } else {
+    document.getElementById('hero-baseline-ans').textContent = baseAns;
+    document.getElementById('hero-rag-ans').textContent      = finalRagAns;
+    const bs = document.getElementById('hero-baseline-state');
+    const rs = document.getElementById('hero-rag-state');
+    bs.className = stateCls(baseState); bs.textContent = stateText(baseState);
+    rs.className = stateCls(ragState);  rs.textContent = stateText(ragState);
+  }
+  document.getElementById('hero-gt-text').textContent      = c.ground_truth || '—';
+  // Verdict: prefer authored value, otherwise derive from state pair.
+  const baseOK = (baseState === 'correct' || baseState === 'verbose');
+  const ragOK  = (ragState  === 'correct' || ragState  === 'verbose');
+  let v = (c.verdict || '').toLowerCase();
+  if (!v){
+    if (!baseOK && ragOK)       v = 'helpful';
+    else if (baseOK && ragOK)   v = 'neutral';
+    else if (baseOK && !ragOK)  v = 'harmful';
+    else                        v = 'noisy';
+  }
+  const verdictMap = {
+    helpful:  ['helpful',  'RAG fixes baseline'],
+    neutral:  ['neutral',  'RAG non-destructive'],
+    harmful:  ['harmful',  'RAG hurts here'],
+    noisy:    ['noisy',    'Both wrong · noisy retrieval'],
+    gated:    ['gated',    'Type-router → baseline'],
+  };
+  const [vc, vt] = verdictMap[v] || ['neutral', v.toUpperCase()];
+  const vp = document.getElementById('hero-verdict-pill');
+  vp.className = 'verdict-pill ' + vc;
+  vp.textContent = vt;
+
+  // Compute priors and render evidence
+  const priors = computePriors(c.question, c.retrieved_examples);
+  document.getElementById('evidence-trace').innerHTML = renderEvidence({
+    question: c.question,
+    caption:  c.caption,
+    retrieved: c.retrieved_examples,
+    candidates: priors.candidates,
+    majority: priors.majority,
+    questionMatch: priors.questionMatch,
+    finalAnswer: c.final_display_answer || c.raw_rag_answer,
+  });
+
+  // Selector logic
+  applySelector();
+
+  // Retrieved cards
+  document.getElementById('retrieved-list').innerHTML = c.retrieved_examples.map(r => `
+    <div class="ret-item">
+      <div class="ret-rank">Rank ${r.rank} · ${r._source || ''}</div>
+      <div class="ret-q">Q: ${r.question}</div>
+      <div class="ret-a">→ ${r.answer}</div>
+      <div class="score-row">
+        <div class="score-bar-wrap"><div class="score-bar" style="width:${(r.image_score*100).toFixed(0)}%"></div></div>
+        <span class="score-val">img: ${r.image_score.toFixed(3)}</span>
+        ${r.text_score > 0 ? `<span class="score-val" style="color:var(--blue);">text: ${r.text_score.toFixed(3)}</span>` : ''}
+      </div>
+    </div>`).join('');
+
+  // Prompt
+  const promptLines = [];
+  if (c.caption) promptLines.push(`Image: ${c.caption}`);
+  c.retrieved_examples.forEach(r => promptLines.push(`Q: ${r.question} A: ${r.answer}`));
+  promptLines.push(`Q: ${c.question} A:`);
+  document.getElementById('prompt-box').textContent = promptLines.join('\n');
+
+  // Why + script + presenter notes
+  document.getElementById('why-text').innerHTML = c.why_it_matters;
+  document.getElementById('demo-script-text').innerHTML = '"' + c.demo_script + '"';
+  const pn = c.presenter_notes || {};
+  document.getElementById('note-what-to-say').textContent = pn.what_to_say || '—';
+  document.getElementById('note-what-it-proves').textContent = pn.what_it_proves || '—';
+  document.getElementById('note-caveat').textContent = pn.caveat || '—';
+}
+
+// ─── selector wiring ─────────────────────────────────────────────────────────
+function applySelector(){
+  const c = currentCase;
+  if (!c) return;
+  const on = document.getElementById('selector-toggle').checked;
+  document.getElementById('raw-rag-ans').textContent = c.raw_rag_answer;
+  if (!on){
+    document.getElementById('final-ans').textContent = c.raw_rag_answer;
+    document.getElementById('selector-reason').textContent = 'Selector OFF → final answer = raw RAG answer (matches benchmark protocol).';
+    return;
+  }
+  const result = evidenceAwareSelect(c.question, c.retrieved_examples, c.raw_rag_answer);
+  document.getElementById('final-ans').textContent = result.answer;
+  let reason = `Selector ON (system improvement): ${result.reason}.`;
+  if (result.answer !== c.raw_rag_answer){
+    reason += ` Differs from raw — selector overrode the raw answer.`;
+  } else {
+    reason += ` Selector did not change the raw answer.`;
+  }
+  reason += ' This selector is NOT included in the reported 59.33% benchmark unless separately evaluated.';
+  document.getElementById('selector-reason').textContent = reason;
+}
+function onSelectorToggle(){ applySelector(); }
+
+// ─── multi-question live ─────────────────────────────────────────────────────
+let liveFile = null;
+
+function handleFile(file){
+  if (!file) return;
+  liveFile = file;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('drop-zone').innerHTML = `<img src="${e.target.result}"/>`;
+  };
+  reader.readAsDataURL(file);
+  document.getElementById('qa-history').innerHTML = '<div class="placeholder-hint">New image loaded — ask any question to start.</div>';
+}
+function handleDrop(e){
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) handleFile(file);
+}
+
+let qaCounter = 0;
+async function askQuestion(){
+  const q = document.getElementById('live-q').value.trim();
+  if (!q) return;
+  if (!liveFile){
+    document.getElementById('api-status').innerHTML = '<span style="color:var(--yellow);">Please upload an image first.</span>';
+    return;
+  }
+
+  qaCounter++;
+  const id = 'qa-' + qaCounter;
+  const ph = document.getElementById('qa-placeholder');
+  if (ph) ph.remove();
+
+  const history = document.getElementById('qa-history');
+  const card = document.createElement('div');
+  card.className = 'qa-card';
+  card.id = id;
+  card.innerHTML = `
+    <div class="qa-head">
+      <div class="qa-q">Q${qaCounter}: ${q}</div>
+      <div class="qa-meta" id="${id}-meta">running…</div>
+    </div>
+    <div class="qa-body">
+      <div style="color:var(--dim);font-size:13px;">Calling API…</div>
+    </div>`;
+  history.prepend(card);
+
+  document.getElementById('live-q').value = '';
+  document.getElementById('ask-btn').disabled = true;
+
+  const fd = new FormData();
+  fd.append('image', liveFile);
+  fd.append('question', q);
+  fd.append('top_k',          document.getElementById('live-topk').value);
+  fd.append('alpha',          (document.getElementById('live-alpha').value / 10).toFixed(1));
+  fd.append('tau',            (document.getElementById('live-tau').value / 100).toFixed(2));
+  fd.append('use_caption',    document.getElementById('live-caption').checked);
+  fd.append('caption_weight', '0.0');
+  fd.append('rerank',         'false');
+  fd.append('use_answer_prior', document.getElementById('live-prior').checked);
+  fd.append('filter_hints',   document.getElementById('live-filter').checked);
+  fd.append('filter_threshold', '0.15');
+  let tmpl = document.getElementById('live-template').value;
+  if (tmpl === 'best') tmpl = window.BEST_TEMPLATE || 'current_prompt';
+  fd.append('prompt_template', tmpl);
+  fd.append('type_gate', document.getElementById('live-typegate').checked);
+
+  try {
+    const resp = await fetch(API + '/infer', {method:'POST', body: fd});
+    if (!resp.ok) throw new Error('API ' + resp.status);
+    const d = await resp.json();
+
+    // Build retrieved schema for trace
+    const retrieved = d.retrieved.map((r, i) => ({
+      rank: i + 1, question: r.question, answer: r.answer,
+      image_score: r.img_score, text_score: r.q_score, final_score: r.score,
+    }));
+    const priors = computePriors(q, retrieved);
+
+    const traceHtml = renderEvidence({
+      question: q,
+      caption: d.caption,
+      retrieved,
+      candidates: priors.candidates,
+      majority: priors.majority,
+      questionMatch: priors.questionMatch,
+      finalAnswer: d.rag,
+    });
+
+    const retList = d.retrieved.map((r, i) => {
+      const kept = r.kept !== false;
+      return `
+      <div class="ret-item" style="${kept ? '' : 'opacity:0.4;'}">
+        <div class="ret-rank">Rank ${i+1} ${kept ? '' : '· <span style="color:var(--yellow);">filtered out (low relevance)</span>'}</div>
+        <div class="ret-q">Q: ${r.question}</div>
+        <div class="ret-a">→ ${r.answer}</div>
+        <div class="score-row">
+          <div class="score-bar-wrap"><div class="score-bar" style="width:${(r.img_score*100).toFixed(0)}%"></div></div>
+          <span class="score-val">img: ${r.img_score.toFixed(3)}</span>
+          ${typeof r.q_relevance === 'number' ? `<span class="score-val" style="color:${r.q_relevance >= 0.15 ? 'var(--green)' : 'var(--yellow)'};">q-rel: ${r.q_relevance.toFixed(2)}</span>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+
+    let filterMeta = '';
+    if (d.config.filter_hints) {
+      filterMeta = ' · filter ON';
+      if (d.filtered_count > 0) filterMeta += ` (${d.filtered_count} of ${d.retrieved.length} dropped)`;
+    }
+    const tmplMeta = d.config.prompt_template ? ` · tmpl=${d.config.prompt_template}` : '';
+    card.querySelector('.qa-meta').textContent = `${d.elapsed_sec}s · k=${d.config.top_k}, α=${d.config.alpha}${d.config.use_answer_prior ? ', prior' : ''}${filterMeta}${tmplMeta}`;
+    const finalAns = d.final_answer || d.rag;
+    const rawRag   = d.raw_rag || d.rag;
+    const evSugg   = d.evidence_suggestion || rawRag;
+    const norm     = d.normalized || finalAns;
+    const evChanged = evSugg && evSugg !== rawRag;
+    const normChanged = norm && norm !== (d.post_router || rawRag);
+    const gateBadge = d.type_gate_applied
+      ? `<span style="background:rgba(63,185,80,0.15);color:var(--green);padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;margin-left:6px;">YES/NO → BASELINE</span>`
+      : '';
+
+    card.querySelector('.qa-body').innerHTML = `
+      <div class="ans-row">
+        <div class="ans-card baseline">
+          <div class="ans-title">Baseline BLIP-2</div>
+          <div class="ans-text">${d.baseline}</div>
+          <div class="ans-note">Frozen, no retrieval</div>
+        </div>
+        <div class="ans-card rag">
+          <div class="ans-title">Final answer ${gateBadge}</div>
+          <div class="ans-text">${finalAns}</div>
+          <div class="ans-note">${d.rag_used ? `RAG (top score ${d.top_img_score})` : 'τ-gated → baseline'}</div>
+        </div>
+      </div>
+
+      <details class="panel compact" style="margin-top:6px;">
+        <summary style="cursor:pointer;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-dim);font-weight:700;list-style:revert;">Advanced diagnostics — Final System Layer (collapsed)</summary>
+        <h3 style="color:var(--blue);margin-top:10px;">Final System Layer · evidence-aware selection + answer normalization</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;">
+          <div style="background:var(--bg2);border-radius:6px;padding:9px 12px;border-left:3px solid var(--orange);">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--orange);font-weight:700;">Raw RAG (BLIP-2 generation)</div>
+            <div style="font-family:'Fira Code',monospace;font-size:14px;color:var(--ink);margin-top:3px;">${rawRag || '—'}</div>
+          </div>
+          <div style="background:var(--bg2);border-radius:6px;padding:9px 12px;border-left:3px solid ${evChanged ? 'var(--yellow)' : 'var(--ink-dim)'};">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:${evChanged ? 'var(--yellow)' : 'var(--ink-dim)'};font-weight:700;">Evidence-aware suggestion</div>
+            <div style="font-family:'Fira Code',monospace;font-size:14px;color:var(--ink);margin-top:3px;">${evSugg || '—'}</div>
+            <div style="font-size:10px;color:var(--ink-dim);margin-top:3px;">${d.evidence_reason || '—'}</div>
+          </div>
+          <div style="background:var(--bg2);border-radius:6px;padding:9px 12px;border-left:3px solid ${d.is_yes_no && d.type_gate_applied ? 'var(--green)' : 'var(--ink-dim)'};">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:${d.is_yes_no && d.type_gate_applied ? 'var(--green)' : 'var(--ink-dim)'};font-weight:700;">After type-router</div>
+            <div style="font-family:'Fira Code',monospace;font-size:14px;color:var(--ink);margin-top:3px;">${d.post_router || rawRag}</div>
+            <div style="font-size:10px;color:var(--ink-dim);margin-top:3px;">${d.type_gate_reason || ''}</div>
+          </div>
+          <div style="background:var(--bg2);border-radius:6px;padding:9px 12px;border-left:3px solid ${normChanged ? 'var(--green)' : 'var(--ink-dim)'};">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:${normChanged ? 'var(--green)' : 'var(--ink-dim)'};font-weight:700;">After normalizer (final)</div>
+            <div style="font-family:'Fira Code',monospace;font-size:14px;color:var(--ink);margin-top:3px;font-weight:700;">${norm}</div>
+            <div style="font-size:10px;color:var(--ink-dim);margin-top:3px;">${d.normalize_reason || '—'}</div>
+          </div>
+        </div>
+        <div style="margin-top:8px;font-size:11px;color:var(--ink-dim);">
+          Best question-matched candidate: <b style="color:var(--green);">${d.best_question_matched_answer || '—'}</b>
+          (sim ${(d.best_question_match_score || 0).toFixed(2)})
+          · Candidate answers: <span style="font-family:'Fira Code',monospace;">${(d.candidate_answers || []).join(', ') || '—'}</span>
+        </div>
+      </details>
+      <button class="toggle-trace" onclick="toggleTrace('${id}')">Show Open-Book Reasoning Trace ▾</button>
+      <div class="trace-body" id="${id}-trace">
+        <ol class="evidence" style="margin-top:10px;">${traceHtml}</ol>
+        <div class="panel compact" style="margin-top:10px;">
+          <h3>Retrieved examples</h3>${retList}
+        </div>
+        <div class="panel compact">
+          <h3>Prompt sent to BLIP-2</h3>
+          <div class="prompt-box">${d.prompt}</div>
+        </div>
+      </div>`;
+  } catch (err) {
+    card.querySelector('.qa-meta').textContent = 'error';
+    card.querySelector('.qa-body').innerHTML = `<div style="color:var(--red);font-size:13px;">Error: ${err.message}. Make sure <code>python api.py</code> is running.</div>`;
+  }
+
+  document.getElementById('ask-btn').disabled = false;
+}
+
+function toggleTrace(id){
+  document.getElementById(id + '-trace').classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const ta = document.getElementById('live-q');
+  if (ta) ta.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); askQuestion(); }
+  });
+});
+
+// ─── tabs ────────────────────────────────────────────────────────────────────
+function showTab(ev, name){
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  ev.target.classList.add('active');
+  if (name === 'live'){
+    fetch(API + '/health').then(r => r.json()).then(d => {
+      const el = document.getElementById('api-status');
+      if (d.status === 'ready') el.innerHTML = '<span style="color:var(--green);">API ready — models loaded.</span>';
+      else el.innerHTML = '<span style="color:var(--yellow);">API running — first question loads BLIP-2 (~60s), then fast.</span>';
+    }).catch(() => {
+      document.getElementById('api-status').innerHTML = '<span style="color:var(--red);">API offline — run: <code>python api.py</code></span>';
+    });
+  }
+}
+
+// ─── init ────────────────────────────────────────────────────────────────────
+loadCases();
+</script>
+</body>
+</html>

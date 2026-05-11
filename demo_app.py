@@ -184,8 +184,12 @@ def display_case(case_label: str, top_k: int, alpha: float, cases: list):
       </div>
     </div>"""
 
-    # Baseline card
+    # Baseline card — detect verbose-but-correct answers
     b_correct = base_acc >= 1.0
+    # Answer is semantically right but too verbose for VQA scoring
+    verbose_note = ""
+    if not b_correct and gt.lower() in baseline.lower() and len(baseline.split()) > 2:
+        verbose_note = "<div style='color:#f6ad55;font-size:12px;margin-top:6px;'>⚠ Semantically correct but VQA scoring requires a short exact answer</div>"
     baseline_html = f"""
     <div style='background:#1a202c;border:1px solid #2d3748;border-radius:10px;padding:16px;height:100%;'>
       <div style='color:#fc8181;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;'>Baseline BLIP-2</div>
@@ -193,6 +197,7 @@ def display_case(case_label: str, top_k: int, alpha: float, cases: list):
       <div style='margin-bottom:10px;'>{_badge(b_correct)}</div>
       <div style='color:#718096;font-size:13px;'>VQA score: <b style='color:#f7fafc;'>{base_acc:.2f}</b></div>
       <div style='color:#718096;font-size:12px;margin-top:8px;'>Frozen BLIP-2, no retrieval</div>
+      {verbose_note}
     </div>"""
 
     # RAG card
@@ -288,7 +293,7 @@ def run_live_inference(image, question: str, top_k: int, alpha: float):
     pt  = _build_prompt(question, retrieved_norm, top_k)
     exp = f"**Live inference complete.** Baseline: **{baseline}** → RAG: **{rag_ans}**"
 
-    return (pil_image, info_html, baseline_html, rag_html, rh, pt, exp, "neutral", info_html)
+    return (pil_image, info_html, baseline_html, rag_html, rh, pt, exp)
 
 
 # ── Gradio UI ─────────────────────────────────────────────────────────────────
@@ -318,7 +323,7 @@ def build_app(mode: str = "cached"):
     cases      = _load_cases()
     case_labels = [c["label"] for c in cases]
 
-    with gr.Blocks(title="Open-Book VQA Demo", css=CSS, theme=gr.themes.Base()) as app:
+    with gr.Blocks(title="Open-Book VQA Demo") as app:
         gr.Markdown(TITLE_MD)
 
         # ── controls row ──────────────────────────────────────────────────────
@@ -345,22 +350,22 @@ def build_app(mode: str = "cached"):
                 with gr.Row():
                     with gr.Column(scale=1):
                         img_out      = gr.Image(label="Query Image", height=280)
-                        info_out     = gr.HTML(label="Question & Ground Truth")
+                        info_out     = gr.HTML()
                     with gr.Column(scale=1):
-                        baseline_out = gr.HTML(label="Baseline BLIP-2")
+                        baseline_out = gr.HTML()
                     with gr.Column(scale=1):
-                        rag_out      = gr.HTML(label="RAG Answer")
+                        rag_out      = gr.HTML()
 
                 with gr.Row():
                     with gr.Column(scale=1):
-                        retrieved_out = gr.HTML(label="Retrieved Examples")
+                        retrieved_out = gr.HTML()
                     with gr.Column(scale=1):
                         prompt_out    = gr.Code(
                             label="Prompt Sent to BLIP-2",
                             language=None, lines=12,
                         )
                     with gr.Column(scale=1):
-                        explanation_out = gr.Markdown(label="Explanation")
+                        explanation_out = gr.Markdown()
 
                 def _cached_run(label, k, a):
                     k = int(k)
@@ -384,36 +389,40 @@ def build_app(mode: str = "cached"):
             # ── LIVE TAB ──────────────────────────────────────────────────────
             with gr.TabItem("Live Inference"):
                 gr.Markdown(
-                    "> **Note:** First run loads BLIP-2 (~15 sec). Subsequent runs are fast.\n"
-                    "> Use a clear, well-lit photo for best results."
+                    "> **Note:** First run loads BLIP-2 (~15 sec). Subsequent runs are fast. "
+                    "Use a clear, well-lit photo for best results."
                 )
                 with gr.Row():
                     with gr.Column(scale=1):
-                        live_img = gr.Image(
-                            label="Upload Query Image", type="pil", height=260
-                        )
+                        live_img = gr.Image(type="pil", height=260, show_label=False)
                         live_q = gr.Textbox(
                             label="Question", placeholder="What color is the car?",
                             lines=2
                         )
                         live_btn = gr.Button("▶ Run Live Inference", variant="primary")
                     with gr.Column(scale=2):
+                        live_info_out = gr.HTML(
+                            value="<p style='color:#718096;padding:14px;'>Upload an image and type a question, then click Run.</p>"
+                        )
                         with gr.Row():
-                            live_info_out = gr.HTML(label="Query")
-                        with gr.Row():
-                            live_base_out = gr.HTML(label="Baseline")
-                            live_rag_out  = gr.HTML(label="RAG")
+                            live_base_out = gr.HTML(
+                                value="<p style='color:#718096;padding:14px;'>Baseline answer will appear here.</p>"
+                            )
+                            live_rag_out  = gr.HTML(
+                                value="<p style='color:#718096;padding:14px;'>RAG answer will appear here.</p>"
+                            )
                 with gr.Row():
-                    live_ret_out  = gr.HTML(label="Retrieved Examples")
+                    live_ret_out  = gr.HTML(
+                        value="<p style='color:#718096;padding:14px;'>Retrieved examples will appear here.</p>"
+                    )
                     live_pmt_out  = gr.Code(label="Prompt", language=None, lines=10)
-                    live_exp_out  = gr.Markdown(label="Explanation")
+                    live_exp_out  = gr.Markdown(value="Explanation will appear after inference.")
 
                 live_btn.click(
                     fn=lambda img, q, k, a: run_live_inference(img, q, int(k), float(a)),
                     inputs=[live_img, live_q, top_k_dd, alpha_dd],
                     outputs=[live_img, live_info_out, live_base_out, live_rag_out,
-                             live_ret_out, live_pmt_out, live_exp_out,
-                             gr.State(), gr.State()],
+                             live_ret_out, live_pmt_out, live_exp_out],
                 )
 
             # ── STATS TAB ─────────────────────────────────────────────────────
@@ -599,4 +608,6 @@ if __name__ == "__main__":
         server_port=args.port,
         share=args.share,
         inbrowser=True,
+        css=CSS,
+        theme=gr.themes.Base(),
     )

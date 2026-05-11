@@ -1,0 +1,4 @@
+configuration,overall,yes_no,open,delta_vs_rag,notes
+RAG α=1.0 k=3,0.5933,0.8,0.4821,0.0,control
+B. Evidence-aware selector on RAG,0.56,0.8,0.4308,-0.0333,exact_match → high_jaccard → majority → raw
+B. Evidence-aware selector on QAR,0.4433,0.7143,0.2974,-0.15,selector applied to question-aware retrieval

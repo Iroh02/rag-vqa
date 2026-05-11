@@ -1,0 +1,8 @@
+configuration,overall,yes_no,open,delta_vs_rag,notes
+Baseline,0.4233,0.8286,0.2051,-0.17,
+RAG α=1.0 k=3 (headline),0.5933,0.8,0.4821,0.0,headline
++ A. Type-router (yn → baseline),0.6033,0.8286,0.4821,0.01,
++ B. Evidence-aware selector,0.56,0.8,0.4308,-0.0333,
++ C. Answer normalizer (on RAG),0.5933,0.8,0.4821,0.0,
++ D. Question-aware rerank (replaces retrieval),0.5033,0.8,0.3436,-0.09,
+★★ Stacked: D → A → B → C,0.4833,0.8286,0.2974,-0.11,full final-system layer

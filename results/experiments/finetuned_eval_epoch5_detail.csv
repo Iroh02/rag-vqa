@@ -1,0 +1,101 @@
+question_id,question,gt,baseline_ft,baseline_ft_score,rag_hints_ft,rag_hints_ft_score,rag_current_ft,rag_current_ft_score
+2529010,Is there snow on the ground?,no|no|no,nononono,0.0,noyesnow,0.0,nonoyesnoyesno,0.0
+2532000,Is the skier going downhill?,no|no|yes,nonononono,0.0,noyes strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+2532001,How do you know this skier is not alone on the mountain?,someone had to take photo|tracks|other ski tracks and footprints,noone else on the mountain,0.0,noone elseis,0.0,nonononono,0.0
+2532002,How cold is it?,cold|15 degrees|freezing,verycold0f0f0f0f,0.0,cold,1.0,-0.5c0c0c0,0.0
+2532003,Is it a sunny or cloudy day?,sunny|cloudy|cloudy,cloudyyesyesyesyesyesyes,0.0,cloudys,0.0,cloudy,0.67
+2532004,What color is the sky?,blue|blue|blue,blueblue,0.0,bluewhit,0.0,blue,1.0
+395749000,What filter is being used in this image?,black and white|black & white|black and white,black andwhiteno filterno filterno filterno,0.0,no0,0.0,nononononononononono,0.0
+395749001,Are all the people elderly?,no|yes|no,yesyes,0.0,yesno strutConnector,0.0,nonono,0.0
+395749002,How many people can be seen?,4|4|4,3,0.0,42and,0.0,4,1.0
+395749003,What ocean might this be?,atlantic|antarctic|atlantic,atlanticceanusatlanticatlanticatlanticatlanticatlanticatlantic,0.0,seaceanus,0.0,sea,0.0
+395749004,How many people are in the photo?,4|4|4,345,0.0,45 strutConnector,0.0,4,1.0
+395752000,What color are the mums in the front of the photo?,"pink|red|pink, red, yellow",red andgreengreenandredandgreenandgreen,0.0,redgreen,0.0,red andgreen,0.0
+395752001,Can a mail truck fit behind the bus to pick up the mail?,yes|yes|yes,nononononononononono,0.0,noyes strutConnector,0.0,nonoyesnoyesnoyesnoyesno,0.0
+395752002,"What  ""Over the Rainbow"" singer sang about this vehicle?",judy garland|judy garland|train,nothingnothingnothingnothingnothingnothingnothingnothingnothingnothing,0.0,nothingno,0.0,nothingnothingnothingnothingnothingnothingnothingnothingnothingnothing,0.0
+395752003,What color are the hubcaps?,red|red|red,red andgreenredandgreenredand,0.0,redgreen,0.0,red,1.0
+395752004,Is someone getting on this street car?,yes|yes|yes,nonononono,0.0,noyes strutConnector,0.0,nononononononononono,0.0
+264683000,Is this airplane inside?,yes|yes|yes,yesyesyesyesyesyesyesyesyesyes,0.0,yesno strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+264683001,What airline does the plane fly for?,air france|air france|air france,americanairline,0.0,airfran,0.0,airfranairairfranairfran,0.0
+264683002,Are there planes hanging?,yes|yes|yes,yesyesyesyesyesyesyesyesyesyes,0.0,yesno strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+264686000,How many side tables are there?,2|2|2,22222,0.0,21and,0.0,2,1.0
+264686001,How many windows are on the wall?,3|3|3,22222,0.0,24and,0.0,4,0.0
+264686002,Is the TV a tube or flat screen?,tube|tube|tube,flat screentv,0.0,flatscre,0.0,flatscreen,0.0
+133619000,What type of truck is it?,fire engine|fire truck|service truck,firetruckfiretruckfiretruckfire,0.0,firetruck,0.0,firetruckfiretruckfiretruckfire,0.0
+133619001,What time of day is it?,night|night|night,nighttimenighttime8:30pm,0.0,night nighttime,0.0,nightafternoonnightnightnightnightnightnight,0.0
+133619002,What color is the light above the hood of the truck?,yellow|blue|blue,bluered,0.0,redorang,0.0,red,0.0
+133620000,Why does the woman have her hair up?,uniform|on duty|uniform,to talk on phone,0.0,securitying and,0.0,to talk on phone,0.0
+133620001,Is she wearing glasses?,yes|yes|yes,yesnoyesyesyes,0.0,yesno strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+133620002,What is she wearing on her head?,hat|helmet|hat,"hat,hat,hat,hat,hat",0.0,"hat,glas",0.0,"hat,hat,hat,hat,hat",0.0
+133620003,Is the woman happy?,yes|yes|yes,noyesyesyesyes,0.0,noyes strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+526837000,Is this man dressed for the weather?,yes|yes|yes,yesyesyesyesyes,0.0,yesno strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+526837001,What is this man holding?,ski pole|ski poles|poles,skis and poless and poless,0.0,skies and poles,0.0,ski poles,1.0
+526837002,What is covering the ground?,snow|snow|snow,snowfallnowfallnowfall,0.0,snowow,0.0,snowyesyesyesyesyesyesyes,0.0
+133622000,Are these vegetables or fruits?,vegetables|vegetables|vegetables,vegetablesfruitsveget,0.0,vegetables,1.0,fruits vegetables,0.0
+133622001,What is the yellow topping?,cheese|glaze|cheese,cheesebroccolicheesecheesecheese,0.0,cheese andon,0.0,cheeseyesyesyesyesyesyesyes,0.0
+133622002,Is this a high class dish?,yes|yes|no,nonono,0.0,noyes strutConnector,0.0,nononono,0.0
+133622003,What is the long thin food with seeds?,broccoli|cake|cheese,cake andbroccolicheesecake andbroccoli,0.0,cakeepot,0.0,fishcakeyesyesyesyesyesyesyes,0.0
+133622004,What is the green topping?,broccoli|broccoli|broccoli,broccoliccoliccoliccoliccoliccoliccoliccoliccoli,0.0,broccoli andche,0.0,broccoliyesyesyesyesyesyesyes,0.0
+133622005,What is the yellow item pictured?,cheese|cake|cheese,broccoli andcheesecakeonplateontable,0.0,broccoli,0.0,broccoli,0.0
+133622006,How are the eggs cooked?,scrambled|scramble|omelet,fried in pan and ontop of cake,0.0,fried andpan,0.0,friedyesyesyesyesyesyesyes,0.0
+133622007,What vegetable is this?,broccoli|broccoli|broccoli,broccoliccoliccoliccoliccoliccoliccoliccoliccoli,0.0,broccoli andc,0.0,broccoliyesyesyesyesyesyesyes,0.0
+133622008,What kinds of food are on the plate?,"breakfast|spinach|eggs, spinach",broccoli andcheesecakecake and,0.0,breakfas,0.0,broccoli andcheesecakeyesyesyes,0.0
+22271000,Is this a bright and sunny day?,no|no|no,nonoyesyesyesyesyesyes,0.0,noyes strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+22271001,Are there people in the picture?,yes|yes|yes,yesyesyesyesyesyesyesyesyesyes,0.0,yesno,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+22271002,What is the name of the street sign on the ground?,western ave|western ave|western ave,westwestwestwestwestwestwestwestwestwest,0.0,westerne,0.0,westwestwestwestwestwestwestwest,0.0
+133629000,Is this a public place?,no|no|no,nononoyesyesyesyesyes,0.0,noyes strutConnector,0.0,nonoyesyesyesyesyesyes,0.0
+133629001,What color is the desk?,brown|brown|brown,brown andblack,0.0,brownbla,0.0,brown,1.0
+133629002,How many chairs have wheels?,1|1|1,00000,0.0,02no,0.0,2,0.0
+133629003,Is this chair in the way of people who might walk through?,no|no|no,noyesnoyesyesyesyesyesyes,0.0,noyes strutConnector,0.0,nononoyesyesyesyesyesyes,0.0
+133629004,Can these items be used to make food?,no|no|no,nononononononononono,0.0,noyes strutConnector,0.0,nononononononononono,0.0
+133629005,What do people do here?,work|work|office work,"work,study,study,study,study",0.0,work and study,0.0,"work,study,study,work,study",0.0
+133629006,What color is the lampshade?,off white|white|white,,0.0,blackbro,0.0,white,1.0
+133629007,What type of computer is on the desk?,mac|laptop|laptop,laptopcomputercomputercomputercomputercomputercomputercomputercomputer,0.0,ipadapple,0.0,applecomputercomputercomputercomputercomputercomputercomputercomputercomputer,0.0
+133631000,"Which is longer, the Elephant's tusks or the Elephant's trunk?",trunk|trunk|trunk,tusks trunk,0.0,tusk strutConnector,0.0,trunk,1.0
+133631001,Is it sunny out?,yes|yes|yes,noyesyesyesyesyesyesyesyesyes,0.0,noyes strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+133631002,Does the elephant need water?,yes|yes|yes,yesyesyesyesyesyesyesyesyes,0.0,yesno strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+2562000,What is the color scheme of the photo?,"white|white and blue|white, blue",whiteandblue,0.0,white andblue,0.0,white,0.67
+2562001,Are all the men tennis players?,yes|no|no,no,1.0,noyes strutConnector,0.0,nonoyesyesyesyesyesyesyesyes,0.0
+2562002,Is the man wearing a wristband?,yes|yes|yes,nono,0.0,noyes strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+2562003,What two brands are shown advertised behind the tennis player?,olympus and wta|olympus and wta|wta and olympus,tennis andwettennisandwet,0.0,wat andten,0.0,tennis andwettennisandwet,0.0
+2562004,What sport is being played?,tennis|tennis|tennis,nisnisnisnisnisnisnisnisnisnis,0.0,tennisball,0.0,nisnisnisnisnisnisnisnisnisnis,0.0
+133636000,What is the number on the left parking meter?,12|12|19,22222,0.0,21 and,0.0,2,0.0
+133636001,How much time is left?,0 time|expired|0,15minutes15minutes15minutes15,0.0,0minutes15,0.0,0:0:0:0:0:,0.0
+133636002,What number is the parking meter on the right?,13|13|13,22,0.0,21 and,0.0,2,0.0
+133636003,Is there any cars on the street?,no|no|0,noyesyesyesyesyesyesyesyes,0.0,noyes strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+133636004,Are the meters rusted?,no|no|no,nonoyesyesyesyesyes,0.0,noyes strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+133636005,Is there time remaining on the meter?,yes|yes|no,yesyesyesyesyesyesyesyesyes,0.0,yesno0,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+133636006,How many meters are there?,2|2|2,22222,0.0,20 and,0.0,22,0.0
+133645000,Is there someone on the bench?,no|no|no,nono,0.0,noyes strutConnector,0.0,noyesyesyesyesyesyesyesyes,0.0
+133645001,Are the street lights turned on?,yes|yes|yes,yesyesyesyesyesyesyesyesyes,0.0,yesno strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+133645002,Is the water clear?,no|yes|yes,noyesyesyesyesyesyesyesyesyes,0.0,yesno strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+133645003,What type of boat is in the water?,private|sailboat|pontoon,boatboatboatboatboatboatboatboatboatboat,0.0,boatoonick,0.0,boatboatboatboatboatboatboat,0.0
+264718000,How long is the parking on the street?,12 hours|2 hours|7 spots,2minutes2minutes2minutes2,0.0,2hours30,0.0,2hours15minutes,0.0
+264718001,Do you have to pay to park here?,yes|yes|yes,noyesyesyesyesyesyesyesyesyes,0.0,yesno strutConnector,0.0,noyesyesyesyesyesyesyesyesyes,0.0
+264718002,Which side of the sign is the road on?,right|left|right,,0.0,rightsid,0.0,,0.0
+264718003,What does the sign read?,2 hour parking 8am to 8pm|parking|2 hour parking 8am-8pm,2parking2parking2parking2,0.0,2parking and,0.0,2parking2parking2parking2,0.0
+264718004,What does the sign say?,parking|2 hour parking|2 hour parking,2parking2parking2parking2,0.0,2parking and,0.0,parking lot2 and2parking and2,0.0
+264718005,What phone number is on the sign?,0|n/a|0,908908908908908,0.0,9088,0.0,2.22.22,0.0
+264718006,What modes of transportation are in the picture?,cars|car|car,cars andbikescars andbikescars and,0.0,cars and buses,0.0,"cars, buses,trams,bikes",0.0
+264718007,What sign is to the right of the photo?,2 hour parking|parking|2 hour parking,parking lot2parking lot2parking,0.0,2parking and,0.0,parking lot22parkinglot2,0.0
+133648000,Is the bat blue?,yes|yes|yes,yesyes,0.0,yesno strutConnector,0.0,yesyesyesyesyesyesyesyesyesyes,0.0
+133648001,Is the photo colored?,yes|yes|yes,nonono,0.0,noyes strutConnector,0.0,nononono,0.0
+133648002,What color is the home plate umpire's shirt?,white|black|black,blue,0.0,bluewhit,0.0,blue,0.0
+133648003,Which game are they playing?,baseball|baseball|baseball,baseballbaseballballbaseballbaseballbase,0.0,baseball,1.0,baseballballballballballballballballball,0.0
+459182000,What are they carrying?,surfboards|surfboards|surfboards,surfboards,1.0,surfboard,0.33,surfboards,1.0
+459182001,What is in the foreground?,rocks|rocks|rocks,beach andsurfersonbeach,0.0,sand androcks,0.0,beach and ocean,0.0
+459182002,How many people are there?,2|2|2,22222,0.0,21 and,0.0,22222,0.0
+395801000,Is it morning or evening?,evening|morning|morning,morningyesyesyesyesyesyesyesyes,0.0,morningd,0.0,morningnightmorningnightmorningnight,0.0
+395801001,How much does parking in the lot cost?,nothing|free|free,0.00.00,0.0,nothing0$,0.0,0.00.00,0.0
+395801002,What is on the road?,car|car|cars,"building,street,building,street,building",0.0,streetli,0.0,"streetlight,streetlight,streetlight,street",0.0
+395801003,How many people are in the picture?,7|7|11,22100,0.0,24no,0.0,22222,0.0
+395801004,Do the people know each other?,no|no|no,yesyesyesyesyes,0.0,noyes strutConnector,0.0,yesyesyesyesyesyesyesyesyes,0.0
+395801005,How could you carry things if you were riding this bike?,there is no bike|on my back|backpack,on handlebar bag or on shoulder bag,0.0,on handlebars or,0.0,on the handlebars or on the handlebars and,0.0
+395801006,How many people are in this scene?,25|15|9,12,0.0,245,0.0,2,0.0
+395801007,What time is it?,6:00|6:00|12:30,2:30pm2:30pm,0.0,0830am,0.0,2:30pm2:30pm,0.0
+264730000,How many arches are under the clock?,2|2|2,22222,0.0,24no,0.0,22222,0.0
+264730001,What time is it?,10:50|10:49|8:45,00:00:00:00:00:,0.0,080030,0.0,8:30pm8:30pm,0.0
+264730002,Is a daytime or nighttime scene depicted?,nighttime|nighttime|night,nighttimenighttimenighttimenight,0.0,nighttim,0.0,nighttime,1.0
+264730003,What kind of numbers are on the clock?,roman numerals|roman|roman numerals,8 and98 and98 and,0.0,8908,0.0,roman,1.0
+2587000,Which food contains the most potassium?,banana|banana|banana,bananabananabananabananabanana,0.0,banana anddon,0.0,bananabananabananabananabanana,0.0
+2587001,What is not healthy in the baggie?,donut|doughnut|donut,banana anddonutbanana anddonut,0.0,banana anddon,0.0,donuts andbananasbananasbananasban,0.0

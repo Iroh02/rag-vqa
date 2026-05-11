@@ -1,0 +1,12 @@
+configuration,strict_vqa,lenient_word_boundary,any_substring,n_strict_to_lenient_flips
+"Baseline (frozen, no retrieval)",0.4233,0.65,0.66,27
+RAG · α=1.0 · k=1,0.5367,0.64,0.66,16
+★ RAG · α=1.0 · k=3 (headline),0.5933,0.66,0.68,11
+RAG · α=1.0 · k=5,0.5933,0.66,0.68,11
+RAG · α=1.0 · k=10,0.5933,0.66,0.68,11
+RAG · α=0.5 · k=3,0.4667,0.53,0.56,10
+RAG · α=0.0 · k=3,0.4367,0.52,0.55,13
++ cross-encoder rerank,0.5733,0.62,0.63,10
++ evidence-aware selector,0.56,0.62,0.64,10
++ type-conditional gate,0.6033,0.68,0.7,12
++ self-consistency vote,0.4967,0.57,0.6,11

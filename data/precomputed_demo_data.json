@@ -1,0 +1,1682 @@
+[
+  {
+    "question_id": "262148000",
+    "question": "Where is he looking?",
+    "ground_truth": "down",
+    "gt_all": [
+      "down",
+      "down",
+      "at table"
+    ],
+    "image_path": "data\\demo_images\\262148000.jpg",
+    "baseline": "looking at the crowd",
+    "rag_5k": "up",
+    "rag_20k": "at the crowd",
+    "rag_20k_caption": "at the crowd",
+    "caption": "a skateboarder doing a trick on a bench",
+    "retrieved_20k": [
+      {
+        "question": "Is anyone watching?",
+        "answer": "yes",
+        "img_score": 0.8804,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8804
+      },
+      {
+        "question": "What color is the graffiti?",
+        "answer": "blue",
+        "img_score": 0.8718,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8718
+      },
+      {
+        "question": "Is it a male or a female?",
+        "answer": "male",
+        "img_score": 0.8676,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8676
+      }
+    ],
+    "candidate_answers": [
+      "yes",
+      "blue",
+      "male"
+    ],
+    "most_common_answer": "yes",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8804,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262148001",
+    "question": "What are the people in the background doing?",
+    "ground_truth": "watching",
+    "gt_all": [
+      "spectating",
+      "watching",
+      "watching"
+    ],
+    "image_path": "data\\demo_images\\262148001.jpg",
+    "baseline": "Watching the skateboarder",
+    "rag_5k": "watching",
+    "rag_20k": "watching",
+    "rag_20k_caption": "watching",
+    "caption": "a skateboarder doing a trick on a bench",
+    "retrieved_20k": [
+      {
+        "question": "Is anyone watching?",
+        "answer": "yes",
+        "img_score": 0.8804,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8804
+      },
+      {
+        "question": "What color is the graffiti?",
+        "answer": "blue",
+        "img_score": 0.8718,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8718
+      },
+      {
+        "question": "Is it a male or a female?",
+        "answer": "male",
+        "img_score": 0.8676,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8676
+      }
+    ],
+    "candidate_answers": [
+      "yes",
+      "blue",
+      "male"
+    ],
+    "most_common_answer": "yes",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8804,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262148002",
+    "question": "What is he on top of?",
+    "ground_truth": "picnic table",
+    "gt_all": [
+      "table",
+      "table",
+      "table"
+    ],
+    "image_path": "data\\demo_images\\262148002.jpg",
+    "baseline": "skateboard",
+    "rag_5k": "picnic table",
+    "rag_20k": "skateboard",
+    "rag_20k_caption": "bench",
+    "caption": "a skateboarder doing a trick on a bench",
+    "retrieved_20k": [
+      {
+        "question": "Is anyone watching?",
+        "answer": "yes",
+        "img_score": 0.8804,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8804
+      },
+      {
+        "question": "What color is the graffiti?",
+        "answer": "blue",
+        "img_score": 0.8718,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8718
+      },
+      {
+        "question": "Is it a male or a female?",
+        "answer": "male",
+        "img_score": 0.8676,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8676
+      }
+    ],
+    "candidate_answers": [
+      "yes",
+      "blue",
+      "male"
+    ],
+    "most_common_answer": "yes",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8804,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "393225000",
+    "question": "What website copyrighted the picture?",
+    "ground_truth": "foodiebakercom",
+    "gt_all": [
+      "foodiebakercom",
+      "foodiebakercom",
+      "foodiebaker"
+    ],
+    "image_path": "data\\demo_images\\393225000.jpg",
+    "baseline": "http://www.thekitchn.com/",
+    "rag_5k": "foodiebakercom",
+    "rag_20k": "no website",
+    "rag_20k_caption": "no website",
+    "caption": "a bowl of soup with meat, vegetables and noodles",
+    "retrieved_20k": [
+      {
+        "question": "Does that spoon appear tarnished?",
+        "answer": "yes",
+        "img_score": 0.7911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7911
+      },
+      {
+        "question": "Do you see any orange vegetables?",
+        "answer": "yes",
+        "img_score": 0.7908,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7908
+      },
+      {
+        "question": "What would you eat this dish with?",
+        "answer": "spoon",
+        "img_score": 0.7809,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7809
+      }
+    ],
+    "candidate_answers": [
+      "yes",
+      "yes",
+      "spoon"
+    ],
+    "most_common_answer": "yes",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.7911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "393225001",
+    "question": "Is this a creamy soup?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "image_path": "data\\demo_images\\393225001.jpg",
+    "baseline": "no",
+    "rag_5k": "no",
+    "rag_20k": "yes",
+    "rag_20k_caption": "yes",
+    "caption": "a bowl of soup with meat, vegetables and noodles",
+    "retrieved_20k": [
+      {
+        "question": "Does that spoon appear tarnished?",
+        "answer": "yes",
+        "img_score": 0.7911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7911
+      },
+      {
+        "question": "Do you see any orange vegetables?",
+        "answer": "yes",
+        "img_score": 0.7908,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7908
+      },
+      {
+        "question": "What would you eat this dish with?",
+        "answer": "spoon",
+        "img_score": 0.7809,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7809
+      }
+    ],
+    "candidate_answers": [
+      "yes",
+      "yes",
+      "spoon"
+    ],
+    "most_common_answer": "yes",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.7911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "393225002",
+    "question": "Is this rice noodle soup?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "image_path": "data\\demo_images\\393225002.jpg",
+    "baseline": "yes",
+    "rag_5k": "no",
+    "rag_20k": "yes",
+    "rag_20k_caption": "yes",
+    "caption": "a bowl of soup with meat, vegetables and noodles",
+    "retrieved_20k": [
+      {
+        "question": "Does that spoon appear tarnished?",
+        "answer": "yes",
+        "img_score": 0.7911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7911
+      },
+      {
+        "question": "Do you see any orange vegetables?",
+        "answer": "yes",
+        "img_score": 0.7908,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7908
+      },
+      {
+        "question": "What would you eat this dish with?",
+        "answer": "spoon",
+        "img_score": 0.7809,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7809
+      }
+    ],
+    "candidate_answers": [
+      "yes",
+      "yes",
+      "spoon"
+    ],
+    "most_common_answer": "yes",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.7911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "393225003",
+    "question": "What is to the right of the soup?",
+    "ground_truth": "chopsticks",
+    "gt_all": [
+      "chopsticks",
+      "chopsticks",
+      "chopsticks"
+    ],
+    "image_path": "data\\demo_images\\393225003.jpg",
+    "baseline": "rice noodles",
+    "rag_5k": "chopsticks",
+    "rag_20k": "chopsticks",
+    "rag_20k_caption": "chopsticks",
+    "caption": "a bowl of soup with meat, vegetables and noodles",
+    "retrieved_20k": [
+      {
+        "question": "Does that spoon appear tarnished?",
+        "answer": "yes",
+        "img_score": 0.7911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7911
+      },
+      {
+        "question": "Do you see any orange vegetables?",
+        "answer": "yes",
+        "img_score": 0.7908,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7908
+      },
+      {
+        "question": "What would you eat this dish with?",
+        "answer": "spoon",
+        "img_score": 0.7809,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7809
+      }
+    ],
+    "candidate_answers": [
+      "yes",
+      "yes",
+      "spoon"
+    ],
+    "most_common_answer": "yes",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.7911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "393226000",
+    "question": "What is the man doing in the street?",
+    "ground_truth": "walking",
+    "gt_all": [
+      "crossing it",
+      "walking",
+      "walking"
+    ],
+    "image_path": "data\\demo_images\\393226000.jpg",
+    "baseline": "crossing the street",
+    "rag_5k": "walking",
+    "rag_20k": "crossing the street",
+    "rag_20k_caption": "crossing the street",
+    "caption": "a man crossing the street in front of an ice cream truck",
+    "retrieved_20k": [
+      {
+        "question": "Is there a crane in the photo?",
+        "answer": "no",
+        "img_score": 0.7761,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7761
+      },
+      {
+        "question": "What brand vehicle is in the foreground?",
+        "answer": "nissan",
+        "img_score": 0.7611,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7611
+      },
+      {
+        "question": "What is the license plate number on the right?",
+        "answer": "ywl 45v",
+        "img_score": 0.7387,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7387
+      }
+    ],
+    "candidate_answers": [
+      "no",
+      "nissan",
+      "ywl 45v"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.7761,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "393226001",
+    "question": "How many photo's can you see?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "4"
+    ],
+    "image_path": "data\\demo_images\\393226001.jpg",
+    "baseline": "lot",
+    "rag_5k": "1",
+    "rag_20k": "3",
+    "rag_20k_caption": "3",
+    "caption": "a man crossing the street in front of an ice cream truck",
+    "retrieved_20k": [
+      {
+        "question": "Is there a crane in the photo?",
+        "answer": "no",
+        "img_score": 0.7761,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7761
+      },
+      {
+        "question": "What brand vehicle is in the foreground?",
+        "answer": "nissan",
+        "img_score": 0.7611,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7611
+      },
+      {
+        "question": "What is the license plate number on the right?",
+        "answer": "ywl 45v",
+        "img_score": 0.7387,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7387
+      }
+    ],
+    "candidate_answers": [
+      "no",
+      "nissan",
+      "ywl 45v"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.7761,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "393226002",
+    "question": "What does the truck on the left sell?",
+    "ground_truth": "ice cream",
+    "gt_all": [
+      "ice cream",
+      "ice cream",
+      "ice cream"
+    ],
+    "image_path": "data\\demo_images\\393226002.jpg",
+    "baseline": "ice cream",
+    "rag_5k": "ice cream",
+    "rag_20k": "ice cream",
+    "rag_20k_caption": "ice cream",
+    "caption": "a man crossing the street in front of an ice cream truck",
+    "retrieved_20k": [
+      {
+        "question": "Is there a crane in the photo?",
+        "answer": "no",
+        "img_score": 0.7761,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7761
+      },
+      {
+        "question": "What brand vehicle is in the foreground?",
+        "answer": "nissan",
+        "img_score": 0.7611,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7611
+      },
+      {
+        "question": "What is the license plate number on the right?",
+        "answer": "ywl 45v",
+        "img_score": 0.7387,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.7387
+      }
+    ],
+    "candidate_answers": [
+      "no",
+      "nissan",
+      "ywl 45v"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.7761,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "240301000",
+    "question": "Why is there a gap between the roof and wall?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "ventilation",
+      "provide air",
+      "to air out barn from stinky bovines"
+    ],
+    "image_path": "data\\demo_images\\240301000.jpg",
+    "baseline": "To allow the cows to graze",
+    "rag_5k": "yes",
+    "rag_20k": "so the cows can get out",
+    "rag_20k_caption": "so the cows can get out",
+    "caption": "a group of cows in a barn",
+    "retrieved_20k": [
+      {
+        "question": "How many black cows are in the image?",
+        "answer": "4",
+        "img_score": 0.8353,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8353
+      },
+      {
+        "question": "Are the cows grazing?",
+        "answer": "no",
+        "img_score": 0.8333,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8333
+      },
+      {
+        "question": "What action is the black animal trying to perform?",
+        "answer": "sex",
+        "img_score": 0.8122,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8122
+      }
+    ],
+    "candidate_answers": [
+      "4",
+      "no",
+      "sex"
+    ],
+    "most_common_answer": "4",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8353,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "240301001",
+    "question": "Is it daylight in this picture?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "image_path": "data\\demo_images\\240301001.jpg",
+    "baseline": "yes",
+    "rag_5k": "yes",
+    "rag_20k": "no",
+    "rag_20k_caption": "no",
+    "caption": "a group of cows in a barn",
+    "retrieved_20k": [
+      {
+        "question": "How many black cows are in the image?",
+        "answer": "4",
+        "img_score": 0.8353,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8353
+      },
+      {
+        "question": "Are the cows grazing?",
+        "answer": "no",
+        "img_score": 0.8333,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8333
+      },
+      {
+        "question": "What action is the black animal trying to perform?",
+        "answer": "sex",
+        "img_score": 0.8122,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8122
+      }
+    ],
+    "candidate_answers": [
+      "4",
+      "no",
+      "sex"
+    ],
+    "most_common_answer": "4",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8353,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "240301002",
+    "question": "Why is the cow laying down?",
+    "ground_truth": "tired",
+    "gt_all": [
+      "tired",
+      "tired",
+      "4"
+    ],
+    "image_path": "data\\demo_images\\240301002.jpg",
+    "baseline": "Because the cow is dead",
+    "rag_5k": "tired",
+    "rag_20k": "to sleep",
+    "rag_20k_caption": "to sleep",
+    "caption": "a group of cows in a barn",
+    "retrieved_20k": [
+      {
+        "question": "How many black cows are in the image?",
+        "answer": "4",
+        "img_score": 0.8353,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8353
+      },
+      {
+        "question": "Are the cows grazing?",
+        "answer": "no",
+        "img_score": 0.8333,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8333
+      },
+      {
+        "question": "What action is the black animal trying to perform?",
+        "answer": "sex",
+        "img_score": 0.8122,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8122
+      }
+    ],
+    "candidate_answers": [
+      "4",
+      "no",
+      "sex"
+    ],
+    "most_common_answer": "4",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8353,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "131089000",
+    "question": "What color is the grass in this picture?",
+    "ground_truth": "green",
+    "gt_all": [
+      "gray",
+      "green",
+      "green"
+    ],
+    "image_path": "data\\demo_images\\131089000.jpg",
+    "baseline": "Black and white",
+    "rag_5k": "black and white",
+    "rag_20k": "black and white",
+    "rag_20k_caption": "black and white",
+    "caption": "a young boy holding a baseball bat",
+    "retrieved_20k": [
+      {
+        "question": "What color is the bat?",
+        "answer": "yellow",
+        "img_score": 0.8682,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8682
+      },
+      {
+        "question": "What are the kids doing?",
+        "answer": "playing baseball",
+        "img_score": 0.8608,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8608
+      },
+      {
+        "question": "IS this a regulation bat?",
+        "answer": "no",
+        "img_score": 0.86,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.86
+      }
+    ],
+    "candidate_answers": [
+      "yellow",
+      "playing baseball",
+      "no"
+    ],
+    "most_common_answer": "yellow",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8682,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "131089001",
+    "question": "Did the batter hit the ball?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "image_path": "data\\demo_images\\131089001.jpg",
+    "baseline": "Yes",
+    "rag_5k": "yes",
+    "rag_20k": "no",
+    "rag_20k_caption": "no",
+    "caption": "a young boy holding a baseball bat",
+    "retrieved_20k": [
+      {
+        "question": "What color is the bat?",
+        "answer": "yellow",
+        "img_score": 0.8682,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8682
+      },
+      {
+        "question": "What are the kids doing?",
+        "answer": "playing baseball",
+        "img_score": 0.8608,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8608
+      },
+      {
+        "question": "IS this a regulation bat?",
+        "answer": "no",
+        "img_score": 0.86,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.86
+      }
+    ],
+    "candidate_answers": [
+      "yellow",
+      "playing baseball",
+      "no"
+    ],
+    "most_common_answer": "yellow",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8682,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "131089002",
+    "question": "How many are playing ball?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "1"
+    ],
+    "image_path": "data\\demo_images\\131089002.jpg",
+    "baseline": "One",
+    "rag_5k": "one",
+    "rag_20k": "all of them",
+    "rag_20k_caption": "all of them",
+    "caption": "a young boy holding a baseball bat",
+    "retrieved_20k": [
+      {
+        "question": "What color is the bat?",
+        "answer": "yellow",
+        "img_score": 0.8682,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8682
+      },
+      {
+        "question": "What are the kids doing?",
+        "answer": "playing baseball",
+        "img_score": 0.8608,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8608
+      },
+      {
+        "question": "IS this a regulation bat?",
+        "answer": "no",
+        "img_score": 0.86,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.86
+      }
+    ],
+    "candidate_answers": [
+      "yellow",
+      "playing baseball",
+      "no"
+    ],
+    "most_common_answer": "yellow",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8682,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "131089003",
+    "question": "Is there a chain link fence in the image?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "image_path": "data\\demo_images\\131089003.jpg",
+    "baseline": "yes",
+    "rag_5k": "no",
+    "rag_20k": "yes",
+    "rag_20k_caption": "yes",
+    "caption": "a young boy holding a baseball bat",
+    "retrieved_20k": [
+      {
+        "question": "What color is the bat?",
+        "answer": "yellow",
+        "img_score": 0.8682,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8682
+      },
+      {
+        "question": "What are the kids doing?",
+        "answer": "playing baseball",
+        "img_score": 0.8608,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8608
+      },
+      {
+        "question": "IS this a regulation bat?",
+        "answer": "no",
+        "img_score": 0.86,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.86
+      }
+    ],
+    "candidate_answers": [
+      "yellow",
+      "playing baseball",
+      "no"
+    ],
+    "most_common_answer": "yellow",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8682,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "131089004",
+    "question": "Is the boy playing baseball?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "image_path": "data\\demo_images\\131089004.jpg",
+    "baseline": "yes",
+    "rag_5k": "yes",
+    "rag_20k": "no",
+    "rag_20k_caption": "no",
+    "caption": "a young boy holding a baseball bat",
+    "retrieved_20k": [
+      {
+        "question": "What color is the bat?",
+        "answer": "yellow",
+        "img_score": 0.8682,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8682
+      },
+      {
+        "question": "What are the kids doing?",
+        "answer": "playing baseball",
+        "img_score": 0.8608,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8608
+      },
+      {
+        "question": "IS this a regulation bat?",
+        "answer": "no",
+        "img_score": 0.86,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.86
+      }
+    ],
+    "candidate_answers": [
+      "yellow",
+      "playing baseball",
+      "no"
+    ],
+    "most_common_answer": "yellow",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.8682,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162000",
+    "question": "Is that a folding chair?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "image_path": "data\\demo_images\\262162000.jpg",
+    "baseline": "yes",
+    "rag_5k": "yes",
+    "rag_20k": "no",
+    "rag_20k_caption": "no",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162001",
+    "question": "How many beds?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "1"
+    ],
+    "image_path": "data\\demo_images\\262162001.jpg",
+    "baseline": "One",
+    "rag_5k": "one",
+    "rag_20k": "2",
+    "rag_20k_caption": "2",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162002",
+    "question": "What color is the bedspread?",
+    "ground_truth": "white",
+    "gt_all": [
+      "beige",
+      "white",
+      "pink"
+    ],
+    "image_path": "data\\demo_images\\262162002.jpg",
+    "baseline": "Black and white",
+    "rag_5k": "beige",
+    "rag_20k": "black",
+    "rag_20k_caption": "black",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162003",
+    "question": "How many pictures are there?",
+    "ground_truth": "7",
+    "gt_all": [
+      "7",
+      "7",
+      "7"
+    ],
+    "image_path": "data\\demo_images\\262162003.jpg",
+    "baseline": "lot",
+    "rag_5k": "many",
+    "rag_20k": "6",
+    "rag_20k_caption": "6",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162004",
+    "question": "Are these twin mattresses?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "image_path": "data\\demo_images\\262162004.jpg",
+    "baseline": "yes",
+    "rag_5k": "yes",
+    "rag_20k": "no",
+    "rag_20k_caption": "yes",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162005",
+    "question": "How many sources of light are there?",
+    "ground_truth": "1",
+    "gt_all": [
+      "1",
+      "1",
+      "1"
+    ],
+    "image_path": "data\\demo_images\\262162005.jpg",
+    "baseline": "lot",
+    "rag_5k": "2",
+    "rag_20k": "3",
+    "rag_20k_caption": "2",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162006",
+    "question": "Is this room decorated for the 1970s?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "image_path": "data\\demo_images\\262162006.jpg",
+    "baseline": "no",
+    "rag_5k": "yes",
+    "rag_20k": "no",
+    "rag_20k_caption": "no",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162007",
+    "question": "Are the lights on in this room?",
+    "ground_truth": "no",
+    "gt_all": [
+      "no",
+      "no",
+      "no"
+    ],
+    "image_path": "data\\demo_images\\262162007.jpg",
+    "baseline": "yes",
+    "rag_5k": "yes",
+    "rag_20k": "no",
+    "rag_20k_caption": "no",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162008",
+    "question": "Are the windows big?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "image_path": "data\\demo_images\\262162008.jpg",
+    "baseline": "yes",
+    "rag_5k": "yes",
+    "rag_20k": "yes",
+    "rag_20k_caption": "yes",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162009",
+    "question": "What is the chair made of?",
+    "ground_truth": "leather",
+    "gt_all": [
+      "leather",
+      "leather",
+      "plastic"
+    ],
+    "image_path": "data\\demo_images\\262162009.jpg",
+    "baseline": "made of wood",
+    "rag_5k": "leather",
+    "rag_20k": "wood",
+    "rag_20k_caption": "wood",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162010",
+    "question": "Is this room in someone's home?",
+    "ground_truth": "yes",
+    "gt_all": [
+      "yes",
+      "yes",
+      "yes"
+    ],
+    "image_path": "data\\demo_images\\262162010.jpg",
+    "baseline": "yes",
+    "rag_5k": "bedroom",
+    "rag_20k": "no",
+    "rag_20k_caption": "no",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  },
+  {
+    "question_id": "262162011",
+    "question": "Which room is this?",
+    "ground_truth": "bedroom",
+    "gt_all": [
+      "bedroom",
+      "bedroom",
+      "bedroom"
+    ],
+    "image_path": "data\\demo_images\\262162011.jpg",
+    "baseline": "This is a bedroom",
+    "rag_5k": "bedroom",
+    "rag_20k": "bedroom",
+    "rag_20k_caption": "bedroom",
+    "caption": "a bedroom with a desk and a bed",
+    "retrieved_20k": [
+      {
+        "question": "How many frames are on the wall?",
+        "answer": "6",
+        "img_score": 0.911,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.911
+      },
+      {
+        "question": "Is the TV on?",
+        "answer": "no",
+        "img_score": 0.8733,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8733
+      },
+      {
+        "question": "Is the lamp turned on?",
+        "answer": "no",
+        "img_score": 0.8691,
+        "q_score": 0.0,
+        "cap_score": 0.0,
+        "ce_score": 0.0,
+        "score": 0.8691
+      }
+    ],
+    "candidate_answers": [
+      "6",
+      "no",
+      "no"
+    ],
+    "most_common_answer": "no",
+    "audit": {
+      "exact_question_in_retrieved": false,
+      "max_retrieval_score": 0.911,
+      "near_duplicate_score_warning": false
+    }
+  }
+]

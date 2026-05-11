@@ -1,0 +1,12 @@
+configuration,accuracy,delta_vs_k3,helped_vs_k3,hurt_vs_k3,notes
+"Baseline (frozen, no retrieval)",0.4233,-0.17,—,—,
+RAG · α=1.0 · k=1,0.5367,-0.0567,6,13,
+★ RAG · α=1.0 · k=3 (headline reproduce),0.5933,0.0,—,—,headline
+RAG · α=1.0 · k=5,0.5933,0.0,0,0,
+RAG · α=1.0 · k=10,0.5933,0.0,0,0,
+RAG · α=0.5 · k=3,0.4667,-0.1267,8,20,
+RAG · α=0.0 · k=3,0.4367,-0.1567,7,23,
+RAG · α=1.0 · k=3 + cross-encoder rerank,0.5733,-0.02,5,8,
+RAG + Evidence-Aware Selector,0.56,-0.0333,0,3,
+Type-conditional gate (yes/no → baseline),0.6033,0.01,4,3,
+"Self-consistency vote (α ∈ {0.0, 0.5, 1.0})",0.4967,-0.0967,7,16,

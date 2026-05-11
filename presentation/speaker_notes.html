@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Open-Book VQA — Speaker Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e14; --bg1:#131921; --bg2:#1c2532; --bg3:#2a3548;
+  --border:rgba(255,255,255,0.06); --border2:rgba(255,255,255,0.10);
+  --ink:#f5f7fa; --ink-soft:#c2cad6; --ink-dim:#8a95a8;
+  --green:#4ade80; --green-bg:rgba(74,222,128,0.10);
+  --blue:#60a5fa;  --blue-bg:rgba(96,165,250,0.09);
+  --orange:#f59e0b; --orange-bg:rgba(245,158,11,0.10);
+  --red:#f87171;  --red-bg:rgba(248,113,113,0.09);
+  --purple:#c084fc; --yellow:#fbbf24;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  background:radial-gradient(ellipse 80% 60% at top, #131921 0%, var(--bg) 70%);
+  color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-feature-settings:'cv11';
+  letter-spacing:-0.01em;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  line-height:1.65;
+}
+.wrap{max-width:980px;margin:0 auto;padding:64px 32px 96px;}
+
+/* Header */
+header{margin-bottom:48px;}
+header .eyebrow{font-size:11px;font-weight:700;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--blue);margin-bottom:14px;
+  padding:6px 13px;background:var(--blue-bg);border:1px solid rgba(96,165,250,0.22);
+  border-radius:7px;display:inline-block;}
+header h1{font-size:48px;font-weight:800;letter-spacing:-0.025em;line-height:1.1;
+  color:var(--ink);margin-bottom:14px;}
+header .subtitle{font-size:18px;color:var(--ink-soft);margin-bottom:24px;}
+header .headline{display:flex;gap:24px;flex-wrap:wrap;align-items:center;
+  margin-top:24px;padding:18px 24px;background:var(--bg1);
+  border:1px solid var(--border);border-radius:12px;}
+header .headline-num{font-size:36px;font-weight:900;color:var(--green);
+  font-feature-settings:'tnum';letter-spacing:-0.03em;}
+header .headline-text{font-size:14px;color:var(--ink-soft);}
+
+/* TOC */
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0 48px;}
+.toc a{display:block;padding:18px 22px;background:var(--bg1);
+  border:1px solid var(--border);border-radius:12px;text-decoration:none;
+  transition:all .15s;}
+.toc a:hover{border-color:var(--border2);transform:translateY(-2px);}
+.toc .role{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;}
+.toc .name{font-size:22px;font-weight:800;color:var(--ink);margin-top:6px;letter-spacing:-0.02em;}
+.toc .info{font-size:13px;color:var(--ink-dim);margin-top:8px;line-height:1.5;}
+.toc a.jillian .role{color:var(--blue);}
+.toc a.anushree .role{color:var(--green);}
+.toc a.nandita .role{color:var(--orange);}
+
+/* Section dividers */
+.section{margin-top:80px;padding-top:48px;border-top:1px solid var(--border);}
+.section-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.4px;
+  text-transform:uppercase;padding:6px 13px;border-radius:7px;margin-bottom:16px;}
+.section-tag.jillian{color:var(--blue);background:var(--blue-bg);border:1px solid rgba(96,165,250,0.22);}
+.section-tag.anushree{color:var(--green);background:var(--green-bg);border:1px solid rgba(74,222,128,0.22);}
+.section-tag.nandita{color:var(--orange);background:var(--orange-bg);border:1px solid rgba(245,158,11,0.22);}
+.section h2{font-size:36px;font-weight:800;letter-spacing:-0.025em;line-height:1.15;
+  color:var(--ink);margin-bottom:8px;}
+.section .role-meta{font-size:14px;color:var(--ink-dim);margin-bottom:32px;line-height:1.6;}
+
+/* Slide cards */
+.slide-card{background:var(--bg1);border:1px solid var(--border);border-radius:14px;
+  padding:28px 32px;margin-bottom:18px;box-shadow:0 4px 20px rgba(0,0,0,0.25);}
+.slide-card .slide-num{font-size:11px;font-weight:700;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--ink-dim);margin-bottom:6px;}
+.slide-card h3{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);
+  margin-bottom:6px;}
+.slide-card .duration{display:inline-block;font-size:11px;color:var(--ink-dim);
+  background:var(--bg2);padding:3px 9px;border-radius:5px;margin-left:8px;
+  font-variant-numeric:tabular-nums;font-weight:600;}
+
+.field{margin-top:18px;}
+.field-label{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--ink-dim);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.field-label::before{content:'';width:4px;height:14px;background:var(--blue);border-radius:2px;}
+.field.script .field-label::before{background:var(--green);}
+.field.points .field-label::before{background:var(--blue);}
+.field.handoff .field-label::before{background:var(--orange);}
+.field.land .field-label::before{background:var(--purple);}
+.field.warn .field-label::before{background:var(--red);}
+.field.qa .field-label::before{background:var(--yellow);}
+
+blockquote{background:var(--bg2);border-left:3px solid var(--green);
+  padding:16px 22px;margin:8px 0;border-radius:6px;
+  font-size:16px;line-height:1.7;color:var(--ink);font-style:italic;}
+blockquote.points-quote{border-left-color:var(--blue);font-style:normal;}
+
+ul,ol{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:9px;
+  font-size:15px;line-height:1.6;}
+ul li{padding-left:28px;position:relative;color:var(--ink-soft);}
+ul li::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:600;}
+ol{counter-reset:olc;}
+ol li{padding-left:32px;position:relative;color:var(--ink-soft);counter-increment:olc;}
+ol li::before{content:counter(olc) '.';position:absolute;left:0;
+  color:var(--blue);font-weight:700;font-variant-numeric:tabular-nums;}
+
+strong, b{color:var(--ink);font-weight:600;}
+em, i{color:var(--ink-soft);}
+code, .mono{font-family:'JetBrains Mono','SF Mono',monospace;font-size:0.9em;
+  background:var(--bg2);padding:2px 6px;border-radius:4px;color:var(--blue);}
+
+/* Hand-off banner */
+.handoff-banner{margin-top:18px;padding:12px 18px;
+  background:linear-gradient(90deg, var(--orange-bg), transparent);
+  border-left:3px solid var(--orange);border-radius:6px;
+  font-size:14px;color:var(--ink-soft);font-style:italic;}
+
+/* Tables */
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;
+  margin-top:14px;background:var(--bg2);border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;}
+th{background:rgba(28,37,50,0.7);padding:12px 14px;text-align:left;
+  font-size:10px;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--ink-dim);border-bottom:1px solid var(--border2);font-weight:700;}
+td{padding:11px 14px;border-bottom:1px solid var(--border);
+  color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+tr:last-child td{border-bottom:none;}
+
+/* Detailed case cards */
+.case-detail-card{background:var(--bg1);border:1px solid var(--border);border-radius:14px;
+  padding:0;margin-bottom:18px;box-shadow:0 4px 20px rgba(0,0,0,0.25);overflow:hidden;}
+.case-detail-card.eval{border-left:3px solid var(--blue);}
+.case-detail-card.live{border-left:3px solid var(--green);}
+.case-detail-header{display:flex;gap:18px;align-items:center;padding:20px 24px;
+  background:var(--bg2);border-bottom:1px solid var(--border);}
+.case-thumb{width:90px;height:90px;object-fit:cover;border-radius:8px;
+  border:1px solid var(--border2);background:var(--bg3);flex-shrink:0;}
+.case-detail-header .case-meta-num{font-size:10px;font-weight:700;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px;}
+.case-detail-header.eval .case-meta-num{color:var(--blue);}
+.case-detail-header.live .case-meta-num{color:var(--green);}
+.case-detail-header h4{font-size:18px;font-weight:700;color:var(--ink);
+  letter-spacing:-0.015em;line-height:1.3;}
+.case-detail-header .case-meta-line{font-size:12px;color:var(--ink-dim);margin-top:6px;line-height:1.5;}
+.case-detail-body{padding:20px 24px;}
+
+table.case-modes{width:100%;border-collapse:separate;border-spacing:0;
+  font-size:13px;background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;margin-bottom:16px;}
+table.case-modes th{padding:9px 14px;background:rgba(28,37,50,0.7);
+  font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-dim);
+  border-bottom:1px solid var(--border2);font-weight:700;}
+table.case-modes td{padding:9px 14px;border-bottom:1px solid var(--border);
+  color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+table.case-modes tr:last-child td{border-bottom:none;}
+table.case-modes tr.headline td{background:rgba(74,222,128,0.06);color:var(--green);font-weight:700;}
+table.case-modes .ans{font-family:'JetBrains Mono',monospace;font-size:12.5px;}
+table.case-modes .ok{color:var(--green);font-weight:700;}
+table.case-modes .no{color:var(--red);font-weight:700;}
+table.case-modes .skip{color:var(--ink-dim);}
+
+.case-section-label{font-size:10px;font-weight:700;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;}
+.case-section-label::before{content:'';width:4px;height:14px;background:var(--green);border-radius:2px;}
+.case-points-block{margin-top:14px;}
+.case-points-block.point::before{}
+.case-points-block .case-section-label::before{background:var(--blue);}
+.case-caveat-block{margin-top:14px;padding:12px 16px;
+  background:linear-gradient(90deg, var(--orange-bg), transparent);
+  border-left:3px solid var(--orange);border-radius:6px;font-size:13px;
+  color:var(--ink-soft);line-height:1.6;}
+.case-caveat-block strong{color:var(--orange);}
+
+/* Q&A */
+.qa-section{background:var(--bg1);border:1px solid var(--border);border-radius:14px;
+  padding:32px 36px;margin-top:32px;}
+.qa-block{padding:18px 22px;background:var(--bg2);border-radius:8px;margin-bottom:14px;
+  border-left:3px solid var(--yellow);}
+.qa-q{font-size:14px;font-weight:700;color:var(--yellow);margin-bottom:8px;
+  letter-spacing:0.2px;}
+.qa-a{font-size:15px;line-height:1.65;color:var(--ink-soft);}
+
+/* Tone reminder */
+.tone-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+.tone-card{padding:18px 22px;background:var(--bg2);border-radius:10px;
+  border:1px solid var(--border);}
+.tone-card.do{border-left:3px solid var(--green);}
+.tone-card.dont{border-left:3px solid var(--red);}
+.tone-card h4{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;
+  font-weight:700;margin-bottom:12px;}
+.tone-card.do h4{color:var(--green);}
+.tone-card.dont h4{color:var(--red);}
+.tone-card ul{font-size:14px;}
+.tone-card.do ul li::before{content:'✓';color:var(--green);}
+.tone-card.dont ul li::before{content:'✗';color:var(--red);}
+
+/* Logistics */
+.checklist{background:var(--bg2);border:1px solid var(--border);
+  border-radius:10px;padding:20px 24px;margin-top:14px;}
+.checklist ol{font-size:14px;}
+.checklist code{background:var(--bg);}
+
+/* Footer */
+footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--border);
+  text-align:center;font-size:13px;color:var(--ink-dim);}
+
+/* Print */
+@media print{
+  html,body{background:white;color:black;}
+  .wrap{max-width:none;padding:24px;}
+  .slide-card,.qa-section,.tone-card,.checklist{box-shadow:none;
+    page-break-inside:avoid;border:1px solid #ccc;}
+  blockquote{background:#f5f5f5;}
+  a{color:inherit;}
+  .toc{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Speaker Notes · 3-Presenter Split</div>
+  <h1>Open-Book VQA</h1>
+  <div class="subtitle">Visual Memory-Augmented BLIP-2 with CLIP + FAISS Retrieval</div>
+  <div class="headline">
+    <div>
+      <div class="headline-num">42.33% → 60.33%</div>
+      <div class="headline-text">+18 pts · frozen 3B model · no retraining · 100-sample VQAv2 eval</div>
+    </div>
+    <div style="margin-left:auto;font-size:13px;color:var(--ink-dim);text-align:right;">
+      <div><strong style="color:var(--ink);">Total time:</strong> ~15 min deck + ~3 min live demo = <strong style="color:var(--ink);">~18 min</strong></div>
+      <div style="margin-top:4px;">3 presenters · Jillian · Anushree · Nandita</div>
+    </div>
+  </div>
+</header>
+
+<!-- Table of contents -->
+<div class="toc">
+  <a href="#jillian" class="jillian">
+    <div class="role">Part 1 · Setup</div>
+    <div class="name">Jillian</div>
+    <div class="info">Slides 1–5 · ~5 min<br/>Title, motivation, problem, architecture, retrieval</div>
+  </a>
+  <a href="#anushree" class="anushree">
+    <div class="role">Part 2 · Wins</div>
+    <div class="name">Anushree</div>
+    <div class="info">Slides 6, 7, 9, 10 · ~4 min<br/>Headline result, why image retrieval wins, where RAG helps, KB scaling</div>
+  </a>
+  <a href="#nandita" class="nandita">
+    <div class="role">Part 3 · Analysis + Demo</div>
+    <div class="name">Nandita</div>
+    <div class="info">Slides 8, 11–15 · ~7-8 min<br/>Metric honesty, bottleneck, type-router, conclusion, live demo</div>
+  </a>
+</div>
+
+<!-- ============================== JILLIAN ============================== -->
+<section class="section" id="jillian">
+  <div class="section-tag jillian">Part 1 · Jillian</div>
+  <h2>Setup, motivation, system architecture</h2>
+  <div class="role-meta">
+    <strong>Slides 1–5 · ~5 minutes.</strong> Set up <em>what we built and why</em>. Make the closed-book vs open-book idea click.
+    Energy: opener — confident, clear, slightly slow. Establishes credibility.
+  </div>
+
+  <!-- SLIDE 1 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 1<span class="duration">~30 s</span></div>
+    <h3>Title</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"Hi everyone, I'm Jillian. Today the three of us — myself, Anushree, and Nandita — are going to walk you through our final project: <strong>Open-Book VQA</strong>. We took a frozen visual question-answering model called BLIP-2, which is a 3-billion parameter model, and we gave it the ability to <strong>look up</strong> similar past examples before answering. The headline is on the slide: we improved strict VQA accuracy from <strong>42.33% to 60.33%</strong> — an 18-point absolute gain — without any retraining. Let me set up why this is interesting."</blockquote>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "Let me start with the analogy that motivated this whole project."</div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 2<span class="duration">~50 s</span></div>
+    <h3>Motivation — closed-book vs open-book</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"Think of standard VQA as a <strong>closed-book exam</strong>. You give the model an image and a question, and it has to answer purely from memorized weights — no looking anything up. A student in a closed-book exam can only score as well as what they remember. Now imagine the same student in an <strong>open-book exam</strong>: they can consult notes, look up similar problems they've seen before. They usually do better, especially on hard questions."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Talking points</div>
+      <ul>
+        <li>Frozen models — the weights don't change. They have whatever knowledge they were trained with.</li>
+        <li>For hard, specific questions, the closed-book setup is fundamentally limiting.</li>
+        <li><strong>Our project asks</strong>: can we let a frozen model "consult notes" at inference time?</li>
+        <li>The notes here are a <strong>visual memory</strong> — past examples of question-answer pairs over images.</li>
+      </ul>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "Here's the precise task."</div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 3<span class="duration">~40 s</span></div>
+    <h3>Problem statement</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"The task is <strong>VQAv2</strong> — a standard visual question-answering benchmark. The model gets one image and one natural-language question. It has to output a short answer. Scoring is <strong>strict VQA soft accuracy</strong>: an answer matches against ten human annotators, and you get full credit only if at least three of them said your exact answer."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Key points</div>
+      <ul>
+        <li>The model is <strong>BLIP-2 OPT-2.7B</strong>, frozen, 4-bit quantized — we are not training it.</li>
+        <li>Eval set: <strong>100 validation samples</strong>, fixed across all our experiments — same eval, same KB, only the system around the model changes.</li>
+        <li>This is a <strong>controlled evaluation</strong>, not a full benchmark — but the comparisons are internally fair.</li>
+      </ul>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "Here's how the open-book system is built."</div>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 4<span class="duration">~70 s</span></div>
+    <h3>System architecture</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"This is the full pipeline, left to right. The query image and question come in. <strong>CLIP</strong> — a vision-language model — encodes the query image into a 512-dimensional vector. We do an exact inner-product search over a <strong>FAISS index</strong> that holds 20,000 past VQA examples — that's our visual memory. We get back the top-3 most visually similar examples and their answers. We format those as a hints prompt, prepend them to the question, and feed everything to <strong>BLIP-2</strong>, which generates the final answer."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Walk through the diagram. Point at each box.</div>
+      <ul>
+        <li>"We use <strong>CLIP ViT-B/32</strong> for retrieval — chosen because CLIP is trained on image-text pairs, so its embeddings cluster by visual semantics."</li>
+        <li>"The KB is <strong>20,000 unique images</strong> from VQAv2's validation split, with <strong>image-id-disjoint sampling</strong> — meaning no image in the KB is also in the eval set. This avoids leakage."</li>
+        <li>"BLIP-2 itself is frozen, so the only thing we're 'training' here is the retrieval and prompting logic."</li>
+      </ul>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "The most important design parameter is how we score retrieval."</div>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 5<span class="duration">~70 s</span></div>
+    <h3>Retrieval scoring (the α parameter)</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"We have one core knob, alpha. We score each candidate as <strong>alpha times image similarity plus one-minus-alpha times question-text similarity</strong>. At alpha equals zero, only text similarity matters. At alpha equals one, only image similarity matters. The big finding is that <strong>alpha equals one wins</strong> — pure image-only retrieval, achieving <strong>59.33%</strong> before we add anything else on top."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Talking points</div>
+      <ul>
+        <li>"There's also an optional gate, tau. If the top-1 retrieval score is below tau, we skip retrieval and fall back to baseline. We use this in the live demo for out-of-distribution images."</li>
+        <li>"We'll come back to <strong>why</strong> image-only beats text-only in slide 7 — there's a clean reason."</li>
+      </ul>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "With the system in place, let me hand off to Anushree to walk through the headline result."</div>
+  </div>
+</section>
+
+
+<!-- ============================== ANUSHREE ============================== -->
+<section class="section" id="anushree">
+  <div class="section-tag anushree">Part 2 · Anushree</div>
+  <h2>Headline result + the wins</h2>
+  <div class="role-meta">
+    <strong>Slides 6, 7, 9, 10 · ~4 minutes.</strong> Deliver the wins. Confident, numbers-forward.
+    Energy: pace up. The interesting parts are landing. <em>(Note: slide 8 belongs to Nandita — Anushree skips from 7 to 9.)</em>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 6<span class="duration">~80 s</span></div>
+    <h3>Main result — 42.33% → 60.33%</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"Thanks Jillian. Let me show you the headline. Same eval, same model, same KB across all rows. Baseline frozen BLIP-2 alone scores <strong>42.33%</strong>. Adding image-only retrieval over the 20k diverse KB takes us to <strong>59.33%</strong> — a +17 point absolute gain. Adding the type-conditional router on top — which Nandita will explain in detail — takes us to <strong>60.33%</strong>. That's our final system: <strong>+18 points absolute, +43% relative</strong>, no retraining."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Walk the table top to bottom</div>
+      <ul>
+        <li>Baseline 42.33% — frozen BLIP-2 alone</li>
+        <li>α=0.0 text-only → 43.67%, basically baseline</li>
+        <li>α=0.5 balanced → 46.67%, mediocre</li>
+        <li>α=1.0 image-only → <strong>59.33%</strong> ★</li>
+        <li>+ Type-router → <strong>60.33%</strong> ★★ (final system)</li>
+      </ul>
+    </div>
+    <div class="field land">
+      <div class="field-label">Land this line</div>
+      <blockquote class="points-quote">"<strong>Image-only retrieval is the most important design choice</strong> in this system. Mixing in question-text similarity actively hurts. We'll explain why in the next slide."</blockquote>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "This is counterintuitive — let me show you why text retrieval doesn't work here."</div>
+  </div>
+
+  <!-- SLIDE 7 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 7<span class="duration">~60 s</span></div>
+    <h3>Why image retrieval wins</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"Why does image retrieval beat text retrieval, when text retrieval is the standard thing in NLP RAG? Three reasons."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">The three reasons</div>
+      <ol>
+        <li><strong>VQA answers are visually grounded.</strong> "What color is the car?" — the answer depends on the image, not the question wording.</li>
+        <li><strong>Short VQA questions are generic.</strong> Examples like "how many people" or "what color is this" appear across thousands of completely different images. Text retrieval finds questions that look the same but are about totally different visual content — the retrieved answers are noise.</li>
+        <li><strong>CLIP image embeddings cluster by visual semantics</strong>, which correlates well with the answer space — same scene type, same objects, often similar answers.</li>
+      </ol>
+    </div>
+    <div class="field land">
+      <div class="field-label">Concrete example to land</div>
+      <blockquote>"Take <em>'what color is the car?'</em>. Text retrieval finds other 'what color' questions — but about cars of different colors. The retrieved answers contradict each other. Image retrieval finds <strong>other images of the same car</strong>, where the answer is consistent."</blockquote>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "Now let me show you where this matters most." <em>(Skip slide 8 — Nandita takes that one.)</em></div>
+  </div>
+
+  <!-- SLIDE 9 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 9<span class="duration">~50 s</span></div>
+    <h3>Where RAG helps — open-ended questions</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"Let me break the gain down by question type. Yes/no questions, baseline scores about 83%. Adding RAG actually drops it slightly to 80% — retrieval introduces noise on questions where BLIP-2 was already strong. Open-ended questions, where BLIP-2 baseline only gets 21%, RAG more than doubles to 48%. So <strong>the gain is concentrated on open-ended questions</strong> — exactly where we'd expect retrieval to help most."</blockquote>
+    </div>
+    <div class="field land">
+      <div class="field-label">Key line</div>
+      <blockquote class="points-quote">"This pattern — yes/no slight drop, open-ended big gain — is what motivated the type-conditional router that Nandita will explain in slide 11."</blockquote>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "Before that, let me show you the single biggest lever in this whole system."</div>
+  </div>
+
+  <!-- SLIDE 10 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 10<span class="duration">~70 s</span></div>
+    <h3>KB Scaling Win</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"We tried three different knowledge bases on the same 100-sample eval. Read the table top to bottom: the original 5k validation-built KB — which had image-id leakage with the eval set — scored <strong>51.33%</strong>. A 5k <strong>diverse, image-id-disjoint KB</strong> scored <strong>54.67%</strong> — clean, no leakage. The 20k diverse KB scored <strong>59.33%</strong>. <strong>KB scale and diversity drive most of the gain in this system.</strong> Going from 5k diverse to 20k diverse alone gave us +5 points. Bigger than any prompt or selector trick we tested afterwards."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Talking points</div>
+      <ul>
+        <li>"The <strong>'5k unique images'</strong> is the key — VQAv2 has multiple questions per image, so a small KB has very few unique scenes."</li>
+        <li>"Image-id-disjoint sampling means we caught and <strong>fixed a leakage bug</strong> that would have inflated our numbers."</li>
+        <li>"Future-work direction this points to: a 50k+ KB and a trainable retriever — Nandita will come back to this in the limitation slide."</li>
+      </ul>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "Nandita is going to take us through the metric question, the final system, and the demo."</div>
+  </div>
+</section>
+
+
+<!-- ============================== NANDITA ============================== -->
+<section class="section" id="nandita">
+  <div class="section-tag nandita">Part 3 · Nandita</div>
+  <h2>Analysis, conclusion, live demo</h2>
+  <div class="role-meta">
+    <strong>Slides 8, 11–15 · ~7-8 minutes.</strong> Deliver the deeper analytical slides — strict-vs-lenient metric, bottleneck decomposition, type-router justification — then close on the live demo.
+    Energy: calm, precise, slightly slower than Anushree. These slides reward careful explanation. The demo is the payoff.
+  </div>
+
+  <!-- SLIDE 8 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 8<span class="duration">~80 s</span></div>
+    <h3>Canonical Answer Compression — strict vs lenient</h3>
+    <div class="field warn">
+      <div class="field-label">Pacing note · the metric story rewards a slower delivery</div>
+    </div>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"I want to be honest about what these numbers mean. Here's the question: BLIP-2 baseline on this skateboarder image answers <em>'Watching the skateboarder'</em>. Ground truth is <em>'watching'</em>. <strong>Strict VQA scoring marks this WRONG</strong> because it requires exact-string match. But the answer literally contains the canonical word. Shouldn't it count?"</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Walk through the three regimes</div>
+      <blockquote>"Same 100 predictions, three accuracy regimes, no new inference. <strong>STRICT</strong> — exact match, the existing 60.33% headline. <strong>LENIENT</strong> — the ground truth appears as a whole word in the answer; rewards verbose-but-correct, rejects degenerate outputs like 'blueblue'. <strong>SUBSTR</strong> — most permissive, GT appears anywhere."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Read the table aloud</div>
+      <blockquote>"Baseline jumps from 42.33% strict to <strong>65% lenient</strong> — that's plus 23 points. The model already knew the answer to 27 cases that strict scoring marked wrong. The RAG advantage shrinks from +17 strict to <strong>just +1 lenient</strong>."</blockquote>
+    </div>
+    <div class="field land">
+      <div class="field-label">Land the key insight (slow, deliberate)</div>
+      <blockquote>"<strong>About 16 of the 17 RAG gain points were format compression — the model already knew most of those answers, RAG just nudged it into the canonical short form. About 1 point is genuinely new information from retrieval.</strong> Both are useful — VQA leaderboards reward the canonical form, and so do real users — but I want to be honest about what each is doing."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">End with the robustness point</div>
+      <blockquote>"The relative ordering of all our design choices is the same under all three metrics. Image-only retrieval, the type-router, KB scaling — they all win regardless of which metric you pick. Strict VQA is a harsh form-judge but it doesn't change which design choices are right."</blockquote>
+    </div>
+    <div class="field qa">
+      <div class="field-label">Anticipated question</div>
+      <blockquote>"<em>So is your project less impressive than you said?</em> → 'Most published RAG-VQA papers report ~+1 point under similar lenient scoring. We're in line with the literature — we're just being more transparent about which part is format and which part is content.'"</blockquote>
+    </div>
+    <div class="handoff-banner"><strong>Transition:</strong> "This +1 of new information was further amplified by a small heuristic — the type-conditional router."</div>
+  </div>
+
+  <!-- SLIDE 11 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 11<span class="duration">~60 s</span></div>
+    <h3>Final System — Type-Conditional Router</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"Anushree showed you that yes/no questions lose ~3 points to RAG, and open-ended gains ~28. The fix is one line of code. <strong>Detect if the question starts with 'is', 'are', 'do' — yes/no — and if so, return the baseline answer instead of the RAG answer. For open-ended questions, keep RAG.</strong> That's the whole router."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Read the breakdown</div>
+      <blockquote>"Baseline yes/no = 82.86%. RAG yes/no = 80%. Baseline open-ended = 21%. RAG open-ended = 48%. The router gets 82.86% on yes/no and 48% on open-ended — net <strong>+1.00 point overall</strong>. Final system: <strong>60.33%</strong>."</blockquote>
+    </div>
+    <div class="field land">
+      <div class="field-label">Honest framing</div>
+      <blockquote>"We tried much fancier things — cross-encoder reranking, an evidence-aware selector that overrides RAG with retrieved answers, self-consistency voting across alphas. <strong>The simple type-router is the only thing that helped.</strong> Sometimes the simple heuristic wins."</blockquote>
+    </div>
+    <div class="handoff-banner"><strong>Transition:</strong> "OK — so what about the cases where RAG doesn't help? Where's the bottleneck?"</div>
+  </div>
+
+  <!-- SLIDE 12 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 12<span class="duration">~90 s</span></div>
+    <h3>Main Limitation — Clean Oracle + Bottleneck Decomposition</h3>
+    <div class="field warn">
+      <div class="field-label">Most technical slide. Take your time. This proves you understand your own system.</div>
+    </div>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"I want to show you exactly where the failure cases come from. We did two things on the same 100-sample eval. First, <strong>clean oracle@k</strong> on the 20k KB — for each query, is the ground-truth answer anywhere in the top-k retrieved entries? At k=3, the answer is in retrieval <strong>only 24% of the time</strong>. At k=10, only <strong>46%</strong>. So the real ceiling for any inference-time selector picking among retrieved answers is 46%."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Pause to let that land. Then continue:</div>
+      <blockquote>"Notice that our RAG system scores <strong>59.33%</strong> — well above the clean oracle@10 of 46%. That's because BLIP-2 also uses <strong>image grounding and world knowledge</strong>, not just the retrieved text. RAG isn't copying retrieved answers — it's combining them with what BLIP-2 sees."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Now the decomposition table</div>
+      <blockquote>"We classified all 100 cases into four buckets based on (a) is the GT in retrieval, and (b) did RAG pick the right answer.<br/><br/>
+        <strong>18 cases</strong> — GT in retrieval, model picked it. RAG working as designed.<br/>
+        <strong>37 cases</strong> — GT not in retrieval, model still got it right. BLIP-2 image-grounded baseline strength.<br/>
+        <strong>6 cases</strong> — GT in retrieval, but the model ignored it. Generator failure.<br/>
+        <strong>39 cases</strong> — GT not in retrieval at all. Retrieval failure."</blockquote>
+    </div>
+    <div class="field land">
+      <div class="field-label">Land the key insight</div>
+      <blockquote>"Of the 45 wrong cases, <strong>87% are retrieval-bound — the answer just isn't in our KB</strong> — and only <strong>13% are generator-bound</strong>. This <strong>reverses an earlier intuition</strong>: I kept showing 'the generator ignores evidence' as the failure mode, but on the clean 20k KB, that's only 6 cases out of 100. The dominant bottleneck is <strong>retrieval coverage</strong>."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Future-work priority order (read explicitly)</div>
+      <blockquote>"By the data, the right priority for future work is: <strong>first</strong>, scale the KB to 50k+ unique images — directly targets 87% of failures. <strong>Second</strong>, train a retriever specifically for VQA-relevant features. <strong>Third</strong>, fine-tune the generator — that targets only 13% of failures, and our QLoRA experiment confirmed lightweight adapters alone aren't enough."</blockquote>
+    </div>
+    <div class="handoff-banner"><strong>Transition:</strong> "Let me close on the headline."</div>
+  </div>
+
+  <!-- SLIDE 13 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 13<span class="duration">~40 s</span></div>
+    <h3>Conclusion</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"To wrap up — our final system is a frozen BLIP-2 model plus a 20k image-id-disjoint visual memory plus image-only CLIP retrieval plus a one-line yes/no router. It improves strict VQA accuracy from <strong>42.33% to 60.33%</strong> — that's +18 absolute points, +43% relative — with no retraining."</blockquote>
+    </div>
+    <div class="field points">
+      <div class="field-label">Touch each pillar</div>
+      <ul>
+        <li>"<strong>KB scale</strong> drives most of the gain — going from 5k to 20k unique images contributed about 5 of the 17 RAG points."</li>
+        <li>"<strong>Image-only retrieval</strong> beats text and balanced retrieval, because short VQA questions don't discriminate."</li>
+        <li>"<strong>Honest scoring</strong>: under semantic-correctness scoring the gain is smaller — about 1 point of new information, 16 points of format compression — but the design choices are robust."</li>
+        <li>"<strong>The bottleneck is retrieval coverage</strong>, which points clearly to where to invest next."</li>
+      </ul>
+    </div>
+    <div class="handoff-banner"><strong>Transition:</strong> "And now — let me show you the system actually running."</div>
+  </div>
+
+  <!-- SLIDE 14 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 14<span class="duration">~25 s</span></div>
+    <h3>Demo Preview</h3>
+    <div class="field script">
+      <div class="field-label">Open with</div>
+      <blockquote>"Quick orientation before I switch to the browser. The demo shows curated cases that each illustrate one finding from the eval. Each case shows the <strong>mode comparison</strong> — baseline, 5k RAG, 20k RAG, final system — plus the <strong>retrieved evidence</strong> and a one-sentence <em>why this case matters</em>. I'll walk you through them."</blockquote>
+    </div>
+    <div class="handoff-banner"><strong>Hand-off:</strong> "Switching to the browser now."</div>
+  </div>
+
+  <!-- SLIDE 15 -->
+  <div class="slide-card">
+    <div class="slide-num">Slide 15<span class="duration">~3 min in browser</span></div>
+    <h3>Live Demo</h3>
+    <div class="field warn">
+      <div class="field-label">Switch to demo: <code>http://localhost:8081/demo.html</code></div>
+    </div>
+    <div class="field script">
+      <div class="field-label">Case 1 — RAG Success: Visual Memory · <em>Are the lights on?</em></div>
+      <blockquote>"Vanilla BLIP-2 confidently says 'yes'. The retrieved memory pulls back two on/off questions from similar bedroom scenes — 'Is the TV on? — no' and 'Is the lamp turned on? — no'. The candidate-priors panel shows 'no' as the majority. The model picks up the pattern and correctly answers 'no'. Open-book working as designed."</blockquote>
+    </div>
+    <div class="field script">
+      <div class="field-label">Case 2 — Canonical Compression · <em>People watching the skateboarder</em></div>
+      <blockquote>"BLIP-2 says 'Watching the skateboarder' — semantically right but VQA scoring requires the canonical short form, so it scores zero. RAG compresses to 'watching' — full credit. This is exactly the format-compression effect from slide 8."</blockquote>
+    </div>
+    <div class="field script">
+      <div class="field-label">Case 3 — KB Scaling Win · <em>Folding chair?</em></div>
+      <blockquote>"Same question, three modes side by side. Baseline says yes — wrong. The 5k KB also says yes — too small to surface enough scene context. The 20k KB says no — correct. KB scale matters, concretely."</blockquote>
+    </div>
+    <div class="field script">
+      <div class="field-label">Case 4 — Real-world cat photo · <em>What color is the cat?</em> (the killer demo)</div>
+      <blockquote>"Real photo I took — never seen by the system before. Vanilla BLIP-2 says <em>green</em>, which is wrong. RAG over the 20k visual memory says <em>gray</em>, which is right. This is the open-book mechanism working on a fully out-of-distribution input."</blockquote>
+    </div>
+    <div class="field script">
+      <div class="field-label">Case 5 — Honest Weakness · <em>Is it daylight?</em></div>
+      <blockquote>"Baseline correctly says yes — clearly daytime. RAG retrieves cow-related questions whose answers cluster on 'no'. The noise misleads BLIP-2 into flipping a correct answer. <strong>9 out of 100 cases look like this</strong> — concentrated on yes/no, which is exactly why the type-router exists."</blockquote>
+    </div>
+    <div class="field land">
+      <div class="field-label">Close</div>
+      <blockquote>"That's the system. Thank you — happy to take questions."</blockquote>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================== DETAILED DEMO CASE NOTES ============================== -->
+<section class="section" style="margin-top:64px;padding-top:48px;">
+  <div class="section-tag" style="color:var(--green);background:var(--green-bg);border:1px solid rgba(74,222,128,0.22);">Detailed Demo Case Notes</div>
+  <h2>Per-case scripts for all 8 curated examples</h2>
+  <div class="role-meta">
+    <strong>Recommended live-demo flow: pick 4 of 8 cases, ~25-30 s each = ~2 min total.</strong>
+    Default order if time-constrained: <strong>Case 5 (Cat color)</strong> → <strong>Case 1 (Lights)</strong> → <strong>Case 3 (Folding chair)</strong> → <strong>Case 4 (Daylight)</strong>.
+    The detailed notes below cover all 8 — pick what works for the time you have.
+  </div>
+
+  <!-- ─── CASE 1: B_visual_memory ─── -->
+  <div class="case-detail-card eval">
+    <div class="case-detail-header eval">
+      <img class="case-thumb" src="../data/demo_images/262162007.jpg" alt="bedroom"/>
+      <div>
+        <div class="case-meta-num">Case 1 · Eval-set · ★ recommended opener</div>
+        <h4>Are the lights on in this room?</h4>
+        <div class="case-meta-line">Ground truth: <strong>no</strong> · Top retrieval score: <strong>0.911</strong> · Caption: <em>"a bedroom with a desk and a bed"</em></div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <table class="case-modes">
+        <thead><tr><th>Mode</th><th>Answer</th><th>Correct?</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline (frozen BLIP-2)</td><td><span class="ans">"yes"</span></td><td><span class="no">✗ wrong</span></td></tr>
+          <tr><td>5k diverse RAG</td><td><span class="ans">"yes"</span></td><td><span class="no">✗ wrong</span></td></tr>
+          <tr class="headline"><td>★ 20k diverse RAG</td><td><span class="ans">"no"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>20k + caption</td><td><span class="ans">"no"</span></td><td><span class="ok">✓ correct</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="case-section-label">Verbatim script (~25 s)</div>
+      <blockquote>"Vanilla BLIP-2 confidently says <em>yes</em>. Watch what happens when retrieval kicks in. The 20k visual memory pulls back two related on/off questions from similar bedroom scenes — <em>'Is the TV on?' — no</em>, and <em>'Is the lamp turned on?' — no</em>. The candidate-priors panel shows <strong>'no' as the majority — appears twice</strong>. The model picks up the pattern and correctly answers <em>no</em>. <strong>This is the open-book mechanism working as designed.</strong>"</blockquote>
+
+      <div class="case-points-block">
+        <div class="case-section-label" style="color:var(--blue);">Point at on screen</div>
+        <ul>
+          <li>The yellow <strong>majority chip</strong> highlighting "no" in the Reasoning Trace step 4</li>
+          <li>The <strong>Mode Comparison row</strong> for 20k diverse — green CORRECT badge</li>
+          <li>The retrieved-evidence cards showing the two on/off questions</li>
+        </ul>
+      </div>
+
+      <div class="case-caveat-block">
+        <strong>Why it earns its place:</strong> Cleanest possible illustration of retrieval supporting an answer. Use this <strong>first</strong> if your audience has never seen open-book VQA — it makes the mechanism visible.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CASE 2: A_open_ended ─── -->
+  <div class="case-detail-card eval">
+    <div class="case-detail-header eval">
+      <img class="case-thumb" src="../data/demo_images/262148001.jpg" alt="skateboarder"/>
+      <div>
+        <div class="case-meta-num">Case 2 · Eval-set · canonical compression</div>
+        <h4>What are the people in the background doing?</h4>
+        <div class="case-meta-line">Ground truth: <strong>watching</strong> · Top retrieval score: <strong>0.880</strong> · Caption: <em>"a skateboarder doing a trick on a bench"</em></div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <table class="case-modes">
+        <thead><tr><th>Mode</th><th>Answer</th><th>Correct?</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline (frozen BLIP-2)</td><td><span class="ans">"Watching the skateboarder"</span></td><td><span style="color:var(--orange);font-weight:700;">⚠ verbose · contains 'watching' but VQA-strict marks 0</span></td></tr>
+          <tr><td>5k diverse RAG</td><td><span class="ans">"watching"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr class="headline"><td>★ 20k diverse RAG</td><td><span class="ans">"watching"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>20k + caption</td><td><span class="ans">"watching"</span></td><td><span class="ok">✓ correct</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="case-section-label">Verbatim script (~30 s)</div>
+      <blockquote>"BLIP-2 baseline says <em>'Watching the skateboarder'</em>. <strong>This is semantically correct</strong> — it contains the word 'watching'. But VQA scoring is strict: it requires the canonical short form. So strict scoring marks this zero. RAG compresses the answer to just <em>'watching'</em> — full credit. <strong>This is the format-compression effect</strong> from slide 8 — most of our +17 strict gain comes from RAG nudging BLIP-2 into the canonical short form, not from new information."</blockquote>
+
+      <div class="case-points-block">
+        <div class="case-section-label" style="color:var(--blue);">Point at on screen</div>
+        <ul>
+          <li>The orange <strong>VERBOSE ✓</strong> badge on the baseline row in Mode Comparison</li>
+          <li>The "Why this case matters" panel — explicit mention of format compression</li>
+        </ul>
+      </div>
+
+      <div class="case-caveat-block">
+        <strong>Honest framing:</strong> Don't claim the model "got smarter." It already knew the answer. RAG made it produce the canonical form. That <em>is</em> a real win on the metric, but be transparent about what kind of win it is. This case directly references slide 8.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CASE 3: C_kb_scaling ─── -->
+  <div class="case-detail-card eval">
+    <div class="case-detail-header eval">
+      <img class="case-thumb" src="../data/demo_images/262162000.jpg" alt="bedroom chair"/>
+      <div>
+        <div class="case-meta-num">Case 3 · Eval-set · KB scaling story</div>
+        <h4>Is that a folding chair?</h4>
+        <div class="case-meta-line">Ground truth: <strong>no</strong> · Top retrieval score: <strong>0.911</strong> · Caption: <em>"a bedroom with a desk and a bed"</em></div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <table class="case-modes">
+        <thead><tr><th>Mode</th><th>Answer</th><th>Correct?</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline (frozen BLIP-2)</td><td><span class="ans">"yes"</span></td><td><span class="no">✗ wrong</span></td></tr>
+          <tr><td>5k diverse RAG</td><td><span class="ans">"yes"</span></td><td><span class="no">✗ wrong (KB too small)</span></td></tr>
+          <tr class="headline"><td>★ 20k diverse RAG</td><td><span class="ans">"no"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>20k + caption</td><td><span class="ans">"no"</span></td><td><span class="ok">✓ correct</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="case-section-label">Verbatim script (~30 s)</div>
+      <blockquote>"Same question, three knowledge bases side by side. Baseline says <em>yes</em> — wrong. The 5k diverse KB also says <em>yes</em> — its 5,000 unique images don't include enough furniture-context Q&A to flip the answer. The 20k KB does it: <em>no</em>, correct. This concretely shows what slide 10 said: <strong>going from 5k to 20k unique images gave +5 points to the headline.</strong> KB scale is the most important lever in this system."</blockquote>
+
+      <div class="case-points-block">
+        <div class="case-section-label" style="color:var(--blue);">Point at on screen</div>
+        <ul>
+          <li>The Mode Comparison table — three rows side by side, baseline-and-5k red, 20k green</li>
+          <li>The Notes column showing "5000 unique images" vs "20000 unique images"</li>
+        </ul>
+      </div>
+
+      <div class="case-caveat-block">
+        <strong>Why it earns its place:</strong> The single best argument for "scale your KB" as future work. The numbers are unambiguous and the visual side-by-side makes it obvious.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CASE 4: F_retrieval_noise ─── -->
+  <div class="case-detail-card eval">
+    <div class="case-detail-header eval">
+      <img class="case-thumb" src="../data/demo_images/240301001.jpg" alt="cows in barn"/>
+      <div>
+        <div class="case-meta-num">Case 4 · Eval-set · honest weakness</div>
+        <h4>Is it daylight in this picture?</h4>
+        <div class="case-meta-line">Ground truth: <strong>yes</strong> · Top retrieval score: <strong>0.835</strong> · Caption: <em>"a group of cows in a barn"</em></div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <table class="case-modes">
+        <thead><tr><th>Mode</th><th>Answer</th><th>Correct?</th></tr></thead>
+        <tbody>
+          <tr class="headline" style="background:rgba(96,165,250,0.06);"><td>Baseline (frozen BLIP-2)</td><td><span class="ans">"yes"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>5k diverse RAG</td><td><span class="ans">"yes"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>20k diverse RAG</td><td><span class="ans">"no"</span></td><td><span class="no">✗ RAG flipped a correct answer ⚠</span></td></tr>
+          <tr><td>20k + caption</td><td><span class="ans">"no"</span></td><td><span class="no">✗ wrong</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="case-section-label">Verbatim script (~30 s)</div>
+      <blockquote>"Honest weakness case. Baseline correctly says <em>yes</em> — clearly daytime. But 20k RAG retrieves cow-related questions from the same scene cluster, and those answers happen to cluster on <em>'no'</em> for unrelated reasons. The retrieval noise misleads BLIP-2 into flipping a correct answer to <em>'no'</em>. <strong>9 out of 100 eval cases look like this</strong> — concentrated on yes/no questions where BLIP-2 baseline was already strong. <strong>This is exactly why we built the type-router</strong> — for yes/no questions, skip retrieval entirely."</blockquote>
+
+      <div class="case-points-block">
+        <div class="case-section-label" style="color:var(--blue);">Point at on screen</div>
+        <ul>
+          <li>The retrieved-evidence cards — bizarre answers like 'no', 'sex' from cow-related questions</li>
+          <li>The "Why this case matters" panel — direct connection to the type-router</li>
+        </ul>
+      </div>
+
+      <div class="case-caveat-block">
+        <strong>Show this AFTER the wins.</strong> Frame as <em>"This is the failure mode that motivated our type-router"</em>, not <em>"oh look, RAG broke"</em>. Use it as the bridge into the conclusion: <strong>9% of cases are harmful, type-router fixes most of them, +1 net point.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CASE 5: L1_cat_color ─── -->
+  <div class="case-detail-card live">
+    <div class="case-detail-header live">
+      <img class="case-thumb" src="../data/live_demo_images/cat.png" alt="gray cat"/>
+      <div>
+        <div class="case-meta-num">Case 5 · Real-world · ★★ killer demo</div>
+        <h4>What color is the cat?</h4>
+        <div class="case-meta-line">Ground truth: <strong>gray</strong> · Top retrieval score: <strong>0.822</strong> · Caption: <em>"a cat sitting on a couch with a pillow"</em></div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <table class="case-modes">
+        <thead><tr><th>Mode</th><th>Answer</th><th>Correct?</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline (frozen BLIP-2)</td><td><span class="ans">"green"</span></td><td><span class="no">✗ hallucinated · cat is clearly gray</span></td></tr>
+          <tr><td>5k diverse RAG</td><td><span class="ans skip">— not computed for live photos</span></td><td><span class="skip">—</span></td></tr>
+          <tr class="headline"><td>★ 20k diverse RAG</td><td><span class="ans">"gray"</span></td><td><span class="ok">✓ RAG fixed it</span></td></tr>
+          <tr><td>20k + caption</td><td><span class="ans">"gray"</span></td><td><span class="ok">✓ correct</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="case-section-label">Verbatim script (~25 s)</div>
+      <blockquote>"This is a real photo I took. <strong>The system has never seen this image before.</strong> Vanilla BLIP-2 says the cat is <em>green</em>. The cat is clearly gray. RAG over the 20k visual memory says <em>gray</em> — correct. <strong>The retrieved hints contain 'gray' from a similar cat-on-couch scene</strong>, and the model picks it up. This is the open-book mechanism on a fully out-of-distribution input — undeniable RAG win."</blockquote>
+
+      <div class="case-points-block">
+        <div class="case-section-label" style="color:var(--green);">Point at on screen</div>
+        <ul>
+          <li>The Baseline row — <strong>"green" highlighted as wrong</strong></li>
+          <li>The retrieved cards — point at the entry with answer "gray"</li>
+          <li>Mention <strong>top retrieval score 0.82</strong> — well above the τ=0.7 gate, KB has good coverage</li>
+        </ul>
+      </div>
+
+      <div class="case-caveat-block">
+        <strong>Use this as your demo opener.</strong> The "green → gray" fix is the clearest RAG win in the deck. Real photo, novel image, undeniable. Audience members can see for themselves the cat is gray.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CASE 6: L2_pizza_food ─── -->
+  <div class="case-detail-card live">
+    <div class="case-detail-header live">
+      <img class="case-thumb" src="../data/live_demo_images/pizza.png" alt="pizza"/>
+      <div>
+        <div class="case-meta-num">Case 6 · Real-world · non-destructive on easy</div>
+        <h4>What kind of food is this?</h4>
+        <div class="case-meta-line">Ground truth: <strong>pizza</strong> · Top retrieval score: <strong>0.877</strong> · Caption: <em>"a person cutting a slice of pizza on a plate"</em></div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <table class="case-modes">
+        <thead><tr><th>Mode</th><th>Answer</th><th>Correct?</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline (frozen BLIP-2)</td><td><span class="ans">"pizza"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>5k diverse RAG</td><td><span class="ans skip">—</span></td><td><span class="skip">—</span></td></tr>
+          <tr class="headline"><td>★ 20k diverse RAG</td><td><span class="ans">"pizza"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>20k + caption</td><td><span class="ans">"pizza"</span></td><td><span class="ok">✓ correct</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="case-section-label">Verbatim script (~15 s · short)</div>
+      <blockquote>"Pizza photo. Both baseline and RAG say <em>pizza</em>. <strong>RAG is non-destructive when the baseline is already correct</strong> — about 70% of the eval looks like this. Important for production reliability: adding retrieval doesn't break easy cases."</blockquote>
+
+      <div class="case-points-block">
+        <div class="case-section-label" style="color:var(--green);">Point at on screen</div>
+        <ul>
+          <li>All four mode rows showing the same answer — visual consistency</li>
+        </ul>
+      </div>
+
+      <div class="case-caveat-block">
+        <strong>Brief case.</strong> Use only if you have time after the cat. Demonstrates that the system is reliable, not just lucky on the wins. <strong>Skip if time-tight.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CASE 7: L3_cyclist_action ─── -->
+  <div class="case-detail-card live">
+    <div class="case-detail-header live">
+      <img class="case-thumb" src="../data/live_demo_images/cyclist.png" alt="cyclist"/>
+      <div>
+        <div class="case-meta-num">Case 7 · Real-world · open-ended success</div>
+        <h4>What is the person doing?</h4>
+        <div class="case-meta-line">Ground truth: <strong>riding a bike</strong> · Top retrieval score: <strong>0.809</strong> · Caption: <em>"a man riding a bike on a paved road"</em></div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <table class="case-modes">
+        <thead><tr><th>Mode</th><th>Answer</th><th>Correct?</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline (frozen BLIP-2)</td><td><span class="ans">"riding a bike"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>5k diverse RAG</td><td><span class="ans skip">—</span></td><td><span class="skip">—</span></td></tr>
+          <tr class="headline"><td>★ 20k diverse RAG</td><td><span class="ans">"riding a bike"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>20k + caption</td><td><span class="ans">"riding a bike"</span></td><td><span class="ok">✓ correct</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="case-section-label">Verbatim script (~20 s)</div>
+      <blockquote>"Outdoor cyclist photo. Open-ended question: <em>what is the person doing?</em>. Both baseline and RAG say <em>riding a bike</em>. Expand the Reasoning Trace — see the retrieved Q&A pairs come from other cycling and outdoor scenes. <strong>This is RAG <em>backing up</em> the baseline rather than rescuing it</strong> — a subtler form of the open-book benefit. Confidence calibration."</blockquote>
+
+      <div class="case-points-block">
+        <div class="case-section-label" style="color:var(--green);">Point at on screen</div>
+        <ul>
+          <li>Expand the Reasoning Trace (advanced diagnostics) to show retrieval reinforcing the answer</li>
+          <li>Top score 0.81 — solid coverage</li>
+        </ul>
+      </div>
+
+      <div class="case-caveat-block">
+        <strong>Optional.</strong> Use if your audience asks "does retrieval matter when baseline is already right?" — answer: it provides confidence by agreement with retrieved evidence.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CASE 8: L4_baseball_yn ─── -->
+  <div class="case-detail-card live">
+    <div class="case-detail-header live">
+      <img class="case-thumb" src="../data/live_demo_images/baseball.png" alt="baseball"/>
+      <div>
+        <div class="case-meta-num">Case 8 · Real-world · type-router visible</div>
+        <h4>Is the player batting?</h4>
+        <div class="case-meta-line">Ground truth: <strong>yes</strong> · Top retrieval score: <strong>0.882</strong> · Caption: <em>"a baseball player swinging at a pitch during a game"</em></div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <table class="case-modes">
+        <thead><tr><th>Mode</th><th>Answer</th><th>Correct?</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline (frozen BLIP-2)</td><td><span class="ans">"yes"</span></td><td><span class="ok">✓ correct</span></td></tr>
+          <tr><td>5k diverse RAG</td><td><span class="ans skip">—</span></td><td><span class="skip">—</span></td></tr>
+          <tr class="headline"><td>★ 20k diverse RAG</td><td><span class="ans">"yes"</span></td><td><span class="ok">✓ type-router routes to baseline</span></td></tr>
+          <tr><td>20k + caption</td><td><span class="ans">"yes"</span></td><td><span class="ok">✓ correct</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="case-section-label">Verbatim script (~25 s)</div>
+      <blockquote>"Baseball photo. Yes/no question: <em>is the player batting?</em>. Both baseline and RAG say <em>yes</em> — but watch the green badge: <strong>YES/NO → BASELINE</strong>. The type-router activated, detected the question is yes/no, and skipped retrieval entirely. <strong>This is the +1-point heuristic from slide 11 working live.</strong> Baseline yes/no is 83%, RAG yes/no is 80% — so the router routes around the harmful retrieval and recovers the +3 points on this question type."</blockquote>
+
+      <div class="case-points-block">
+        <div class="case-section-label" style="color:var(--green);">Point at on screen</div>
+        <ul>
+          <li>The <strong>green YES/NO → BASELINE badge</strong> on the answer card</li>
+          <li>The type_gate_reason note — "yes/no detected → baseline"</li>
+        </ul>
+      </div>
+
+      <div class="case-caveat-block">
+        <strong>Use this if you have time.</strong> Makes the type-router heuristic visible and concrete. Pairs especially well after Case 4 (daylight failure) — first show the harm, then show the fix in a different case.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Suggested 4-case demo flows ─── -->
+  <div class="qa-section" style="margin-top:32px;">
+    <div class="section-tag" style="color:var(--purple);background:rgba(192,132,252,0.10);border:1px solid rgba(192,132,252,0.22);">Suggested Demo Flows</div>
+    <h2 style="font-size:24px;margin-top:8px;margin-bottom:18px;">Pick a 4-case sequence by what you want to land</h2>
+
+    <div class="qa-block" style="border-left-color:var(--green);">
+      <div class="qa-q" style="color:var(--green);">"Strongest visual punch" flow (~2 min)</div>
+      <div class="qa-a"><strong>Cat → Lights → Folding chair → Daylight</strong>. Open with the killer cat-color fix on a real photo, then show the open-book mechanism clearly (lights), then KB scaling (chair), then close on the honest weakness (daylight). Maps directly to the slide deck narrative.</div>
+    </div>
+
+    <div class="qa-block" style="border-left-color:var(--blue);">
+      <div class="qa-q" style="color:var(--blue);">"Mostly real photos" flow (~2 min)</div>
+      <div class="qa-a"><strong>Cat → Pizza → Cyclist → Baseball</strong>. All four real photos. Demonstrates the system on novel inputs end-to-end. Use if the audience cares more about generalisation than about the eval methodology. Baseball case shows the type-router live.</div>
+    </div>
+
+    <div class="qa-block" style="border-left-color:var(--orange);">
+      <div class="qa-q" style="color:var(--orange);">"Honest, balanced" flow (~2 min)</div>
+      <div class="qa-a"><strong>Cat → Watching skateboarder → Daylight → Baseball</strong>. Shows a real-photo win, the canonical-compression effect (the honesty slide), the harmful failure mode, and finally the type-router fix. Best flow if you want to demonstrate methodological rigour.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================== Q&A ============================== -->
+<section class="qa-section">
+  <div class="section-tag" style="color:var(--yellow);background:rgba(251,191,36,0.10);border:1px solid rgba(251,191,36,0.22);">Q&amp;A Backup Answers</div>
+  <h2 style="font-size:28px;margin-top:8px;margin-bottom:24px;">Any presenter can field these</h2>
+
+  <div class="qa-block">
+    <div class="qa-q">"How is this different from regular RAG for text?"</div>
+    <div class="qa-a">Visual retrieval is the difference. Most RAG papers retrieve text. We retrieve visually-similar images and use their associated Q&A as context. The key finding is that for short VQA questions, image similarity is a stronger signal than question-text similarity.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">"Why didn't fine-tuning work?"</div>
+    <div class="qa-a">We trained a QLoRA adapter on the q_proj and v_proj of OPT-2.7B for 5 epochs. Best variant scored 13% — versus 60% with the frozen + RAG approach. The adapter learned the right answer tokens but lost generation discipline (mode collapse: outputs like "blueblue" or "yesyesyes"). The adapter scope was too narrow — q/v projections only — and the FFN and embeddings stayed frozen.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">"What's the absolute hardest improvement to make from here?"</div>
+    <div class="qa-a">Trainable visual retriever. Off-the-shelf CLIP isn't optimized for VQA-relevant features. A retriever fine-tuned on (query, GT-similar-example) pairs could push oracle@3 from 24% to maybe 40%, and that ceiling lift translates directly into more usable retrieval contexts.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">"Why 100 samples?"</div>
+    <div class="qa-a">A controlled set used consistently across every ablation. Not a full benchmark generalization claim — it's a same-eval-set comparison setup so the deltas between configurations are fair. Full benchmark validation is future work.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">"Did you compare to other RAG-VQA systems?"</div>
+    <div class="qa-a">Published RAG-VQA papers (PICa, KAT, REVIVE) report 1-3 point strict gains over baseline. Our +18 strict / +1 lenient is in line with what those papers report — we're more explicit about decomposing the gain into format compression vs new information, which most papers don't do.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">"Is this related to ViQAR (Dua et al., CVPR-W 2021)?"</div>
+    <div class="qa-a">Complementary. ViQAR addresses VQA's classification-restrictiveness by training a generative multi-word answer + rationale model on VCR. Our system attacks the same restrictiveness from the inference-time / retrieval angle, keeping the generator frozen and surfacing retrieved evidence as the rationale rather than generating freeform text.</div>
+  </div>
+</section>
+
+
+<!-- ============================== TONE ============================== -->
+<section class="qa-section" style="margin-top:24px;">
+  <div class="section-tag" style="color:var(--blue);background:var(--blue-bg);border:1px solid rgba(96,165,250,0.22);">Tone Reminders</div>
+  <h2 style="font-size:28px;margin-top:8px;margin-bottom:8px;">Phrase the work confidently and honestly</h2>
+
+  <div class="tone-grid">
+    <div class="tone-card do">
+      <h4>✓ Say this</h4>
+      <ul>
+        <li>"controlled 100-sample eval"</li>
+        <li>"format compression"</li>
+        <li>"retrieval-bound failure"</li>
+        <li>"image-only beats text retrieval"</li>
+      </ul>
+    </div>
+    <div class="tone-card dont">
+      <h4>✗ Don't say</h4>
+      <ul>
+        <li>"benchmark generalization"</li>
+        <li>"the metric is broken"</li>
+        <li>"the model is broken"</li>
+        <li>"text retrieval failed"</li>
+      </ul>
+    </div>
+    <div class="tone-card do">
+      <h4>✓ Frame</h4>
+      <ul>
+        <li>Lead with wins</li>
+        <li>Mention negatives only as evidence we tested alternatives</li>
+        <li>Own the lenient number — it's honesty, not weakness</li>
+      </ul>
+    </div>
+    <div class="tone-card dont">
+      <h4>✗ Don't</h4>
+      <ul>
+        <li>Apologise for the +1 lenient number</li>
+        <li>Oversell the +18 — always pair it with what the metric measures</li>
+        <li>Pretend BLIP-2 is something we built — it's pretrained</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================== LOGISTICS ============================== -->
+<section class="qa-section" style="margin-top:24px;">
+  <div class="section-tag" style="color:var(--green);background:var(--green-bg);border:1px solid rgba(74,222,128,0.22);">Pre-talk Checklist</div>
+  <h2 style="font-size:28px;margin-top:8px;margin-bottom:8px;">Before stepping on stage</h2>
+
+  <div class="checklist">
+    <ol>
+      <li>Open the presentation: <code>presentation/rag_vqa_open_book.html</code></li>
+      <li>Open the demo in another tab: <code>http://localhost:8081/demo.html</code></li>
+      <li>Run <code>python api.py</code> in a terminal — wait for <em>"Application startup complete"</em></li>
+      <li><strong>Warm up the API</strong>: open the demo's Curated tab, click any "Run live" button — first call takes ~60 s to load BLIP-2; this preloads it</li>
+      <li>Verify the curated cases load: cat colour, lights-on, watching skateboarder, folding chair, daylight</li>
+      <li>Have <code>presentation/demo_walkthrough.md</code> open on a phone or second screen</li>
+    </ol>
+  </div>
+
+  <div class="checklist" style="margin-top:14px;border-left:3px solid var(--orange);">
+    <strong style="display:block;margin-bottom:8px;color:var(--orange);">If the demo breaks during the talk:</strong>
+    <ul>
+      <li>The Curated tab works fully offline from cached JSON — no backend needed</li>
+      <li>Skip the live elements; walk through the cases verbally — the data is all visible on screen</li>
+    </ul>
+  </div>
+</section>
+
+
+<footer>
+  Open-Book VQA · Visual Memory-Augmented BLIP-2 · Final headline: 42.33% → 60.33% strict VQA accuracy<br/>
+  Speaker notes generated for: Jillian · Anushree · Nandita
+</footer>
+
+</div>
+</body>
+</html>

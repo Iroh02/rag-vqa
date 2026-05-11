@@ -98,9 +98,12 @@ class RAGRetriever:
         self.metadata = []
         for s in samples:
             self.metadata.append({
-                "question": s["question"],
-                "best_answer": get_best_answer(s["answers"]),
+                "question":      s["question"],
+                "best_answer":   get_best_answer(s["answers"]),
                 "question_type": s.get("question_type", "unknown"),
+                "image_id":      s.get("image_id"),
+                "question_id":   s.get("question_id"),
+                "all_answers":   [a["answer"] for a in s["answers"]],
             })
 
         print("Encoding images with CLIP...")
@@ -133,15 +136,38 @@ class RAGRetriever:
             self.metadata = pickle.load(f)
         print(f"Loaded indices: {self.image_index.ntotal} entries")
 
+    def _load_cross_encoder(self):
+        """Lazy-load the cross-encoder model for re-ranking."""
+        if not hasattr(self, "_ce_model") or self._ce_model is None:
+            from sentence_transformers.cross_encoder import CrossEncoder
+            print("Loading cross-encoder (ms-marco-MiniLM-L-6-v2)...")
+            self._ce_model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+            print("Cross-encoder loaded.")
+        return self._ce_model
+
     def retrieve(self, image, question, top_k=RAG_TOP_K, alpha=RAG_ALPHA,
-                 candidate_k=RAG_CANDIDATE_K):
+                 candidate_k=RAG_CANDIDATE_K, rerank=False, rerank_weight=0.3,
+                 caption=None, caption_weight=0.0):
         """Retrieve top-K similar examples using fused image+question similarity.
 
-        Searches candidate_k in each index, takes union, reranks by
-        alpha * img_score + (1-alpha) * q_score, returns top_k.
+        Pipeline:
+          1. CLIP bi-encoder retrieves top candidate_k by image+question (+caption) similarity
+          2. (optional) Cross-encoder re-ranks candidates by (query_Q, retrieved_Q+A)
+          3. Returns top_k after final scoring
+
+        Score fusion:
+            score = (1 - caption_weight) * (α * img_score + (1-α) * q_score)
+                  + caption_weight * caption_text_vs_question_score
+
+        Args:
+            rerank: If True, apply cross-encoder re-ranking after CLIP retrieval
+            rerank_weight: Weight of cross-encoder score in final combined score
+            caption: Optional BLIP-2 caption string. If provided, used as a third
+                     retrieval signal (CLIP-text encoded vs the question_index).
+            caption_weight: Weight of caption-based retrieval in [0, 1]
 
         Returns:
-            list of dicts: {question, best_answer, score, img_score, q_score}
+            list of dicts: {question, best_answer, score, img_score, q_score, ce_score, cap_score}
         """
         img_emb = self.encode_images([image])
         q_emb = self.encode_questions([question])
@@ -150,36 +176,65 @@ class RAGRetriever:
         img_scores, img_ids = self.image_index.search(img_emb, search_k)
         q_scores, q_ids = self.question_index.search(q_emb, search_k)
 
-        # Build per-candidate scores
         img_score_map = defaultdict(float)
         q_score_map = defaultdict(float)
+        cap_score_map = defaultdict(float)
 
         for j in range(search_k):
-            idx = int(img_ids[0][j])
-            img_score_map[idx] = float(img_scores[0][j])
+            img_score_map[int(img_ids[0][j])] = float(img_scores[0][j])
         for j in range(search_k):
-            idx = int(q_ids[0][j])
-            q_score_map[idx] = float(q_scores[0][j])
+            q_score_map[int(q_ids[0][j])] = float(q_scores[0][j])
 
-        # Union of all candidate IDs
-        all_ids = set(img_score_map.keys()) | set(q_score_map.keys())
+        # Caption-augmented retrieval: encode caption as text, search question_index
+        if caption and caption_weight > 0:
+            cap_emb = self.encode_questions([caption])
+            cap_scores, cap_ids = self.question_index.search(cap_emb, search_k)
+            for j in range(search_k):
+                cap_score_map[int(cap_ids[0][j])] = float(cap_scores[0][j])
 
-        # Fused score
+        all_ids = set(img_score_map.keys()) | set(q_score_map.keys()) | set(cap_score_map.keys())
+
+        # Fused CLIP score
         ranked = []
         for idx in all_ids:
             i_s = img_score_map.get(idx, 0.0)
             q_s = q_score_map.get(idx, 0.0)
-            fused = alpha * i_s + (1 - alpha) * q_s
-            ranked.append((idx, fused, i_s, q_s))
+            c_s = cap_score_map.get(idx, 0.0)
+            base = alpha * i_s + (1 - alpha) * q_s
+            fused = (1 - caption_weight) * base + caption_weight * c_s
+            ranked.append((idx, fused, i_s, q_s, c_s))
 
         ranked.sort(key=lambda x: -x[1])
 
+        # Cross-encoder re-ranking: score (query_question, retrieved_Q + " " + retrieved_A)
+        if rerank and ranked:
+            ce = self._load_cross_encoder()
+            pairs = [
+                (question, f"{self.metadata[idx]['question']} {self.metadata[idx]['best_answer']}")
+                for idx, *_ in ranked
+            ]
+            ce_scores = ce.predict(pairs)
+            ce_min, ce_max = ce_scores.min(), ce_scores.max()
+            ce_range = ce_max - ce_min if ce_max > ce_min else 1.0
+            ce_norm = (ce_scores - ce_min) / ce_range
+
+            ranked = [
+                (idx, clip_s + rerank_weight * float(ce_n), i_s, q_s, c_s, float(ce_n))
+                for (idx, clip_s, i_s, q_s, c_s), ce_n in zip(ranked, ce_norm)
+            ]
+            ranked.sort(key=lambda x: -x[1])
+        else:
+            ranked = [(idx, s, i_s, q_s, c_s, 0.0) for idx, s, i_s, q_s, c_s in ranked]
+
         results = []
-        for idx, fused, i_s, q_s in ranked[:top_k]:
+        for row in ranked[:top_k]:
+            idx, fused, i_s, q_s, c_s, ce_s = row
             entry = self.metadata[idx].copy()
-            entry["score"] = fused
+            entry["score"]     = fused
             entry["img_score"] = i_s
-            entry["q_score"] = q_s
+            entry["q_score"]   = q_s
+            entry["cap_score"] = c_s
+            entry["ce_score"]  = ce_s
             results.append(entry)
 
         return results

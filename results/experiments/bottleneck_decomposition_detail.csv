@@ -1,0 +1,101 @@
+qid,category,question,gt,rag_k3,retrieved_top3
+2529010,retrieval_then_lm,Is there snow on the ground?,no|no|no,no,no || no || white
+2532003,retrieval_then_lm,Is it a sunny or cloudy day?,sunny|cloudy|cloudy,sunny,cloudy || red || left
+395749001,retrieval_then_lm,Are all the people elderly?,no|yes|no,no,4 || yes || no
+395752001,retrieval_then_lm,Can a mail truck fit behind the bus to pick up the mail?,yes|yes|yes,yes,special || 1 || yes
+395752004,retrieval_then_lm,Is someone getting on this street car?,yes|yes|yes,yes,special || 1 || yes
+133620001,retrieval_then_lm,Is she wearing glasses?,yes|yes|yes,yes,blue || yes || book
+133620003,retrieval_then_lm,Is the woman happy?,yes|yes|yes,yes,blue || yes || book
+526837000,retrieval_then_lm,Is this man dressed for the weather?,yes|yes|yes,yes,skis || yes || yes
+133622002,retrieval_then_lm,Is this a high class dish?,yes|yes|no,no,cod || white || yes
+133629003,retrieval_then_lm,Is this chair in the way of people who might walk through?,no|no|no,no,purple || apple || yes
+133631001,retrieval_then_lm,Is it sunny out?,yes|yes|yes,yes,1 || no || yes
+133631002,retrieval_then_lm,Does the elephant need water?,yes|yes|yes,yes,1 || no || yes
+2562004,retrieval_then_lm,What sport is being played?,tennis|tennis|tennis,tennis,black || tennis || 2
+264718001,retrieval_then_lm,Do you have to pay to park here?,yes|yes|yes,yes,red || yes || nothing
+133648003,retrieval_then_lm,Which game are they playing?,baseball|baseball|baseball,baseball,5 || baseball || 6
+459182000,retrieval_then_lm,What are they carrying?,surfboards|surfboards|surfboards,surfboards,no || ocean || surfboards
+264730003,retrieval_then_lm,What kind of numbers are on the clock?,roman numerals|roman|roman numerals,roman,roman || 3 || yes
+2587001,retrieval_then_lm,What is not healthy in the baggie?,donut|doughnut|donut,donut,no || donut || 2
+2532000,generator_smart,Is the skier going downhill?,no|no|yes,yes,cloudy || red || left
+2532002,generator_smart,How cold is it?,cold|15 degrees|freezing,cold,cloudy || red || left
+2532004,generator_smart,What color is the sky?,blue|blue|blue,blue,cloudy || red || left
+395749000,generator_smart,What filter is being used in this image?,black and white|black & white|black and white,black and white,4 || yes || no
+395752002,generator_smart,"What  ""Over the Rainbow"" singer sang about this vehicle?",judy garland|judy garland|train,Judy Garland,special || 1 || yes
+395752003,generator_smart,What color are the hubcaps?,red|red|red,red,special || 1 || yes
+264683000,generator_smart,Is this airplane inside?,yes|yes|yes,yes,planes || 0230 || 23
+264683001,generator_smart,What airline does the plane fly for?,air france|air france|air france,Air France,planes || 0230 || 23
+264683002,generator_smart,Are there planes hanging?,yes|yes|yes,yes,planes || 0230 || 23
+264686000,generator_smart,How many side tables are there?,2|2|2,2,sun || no || no
+264686001,generator_smart,How many windows are on the wall?,3|3|3,3,sun || no || no
+133619000,generator_smart,What type of truck is it?,fire engine|fire truck|service truck,fire truck,no || yes || 8
+133619001,generator_smart,What time of day is it?,night|night|night,night,no || yes || 8
+133620002,generator_smart,What is she wearing on her head?,hat|helmet|hat,hat,blue || yes || book
+526837002,generator_smart,What is covering the ground?,snow|snow|snow,snow,skis || yes || yes
+133622000,generator_smart,Are these vegetables or fruits?,vegetables|vegetables|vegetables,vegetables,cod || white || yes
+133622001,generator_smart,What is the yellow topping?,cheese|glaze|cheese,cheese,cod || white || yes
+133622003,generator_smart,What is the long thin food with seeds?,broccoli|cake|cheese,broccoli,cod || white || yes
+133622004,generator_smart,What is the green topping?,broccoli|broccoli|broccoli,broccoli,cod || white || yes
+133622007,generator_smart,What vegetable is this?,broccoli|broccoli|broccoli,broccoli,cod || white || yes
+22271001,generator_smart,Are there people in the picture?,yes|yes|yes,yes,orange || sidewalk || unknown
+22271002,generator_smart,What is the name of the street sign on the ground?,western ave|western ave|western ave,western,orange || sidewalk || unknown
+133629000,generator_smart,Is this a public place?,no|no|no,no,purple || apple || yes
+133629001,generator_smart,What color is the desk?,brown|brown|brown,brown,purple || apple || yes
+133629005,generator_smart,What do people do here?,work|work|office work,work,purple || apple || yes
+133631000,generator_smart,"Which is longer, the Elephant's tusks or the Elephant's trunk?",trunk|trunk|trunk,trunk,1 || no || yes
+2562001,generator_smart,Are all the men tennis players?,yes|no|no,yes,black || tennis || 2
+2562002,generator_smart,Is the man wearing a wristband?,yes|yes|yes,yes,black || tennis || 2
+133636004,generator_smart,Are the meters rusted?,no|no|no,no,parking meter || 9-6 m-f || yes
+133636006,generator_smart,How many meters are there?,2|2|2,2,parking meter || 9-6 m-f || yes
+133645000,generator_smart,Is there someone on the bench?,no|no|no,no,blue || 25 || boat
+133645001,generator_smart,Are the street lights turned on?,yes|yes|yes,yes,blue || 25 || boat
+133645002,generator_smart,Is the water clear?,no|yes|yes,yes,blue || 25 || boat
+264718006,generator_smart,What modes of transportation are in the picture?,cars|car|car,cars,red || yes || nothing
+133648000,generator_smart,Is the bat blue?,yes|yes|yes,yes,5 || baseball || 6
+459182001,generator_smart,What is in the foreground?,rocks|rocks|rocks,rocks,no || ocean || surfboards
+395801000,generator_smart,Is it morning or evening?,evening|morning|morning,morning,white || no || 1
+395749002,generator_failure,How many people can be seen?,4|4|4,3,4 || yes || no
+395749004,generator_failure,How many people are in the photo?,4|4|4,3,4 || yes || no
+526837001,generator_failure,What is this man holding?,ski pole|ski poles|poles,skis,skis || yes || yes
+133629007,generator_failure,What type of computer is on the desk?,mac|laptop|laptop,apple,purple || apple || yes
+133636005,generator_failure,Is there time remaining on the meter?,yes|yes|no,yes,parking meter || 9-6 m-f || yes
+395801004,generator_failure,Do the people know each other?,no|no|no,yes,white || no || 1
+2532001,retrieval_failure,How do you know this skier is not alone on the mountain?,someone had to take photo|tracks|other ski tracks and footprints,not alone,cloudy || red || left
+395749003,retrieval_failure,What ocean might this be?,atlantic|antarctic|atlantic,ocean,4 || yes || no
+395752000,retrieval_failure,What color are the mums in the front of the photo?,"pink|red|pink, red, yellow",red,special || 1 || yes
+264686002,retrieval_failure,Is the TV a tube or flat screen?,tube|tube|tube,flat screen,sun || no || no
+133619002,retrieval_failure,What color is the light above the hood of the truck?,yellow|blue|blue,red,no || yes || 8
+133620000,retrieval_failure,Why does the woman have her hair up?,uniform|on duty|uniform,to keep it out of her face,blue || yes || book
+133622005,retrieval_failure,What is the yellow item pictured?,cheese|cake|cheese,broccoli,cod || white || yes
+133622006,retrieval_failure,How are the eggs cooked?,scrambled|scramble|omelet,poached,cod || white || yes
+133622008,retrieval_failure,What kinds of food are on the plate?,"breakfast|spinach|eggs, spinach",broccoli and cheese,cod || white || yes
+22271000,retrieval_failure,Is this a bright and sunny day?,no|no|no,yes,orange || sidewalk || unknown
+133629002,retrieval_failure,How many chairs have wheels?,1|1|1,3,purple || apple || yes
+133629004,retrieval_failure,Can these items be used to make food?,no|no|no,yes,purple || apple || yes
+133629006,retrieval_failure,What color is the lampshade?,off white|white|white,purple,purple || apple || yes
+2562000,retrieval_failure,What is the color scheme of the photo?,"white|white and blue|white, blue",blue,black || tennis || 2
+2562003,retrieval_failure,What two brands are shown advertised behind the tennis player?,olympus and wta|olympus and wta|wta and olympus,Nike and Wilson,black || tennis || 2
+133636000,retrieval_failure,What is the number on the left parking meter?,12|12|19,1-2-3,parking meter || 9-6 m-f || yes
+133636001,retrieval_failure,How much time is left?,0 time|expired|0,30 minutes,parking meter || 9-6 m-f || yes
+133636002,retrieval_failure,What number is the parking meter on the right?,13|13|13,2,parking meter || 9-6 m-f || yes
+133636003,retrieval_failure,Is there any cars on the street?,no|no|0,yes,parking meter || 9-6 m-f || yes
+133645003,retrieval_failure,What type of boat is in the water?,private|sailboat|pontoon,boat,blue || 25 || boat
+264718000,retrieval_failure,How long is the parking on the street?,12 hours|2 hours|7 spots,2 hours,red || yes || nothing
+264718002,retrieval_failure,Which side of the sign is the road on?,right|left|right,both sides,red || yes || nothing
+264718003,retrieval_failure,What does the sign read?,2 hour parking 8am to 8pm|parking|2 hour parking 8am-8pm,no parking,red || yes || nothing
+264718004,retrieval_failure,What does the sign say?,parking|2 hour parking|2 hour parking,no parking,red || yes || nothing
+264718005,retrieval_failure,What phone number is on the sign?,0|n/a|0,555-1234,red || yes || nothing
+264718007,retrieval_failure,What sign is to the right of the photo?,2 hour parking|parking|2 hour parking,parking sign,red || yes || nothing
+133648001,retrieval_failure,Is the photo colored?,yes|yes|yes,no,5 || baseball || 6
+133648002,retrieval_failure,What color is the home plate umpire's shirt?,white|black|black,blue,5 || baseball || 6
+459182002,retrieval_failure,How many people are there?,2|2|2,two,no || ocean || surfboards
+395801001,retrieval_failure,How much does parking in the lot cost?,nothing|free|free,$5,white || no || 1
+395801002,retrieval_failure,What is on the road?,car|car|cars,road,white || no || 1
+395801003,retrieval_failure,How many people are in the picture?,7|7|11,2,white || no || 1
+395801005,retrieval_failure,How could you carry things if you were riding this bike?,there is no bike|on my back|backpack,you couldn't,white || no || 1
+395801006,retrieval_failure,How many people are in this scene?,25|15|9,1,white || no || 1
+395801007,retrieval_failure,What time is it?,6:00|6:00|12:30,3:30,white || no || 1
+264730000,retrieval_failure,How many arches are under the clock?,2|2|2,3,roman || 3 || yes
+264730001,retrieval_failure,What time is it?,10:50|10:49|8:45,night,roman || 3 || yes
+264730002,retrieval_failure,Is a daytime or nighttime scene depicted?,nighttime|nighttime|night,daytime,roman || 3 || yes
+2587000,retrieval_failure,Which food contains the most potassium?,banana|banana|banana,donut,no || donut || 2

@@ -1,0 +1,282 @@
+[
+  {
+    "image": "cat.png",
+    "question": "what is the cat doing?",
+    "baseline": "cat is sitting on the couch",
+    "rag": "sitting",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "no",
+      "gray",
+      "no"
+    ],
+    "top_img_score": 0.8217
+  },
+  {
+    "image": "cat.png",
+    "question": "describe what is happening",
+    "baseline": "cat is sitting on the couch",
+    "rag": "cat is sitting on the couch",
+    "same": true,
+    "multi": true,
+    "retrieved": [
+      "no",
+      "gray",
+      "no"
+    ],
+    "top_img_score": 0.8217
+  },
+  {
+    "image": "cat.png",
+    "question": "what is the cat sitting on?",
+    "baseline": "pillow",
+    "rag": "pillow",
+    "same": true,
+    "multi": false,
+    "retrieved": [
+      "no",
+      "gray",
+      "no"
+    ],
+    "top_img_score": 0.8217
+  },
+  {
+    "image": "cat.png",
+    "question": "what room is this?",
+    "baseline": "living room",
+    "rag": "living room",
+    "same": true,
+    "multi": true,
+    "retrieved": [
+      "no",
+      "gray",
+      "no"
+    ],
+    "top_img_score": 0.8217
+  },
+  {
+    "image": "cat.png",
+    "question": "is the cat looking at the camera?",
+    "baseline": "yes",
+    "rag": "no",
+    "same": false,
+    "multi": false,
+    "retrieved": [
+      "no",
+      "gray",
+      "no"
+    ],
+    "top_img_score": 0.8217
+  },
+  {
+    "image": "pizza.png",
+    "question": "what toppings are on the pizza?",
+    "baseline": "pepperoni and cheese",
+    "rag": "pepperoni",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "tomato",
+      "no"
+    ],
+    "top_img_score": 0.8773
+  },
+  {
+    "image": "pizza.png",
+    "question": "where is the pizza?",
+    "baseline": "on the plate",
+    "rag": "on the table",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "tomato",
+      "no"
+    ],
+    "top_img_score": 0.8773
+  },
+  {
+    "image": "pizza.png",
+    "question": "what kind of pizza is this?",
+    "baseline": "pepperoni pizza",
+    "rag": "pepperoni",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "tomato",
+      "no"
+    ],
+    "top_img_score": 0.8773
+  },
+  {
+    "image": "pizza.png",
+    "question": "is the pizza fresh?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "multi": false,
+    "retrieved": [
+      "yes",
+      "tomato",
+      "no"
+    ],
+    "top_img_score": 0.8773
+  },
+  {
+    "image": "pizza.png",
+    "question": "describe what is happening",
+    "baseline": "people are eating pizza",
+    "rag": "pizza is being eaten",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "tomato",
+      "no"
+    ],
+    "top_img_score": 0.8773
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what is the person wearing?",
+    "baseline": "cycling jersey",
+    "rag": "helmet",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "helmet",
+      "no"
+    ],
+    "top_img_score": 0.8092
+  },
+  {
+    "image": "cyclist.png",
+    "question": "where is this taking place?",
+    "baseline": "taking place in the woods",
+    "rag": "in the woods",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "helmet",
+      "no"
+    ],
+    "top_img_score": 0.8092
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what is the weather like?",
+    "baseline": "raining",
+    "rag": "sunny and warm",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "helmet",
+      "no"
+    ],
+    "top_img_score": 0.8092
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what is in the background?",
+    "baseline": "man on a bike",
+    "rag": "trees",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "helmet",
+      "no"
+    ],
+    "top_img_score": 0.8092
+  },
+  {
+    "image": "cyclist.png",
+    "question": "describe what is happening",
+    "baseline": "man is riding his bike",
+    "rag": "boy is riding a bike",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "yes",
+      "helmet",
+      "no"
+    ],
+    "top_img_score": 0.8092
+  },
+  {
+    "image": "baseball.png",
+    "question": "what is the player about to do?",
+    "baseline": "swing the bat",
+    "rag": "swing",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "no",
+      "n",
+      "baseball"
+    ],
+    "top_img_score": 0.8822
+  },
+  {
+    "image": "baseball.png",
+    "question": "what is the player holding?",
+    "baseline": "bat",
+    "rag": "bat",
+    "same": true,
+    "multi": false,
+    "retrieved": [
+      "no",
+      "n",
+      "baseball"
+    ],
+    "top_img_score": 0.8822
+  },
+  {
+    "image": "baseball.png",
+    "question": "what color is the uniform?",
+    "baseline": "purple",
+    "rag": "black",
+    "same": false,
+    "multi": false,
+    "retrieved": [
+      "no",
+      "n",
+      "baseball"
+    ],
+    "top_img_score": 0.8822
+  },
+  {
+    "image": "baseball.png",
+    "question": "where is this taking place?",
+    "baseline": "baseball game",
+    "rag": "on a baseball field",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "no",
+      "n",
+      "baseball"
+    ],
+    "top_img_score": 0.8822
+  },
+  {
+    "image": "baseball.png",
+    "question": "describe what is happening",
+    "baseline": "batter is swinging at the ball",
+    "rag": "batter is hitting the ball",
+    "same": false,
+    "multi": true,
+    "retrieved": [
+      "no",
+      "n",
+      "baseball"
+    ],
+    "top_img_score": 0.8822
+  }
+]

@@ -2,28 +2,28 @@
   {
     "question_id": 2529010,
     "question": "Is there snow on the ground?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How tall is the house?",
-        "answer": "2 stories",
-        "score": 1.0,
-        "img_score": 1.0,
+        "question": "What color is the building with the clock on it?",
+        "answer": "white",
+        "score": 0.774,
+        "img_score": 0.774,
         "q_score": 0.0
       },
       {
-        "question": "Is it 4am or 4pm in the picture?",
-        "answer": "pm",
-        "score": 1.0,
-        "img_score": 1.0,
+        "question": "Why is there water on the ground?",
+        "answer": "rain",
+        "score": 0.7445,
+        "img_score": 0.7445,
         "q_score": 0.0
       },
       {
-        "question": "What kind of buildings?",
-        "answer": "houses",
-        "score": 1.0,
-        "img_score": 1.0,
+        "question": "Is this a high-rise building?",
+        "answer": "no",
+        "score": 0.744,
+        "img_score": 0.744,
         "q_score": 0.0
       }
     ]
@@ -31,28 +31,28 @@
   {
     "question_id": 2532000,
     "question": "Is the skier going downhill?",
-    "answer": "noyesup",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are they doing the same sport?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "What color is the backpack?",
+        "answer": "red",
+        "score": 0.8501,
+        "img_score": 0.8501,
         "q_score": 0.0
       },
       {
-        "question": "Has this area been windy lately?",
+        "question": "Is this cross country skiing?",
         "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
-        "q_score": 0.0
+        "score": 0.8362,
+        "img_score": 0.8362,
+        "q_score": 0.9027
       },
       {
-        "question": "Is this the morning?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "How many dogs are with the person?",
+        "answer": "2",
+        "score": 0.818,
+        "img_score": 0.818,
         "q_score": 0.0
       }
     ]
@@ -60,28 +60,28 @@
   {
     "question_id": 2532001,
     "question": "How do you know this skier is not alone on the mountain?",
-    "answer": "noothers",
+    "answer": "I don't",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are they doing the same sport?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "What color is the backpack?",
+        "answer": "red",
+        "score": 0.8501,
+        "img_score": 0.8501,
         "q_score": 0.0
       },
       {
-        "question": "Has this area been windy lately?",
+        "question": "Is this cross country skiing?",
         "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
-        "q_score": 0.0
+        "score": 0.8362,
+        "img_score": 0.8362,
+        "q_score": 0.8452
       },
       {
-        "question": "Is this the morning?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "How many dogs are with the person?",
+        "answer": "2",
+        "score": 0.818,
+        "img_score": 0.818,
         "q_score": 0.0
       }
     ]
@@ -89,28 +89,28 @@
   {
     "question_id": 2532002,
     "question": "How cold is it?",
-    "answer": "cold",
+    "answer": "very cold",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are they doing the same sport?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "What color is the backpack?",
+        "answer": "red",
+        "score": 0.8501,
+        "img_score": 0.8501,
         "q_score": 0.0
       },
       {
-        "question": "Has this area been windy lately?",
+        "question": "Is this cross country skiing?",
         "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "score": 0.8362,
+        "img_score": 0.8362,
         "q_score": 0.0
       },
       {
-        "question": "Is this the morning?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "How many dogs are with the person?",
+        "answer": "2",
+        "score": 0.818,
+        "img_score": 0.818,
         "q_score": 0.0
       }
     ]
@@ -118,28 +118,28 @@
   {
     "question_id": 2532003,
     "question": "Is it a sunny or cloudy day?",
-    "answer": "cloudyyes",
+    "answer": "sunny",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are they doing the same sport?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "What color is the backpack?",
+        "answer": "red",
+        "score": 0.8501,
+        "img_score": 0.8501,
         "q_score": 0.0
       },
       {
-        "question": "Has this area been windy lately?",
+        "question": "Is this cross country skiing?",
         "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "score": 0.8362,
+        "img_score": 0.8362,
         "q_score": 0.0
       },
       {
-        "question": "Is this the morning?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "How many dogs are with the person?",
+        "answer": "2",
+        "score": 0.818,
+        "img_score": 0.818,
         "q_score": 0.0
       }
     ]
@@ -147,28 +147,28 @@
   {
     "question_id": 2532004,
     "question": "What color is the sky?",
-    "answer": "bluewhit",
+    "answer": "blue",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are they doing the same sport?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "What color is the backpack?",
+        "answer": "red",
+        "score": 0.8501,
+        "img_score": 0.8501,
         "q_score": 0.0
       },
       {
-        "question": "Has this area been windy lately?",
+        "question": "Is this cross country skiing?",
         "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "score": 0.8362,
+        "img_score": 0.8362,
         "q_score": 0.0
       },
       {
-        "question": "Is this the morning?",
-        "answer": "yes",
-        "score": 0.8235,
-        "img_score": 0.8235,
+        "question": "How many dogs are with the person?",
+        "answer": "2",
+        "score": 0.818,
+        "img_score": 0.818,
         "q_score": 0.0
       }
     ]
@@ -176,28 +176,28 @@
   {
     "question_id": 395749000,
     "question": "What filter is being used in this image?",
-    "answer": "",
+    "answer": "black and white",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the girl sitting on?",
-        "answer": "grass",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "question": "How many people are on the bench?",
+        "answer": "4",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What are the girls doing?",
-        "answer": "sitting",
-        "score": 0.7899,
-        "img_score": 0.7899,
-        "q_score": 0.0
-      },
-      {
-        "question": "How many people are watching the water?",
+        "question": "How many people are sitting on the bench?",
         "answer": "2",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "score": 0.8145,
+        "img_score": 0.8145,
+        "q_score": 0.0
+      },
+      {
+        "question": "Is this lot empty?",
+        "answer": "no",
+        "score": 0.8035,
+        "img_score": 0.8035,
         "q_score": 0.0
       }
     ]
@@ -205,28 +205,28 @@
   {
     "question_id": 395749001,
     "question": "Are all the people elderly?",
-    "answer": "yesno strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the girl sitting on?",
-        "answer": "grass",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "question": "How many people are on the bench?",
+        "answer": "4",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What are the girls doing?",
-        "answer": "sitting",
-        "score": 0.7899,
-        "img_score": 0.7899,
-        "q_score": 0.0
-      },
-      {
-        "question": "How many people are watching the water?",
+        "question": "How many people are sitting on the bench?",
         "answer": "2",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "score": 0.8145,
+        "img_score": 0.8145,
+        "q_score": 0.0
+      },
+      {
+        "question": "Is this lot empty?",
+        "answer": "no",
+        "score": 0.8035,
+        "img_score": 0.8035,
         "q_score": 0.0
       }
     ]
@@ -234,28 +234,28 @@
   {
     "question_id": 395749002,
     "question": "How many people can be seen?",
-    "answer": "45 strutConnector",
+    "answer": "3",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the girl sitting on?",
-        "answer": "grass",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "question": "How many people are on the bench?",
+        "answer": "4",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What are the girls doing?",
-        "answer": "sitting",
-        "score": 0.7899,
-        "img_score": 0.7899,
-        "q_score": 0.0
-      },
-      {
-        "question": "How many people are watching the water?",
+        "question": "How many people are sitting on the bench?",
         "answer": "2",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "score": 0.8145,
+        "img_score": 0.8145,
+        "q_score": 0.0
+      },
+      {
+        "question": "Is this lot empty?",
+        "answer": "no",
+        "score": 0.8035,
+        "img_score": 0.8035,
         "q_score": 0.0
       }
     ]
@@ -263,28 +263,28 @@
   {
     "question_id": 395749003,
     "question": "What ocean might this be?",
-    "answer": "seaceanus",
+    "answer": "ocean",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the girl sitting on?",
-        "answer": "grass",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "question": "How many people are on the bench?",
+        "answer": "4",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What are the girls doing?",
-        "answer": "sitting",
-        "score": 0.7899,
-        "img_score": 0.7899,
-        "q_score": 0.0
-      },
-      {
-        "question": "How many people are watching the water?",
+        "question": "How many people are sitting on the bench?",
         "answer": "2",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "score": 0.8145,
+        "img_score": 0.8145,
+        "q_score": 0.0
+      },
+      {
+        "question": "Is this lot empty?",
+        "answer": "no",
+        "score": 0.8035,
+        "img_score": 0.8035,
         "q_score": 0.0
       }
     ]
@@ -292,28 +292,28 @@
   {
     "question_id": 395749004,
     "question": "How many people are in the photo?",
-    "answer": "45 strutConnector",
+    "answer": "3",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the girl sitting on?",
-        "answer": "grass",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "question": "How many people are on the bench?",
+        "answer": "4",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What are the girls doing?",
-        "answer": "sitting",
-        "score": 0.7899,
-        "img_score": 0.7899,
-        "q_score": 0.0
-      },
-      {
-        "question": "How many people are watching the water?",
+        "question": "How many people are sitting on the bench?",
         "answer": "2",
-        "score": 0.7899,
-        "img_score": 0.7899,
+        "score": 0.8145,
+        "img_score": 0.8145,
+        "q_score": 0.0
+      },
+      {
+        "question": "Is this lot empty?",
+        "answer": "no",
+        "score": 0.8035,
+        "img_score": 0.8035,
         "q_score": 0.0
       }
     ]
@@ -321,28 +321,28 @@
   {
     "question_id": 395752000,
     "question": "What color are the mums in the front of the photo?",
-    "answer": "green andred",
+    "answer": "red",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the number of the bus?",
-        "answer": "13",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Does the train carry passengers?",
+        "answer": "yes",
+        "score": 0.8088,
+        "img_score": 0.8088,
         "q_score": 0.0
       },
       {
-        "question": "What kind of bus is it?",
-        "answer": "double decker",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Does the trolley have wheels?",
+        "answer": "yes",
+        "score": 0.7853,
+        "img_score": 0.7853,
         "q_score": 0.0
       },
       {
-        "question": "What color is the bus?",
-        "answer": "red",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Is this a school bus?",
+        "answer": "no",
+        "score": 0.7837,
+        "img_score": 0.7837,
         "q_score": 0.0
       }
     ]
@@ -350,57 +350,57 @@
   {
     "question_id": 395752001,
     "question": "Can a mail truck fit behind the bus to pick up the mail?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the number of the bus?",
-        "answer": "13",
-        "score": 0.7668,
-        "img_score": 0.7668,
-        "q_score": 0.8664
+        "question": "Does the train carry passengers?",
+        "answer": "yes",
+        "score": 0.8088,
+        "img_score": 0.8088,
+        "q_score": 0.0
       },
       {
-        "question": "What kind of bus is it?",
-        "answer": "double decker",
-        "score": 0.7668,
-        "img_score": 0.7668,
-        "q_score": 0.8735
+        "question": "Does the trolley have wheels?",
+        "answer": "yes",
+        "score": 0.7853,
+        "img_score": 0.7853,
+        "q_score": 0.0
       },
       {
-        "question": "What color is the bus?",
-        "answer": "red",
-        "score": 0.7668,
-        "img_score": 0.7668,
-        "q_score": 0.855
+        "question": "Is this a school bus?",
+        "answer": "no",
+        "score": 0.7837,
+        "img_score": 0.7837,
+        "q_score": 0.8425
       }
     ]
   },
   {
     "question_id": 395752002,
     "question": "What  \"Over the Rainbow\" singer sang about this vehicle?",
-    "answer": "nothingt",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the number of the bus?",
-        "answer": "13",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Does the train carry passengers?",
+        "answer": "yes",
+        "score": 0.8088,
+        "img_score": 0.8088,
         "q_score": 0.0
       },
       {
-        "question": "What kind of bus is it?",
-        "answer": "double decker",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Does the trolley have wheels?",
+        "answer": "yes",
+        "score": 0.7853,
+        "img_score": 0.7853,
         "q_score": 0.0
       },
       {
-        "question": "What color is the bus?",
-        "answer": "red",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Is this a school bus?",
+        "answer": "no",
+        "score": 0.7837,
+        "img_score": 0.7837,
         "q_score": 0.0
       }
     ]
@@ -408,28 +408,28 @@
   {
     "question_id": 395752003,
     "question": "What color are the hubcaps?",
-    "answer": "greenred",
+    "answer": "red",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the number of the bus?",
-        "answer": "13",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Does the train carry passengers?",
+        "answer": "yes",
+        "score": 0.8088,
+        "img_score": 0.8088,
         "q_score": 0.0
       },
       {
-        "question": "What kind of bus is it?",
-        "answer": "double decker",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Does the trolley have wheels?",
+        "answer": "yes",
+        "score": 0.7853,
+        "img_score": 0.7853,
         "q_score": 0.0
       },
       {
-        "question": "What color is the bus?",
-        "answer": "red",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Is this a school bus?",
+        "answer": "no",
+        "score": 0.7837,
+        "img_score": 0.7837,
         "q_score": 0.0
       }
     ]
@@ -437,28 +437,28 @@
   {
     "question_id": 395752004,
     "question": "Is someone getting on this street car?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the number of the bus?",
-        "answer": "13",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Does the train carry passengers?",
+        "answer": "yes",
+        "score": 0.8088,
+        "img_score": 0.8088,
+        "q_score": 0.8955
+      },
+      {
+        "question": "Does the trolley have wheels?",
+        "answer": "yes",
+        "score": 0.7853,
+        "img_score": 0.7853,
         "q_score": 0.0
       },
       {
-        "question": "What kind of bus is it?",
-        "answer": "double decker",
-        "score": 0.7668,
-        "img_score": 0.7668,
-        "q_score": 0.8947
-      },
-      {
-        "question": "What color is the bus?",
-        "answer": "red",
-        "score": 0.7668,
-        "img_score": 0.7668,
+        "question": "Is this a school bus?",
+        "answer": "no",
+        "score": 0.7837,
+        "img_score": 0.7837,
         "q_score": 0.0
       }
     ]
@@ -466,115 +466,115 @@
   {
     "question_id": 264683000,
     "question": "Is this airplane inside?",
-    "answer": "yesno strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How many engines does the plane have?",
-        "answer": "4",
-        "score": 0.7008,
-        "img_score": 0.7008,
-        "q_score": 0.9129
-      },
-      {
-        "question": "How many planes?",
-        "answer": "1",
-        "score": 0.7008,
-        "img_score": 0.7008,
+        "question": "What is the ID number of the plane?",
+        "answer": "0230",
+        "score": 0.7331,
+        "img_score": 0.7331,
         "q_score": 0.0
       },
       {
-        "question": "Is the plane at an airport?",
-        "answer": "yes",
-        "score": 0.7008,
-        "img_score": 0.7008,
-        "q_score": 0.938
+        "question": "What number is on the side?",
+        "answer": "23",
+        "score": 0.727,
+        "img_score": 0.727,
+        "q_score": 0.0
+      },
+      {
+        "question": "Are these vehicles the biggest of their kind?",
+        "answer": "no",
+        "score": 0.6995,
+        "img_score": 0.6995,
+        "q_score": 0.0
       }
     ]
   },
   {
     "question_id": 264683001,
     "question": "What airline does the plane fly for?",
-    "answer": "airfran",
+    "answer": "Air France",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How many engines does the plane have?",
-        "answer": "4",
-        "score": 0.7008,
-        "img_score": 0.7008,
-        "q_score": 0.9363
-      },
-      {
-        "question": "How many planes?",
-        "answer": "1",
-        "score": 0.7008,
-        "img_score": 0.7008,
+        "question": "What is the ID number of the plane?",
+        "answer": "0230",
+        "score": 0.7331,
+        "img_score": 0.7331,
         "q_score": 0.0
       },
       {
-        "question": "Is the plane at an airport?",
-        "answer": "yes",
-        "score": 0.7008,
-        "img_score": 0.7008,
-        "q_score": 0.9524
+        "question": "What number is on the side?",
+        "answer": "23",
+        "score": 0.727,
+        "img_score": 0.727,
+        "q_score": 0.0
+      },
+      {
+        "question": "Are these vehicles the biggest of their kind?",
+        "answer": "no",
+        "score": 0.6995,
+        "img_score": 0.6995,
+        "q_score": 0.0
       }
     ]
   },
   {
     "question_id": 264683002,
     "question": "Are there planes hanging?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How many engines does the plane have?",
-        "answer": "4",
-        "score": 0.7008,
-        "img_score": 0.7008,
-        "q_score": 0.8987
+        "question": "What is the ID number of the plane?",
+        "answer": "0230",
+        "score": 0.7331,
+        "img_score": 0.7331,
+        "q_score": 0.0
       },
       {
-        "question": "How many planes?",
-        "answer": "1",
-        "score": 0.7008,
-        "img_score": 0.7008,
-        "q_score": 0.9138
+        "question": "What number is on the side?",
+        "answer": "23",
+        "score": 0.727,
+        "img_score": 0.727,
+        "q_score": 0.0
       },
       {
-        "question": "Is the plane at an airport?",
-        "answer": "yes",
-        "score": 0.7008,
-        "img_score": 0.7008,
-        "q_score": 0.9148
+        "question": "Are these vehicles the biggest of their kind?",
+        "answer": "no",
+        "score": 0.6995,
+        "img_score": 0.6995,
+        "q_score": 0.0
       }
     ]
   },
   {
     "question_id": 264686000,
     "question": "How many side tables are there?",
-    "answer": "21and",
+    "answer": "2",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What's on the shelf in the corner?",
-        "answer": "books",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "Are the blinds mostly closed or mostly open?",
+        "answer": "open",
+        "score": 0.836,
+        "img_score": 0.836,
         "q_score": 0.0
       },
       {
-        "question": "Is there a blue sofa?",
-        "answer": "no",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "What is covering the ottoman?",
+        "answer": "tray",
+        "score": 0.8334,
+        "img_score": 0.8334,
         "q_score": 0.0
       },
       {
-        "question": "Which room in the house is shown?",
-        "answer": "living room",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "What is the color of the wall?",
+        "answer": "white",
+        "score": 0.8318,
+        "img_score": 0.8318,
         "q_score": 0.0
       }
     ]
@@ -582,28 +582,28 @@
   {
     "question_id": 264686001,
     "question": "How many windows are on the wall?",
-    "answer": "42and",
+    "answer": "3",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What's on the shelf in the corner?",
-        "answer": "books",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "Are the blinds mostly closed or mostly open?",
+        "answer": "open",
+        "score": 0.836,
+        "img_score": 0.836,
         "q_score": 0.0
       },
       {
-        "question": "Is there a blue sofa?",
-        "answer": "no",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "What is covering the ottoman?",
+        "answer": "tray",
+        "score": 0.8334,
+        "img_score": 0.8334,
         "q_score": 0.0
       },
       {
-        "question": "Which room in the house is shown?",
-        "answer": "living room",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "What is the color of the wall?",
+        "answer": "white",
+        "score": 0.8318,
+        "img_score": 0.8318,
         "q_score": 0.0
       }
     ]
@@ -611,28 +611,28 @@
   {
     "question_id": 264686002,
     "question": "Is the TV a tube or flat screen?",
-    "answer": "flatscre",
+    "answer": "flat screen",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What's on the shelf in the corner?",
-        "answer": "books",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "Are the blinds mostly closed or mostly open?",
+        "answer": "open",
+        "score": 0.836,
+        "img_score": 0.836,
         "q_score": 0.0
       },
       {
-        "question": "Is there a blue sofa?",
-        "answer": "no",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "What is covering the ottoman?",
+        "answer": "tray",
+        "score": 0.8334,
+        "img_score": 0.8334,
         "q_score": 0.0
       },
       {
-        "question": "Which room in the house is shown?",
-        "answer": "living room",
-        "score": 0.8593,
-        "img_score": 0.8593,
+        "question": "What is the color of the wall?",
+        "answer": "white",
+        "score": 0.8318,
+        "img_score": 0.8318,
         "q_score": 0.0
       }
     ]
@@ -640,28 +640,28 @@
   {
     "question_id": 133619000,
     "question": "What type of truck is it?",
-    "answer": "firetruck",
+    "answer": "fire truck",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Why is he using an umbrella?",
-        "answer": "yes",
-        "score": 0.6124,
-        "img_score": 0.6124,
-        "q_score": 0.0
-      },
-      {
-        "question": "Is this daytime?",
+        "question": "Do you see a firefighter in the picture?",
         "answer": "no",
-        "score": 0.6124,
-        "img_score": 0.6124,
+        "score": 0.7026,
+        "img_score": 0.7026,
         "q_score": 0.0
       },
       {
-        "question": "Is the sidewalk slushy?",
+        "question": "Is the van's passenger door open?",
         "answer": "yes",
-        "score": 0.6124,
-        "img_score": 0.6124,
+        "score": 0.6575,
+        "img_score": 0.6575,
+        "q_score": 0.0
+      },
+      {
+        "question": "Is this a fire engine?",
+        "answer": "yes",
+        "score": 0.654,
+        "img_score": 0.654,
         "q_score": 0.0
       }
     ]
@@ -669,28 +669,28 @@
   {
     "question_id": 133619001,
     "question": "What time of day is it?",
-    "answer": "nightday",
+    "answer": "night",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Why is he using an umbrella?",
-        "answer": "yes",
-        "score": 0.6124,
-        "img_score": 0.6124,
-        "q_score": 0.0
-      },
-      {
-        "question": "Is this daytime?",
+        "question": "Do you see a firefighter in the picture?",
         "answer": "no",
-        "score": 0.6124,
-        "img_score": 0.6124,
+        "score": 0.7026,
+        "img_score": 0.7026,
         "q_score": 0.0
       },
       {
-        "question": "Is the sidewalk slushy?",
+        "question": "Is the van's passenger door open?",
         "answer": "yes",
-        "score": 0.6124,
-        "img_score": 0.6124,
+        "score": 0.6575,
+        "img_score": 0.6575,
+        "q_score": 0.0
+      },
+      {
+        "question": "Is this a fire engine?",
+        "answer": "yes",
+        "score": 0.654,
+        "img_score": 0.654,
         "q_score": 0.0
       }
     ]
@@ -698,28 +698,28 @@
   {
     "question_id": 133619002,
     "question": "What color is the light above the hood of the truck?",
-    "answer": "redorang",
+    "answer": "red",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Why is he using an umbrella?",
-        "answer": "yes",
-        "score": 0.6124,
-        "img_score": 0.6124,
-        "q_score": 0.0
-      },
-      {
-        "question": "Is this daytime?",
+        "question": "Do you see a firefighter in the picture?",
         "answer": "no",
-        "score": 0.6124,
-        "img_score": 0.6124,
+        "score": 0.7026,
+        "img_score": 0.7026,
         "q_score": 0.0
       },
       {
-        "question": "Is the sidewalk slushy?",
+        "question": "Is the van's passenger door open?",
         "answer": "yes",
-        "score": 0.6124,
-        "img_score": 0.6124,
+        "score": 0.6575,
+        "img_score": 0.6575,
+        "q_score": 0.0
+      },
+      {
+        "question": "Is this a fire engine?",
+        "answer": "yes",
+        "score": 0.654,
+        "img_score": 0.654,
         "q_score": 0.0
       }
     ]
@@ -727,28 +727,28 @@
   {
     "question_id": 133620000,
     "question": "Why does the woman have her hair up?",
-    "answer": "security andno",
+    "answer": "to keep it out of her face",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Has this man shaved?",
-        "answer": "no",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What is the woman reading?",
+        "answer": "book",
+        "score": 0.726,
+        "img_score": 0.726,
         "q_score": 0.0
       },
       {
-        "question": "Is this man wearing pajamas?",
-        "answer": "no",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What color is the rim of her umbrella?",
+        "answer": "yellow",
+        "score": 0.6954,
+        "img_score": 0.6954,
         "q_score": 0.0
       },
       {
-        "question": "What game is played on a board with a similar pattern to this floor?",
-        "answer": "chess",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What number of poles are in the court?",
+        "answer": "3",
+        "score": 0.6906,
+        "img_score": 0.6906,
         "q_score": 0.0
       }
     ]
@@ -756,28 +756,28 @@
   {
     "question_id": 133620001,
     "question": "Is she wearing glasses?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Has this man shaved?",
-        "answer": "no",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What is the woman reading?",
+        "answer": "book",
+        "score": 0.726,
+        "img_score": 0.726,
         "q_score": 0.0
       },
       {
-        "question": "Is this man wearing pajamas?",
-        "answer": "no",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What color is the rim of her umbrella?",
+        "answer": "yellow",
+        "score": 0.6954,
+        "img_score": 0.6954,
         "q_score": 0.0
       },
       {
-        "question": "What game is played on a board with a similar pattern to this floor?",
-        "answer": "chess",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What number of poles are in the court?",
+        "answer": "3",
+        "score": 0.6906,
+        "img_score": 0.6906,
         "q_score": 0.0
       }
     ]
@@ -785,28 +785,28 @@
   {
     "question_id": 133620002,
     "question": "What is she wearing on her head?",
-    "answer": "hat,glas",
+    "answer": "hat",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Has this man shaved?",
-        "answer": "no",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What is the woman reading?",
+        "answer": "book",
+        "score": 0.726,
+        "img_score": 0.726,
         "q_score": 0.0
       },
       {
-        "question": "Is this man wearing pajamas?",
-        "answer": "no",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What color is the rim of her umbrella?",
+        "answer": "yellow",
+        "score": 0.6954,
+        "img_score": 0.6954,
         "q_score": 0.0
       },
       {
-        "question": "What game is played on a board with a similar pattern to this floor?",
-        "answer": "chess",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What number of poles are in the court?",
+        "answer": "3",
+        "score": 0.6906,
+        "img_score": 0.6906,
         "q_score": 0.0
       }
     ]
@@ -814,28 +814,28 @@
   {
     "question_id": 133620003,
     "question": "Is the woman happy?",
-    "answer": "noyes strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Has this man shaved?",
-        "answer": "no",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What is the woman reading?",
+        "answer": "book",
+        "score": 0.726,
+        "img_score": 0.726,
         "q_score": 0.0
       },
       {
-        "question": "Is this man wearing pajamas?",
-        "answer": "no",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What color is the rim of her umbrella?",
+        "answer": "yellow",
+        "score": 0.6954,
+        "img_score": 0.6954,
         "q_score": 0.0
       },
       {
-        "question": "What game is played on a board with a similar pattern to this floor?",
-        "answer": "chess",
-        "score": 0.673,
-        "img_score": 0.673,
+        "question": "What number of poles are in the court?",
+        "answer": "3",
+        "score": 0.6906,
+        "img_score": 0.6906,
         "q_score": 0.0
       }
     ]
@@ -843,28 +843,28 @@
   {
     "question_id": 526837000,
     "question": "Is this man dressed for the weather?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the man doing?",
-        "answer": "skiing",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "What color is his helmet?",
+        "answer": "white",
+        "score": 0.8773,
+        "img_score": 0.8773,
         "q_score": 0.0
       },
       {
-        "question": "What color is the man's jacket?",
-        "answer": "red",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "Will someone be injured?",
+        "answer": "no",
+        "score": 0.8757,
+        "img_score": 0.8757,
         "q_score": 0.0
       },
       {
-        "question": "Does he match?",
-        "answer": "yes",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "How many women are skiing?",
+        "answer": "1",
+        "score": 0.8688,
+        "img_score": 0.8688,
         "q_score": 0.0
       }
     ]
@@ -872,28 +872,28 @@
   {
     "question_id": 526837001,
     "question": "What is this man holding?",
-    "answer": "skis poles",
+    "answer": "ski pole",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the man doing?",
-        "answer": "skiing",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "What color is his helmet?",
+        "answer": "white",
+        "score": 0.8773,
+        "img_score": 0.8773,
         "q_score": 0.0
       },
       {
-        "question": "What color is the man's jacket?",
-        "answer": "red",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "Will someone be injured?",
+        "answer": "no",
+        "score": 0.8757,
+        "img_score": 0.8757,
         "q_score": 0.0
       },
       {
-        "question": "Does he match?",
-        "answer": "yes",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "How many women are skiing?",
+        "answer": "1",
+        "score": 0.8688,
+        "img_score": 0.8688,
         "q_score": 0.0
       }
     ]
@@ -901,28 +901,28 @@
   {
     "question_id": 526837002,
     "question": "What is covering the ground?",
-    "answer": "snowing",
+    "answer": "snow",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is the man doing?",
-        "answer": "skiing",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "What color is his helmet?",
+        "answer": "white",
+        "score": 0.8773,
+        "img_score": 0.8773,
         "q_score": 0.0
       },
       {
-        "question": "What color is the man's jacket?",
-        "answer": "red",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "Will someone be injured?",
+        "answer": "no",
+        "score": 0.8757,
+        "img_score": 0.8757,
         "q_score": 0.0
       },
       {
-        "question": "Does he match?",
-        "answer": "yes",
-        "score": 0.8984,
-        "img_score": 0.8984,
+        "question": "How many women are skiing?",
+        "answer": "1",
+        "score": 0.8688,
+        "img_score": 0.8688,
         "q_score": 0.0
       }
     ]
@@ -930,28 +930,28 @@
   {
     "question_id": 133622000,
     "question": "Are these vegetables or fruits?",
-    "answer": "vegetables",
+    "answer": "Vegetables",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
+        "q_score": 0.9262
+      },
+      {
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
-        "q_score": 0.0
-      },
-      {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -959,28 +959,28 @@
   {
     "question_id": 133622001,
     "question": "What is the yellow topping?",
-    "answer": "cheese andon",
+    "answer": "cheese",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
         "q_score": 0.0
       },
       {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -988,28 +988,28 @@
   {
     "question_id": 133622002,
     "question": "Is this a high class dish?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
-        "q_score": 0.9373
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
+        "q_score": 0.0
       },
       {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -1017,28 +1017,28 @@
   {
     "question_id": 133622003,
     "question": "What is the long thin food with seeds?",
-    "answer": "cakeepot",
+    "answer": "Broccoli",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
         "q_score": 0.0
       },
       {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -1046,28 +1046,28 @@
   {
     "question_id": 133622004,
     "question": "What is the green topping?",
-    "answer": "broccoli andche",
+    "answer": "cheese",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
         "q_score": 0.0
       },
       {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -1075,28 +1075,28 @@
   {
     "question_id": 133622005,
     "question": "What is the yellow item pictured?",
-    "answer": "cheeseca",
+    "answer": "Broccoli",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
         "q_score": 0.0
       },
       {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -1104,28 +1104,28 @@
   {
     "question_id": 133622006,
     "question": "How are the eggs cooked?",
-    "answer": "fried andon",
+    "answer": "in bacon grease",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
         "q_score": 0.0
       },
       {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -1133,28 +1133,28 @@
   {
     "question_id": 133622007,
     "question": "What vegetable is this?",
-    "answer": "broccoli andc",
+    "answer": "Broccoli",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
+        "q_score": 0.9471
+      },
+      {
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
-        "q_score": 0.0
-      },
-      {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -1162,28 +1162,28 @@
   {
     "question_id": 133622008,
     "question": "What kinds of food are on the plate?",
-    "answer": "cake andbroccoli",
+    "answer": "Broccoli",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What is this?",
-        "answer": "food",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What vegetable is shown?",
+        "answer": "broccoli",
+        "score": 0.7713,
+        "img_score": 0.7713,
         "q_score": 0.0
       },
       {
-        "question": "Is this a meal for a child?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "What is on the pizza?",
+        "answer": "egg",
+        "score": 0.7665,
+        "img_score": 0.7665,
         "q_score": 0.0
       },
       {
-        "question": "Is this a sandwich with a bun?",
-        "answer": "no",
-        "score": 0.7478,
-        "img_score": 0.7478,
+        "question": "In how many photos do you see a fork?",
+        "answer": "1",
+        "score": 0.7601,
+        "img_score": 0.7601,
         "q_score": 0.0
       }
     ]
@@ -1191,28 +1191,28 @@
   {
     "question_id": 22271000,
     "question": "Is this a bright and sunny day?",
-    "answer": "noyesnight",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is there an image in the motorcycle's rearview mirror?",
-        "answer": "yes",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is the fabric company named?",
+        "answer": "britex",
+        "score": 0.6998,
+        "img_score": 0.6998,
         "q_score": 0.0
       },
       {
-        "question": "What does the print on the mirror say?",
-        "answer": "corona",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is the man near the pole doing with his legs?",
+        "answer": "spreading",
+        "score": 0.6756,
+        "img_score": 0.6756,
         "q_score": 0.0
       },
       {
-        "question": "Is the picture black and white?",
-        "answer": "no",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is parked at the meter?",
+        "answer": "bike",
+        "score": 0.6745,
+        "img_score": 0.6745,
         "q_score": 0.0
       }
     ]
@@ -1220,28 +1220,28 @@
   {
     "question_id": 22271001,
     "question": "Are there people in the picture?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is there an image in the motorcycle's rearview mirror?",
-        "answer": "yes",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is the fabric company named?",
+        "answer": "britex",
+        "score": 0.6998,
+        "img_score": 0.6998,
         "q_score": 0.0
       },
       {
-        "question": "What does the print on the mirror say?",
-        "answer": "corona",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is the man near the pole doing with his legs?",
+        "answer": "spreading",
+        "score": 0.6756,
+        "img_score": 0.6756,
         "q_score": 0.0
       },
       {
-        "question": "Is the picture black and white?",
-        "answer": "no",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is parked at the meter?",
+        "answer": "bike",
+        "score": 0.6745,
+        "img_score": 0.6745,
         "q_score": 0.0
       }
     ]
@@ -1249,28 +1249,28 @@
   {
     "question_id": 22271002,
     "question": "What is the name of the street sign on the ground?",
-    "answer": "western6",
+    "answer": "western",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is there an image in the motorcycle's rearview mirror?",
-        "answer": "yes",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is the fabric company named?",
+        "answer": "britex",
+        "score": 0.6998,
+        "img_score": 0.6998,
         "q_score": 0.0
       },
       {
-        "question": "What does the print on the mirror say?",
-        "answer": "corona",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is the man near the pole doing with his legs?",
+        "answer": "spreading",
+        "score": 0.6756,
+        "img_score": 0.6756,
         "q_score": 0.0
       },
       {
-        "question": "Is the picture black and white?",
-        "answer": "no",
-        "score": 0.649,
-        "img_score": 0.649,
+        "question": "What is parked at the meter?",
+        "answer": "bike",
+        "score": 0.6745,
+        "img_score": 0.6745,
         "q_score": 0.0
       }
     ]
@@ -1278,28 +1278,28 @@
   {
     "question_id": 133629000,
     "question": "Is this a public place?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What non-paper item is pinned to the notice board?",
-        "answer": "picture",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "What color is the roll of tape?",
+        "answer": "clear",
+        "score": 0.8516,
+        "img_score": 0.8516,
         "q_score": 0.0
       },
       {
-        "question": "Is the shelf on the wall adjustable?",
+        "question": "Is this a home office?",
         "answer": "no",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "score": 0.841,
+        "img_score": 0.841,
         "q_score": 0.0
       },
       {
-        "question": "Is the desk a mess?",
-        "answer": "yes",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "Which color do the two computers have in common?",
+        "answer": "blue",
+        "score": 0.8377,
+        "img_score": 0.8377,
         "q_score": 0.0
       }
     ]
@@ -1307,57 +1307,57 @@
   {
     "question_id": 133629001,
     "question": "What color is the desk?",
-    "answer": "brownbla",
+    "answer": "black",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What non-paper item is pinned to the notice board?",
-        "answer": "picture",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "What color is the roll of tape?",
+        "answer": "clear",
+        "score": 0.8516,
+        "img_score": 0.8516,
         "q_score": 0.0
       },
       {
-        "question": "Is the shelf on the wall adjustable?",
+        "question": "Is this a home office?",
         "answer": "no",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "score": 0.841,
+        "img_score": 0.841,
         "q_score": 0.0
       },
       {
-        "question": "Is the desk a mess?",
-        "answer": "yes",
-        "score": 0.8375,
-        "img_score": 0.8375,
-        "q_score": 0.8872
+        "question": "Which color do the two computers have in common?",
+        "answer": "blue",
+        "score": 0.8377,
+        "img_score": 0.8377,
+        "q_score": 0.0
       }
     ]
   },
   {
     "question_id": 133629002,
     "question": "How many chairs have wheels?",
-    "answer": "02no",
+    "answer": "none",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What non-paper item is pinned to the notice board?",
-        "answer": "picture",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "What color is the roll of tape?",
+        "answer": "clear",
+        "score": 0.8516,
+        "img_score": 0.8516,
         "q_score": 0.0
       },
       {
-        "question": "Is the shelf on the wall adjustable?",
+        "question": "Is this a home office?",
         "answer": "no",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "score": 0.841,
+        "img_score": 0.841,
         "q_score": 0.0
       },
       {
-        "question": "Is the desk a mess?",
-        "answer": "yes",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "Which color do the two computers have in common?",
+        "answer": "blue",
+        "score": 0.8377,
+        "img_score": 0.8377,
         "q_score": 0.0
       }
     ]
@@ -1365,28 +1365,28 @@
   {
     "question_id": 133629003,
     "question": "Is this chair in the way of people who might walk through?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What non-paper item is pinned to the notice board?",
-        "answer": "picture",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "What color is the roll of tape?",
+        "answer": "clear",
+        "score": 0.8516,
+        "img_score": 0.8516,
         "q_score": 0.0
       },
       {
-        "question": "Is the shelf on the wall adjustable?",
+        "question": "Is this a home office?",
         "answer": "no",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "score": 0.841,
+        "img_score": 0.841,
         "q_score": 0.0
       },
       {
-        "question": "Is the desk a mess?",
-        "answer": "yes",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "Which color do the two computers have in common?",
+        "answer": "blue",
+        "score": 0.8377,
+        "img_score": 0.8377,
         "q_score": 0.0
       }
     ]
@@ -1394,28 +1394,28 @@
   {
     "question_id": 133629004,
     "question": "Can these items be used to make food?",
-    "answer": "noyes strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What non-paper item is pinned to the notice board?",
-        "answer": "picture",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "What color is the roll of tape?",
+        "answer": "clear",
+        "score": 0.8516,
+        "img_score": 0.8516,
         "q_score": 0.0
       },
       {
-        "question": "Is the shelf on the wall adjustable?",
+        "question": "Is this a home office?",
         "answer": "no",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "score": 0.841,
+        "img_score": 0.841,
         "q_score": 0.0
       },
       {
-        "question": "Is the desk a mess?",
-        "answer": "yes",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "Which color do the two computers have in common?",
+        "answer": "blue",
+        "score": 0.8377,
+        "img_score": 0.8377,
         "q_score": 0.0
       }
     ]
@@ -1423,28 +1423,28 @@
   {
     "question_id": 133629005,
     "question": "What do people do here?",
-    "answer": "work,study and",
+    "answer": "work",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What non-paper item is pinned to the notice board?",
-        "answer": "picture",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "What color is the roll of tape?",
+        "answer": "clear",
+        "score": 0.8516,
+        "img_score": 0.8516,
         "q_score": 0.0
       },
       {
-        "question": "Is the shelf on the wall adjustable?",
+        "question": "Is this a home office?",
         "answer": "no",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "score": 0.841,
+        "img_score": 0.841,
         "q_score": 0.0
       },
       {
-        "question": "Is the desk a mess?",
-        "answer": "yes",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "Which color do the two computers have in common?",
+        "answer": "blue",
+        "score": 0.8377,
+        "img_score": 0.8377,
         "q_score": 0.0
       }
     ]
@@ -1452,28 +1452,28 @@
   {
     "question_id": 133629006,
     "question": "What color is the lampshade?",
-    "answer": "blackbro",
+    "answer": "white",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What non-paper item is pinned to the notice board?",
-        "answer": "picture",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "What color is the roll of tape?",
+        "answer": "clear",
+        "score": 0.8516,
+        "img_score": 0.8516,
         "q_score": 0.0
       },
       {
-        "question": "Is the shelf on the wall adjustable?",
+        "question": "Is this a home office?",
         "answer": "no",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "score": 0.841,
+        "img_score": 0.841,
         "q_score": 0.0
       },
       {
-        "question": "Is the desk a mess?",
-        "answer": "yes",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "Which color do the two computers have in common?",
+        "answer": "blue",
+        "score": 0.8377,
+        "img_score": 0.8377,
         "q_score": 0.0
       }
     ]
@@ -1481,86 +1481,86 @@
   {
     "question_id": 133629007,
     "question": "What type of computer is on the desk?",
-    "answer": "laptopip",
+    "answer": "laptop",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What non-paper item is pinned to the notice board?",
-        "answer": "picture",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "question": "What color is the roll of tape?",
+        "answer": "clear",
+        "score": 0.8516,
+        "img_score": 0.8516,
         "q_score": 0.0
       },
       {
-        "question": "Is the shelf on the wall adjustable?",
+        "question": "Is this a home office?",
         "answer": "no",
-        "score": 0.8375,
-        "img_score": 0.8375,
+        "score": 0.841,
+        "img_score": 0.841,
         "q_score": 0.0
       },
       {
-        "question": "Is the desk a mess?",
-        "answer": "yes",
-        "score": 0.8375,
-        "img_score": 0.8375,
-        "q_score": 0.8646
+        "question": "Which color do the two computers have in common?",
+        "answer": "blue",
+        "score": 0.8377,
+        "img_score": 0.8377,
+        "q_score": 0.0
       }
     ]
   },
   {
     "question_id": 133631000,
     "question": "Which is longer, the Elephant's tusks or the Elephant's trunk?",
-    "answer": "tusktr",
+    "answer": "Elephant's trunk",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are these elephants inside of a fenced area?",
-        "answer": "no",
-        "score": 0.9014,
-        "img_score": 0.9014,
-        "q_score": 0.0
+        "question": "How many elephants are there?",
+        "answer": "1",
+        "score": 0.948,
+        "img_score": 0.948,
+        "q_score": 0.892
       },
       {
-        "question": "Does the smaller elephant have tusks?",
+        "question": "Has the elephant relieved itself recently?",
         "answer": "yes",
-        "score": 0.9014,
-        "img_score": 0.9014,
-        "q_score": 0.9264
+        "score": 0.9326,
+        "img_score": 0.9326,
+        "q_score": 0.9008
       },
       {
-        "question": "Are all of the elephants adults?",
-        "answer": "no",
-        "score": 0.9014,
-        "img_score": 0.9014,
-        "q_score": 0.8853
+        "question": "How many elephants?",
+        "answer": "1",
+        "score": 0.9224,
+        "img_score": 0.9224,
+        "q_score": 0.8826
       }
     ]
   },
   {
     "question_id": 133631001,
     "question": "Is it sunny out?",
-    "answer": "noyes strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are these elephants inside of a fenced area?",
-        "answer": "no",
-        "score": 0.9014,
-        "img_score": 0.9014,
+        "question": "How many elephants are there?",
+        "answer": "1",
+        "score": 0.948,
+        "img_score": 0.948,
         "q_score": 0.0
       },
       {
-        "question": "Does the smaller elephant have tusks?",
+        "question": "Has the elephant relieved itself recently?",
         "answer": "yes",
-        "score": 0.9014,
-        "img_score": 0.9014,
+        "score": 0.9326,
+        "img_score": 0.9326,
         "q_score": 0.0
       },
       {
-        "question": "Are all of the elephants adults?",
-        "answer": "no",
-        "score": 0.9014,
-        "img_score": 0.9014,
+        "question": "How many elephants?",
+        "answer": "1",
+        "score": 0.9224,
+        "img_score": 0.9224,
         "q_score": 0.0
       }
     ]
@@ -1568,57 +1568,57 @@
   {
     "question_id": 133631002,
     "question": "Does the elephant need water?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are these elephants inside of a fenced area?",
-        "answer": "no",
-        "score": 0.9014,
-        "img_score": 0.9014,
-        "q_score": 0.0
+        "question": "How many elephants are there?",
+        "answer": "1",
+        "score": 0.948,
+        "img_score": 0.948,
+        "q_score": 0.9286
       },
       {
-        "question": "Does the smaller elephant have tusks?",
+        "question": "Has the elephant relieved itself recently?",
         "answer": "yes",
-        "score": 0.9014,
-        "img_score": 0.9014,
-        "q_score": 0.9325
+        "score": 0.9326,
+        "img_score": 0.9326,
+        "q_score": 0.9313
       },
       {
-        "question": "Are all of the elephants adults?",
-        "answer": "no",
-        "score": 0.9014,
-        "img_score": 0.9014,
-        "q_score": 0.9245
+        "question": "How many elephants?",
+        "answer": "1",
+        "score": 0.9224,
+        "img_score": 0.9224,
+        "q_score": 0.9187
       }
     ]
   },
   {
     "question_id": 2562000,
     "question": "What is the color scheme of the photo?",
-    "answer": "white andblue",
+    "answer": "blue",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this a backhand or forehand?",
-        "answer": "backhand",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "How many feet can be seen in this photo?",
+        "answer": "2",
+        "score": 0.8795,
+        "img_score": 0.8795,
         "q_score": 0.0
       },
       {
-        "question": "Which hand holds the racket?",
-        "answer": "right",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What color is his shirt?",
+        "answer": "white",
+        "score": 0.8676,
+        "img_score": 0.8676,
         "q_score": 0.0
       },
       {
-        "question": "Is the player looking at the ball?",
-        "answer": "no",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What color are the players shorts?",
+        "answer": "white",
+        "score": 0.86,
+        "img_score": 0.86,
         "q_score": 0.0
       }
     ]
@@ -1626,28 +1626,28 @@
   {
     "question_id": 2562001,
     "question": "Are all the men tennis players?",
-    "answer": "noyes strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this a backhand or forehand?",
-        "answer": "backhand",
-        "score": 0.8035,
-        "img_score": 0.8035,
-        "q_score": 0.8591
-      },
-      {
-        "question": "Which hand holds the racket?",
-        "answer": "right",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "How many feet can be seen in this photo?",
+        "answer": "2",
+        "score": 0.8795,
+        "img_score": 0.8795,
         "q_score": 0.0
       },
       {
-        "question": "Is the player looking at the ball?",
-        "answer": "no",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What color is his shirt?",
+        "answer": "white",
+        "score": 0.8676,
+        "img_score": 0.8676,
+        "q_score": 0.0
+      },
+      {
+        "question": "What color are the players shorts?",
+        "answer": "white",
+        "score": 0.86,
+        "img_score": 0.86,
         "q_score": 0.0
       }
     ]
@@ -1655,28 +1655,28 @@
   {
     "question_id": 2562002,
     "question": "Is the man wearing a wristband?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this a backhand or forehand?",
-        "answer": "backhand",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "How many feet can be seen in this photo?",
+        "answer": "2",
+        "score": 0.8795,
+        "img_score": 0.8795,
         "q_score": 0.0
       },
       {
-        "question": "Which hand holds the racket?",
-        "answer": "right",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What color is his shirt?",
+        "answer": "white",
+        "score": 0.8676,
+        "img_score": 0.8676,
         "q_score": 0.0
       },
       {
-        "question": "Is the player looking at the ball?",
-        "answer": "no",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What color are the players shorts?",
+        "answer": "white",
+        "score": 0.86,
+        "img_score": 0.86,
         "q_score": 0.0
       }
     ]
@@ -1684,28 +1684,28 @@
   {
     "question_id": 2562003,
     "question": "What two brands are shown advertised behind the tennis player?",
-    "answer": "wat andten",
+    "answer": "Nike and adidas",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this a backhand or forehand?",
-        "answer": "backhand",
-        "score": 0.8035,
-        "img_score": 0.8035,
-        "q_score": 0.8091
+        "question": "How many feet can be seen in this photo?",
+        "answer": "2",
+        "score": 0.8795,
+        "img_score": 0.8795,
+        "q_score": 0.0
       },
       {
-        "question": "Which hand holds the racket?",
-        "answer": "right",
-        "score": 0.8035,
-        "img_score": 0.8035,
-        "q_score": 0.7707
+        "question": "What color is his shirt?",
+        "answer": "white",
+        "score": 0.8676,
+        "img_score": 0.8676,
+        "q_score": 0.0
       },
       {
-        "question": "Is the player looking at the ball?",
-        "answer": "no",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What color are the players shorts?",
+        "answer": "white",
+        "score": 0.86,
+        "img_score": 0.86,
         "q_score": 0.0
       }
     ]
@@ -1713,28 +1713,28 @@
   {
     "question_id": 2562004,
     "question": "What sport is being played?",
-    "answer": "tennisball",
+    "answer": "tennis",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this a backhand or forehand?",
-        "answer": "backhand",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "How many feet can be seen in this photo?",
+        "answer": "2",
+        "score": 0.8795,
+        "img_score": 0.8795,
         "q_score": 0.0
       },
       {
-        "question": "Which hand holds the racket?",
-        "answer": "right",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What color is his shirt?",
+        "answer": "white",
+        "score": 0.8676,
+        "img_score": 0.8676,
         "q_score": 0.0
       },
       {
-        "question": "Is the player looking at the ball?",
-        "answer": "no",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What color are the players shorts?",
+        "answer": "white",
+        "score": 0.86,
+        "img_score": 0.86,
         "q_score": 0.0
       }
     ]
@@ -1742,28 +1742,28 @@
   {
     "question_id": 133636000,
     "question": "What is the number on the left parking meter?",
-    "answer": "21 and",
+    "answer": "2",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Could you see someone clearly in the shower if the door is closed?",
-        "answer": "no",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What is this a picture of?",
+        "answer": "parking meter",
+        "score": 0.8124,
+        "img_score": 0.8124,
         "q_score": 0.0
       },
       {
-        "question": "Is the water turned on or off?",
-        "answer": "off",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What type of currency does this device take?",
+        "answer": "coins",
+        "score": 0.7303,
+        "img_score": 0.7303,
         "q_score": 0.0
       },
       {
-        "question": "Where is the electrical outlet?",
-        "answer": "wall",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What does the sign say?",
+        "answer": "walk",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -1771,28 +1771,28 @@
   {
     "question_id": 133636001,
     "question": "How much time is left?",
-    "answer": "0minutes15",
+    "answer": "30 minutes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Could you see someone clearly in the shower if the door is closed?",
-        "answer": "no",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What is this a picture of?",
+        "answer": "parking meter",
+        "score": 0.8124,
+        "img_score": 0.8124,
         "q_score": 0.0
       },
       {
-        "question": "Is the water turned on or off?",
-        "answer": "off",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What type of currency does this device take?",
+        "answer": "coins",
+        "score": 0.7303,
+        "img_score": 0.7303,
         "q_score": 0.0
       },
       {
-        "question": "Where is the electrical outlet?",
-        "answer": "wall",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What does the sign say?",
+        "answer": "walk",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -1800,28 +1800,28 @@
   {
     "question_id": 133636002,
     "question": "What number is the parking meter on the right?",
-    "answer": "21 and",
+    "answer": "1",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Could you see someone clearly in the shower if the door is closed?",
-        "answer": "no",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What is this a picture of?",
+        "answer": "parking meter",
+        "score": 0.8124,
+        "img_score": 0.8124,
         "q_score": 0.0
       },
       {
-        "question": "Is the water turned on or off?",
-        "answer": "off",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What type of currency does this device take?",
+        "answer": "coins",
+        "score": 0.7303,
+        "img_score": 0.7303,
         "q_score": 0.0
       },
       {
-        "question": "Where is the electrical outlet?",
-        "answer": "wall",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What does the sign say?",
+        "answer": "walk",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -1829,28 +1829,28 @@
   {
     "question_id": 133636003,
     "question": "Is there any cars on the street?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Could you see someone clearly in the shower if the door is closed?",
-        "answer": "no",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What is this a picture of?",
+        "answer": "parking meter",
+        "score": 0.8124,
+        "img_score": 0.8124,
         "q_score": 0.0
       },
       {
-        "question": "Is the water turned on or off?",
-        "answer": "off",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What type of currency does this device take?",
+        "answer": "coins",
+        "score": 0.7303,
+        "img_score": 0.7303,
         "q_score": 0.0
       },
       {
-        "question": "Where is the electrical outlet?",
-        "answer": "wall",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What does the sign say?",
+        "answer": "walk",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -1858,28 +1858,28 @@
   {
     "question_id": 133636004,
     "question": "Are the meters rusted?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Could you see someone clearly in the shower if the door is closed?",
-        "answer": "no",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What is this a picture of?",
+        "answer": "parking meter",
+        "score": 0.8124,
+        "img_score": 0.8124,
         "q_score": 0.0
       },
       {
-        "question": "Is the water turned on or off?",
-        "answer": "off",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What type of currency does this device take?",
+        "answer": "coins",
+        "score": 0.7303,
+        "img_score": 0.7303,
         "q_score": 0.0
       },
       {
-        "question": "Where is the electrical outlet?",
-        "answer": "wall",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What does the sign say?",
+        "answer": "walk",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -1887,28 +1887,28 @@
   {
     "question_id": 133636005,
     "question": "Is there time remaining on the meter?",
-    "answer": "yesno0",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Could you see someone clearly in the shower if the door is closed?",
-        "answer": "no",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What is this a picture of?",
+        "answer": "parking meter",
+        "score": 0.8124,
+        "img_score": 0.8124,
         "q_score": 0.0
       },
       {
-        "question": "Is the water turned on or off?",
-        "answer": "off",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What type of currency does this device take?",
+        "answer": "coins",
+        "score": 0.7303,
+        "img_score": 0.7303,
         "q_score": 0.0
       },
       {
-        "question": "Where is the electrical outlet?",
-        "answer": "wall",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What does the sign say?",
+        "answer": "walk",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -1916,28 +1916,28 @@
   {
     "question_id": 133636006,
     "question": "How many meters are there?",
-    "answer": "20 and",
+    "answer": "two",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Could you see someone clearly in the shower if the door is closed?",
-        "answer": "no",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What is this a picture of?",
+        "answer": "parking meter",
+        "score": 0.8124,
+        "img_score": 0.8124,
         "q_score": 0.0
       },
       {
-        "question": "Is the water turned on or off?",
-        "answer": "off",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What type of currency does this device take?",
+        "answer": "coins",
+        "score": 0.7303,
+        "img_score": 0.7303,
         "q_score": 0.0
       },
       {
-        "question": "Where is the electrical outlet?",
-        "answer": "wall",
-        "score": 0.719,
-        "img_score": 0.719,
+        "question": "What does the sign say?",
+        "answer": "walk",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -1945,28 +1945,28 @@
   {
     "question_id": 133645000,
     "question": "Is there someone on the bench?",
-    "answer": "noyes strutConnector",
+    "answer": "no",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How are the trees being held up?",
-        "answer": "trunks",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "Can you see snow?",
+        "answer": "no",
+        "score": 0.762,
+        "img_score": 0.762,
         "q_score": 0.0
       },
       {
-        "question": "What kind of benches are here?",
-        "answer": "stone",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "Is the picture clear?",
+        "answer": "yes",
+        "score": 0.73,
+        "img_score": 0.73,
         "q_score": 0.0
       },
       {
-        "question": "How many people could fit at the table?",
-        "answer": "4",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "What ocean is this?",
+        "answer": "pacific",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -1974,28 +1974,28 @@
   {
     "question_id": 133645001,
     "question": "Are the street lights turned on?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How are the trees being held up?",
-        "answer": "trunks",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "Can you see snow?",
+        "answer": "no",
+        "score": 0.762,
+        "img_score": 0.762,
         "q_score": 0.0
       },
       {
-        "question": "What kind of benches are here?",
-        "answer": "stone",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "Is the picture clear?",
+        "answer": "yes",
+        "score": 0.73,
+        "img_score": 0.73,
         "q_score": 0.0
       },
       {
-        "question": "How many people could fit at the table?",
-        "answer": "4",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "What ocean is this?",
+        "answer": "pacific",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -2003,28 +2003,28 @@
   {
     "question_id": 133645002,
     "question": "Is the water clear?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How are the trees being held up?",
-        "answer": "trunks",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "Can you see snow?",
+        "answer": "no",
+        "score": 0.762,
+        "img_score": 0.762,
         "q_score": 0.0
       },
       {
-        "question": "What kind of benches are here?",
-        "answer": "stone",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "Is the picture clear?",
+        "answer": "yes",
+        "score": 0.73,
+        "img_score": 0.73,
         "q_score": 0.0
       },
       {
-        "question": "How many people could fit at the table?",
-        "answer": "4",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "What ocean is this?",
+        "answer": "pacific",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -2032,28 +2032,28 @@
   {
     "question_id": 133645003,
     "question": "What type of boat is in the water?",
-    "answer": "boatooning",
+    "answer": "boat",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How are the trees being held up?",
-        "answer": "trunks",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "Can you see snow?",
+        "answer": "no",
+        "score": 0.762,
+        "img_score": 0.762,
         "q_score": 0.0
       },
       {
-        "question": "What kind of benches are here?",
-        "answer": "stone",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "Is the picture clear?",
+        "answer": "yes",
+        "score": 0.73,
+        "img_score": 0.73,
         "q_score": 0.0
       },
       {
-        "question": "How many people could fit at the table?",
-        "answer": "4",
-        "score": 0.7431,
-        "img_score": 0.7431,
+        "question": "What ocean is this?",
+        "answer": "pacific",
+        "score": 0.7293,
+        "img_score": 0.7293,
         "q_score": 0.0
       }
     ]
@@ -2061,28 +2061,28 @@
   {
     "question_id": 264718000,
     "question": "How long is the parking on the street?",
-    "answer": "2hours30",
+    "answer": "2 hours",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What does the sign read?",
-        "answer": "stop",
-        "score": 0.81,
-        "img_score": 0.81,
+        "question": "Is there a garbage can in the picture?",
+        "answer": "yes",
+        "score": 0.7997,
+        "img_score": 0.7997,
         "q_score": 0.0
       },
       {
-        "question": "Where is the street and stop sign?",
-        "answer": "sidewalk",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.8722
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 0.7927,
+        "img_score": 0.7927,
+        "q_score": 0.0
       },
       {
-        "question": "What street can you see?",
-        "answer": "prairie st",
-        "score": 0.81,
-        "img_score": 0.81,
+        "question": "What sign is shown?",
+        "answer": "stop",
+        "score": 0.7884,
+        "img_score": 0.7884,
         "q_score": 0.0
       }
     ]
@@ -2090,28 +2090,28 @@
   {
     "question_id": 264718001,
     "question": "Do you have to pay to park here?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What does the sign read?",
+        "question": "Is there a garbage can in the picture?",
+        "answer": "yes",
+        "score": 0.7997,
+        "img_score": 0.7997,
+        "q_score": 0.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 0.7927,
+        "img_score": 0.7927,
+        "q_score": 0.0
+      },
+      {
+        "question": "What sign is shown?",
         "answer": "stop",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "Where is the street and stop sign?",
-        "answer": "sidewalk",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "What street can you see?",
-        "answer": "prairie st",
-        "score": 0.81,
-        "img_score": 0.81,
+        "score": 0.7884,
+        "img_score": 0.7884,
         "q_score": 0.0
       }
     ]
@@ -2119,144 +2119,144 @@
   {
     "question_id": 264718002,
     "question": "Which side of the sign is the road on?",
-    "answer": "rightsid",
+    "answer": "left",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What does the sign read?",
+        "question": "Is there a garbage can in the picture?",
+        "answer": "yes",
+        "score": 0.7997,
+        "img_score": 0.7997,
+        "q_score": 0.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 0.7927,
+        "img_score": 0.7927,
+        "q_score": 0.0
+      },
+      {
+        "question": "What sign is shown?",
         "answer": "stop",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.9172
-      },
-      {
-        "question": "Where is the street and stop sign?",
-        "answer": "sidewalk",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "What street can you see?",
-        "answer": "prairie st",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
+        "score": 0.7884,
+        "img_score": 0.7884,
+        "q_score": 0.9017
       }
     ]
   },
   {
     "question_id": 264718003,
     "question": "What does the sign read?",
-    "answer": "2parking and",
+    "answer": "no parking",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What does the sign read?",
+        "question": "Is there a garbage can in the picture?",
+        "answer": "yes",
+        "score": 0.7997,
+        "img_score": 0.7997,
+        "q_score": 0.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 0.7927,
+        "img_score": 0.7927,
+        "q_score": 0.0
+      },
+      {
+        "question": "What sign is shown?",
         "answer": "stop",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 1.0
-      },
-      {
-        "question": "Where is the street and stop sign?",
-        "answer": "sidewalk",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "What street can you see?",
-        "answer": "prairie st",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
+        "score": 0.7884,
+        "img_score": 0.7884,
+        "q_score": 0.9732
       }
     ]
   },
   {
     "question_id": 264718004,
     "question": "What does the sign say?",
-    "answer": "2parking and",
+    "answer": "no parking",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What does the sign read?",
+        "question": "Is there a garbage can in the picture?",
+        "answer": "yes",
+        "score": 0.7997,
+        "img_score": 0.7997,
+        "q_score": 0.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 0.7927,
+        "img_score": 0.7927,
+        "q_score": 0.0
+      },
+      {
+        "question": "What sign is shown?",
         "answer": "stop",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.9861
-      },
-      {
-        "question": "Where is the street and stop sign?",
-        "answer": "sidewalk",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "What street can you see?",
-        "answer": "prairie st",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
+        "score": 0.7884,
+        "img_score": 0.7884,
+        "q_score": 0.9788
       }
     ]
   },
   {
     "question_id": 264718005,
     "question": "What phone number is on the sign?",
-    "answer": "08738",
+    "answer": "555-1234",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What does the sign read?",
+        "question": "Is there a garbage can in the picture?",
+        "answer": "yes",
+        "score": 0.7997,
+        "img_score": 0.7997,
+        "q_score": 0.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 0.7927,
+        "img_score": 0.7927,
+        "q_score": 0.0
+      },
+      {
+        "question": "What sign is shown?",
         "answer": "stop",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.9308
-      },
-      {
-        "question": "Where is the street and stop sign?",
-        "answer": "sidewalk",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "What street can you see?",
-        "answer": "prairie st",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
+        "score": 0.7884,
+        "img_score": 0.7884,
+        "q_score": 0.932
       }
     ]
   },
   {
     "question_id": 264718006,
     "question": "What modes of transportation are in the picture?",
-    "answer": "cars and buses",
+    "answer": "cars",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What does the sign read?",
+        "question": "Is there a garbage can in the picture?",
+        "answer": "yes",
+        "score": 0.7997,
+        "img_score": 0.7997,
+        "q_score": 0.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 0.7927,
+        "img_score": 0.7927,
+        "q_score": 0.0
+      },
+      {
+        "question": "What sign is shown?",
         "answer": "stop",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "Where is the street and stop sign?",
-        "answer": "sidewalk",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "What street can you see?",
-        "answer": "prairie st",
-        "score": 0.81,
-        "img_score": 0.81,
+        "score": 0.7884,
+        "img_score": 0.7884,
         "q_score": 0.0
       }
     ]
@@ -2264,57 +2264,57 @@
   {
     "question_id": 264718007,
     "question": "What sign is to the right of the photo?",
-    "answer": "2parking and",
+    "answer": "parking",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "What does the sign read?",
+        "question": "Is there a garbage can in the picture?",
+        "answer": "yes",
+        "score": 0.7997,
+        "img_score": 0.7997,
+        "q_score": 0.0
+      },
+      {
+        "question": "What color is the sky?",
+        "answer": "gray",
+        "score": 0.7927,
+        "img_score": 0.7927,
+        "q_score": 0.0
+      },
+      {
+        "question": "What sign is shown?",
         "answer": "stop",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.9374
-      },
-      {
-        "question": "Where is the street and stop sign?",
-        "answer": "sidewalk",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
-      },
-      {
-        "question": "What street can you see?",
-        "answer": "prairie st",
-        "score": 0.81,
-        "img_score": 0.81,
-        "q_score": 0.0
+        "score": 0.7884,
+        "img_score": 0.7884,
+        "q_score": 0.957
       }
     ]
   },
   {
     "question_id": 133648000,
     "question": "Is the bat blue?",
-    "answer": "yesno strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Where is the nike sign?",
-        "answer": "shoes",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "How many people are in this picture?",
+        "answer": "5",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What is the player holding?",
-        "answer": "bat",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "Is the batter left or right handed?",
+        "answer": "right",
+        "score": 0.8702,
+        "img_score": 0.8702,
         "q_score": 0.0
       },
       {
-        "question": "Did he hit the ball?",
-        "answer": "yes",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "What is the child in the photo about to do?",
+        "answer": "catch ball",
+        "score": 0.8699,
+        "img_score": 0.8699,
         "q_score": 0.0
       }
     ]
@@ -2322,28 +2322,28 @@
   {
     "question_id": 133648001,
     "question": "Is the photo colored?",
-    "answer": "noyes strutConnector",
+    "answer": "black and white",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Where is the nike sign?",
-        "answer": "shoes",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "How many people are in this picture?",
+        "answer": "5",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What is the player holding?",
-        "answer": "bat",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "Is the batter left or right handed?",
+        "answer": "right",
+        "score": 0.8702,
+        "img_score": 0.8702,
         "q_score": 0.0
       },
       {
-        "question": "Did he hit the ball?",
-        "answer": "yes",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "What is the child in the photo about to do?",
+        "answer": "catch ball",
+        "score": 0.8699,
+        "img_score": 0.8699,
         "q_score": 0.0
       }
     ]
@@ -2351,28 +2351,28 @@
   {
     "question_id": 133648002,
     "question": "What color is the home plate umpire's shirt?",
-    "answer": "bluewhit",
+    "answer": "blue",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Where is the nike sign?",
-        "answer": "shoes",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "How many people are in this picture?",
+        "answer": "5",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What is the player holding?",
-        "answer": "bat",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "Is the batter left or right handed?",
+        "answer": "right",
+        "score": 0.8702,
+        "img_score": 0.8702,
         "q_score": 0.0
       },
       {
-        "question": "Did he hit the ball?",
-        "answer": "yes",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "What is the child in the photo about to do?",
+        "answer": "catch ball",
+        "score": 0.8699,
+        "img_score": 0.8699,
         "q_score": 0.0
       }
     ]
@@ -2380,28 +2380,28 @@
   {
     "question_id": 133648003,
     "question": "Which game are they playing?",
-    "answer": "baseball",
+    "answer": "this one",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Where is the nike sign?",
-        "answer": "shoes",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "How many people are in this picture?",
+        "answer": "5",
+        "score": 0.9028,
+        "img_score": 0.9028,
         "q_score": 0.0
       },
       {
-        "question": "What is the player holding?",
-        "answer": "bat",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "Is the batter left or right handed?",
+        "answer": "right",
+        "score": 0.8702,
+        "img_score": 0.8702,
         "q_score": 0.0
       },
       {
-        "question": "Did he hit the ball?",
-        "answer": "yes",
-        "score": 0.8378,
-        "img_score": 0.8378,
+        "question": "What is the child in the photo about to do?",
+        "answer": "catch ball",
+        "score": 0.8699,
+        "img_score": 0.8699,
         "q_score": 0.0
       }
     ]
@@ -2413,24 +2413,24 @@
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this person on the surfboard?",
-        "answer": "yes",
-        "score": 0.8438,
-        "img_score": 0.8438,
+        "question": "Where do you play this sport?",
+        "answer": "ocean",
+        "score": 0.8873,
+        "img_score": 0.8873,
         "q_score": 0.0
       },
       {
-        "question": "Is the surfer standing on both feet?",
-        "answer": "yes",
-        "score": 0.8438,
-        "img_score": 0.8438,
+        "question": "Is everyone surfing?",
+        "answer": "no",
+        "score": 0.8678,
+        "img_score": 0.8678,
         "q_score": 0.0
       },
       {
-        "question": "Is the man standing towards the front or the rear of the surfboard?",
-        "answer": "rear",
-        "score": 0.8438,
-        "img_score": 0.8438,
+        "question": "How many people are in the picture?",
+        "answer": "20",
+        "score": 0.8629,
+        "img_score": 0.8629,
         "q_score": 0.0
       }
     ]
@@ -2438,28 +2438,28 @@
   {
     "question_id": 459182001,
     "question": "What is in the foreground?",
-    "answer": "water andsurf",
+    "answer": "rocks",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this person on the surfboard?",
-        "answer": "yes",
-        "score": 0.8438,
-        "img_score": 0.8438,
+        "question": "Where do you play this sport?",
+        "answer": "ocean",
+        "score": 0.8873,
+        "img_score": 0.8873,
         "q_score": 0.0
       },
       {
-        "question": "Is the surfer standing on both feet?",
-        "answer": "yes",
-        "score": 0.8438,
-        "img_score": 0.8438,
+        "question": "Is everyone surfing?",
+        "answer": "no",
+        "score": 0.8678,
+        "img_score": 0.8678,
         "q_score": 0.0
       },
       {
-        "question": "Is the man standing towards the front or the rear of the surfboard?",
-        "answer": "rear",
-        "score": 0.8438,
-        "img_score": 0.8438,
+        "question": "How many people are in the picture?",
+        "answer": "20",
+        "score": 0.8629,
+        "img_score": 0.8629,
         "q_score": 0.0
       }
     ]
@@ -2467,57 +2467,57 @@
   {
     "question_id": 459182002,
     "question": "How many people are there?",
-    "answer": "21 and",
+    "answer": "2",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this person on the surfboard?",
-        "answer": "yes",
-        "score": 0.8438,
-        "img_score": 0.8438,
+        "question": "Where do you play this sport?",
+        "answer": "ocean",
+        "score": 0.8873,
+        "img_score": 0.8873,
         "q_score": 0.0
       },
       {
-        "question": "Is the surfer standing on both feet?",
-        "answer": "yes",
-        "score": 0.8438,
-        "img_score": 0.8438,
+        "question": "Is everyone surfing?",
+        "answer": "no",
+        "score": 0.8678,
+        "img_score": 0.8678,
         "q_score": 0.0
       },
       {
-        "question": "Is the man standing towards the front or the rear of the surfboard?",
-        "answer": "rear",
-        "score": 0.8438,
-        "img_score": 0.8438,
-        "q_score": 0.0
+        "question": "How many people are in the picture?",
+        "answer": "20",
+        "score": 0.8629,
+        "img_score": 0.8629,
+        "q_score": 0.959
       }
     ]
   },
   {
     "question_id": 395801000,
     "question": "Is it morning or evening?",
-    "answer": "morningn",
+    "answer": "morning",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are street lights on?",
-        "answer": "yes",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the front of the store on the left?",
+        "answer": "white",
+        "score": 0.7789,
+        "img_score": 0.7789,
         "q_score": 0.0
       },
       {
-        "question": "Is this a night or daytime scene?",
-        "answer": "night",
-        "score": 0.6964,
-        "img_score": 0.6964,
-        "q_score": 0.9199
+        "question": "What color is the train on the right track?",
+        "answer": "red",
+        "score": 0.7364,
+        "img_score": 0.7364,
+        "q_score": 0.0
       },
       {
-        "question": "What are the long lines of light?",
-        "answer": "car lights",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What does the triangular sign indicate?",
+        "answer": "narrowing road",
+        "score": 0.7335,
+        "img_score": 0.7335,
         "q_score": 0.0
       }
     ]
@@ -2525,28 +2525,28 @@
   {
     "question_id": 395801001,
     "question": "How much does parking in the lot cost?",
-    "answer": "nothing0$",
+    "answer": "$1.00",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are street lights on?",
-        "answer": "yes",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the front of the store on the left?",
+        "answer": "white",
+        "score": 0.7789,
+        "img_score": 0.7789,
         "q_score": 0.0
       },
       {
-        "question": "Is this a night or daytime scene?",
-        "answer": "night",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the train on the right track?",
+        "answer": "red",
+        "score": 0.7364,
+        "img_score": 0.7364,
         "q_score": 0.0
       },
       {
-        "question": "What are the long lines of light?",
-        "answer": "car lights",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What does the triangular sign indicate?",
+        "answer": "narrowing road",
+        "score": 0.7335,
+        "img_score": 0.7335,
         "q_score": 0.0
       }
     ]
@@ -2554,28 +2554,28 @@
   {
     "question_id": 395801002,
     "question": "What is on the road?",
-    "answer": "streetli",
+    "answer": "parking lot",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are street lights on?",
-        "answer": "yes",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the front of the store on the left?",
+        "answer": "white",
+        "score": 0.7789,
+        "img_score": 0.7789,
         "q_score": 0.0
       },
       {
-        "question": "Is this a night or daytime scene?",
-        "answer": "night",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the train on the right track?",
+        "answer": "red",
+        "score": 0.7364,
+        "img_score": 0.7364,
         "q_score": 0.0
       },
       {
-        "question": "What are the long lines of light?",
-        "answer": "car lights",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What does the triangular sign indicate?",
+        "answer": "narrowing road",
+        "score": 0.7335,
+        "img_score": 0.7335,
         "q_score": 0.0
       }
     ]
@@ -2583,28 +2583,28 @@
   {
     "question_id": 395801003,
     "question": "How many people are in the picture?",
-    "answer": "21and",
+    "answer": "two",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are street lights on?",
-        "answer": "yes",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the front of the store on the left?",
+        "answer": "white",
+        "score": 0.7789,
+        "img_score": 0.7789,
         "q_score": 0.0
       },
       {
-        "question": "Is this a night or daytime scene?",
-        "answer": "night",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the train on the right track?",
+        "answer": "red",
+        "score": 0.7364,
+        "img_score": 0.7364,
         "q_score": 0.0
       },
       {
-        "question": "What are the long lines of light?",
-        "answer": "car lights",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What does the triangular sign indicate?",
+        "answer": "narrowing road",
+        "score": 0.7335,
+        "img_score": 0.7335,
         "q_score": 0.0
       }
     ]
@@ -2612,28 +2612,28 @@
   {
     "question_id": 395801004,
     "question": "Do the people know each other?",
-    "answer": "noyes strutConnector",
+    "answer": "yes",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are street lights on?",
-        "answer": "yes",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the front of the store on the left?",
+        "answer": "white",
+        "score": 0.7789,
+        "img_score": 0.7789,
         "q_score": 0.0
       },
       {
-        "question": "Is this a night or daytime scene?",
-        "answer": "night",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the train on the right track?",
+        "answer": "red",
+        "score": 0.7364,
+        "img_score": 0.7364,
         "q_score": 0.0
       },
       {
-        "question": "What are the long lines of light?",
-        "answer": "car lights",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What does the triangular sign indicate?",
+        "answer": "narrowing road",
+        "score": 0.7335,
+        "img_score": 0.7335,
         "q_score": 0.0
       }
     ]
@@ -2641,28 +2641,28 @@
   {
     "question_id": 395801005,
     "question": "How could you carry things if you were riding this bike?",
-    "answer": "on handlebars or",
+    "answer": "you couldn't",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are street lights on?",
-        "answer": "yes",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the front of the store on the left?",
+        "answer": "white",
+        "score": 0.7789,
+        "img_score": 0.7789,
         "q_score": 0.0
       },
       {
-        "question": "Is this a night or daytime scene?",
-        "answer": "night",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the train on the right track?",
+        "answer": "red",
+        "score": 0.7364,
+        "img_score": 0.7364,
         "q_score": 0.0
       },
       {
-        "question": "What are the long lines of light?",
-        "answer": "car lights",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What does the triangular sign indicate?",
+        "answer": "narrowing road",
+        "score": 0.7335,
+        "img_score": 0.7335,
         "q_score": 0.0
       }
     ]
@@ -2670,28 +2670,28 @@
   {
     "question_id": 395801006,
     "question": "How many people are in this scene?",
-    "answer": "24no",
+    "answer": "two",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are street lights on?",
-        "answer": "yes",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the front of the store on the left?",
+        "answer": "white",
+        "score": 0.7789,
+        "img_score": 0.7789,
         "q_score": 0.0
       },
       {
-        "question": "Is this a night or daytime scene?",
-        "answer": "night",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the train on the right track?",
+        "answer": "red",
+        "score": 0.7364,
+        "img_score": 0.7364,
         "q_score": 0.0
       },
       {
-        "question": "What are the long lines of light?",
-        "answer": "car lights",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What does the triangular sign indicate?",
+        "answer": "narrowing road",
+        "score": 0.7335,
+        "img_score": 0.7335,
         "q_score": 0.0
       }
     ]
@@ -2699,28 +2699,28 @@
   {
     "question_id": 395801007,
     "question": "What time is it?",
-    "answer": "0830am",
+    "answer": "noon",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Are street lights on?",
-        "answer": "yes",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the front of the store on the left?",
+        "answer": "white",
+        "score": 0.7789,
+        "img_score": 0.7789,
         "q_score": 0.0
       },
       {
-        "question": "Is this a night or daytime scene?",
-        "answer": "night",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What color is the train on the right track?",
+        "answer": "red",
+        "score": 0.7364,
+        "img_score": 0.7364,
         "q_score": 0.0
       },
       {
-        "question": "What are the long lines of light?",
-        "answer": "car lights",
-        "score": 0.6964,
-        "img_score": 0.6964,
+        "question": "What does the triangular sign indicate?",
+        "answer": "narrowing road",
+        "score": 0.7335,
+        "img_score": 0.7335,
         "q_score": 0.0
       }
     ]
@@ -2728,28 +2728,28 @@
   {
     "question_id": 264730000,
     "question": "How many arches are under the clock?",
-    "answer": "24",
+    "answer": "3",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this building tall?",
-        "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
-        "q_score": 0.0
+        "question": "What time does the clock read?",
+        "answer": "6:00",
+        "score": 0.7605,
+        "img_score": 0.7605,
+        "q_score": 0.9042
       },
       {
-        "question": "Was this taken at night?",
+        "question": "Is there a clock on the building?",
         "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
-        "q_score": 0.0
+        "score": 0.7554,
+        "img_score": 0.7554,
+        "q_score": 0.8772
       },
       {
-        "question": "Is there a storm coming?",
-        "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
+        "question": "What time is it?",
+        "answer": "12:40",
+        "score": 0.7387,
+        "img_score": 0.7387,
         "q_score": 0.0
       }
     ]
@@ -2757,57 +2757,57 @@
   {
     "question_id": 264730001,
     "question": "What time is it?",
-    "answer": "083000",
+    "answer": "6:00",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this building tall?",
-        "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
+        "question": "What time does the clock read?",
+        "answer": "6:00",
+        "score": 0.7605,
+        "img_score": 0.7605,
         "q_score": 0.0
       },
       {
-        "question": "Was this taken at night?",
+        "question": "Is there a clock on the building?",
         "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
+        "score": 0.7554,
+        "img_score": 0.7554,
         "q_score": 0.0
       },
       {
-        "question": "Is there a storm coming?",
-        "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
-        "q_score": 0.0
+        "question": "What time is it?",
+        "answer": "12:40",
+        "score": 0.7387,
+        "img_score": 0.7387,
+        "q_score": 1.0
       }
     ]
   },
   {
     "question_id": 264730002,
     "question": "Is a daytime or nighttime scene depicted?",
-    "answer": "nighttim",
+    "answer": "nighttime",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this building tall?",
-        "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
+        "question": "What time does the clock read?",
+        "answer": "6:00",
+        "score": 0.7605,
+        "img_score": 0.7605,
         "q_score": 0.0
       },
       {
-        "question": "Was this taken at night?",
+        "question": "Is there a clock on the building?",
         "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
-        "q_score": 0.8665
+        "score": 0.7554,
+        "img_score": 0.7554,
+        "q_score": 0.0
       },
       {
-        "question": "Is there a storm coming?",
-        "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
+        "question": "What time is it?",
+        "answer": "12:40",
+        "score": 0.7387,
+        "img_score": 0.7387,
         "q_score": 0.0
       }
     ]
@@ -2815,57 +2815,57 @@
   {
     "question_id": 264730003,
     "question": "What kind of numbers are on the clock?",
-    "answer": "8915",
+    "answer": "12:40",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "Is this building tall?",
+        "question": "What time does the clock read?",
+        "answer": "6:00",
+        "score": 0.7605,
+        "img_score": 0.7605,
+        "q_score": 0.9645
+      },
+      {
+        "question": "Is there a clock on the building?",
         "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
+        "score": 0.7554,
+        "img_score": 0.7554,
         "q_score": 0.0
       },
       {
-        "question": "Was this taken at night?",
-        "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
-        "q_score": 0.0
-      },
-      {
-        "question": "Is there a storm coming?",
-        "answer": "yes",
-        "score": 0.774,
-        "img_score": 0.774,
-        "q_score": 0.0
+        "question": "What time is it?",
+        "answer": "12:40",
+        "score": 0.7387,
+        "img_score": 0.7387,
+        "q_score": 0.9386
       }
     ]
   },
   {
     "question_id": 2587000,
     "question": "Which food contains the most potassium?",
-    "answer": "banana anddon",
+    "answer": "donut",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How many bunches of bananas are there?",
-        "answer": "1",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "Is the donut filled?",
+        "answer": "no",
+        "score": 1.0,
+        "img_score": 1.0,
         "q_score": 0.0
       },
       {
-        "question": "Are these separate bananas or in a bunch?",
-        "answer": "bunch",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What's the name of the largest pastry?",
+        "answer": "donut",
+        "score": 0.82,
+        "img_score": 0.82,
         "q_score": 0.0
       },
       {
-        "question": "How many pieces of fruit have a sticker?",
-        "answer": "1",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "Is this pineapple?",
+        "answer": "no",
+        "score": 0.7693,
+        "img_score": 0.7693,
         "q_score": 0.0
       }
     ]
@@ -2873,28 +2873,28 @@
   {
     "question_id": 2587001,
     "question": "What is not healthy in the baggie?",
-    "answer": "donut andban",
+    "answer": "donut",
     "rag_used": true,
     "retrieved": [
       {
-        "question": "How many bunches of bananas are there?",
-        "answer": "1",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "Is the donut filled?",
+        "answer": "no",
+        "score": 1.0,
+        "img_score": 1.0,
         "q_score": 0.0
       },
       {
-        "question": "Are these separate bananas or in a bunch?",
-        "answer": "bunch",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "What's the name of the largest pastry?",
+        "answer": "donut",
+        "score": 0.82,
+        "img_score": 0.82,
         "q_score": 0.0
       },
       {
-        "question": "How many pieces of fruit have a sticker?",
-        "answer": "1",
-        "score": 0.8035,
-        "img_score": 0.8035,
+        "question": "Is this pineapple?",
+        "answer": "no",
+        "score": 0.7693,
+        "img_score": 0.7693,
         "q_score": 0.0
       }
     ]

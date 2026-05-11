@@ -1,0 +1,10 @@
+template_name,accuracy,delta_vs_baseline,delta_vs_current_rag,num_eval,top_k,alpha,avg_prompt_chars,avg_prompt_tokens,helped_vs_current,hurt_vs_current,neutral_vs_current,elapsed_sec,notes
+current_prompt,0.5933,0.17,0.0,100,3,1.0,167.3,41.5,—,—,—,31.3,control
+short_evidence,0.0733,-0.35,-0.52,100,3,1.0,356.6,88.8,2,51,47,38.1,
+candidate_constrained,0.0333,-0.39,-0.56,100,3,1.0,362.7,90.3,2,54,44,35.8,
+question_match_priority,0.0,-0.4233,-0.5933,100,3,1.0,474.4,118.3,0,55,45,56.8,
+minimal_fewshot,0.5367,0.1133,-0.0567,100,3,1.0,167.3,41.5,4,10,86,35.2,
+image_first,0.09,-0.3333,-0.5033,100,3,1.0,334.3,83.2,1,47,52,57.4,
+evidence_noisy_warning,0.24,-0.1833,-0.3533,100,3,1.0,460.7,114.8,3,35,62,46.3,
+caption_aware,0.05,-0.3733,-0.5433,100,3,1.0,383.8,95.6,1,52,47,40.3,
+direct_evidence_override,0.0833,-0.34,-0.51,100,3,1.0,366.6,91.3,2,50,48,40.3,

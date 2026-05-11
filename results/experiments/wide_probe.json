@@ -1,0 +1,707 @@
+[
+  {
+    "image": "cat.png",
+    "question": "what color is the cat?",
+    "baseline": "green",
+    "rag": "gray",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "what color is the couch?",
+    "baseline": "gray",
+    "rag": "gray",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "what is the cat lying on?",
+    "baseline": "pillow",
+    "rag": "pillows",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "is the cat wearing a collar?",
+    "baseline": "no",
+    "rag": "no",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "what is the cat doing?",
+    "baseline": "cat is sitting on the couch",
+    "rag": "sitting",
+    "same": false,
+    "base_words": 6,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "is the cat sleeping?",
+    "baseline": "yes",
+    "rag": "no",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "is the cat awake?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "is the cat indoors?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "what room is this?",
+    "baseline": "living room",
+    "rag": "living room",
+    "same": true,
+    "base_words": 2,
+    "rag_words": 2,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "is this indoors or outdoors?",
+    "baseline": "outdoors",
+    "rag": "indoors",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "how many cats are in the picture?",
+    "baseline": "none",
+    "rag": "none",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "is the cat tabby?",
+    "baseline": "no",
+    "rag": "no",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "cat.png",
+    "question": "does the cat have stripes?",
+    "baseline": "no",
+    "rag": "no",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8217,
+    "retrieved_answers": [
+      "no",
+      "gray",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "what kind of food is this?",
+    "baseline": "pizza",
+    "rag": "pizza",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "what type of pizza is this?",
+    "baseline": "pepperoni pizza",
+    "rag": "pepperoni",
+    "same": false,
+    "base_words": 2,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "what toppings does the pizza have?",
+    "baseline": "pepperoni and cheese",
+    "rag": "pepperoni",
+    "same": false,
+    "base_words": 3,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "where is the pizza?",
+    "baseline": "on the plate",
+    "rag": "on the table",
+    "same": false,
+    "base_words": 3,
+    "rag_words": 3,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "is the pizza in a box?",
+    "baseline": "no",
+    "rag": "no",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "is the pizza on a plate?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "is the pizza whole or sliced?",
+    "baseline": "sliced",
+    "rag": "whole",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "is this pizza fresh?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "is the pizza hot?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "how many slices are there?",
+    "baseline": "two",
+    "rag": "2",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "how many pizzas are visible?",
+    "baseline": "none",
+    "rag": "3",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "pizza.png",
+    "question": "is anyone eating the pizza?",
+    "baseline": "yes",
+    "rag": "no",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8773,
+    "retrieved_answers": [
+      "yes",
+      "tomato",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what is the person doing?",
+    "baseline": "riding a bike",
+    "rag": "riding a bike",
+    "same": true,
+    "base_words": 3,
+    "rag_words": 3,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "is the person riding a bike?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "is the person standing still?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "is the person wearing a helmet?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what is the person wearing?",
+    "baseline": "cycling jersey",
+    "rag": "helmet",
+    "same": false,
+    "base_words": 2,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what color is the bike?",
+    "baseline": "black",
+    "rag": "black",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "where is this taking place?",
+    "baseline": "taking place in the woods",
+    "rag": "in the woods",
+    "same": false,
+    "base_words": 5,
+    "rag_words": 3,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "is this on a road?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "what is the weather like?",
+    "baseline": "raining",
+    "rag": "sunny and warm",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 3,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "is it sunny?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "is it raining?",
+    "baseline": "yes",
+    "rag": "no",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "cyclist.png",
+    "question": "how many people are visible?",
+    "baseline": "lot",
+    "rag": "one",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8092,
+    "retrieved_answers": [
+      "yes",
+      "helmet",
+      "no"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "is the player batting?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "what is the player doing?",
+    "baseline": "swinging the bat",
+    "rag": "swinging the bat",
+    "same": true,
+    "base_words": 3,
+    "rag_words": 3,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "what is the player about to do?",
+    "baseline": "swing the bat",
+    "rag": "swing",
+    "same": false,
+    "base_words": 3,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "what is the player holding?",
+    "baseline": "bat",
+    "rag": "bat",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "is the player wearing a helmet?",
+    "baseline": "no",
+    "rag": "no",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "what color is the bat?",
+    "baseline": "purple",
+    "rag": "black",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "what sport is this?",
+    "baseline": "baseball",
+    "rag": "baseball",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "is this a baseball game?",
+    "baseline": "yes",
+    "rag": "yes",
+    "same": true,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "is this on a field?",
+    "baseline": "no",
+    "rag": "yes",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  },
+  {
+    "image": "baseball.png",
+    "question": "how many players are visible?",
+    "baseline": "one",
+    "rag": "3",
+    "same": false,
+    "base_words": 1,
+    "rag_words": 1,
+    "top_img_score": 0.8822,
+    "retrieved_answers": [
+      "no",
+      "n",
+      "baseball"
+    ]
+  }
+]

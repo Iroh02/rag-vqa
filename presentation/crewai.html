@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CrewAI — Multi-Agent Framework</title>
+<style>
+  :root {
+    --bg-0: #0a0a0f;
+    --bg-1: #12121a;
+    --bg-2: #1a1a25;
+    --ink: #f5f5f7;
+    --ink-dim: #a8a8b3;
+    --ink-faint: #6b6b78;
+    --accent: #ff6b35;
+    --accent-2: #ffb627;
+    --accent-3: #4ecdc4;
+    --accent-4: #c084fc;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --code-bg: #0d1117;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg-0);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse at top left, rgba(255, 107, 53, 0.08), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(192, 132, 252, 0.06), transparent 50%),
+      var(--bg-0);
+  }
+
+  .deck {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    transition: height 0.3s ease;
+  }
+  body.notes-open .deck { height: 65vh; }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 50px 70px 90px;
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+    animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .slide.active { display: flex; }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* HEADER */
+  .slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .crumb {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .crumb .accent { color: var(--accent); }
+
+  /* TYPOGRAPHY */
+  h1 {
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #a8a8b3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h2 {
+    font-size: clamp(30px, 3.6vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  p, li {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+  }
+  .lead {
+    font-size: 22px;
+    color: var(--ink);
+    max-width: 900px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  strong { color: var(--ink); font-weight: 600; }
+  .accent-text { color: var(--accent); }
+
+  /* TITLE SLIDE */
+  .title-slide {
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px;
+  }
+  .title-slide .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 100px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 32px;
+  }
+  .title-slide .logo-mark .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+  }
+  .title-slide h1 {
+    font-size: clamp(64px, 9vw, 140px);
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent) 60%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+  }
+  .title-slide .subtitle {
+    font-size: clamp(20px, 2vw, 28px);
+    color: var(--ink-dim);
+    max-width: 700px;
+    margin-bottom: 48px;
+  }
+  .title-slide .meta {
+    margin-top: auto;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .meta-item .label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .meta-item .value {
+    font-size: 18px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* GRID */
+  .grid {
+    display: grid;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px;
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+  }
+  .card .icon {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .card h3 { color: var(--ink); }
+  .card p { font-size: 15px; }
+
+  .card.alt .icon { background: linear-gradient(135deg, var(--accent-3) 0%, var(--accent-4) 100%); }
+  .card.outline { background: transparent; }
+
+  /* TYPE BLOCK */
+  .type-block {
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+  .type-block .type-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .type-block .type-name .badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--accent);
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .type-block .type-desc {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .type-block .type-desc code {
+    background: var(--bg-2);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--accent-3);
+    font-size: 13px;
+  }
+
+  /* LISTS */
+  ul.clean {
+    list-style: none;
+    padding: 0;
+  }
+  ul.clean li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  ul.clean li:last-child { border: none; }
+  ul.clean .num {
+    flex: 0 0 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg-2);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* CODE */
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  code { font-family: inherit; }
+  .tok-kw { color: #ff7b72; }
+  .tok-str { color: #a5d6ff; }
+  .tok-fn { color: #d2a8ff; }
+  .tok-com { color: #8b949e; font-style: italic; }
+  .tok-cls { color: #ffa657; }
+  .tok-var { color: #79c0ff; }
+
+  /* DIAGRAM */
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 12px;
+    padding: 28px 20px;
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  .flow-node {
+    flex: 1;
+    min-width: 130px;
+    text-align: center;
+    padding: 18px 14px;
+    background: var(--bg-2);
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+  }
+  .flow-node .role-tag {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .flow-node .name { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .flow-node .desc { font-size: 12px; color: var(--ink-faint); line-height: 1.4; }
+  .flow-arrow {
+    flex: 0 0 auto;
+    color: var(--accent);
+    font-size: 24px;
+    font-weight: 300;
+  }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: var(--bg-1);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  th, td {
+    padding: 12px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  th {
+    background: var(--bg-2);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  td { color: var(--ink-dim); }
+  tr:last-child td { border: none; }
+  td.highlight { color: var(--accent); font-weight: 600; }
+
+  /* PROS / CONS */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .compare > div {
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+  }
+  .pros { background: linear-gradient(135deg, rgba(78, 205, 196, 0.08), transparent); border-color: rgba(78, 205, 196, 0.25); }
+  .cons { background: linear-gradient(135deg, rgba(255, 107, 53, 0.08), transparent); border-color: rgba(255, 107, 53, 0.25); }
+  .compare h3 { display: flex; align-items: center; gap: 10px; }
+  .compare ul { list-style: none; padding: 0; }
+  .compare li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .compare li:last-child { border: none; }
+
+  /* STATS */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .stat {
+    padding: 22px;
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .stat .num {
+    font-size: 40px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat .label { font-size: 13px; color: var(--ink-dim); }
+
+  /* NAV */
+  .nav {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 16px;
+    background: rgba(26, 26, 37, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    z-index: 100;
+  }
+  body.notes-open .nav { bottom: calc(35vh + 16px); }
+  .nav button {
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    cursor: pointer;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    font-size: 15px;
+    transition: background 0.2s;
+  }
+  .nav button:hover { background: var(--bg-2); }
+  .nav .counter {
+    font-size: 12px;
+    color: var(--ink-dim);
+    font-variant-numeric: tabular-nums;
+    min-width: 56px;
+    text-align: center;
+  }
+  .nav .progress {
+    width: 100px;
+    height: 3px;
+    background: var(--bg-2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .nav .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width 0.3s ease;
+  }
+  .nav .notes-toggle, .nav .popout-btn {
+    width: auto;
+    padding: 0 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--ink-dim);
+    border: 1px solid var(--line);
+  }
+  .nav .notes-toggle.active { color: var(--accent); border-color: var(--accent); }
+  .nav .popout-btn { color: var(--accent-3); border-color: rgba(78, 205, 196, 0.3); }
+  .nav .popout-btn:hover { background: rgba(78, 205, 196, 0.1); }
+
+  /* POP-OUT NOTES WINDOW STYLES (loaded into the popup) */
+  body.popout-mode .deck,
+  body.popout-mode .nav,
+  body.popout-mode .hint { display: none !important; }
+  body.popout-mode .notes-panel {
+    position: static;
+    transform: none;
+    height: 100vh;
+    padding: 32px 48px;
+    border-top: none;
+    box-shadow: none;
+  }
+  body.popout-mode .notes-content { font-size: 17px; max-width: none; }
+  body.popout-mode .notes-content p { font-size: 17px; line-height: 1.7; }
+  body.popout-mode .notes-content .say { font-size: 18px; padding: 12px 18px; }
+  .popout-header-bar {
+    display: none;
+    position: sticky;
+    top: 0;
+    background: var(--bg-1);
+    padding: 14px 48px;
+    margin: -32px -48px 24px;
+    border-bottom: 2px solid var(--accent);
+    z-index: 10;
+  }
+  body.popout-mode .popout-header-bar { display: flex; justify-content: space-between; align-items: center; }
+  .popout-header-bar .pop-title { color: var(--accent); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; font-size: 12px; }
+  .popout-header-bar .pop-info { color: var(--ink-dim); font-size: 14px; }
+  .popout-header-bar .pop-info kbd { background: var(--bg-2); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--line); margin: 0 2px; }
+
+  /* QUOTE */
+  blockquote {
+    font-size: 24px;
+    line-height: 1.45;
+    font-weight: 500;
+    color: var(--ink);
+    border-left: 3px solid var(--accent);
+    padding-left: 28px;
+    max-width: 900px;
+    margin: 24px 0;
+  }
+  blockquote .attr {
+    display: block;
+    margin-top: 14px;
+    font-size: 15px;
+    color: var(--ink-faint);
+    font-weight: 400;
+  }
+
+  /* HERO */
+  .hero-final {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-final h1 {
+    font-size: clamp(56px, 8vw, 120px);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* HINT */
+  .hint {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    z-index: 100;
+    background: rgba(26, 26, 37, 0.6);
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+  }
+  .hint kbd {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: inherit;
+    color: var(--ink-dim);
+    margin: 0 2px;
+  }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    padding: 3px 9px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 11px;
+    color: var(--ink-dim);
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .tag.accent { background: rgba(255, 107, 53, 0.1); border-color: var(--accent); color: var(--accent); }
+
+  /* SPEAKER NOTES */
+  .notes-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35vh;
+    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+    border-top: 2px solid var(--accent);
+    padding: 24px 60px;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 90;
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5);
+  }
+  body.notes-open .notes-panel { transform: translateY(0); }
+
+  .notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .notes-header .title {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .notes-header .slide-info {
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  .notes-content {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 1200px;
+  }
+  .notes-content p { color: var(--ink); margin-bottom: 10px; font-size: 15px; }
+  .notes-content strong { color: var(--accent-2); }
+  .notes-content em {
+    color: var(--accent-3);
+    font-style: normal;
+    font-weight: 500;
+  }
+  .notes-content .say {
+    background: rgba(255, 107, 53, 0.08);
+    border-left: 2px solid var(--accent);
+    padding: 8px 14px;
+    margin: 8px 0;
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .notes-content .tip {
+    display: inline-block;
+    background: rgba(78, 205, 196, 0.1);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--accent-3);
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hint">
+  <kbd>←</kbd> <kbd>→</kbd> Slides &nbsp;·&nbsp; <kbd>N</kbd> Notes &nbsp;·&nbsp; <kbd>P</kbd> Pop-out &nbsp;·&nbsp; <kbd>F</kbd> Fullscreen
+</div>
+
+<div class="deck">
+
+  <!-- 1. TITLE -->
+  <section class="slide title-slide active" data-notes='
+    <p><strong>Opening (60 seconds):</strong></p>
+    <div class="say">"Today I want to introduce you to CrewAI — one of the most popular frameworks in the world right now for building AI systems where multiple agents work together as a team."</div>
+    <p><em>Set context:</em> Mention that 2024-2025 has been called "the year of agents." Single-agent chatbots like ChatGPT are everywhere, but the real frontier is getting <strong>multiple AI agents to collaborate</strong> — and CrewAI makes that almost as easy as describing a real team.</p>
+    <p><em>Hook:</em> "Imagine you could spin up a team of AI workers — a researcher, a writer, an editor — and just hand them a goal. That is what CrewAI does in about 30 lines of code."</p>
+    <p><em>Roadmap:</em> Tell the audience: we will cover what CrewAI is, the 5 core building blocks, the different types of agents, tasks, and processes, then a live code example, and finally how it stacks up against other frameworks.</p>
+  '>
+    <div class="logo-mark"><span class="dot"></span> Multi-Agent Framework</div>
+    <h1>CrewAI</h1>
+    <p class="subtitle">The easiest way to orchestrate teams of AI agents that collaborate, delegate, and reason — together.</p>
+    <div class="meta">
+      <div class="meta-item"><div class="label">Repository</div><div class="value">46K+ GitHub Stars</div></div>
+      <div class="meta-item"><div class="label">Approach</div><div class="value">Role-Based Abstraction</div></div>
+      <div class="meta-item"><div class="label">Status</div><div class="value">Production-Ready (2025)</div></div>
+      <div class="meta-item"><div class="label">Presented By</div><div class="value">Nandita Menon</div></div>
+    </div>
+  </section>
+
+  <!-- 2. WHAT IS CREWAI -->
+  <section class="slide" data-notes='
+    <p><strong>The big idea (90 seconds):</strong></p>
+    <div class="say">"CrewAI is a Python library that lets you create AI agents — but the special thing is, instead of one AI doing everything, you build a TEAM of specialized AIs that work together."</div>
+    <p><em>The analogy that always lands:</em> Imagine you needed a research report. You could hire one person who is okay at everything — research, writing, editing — or you could hire a real <strong>team</strong>: a researcher who specializes in finding sources, a writer who specializes in clear prose, and an editor who catches mistakes. The team beats the generalist almost every time. CrewAI brings that idea to AI.</p>
+    <p><em>Walk through the 3 cards:</em></p>
+    <p><strong>Role-based:</strong> "You define each agent by who they ARE, not what they DO. That sounds small but it changes everything."</p>
+    <p><strong>Collaborative:</strong> "Agents can hand work to each other, ask each other questions, even delegate. The framework handles the messaging."</p>
+    <p><strong>High-level:</strong> "You write the team description, you do not write the orchestration code. CrewAI figures out who talks to who."</p>
+    <span class="tip">Tip: pause here and ask: "How many of you have used ChatGPT? Now imagine four of them working as a team."</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">01</span> &nbsp;/ &nbsp; INTRODUCTION</div>
+      <div class="crumb">CrewAI</div>
+    </div>
+    <h2>What is CrewAI?</h2>
+    <p class="lead">An open-source Python framework for building <strong>collaborative AI agents</strong> that work together as a "crew" — each with a defined role, goal, and personality — to complete complex tasks.</p>
+
+    <div class="grid grid-3" style="margin-top: 32px;">
+      <div class="card">
+        <div class="icon">👥</div>
+        <h3>Role-Based</h3>
+        <p>Agents are defined by who they are: a Researcher, a Writer, an Analyst — each with their own expertise and tools.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3>Collaborative</h3>
+        <p>Agents communicate, delegate work to one another, and reach consensus — like a real team.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>High-Level</h3>
+        <p>You describe the team and the goal. The framework handles coordination and handoffs automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. WHY MULTI-AGENT -->
+  <section class="slide" data-notes='
+    <p><strong>The motivation (90 seconds):</strong></p>
+    <div class="say">"Before we go deeper, let me answer the obvious question: why bother with a team of agents? Why not just use one really good AI?"</div>
+    <p><em>The single-agent problem:</em> When you stuff one agent with too many responsibilities, the prompt becomes a mess. The AI loses focus. It is the same reason a one-person startup struggles to scale — too many hats, none worn well.</p>
+    <p><em>Walk through the comparison side by side:</em> Read 2-3 from each column. Emphasize especially:</p>
+    <ul class="clean" style="margin-top: 8px;">
+      <li><span class="num">!</span><div><strong>"Quality degrades on multi-step problems"</strong> — this is well-documented. LLMs lose accuracy as the task gets longer.</div></li>
+      <li><span class="num">!</span><div><strong>"Swap one agent without touching others"</strong> — this is the modular architecture argument. Just like microservices.</div></li>
+    </ul>
+    <p><em>Real-world hook:</em> "Companies like Deloitte and Accenture are using CrewAI for client deliverables. Why? Because dividing labor among specialists works for AI, just like it works for humans."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">02</span> &nbsp;/ &nbsp; THE PROBLEM</div>
+      <div class="crumb">Why Multiple Agents?</div>
+    </div>
+    <h2>Why not just one big LLM call?</h2>
+    <p class="lead">A single agent doing everything has the same problem as a one-person company — too many roles, no specialization, weak quality.</p>
+
+    <div class="compare" style="margin-top: 32px;">
+      <div class="cons">
+        <h3>❌ Single Agent</h3>
+        <ul>
+          <li>One generic prompt trying to do research, writing, and editing</li>
+          <li>Long context window mixing unrelated info</li>
+          <li>No specialization — jack of all trades</li>
+          <li>Hard to swap a single capability</li>
+          <li>Quality degrades on multi-step problems</li>
+        </ul>
+      </div>
+      <div class="pros">
+        <h3>✅ CrewAI Crew</h3>
+        <ul>
+          <li>Each agent focused on one role with the right tools</li>
+          <li>Clean context per task, less noise</li>
+          <li>Specialists deliver higher-quality output</li>
+          <li>Swap one agent without touching others</li>
+          <li>Mirrors how human teams actually work</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CORE CONCEPTS OVERVIEW -->
+  <section class="slide" data-notes='
+    <p><strong>The map (60 seconds):</strong></p>
+    <div class="say">"CrewAI has six core ideas. If you understand these six, you understand 95 percent of the framework. We are going to spend the next several slides going through each one in detail."</div>
+    <p><em>Why this slide matters:</em> This is your <strong>roadmap slide</strong>. The audience needs to know the structure before you dive deep. Reference back to it often.</p>
+    <p><em>Quick read-through:</em></p>
+    <ul class="clean" style="margin-top: 6px;">
+      <li><span class="num">1</span><div><strong>Agent</strong> = the worker</div></li>
+      <li><span class="num">2</span><div><strong>Task</strong> = the assignment</div></li>
+      <li><span class="num">3</span><div><strong>Crew</strong> = the team</div></li>
+      <li><span class="num">4</span><div><strong>Tool</strong> = the equipment</div></li>
+      <li><span class="num">5</span><div><strong>Process</strong> = the workflow</div></li>
+      <li><span class="num">6</span><div><strong>Memory</strong> = the shared notebook</div></li>
+    </ul>
+    <p><em>Transition:</em> "Let me start with the most important one — the Agent."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">03</span> &nbsp;/ &nbsp; CONCEPTS</div>
+      <div class="crumb">The Six Building Blocks</div>
+    </div>
+    <h2>Six Core Concepts</h2>
+    <p class="lead">Everything in CrewAI is one of these six things. Master the vocabulary, master the framework.</p>
+
+    <div class="grid grid-3" style="margin-top: 24px;">
+      <div class="card"><div class="icon">🤖</div><h3>Agent</h3><p>The AI worker — has a role, goal, backstory, and tools.</p></div>
+      <div class="card alt"><div class="icon">📋</div><h3>Task</h3><p>An assignment given to an agent with expected output.</p></div>
+      <div class="card"><div class="icon">👥</div><h3>Crew</h3><p>The team — agents + tasks + a process to follow.</p></div>
+      <div class="card alt"><div class="icon">🔧</div><h3>Tool</h3><p>A capability — search, files, APIs, custom Python.</p></div>
+      <div class="card"><div class="icon">🔄</div><h3>Process</h3><p>The workflow — sequential or hierarchical execution.</p></div>
+      <div class="card alt"><div class="icon">🧠</div><h3>Memory</h3><p>Shared knowledge across agents and turns.</p></div>
+    </div>
+
+    <p style="margin-top: 24px; color: var(--ink-faint); font-size: 15px;">→ Next slides: a deep dive into each one.</p>
+  </section>
+
+  <!-- 5. AGENT DEEP DIVE -->
+  <section class="slide" data-notes='
+    <p><strong>The Agent — the most important concept (3 minutes):</strong></p>
+    <div class="say">"An Agent in CrewAI is an AI worker. But unlike a generic chatbot, an agent has personality, expertise, and a job description."</div>
+    <p><em>Walk through each of the 5 components:</em></p>
+    <p><strong>1. Role</strong> — "This is the job title. Senior Data Analyst. Lead Editor. The role frames how the agent thinks. An agent told it is a Senior Analyst will reason like an analyst — looking for patterns, asking critical questions."</p>
+    <p><strong>2. Goal</strong> — "This is what success looks like for THIS agent specifically. Not the overall project goal — the agent goal. Be specific."</p>
+    <p><strong>3. Backstory</strong> — "This is the secret sauce. A backstory like ‘You are a former Wall Street analyst with 15 years experience’ pushes the model into a specific persona. It dramatically improves output quality. It sounds silly, but it works."</p>
+    <p><strong>4. Tools</strong> — "What capabilities does this agent have? Web search? File reading? An API? Tools turn an agent from a thinker into a doer."</p>
+    <p><strong>5. LLM</strong> — "Which AI model powers this agent? You can mix and match — use GPT-4o for the smart agent and a cheaper model for simpler ones."</p>
+    <span class="tip">Tip: highlight that <code>allow_delegation=True</code> lets this agent ask OTHER agents for help — a powerful but advanced feature.</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">04</span> &nbsp;/ &nbsp; AGENT</div>
+      <div class="crumb">Deep Dive</div>
+    </div>
+    <h2>The Agent — Anatomy</h2>
+    <p class="lead">An Agent is an AI worker. Five fields define everything about how it thinks and behaves.</p>
+
+    <div style="margin-top: 20px;">
+      <div class="type-block">
+        <div class="type-name">role <span class="badge">REQUIRED</span></div>
+        <div class="type-desc">The job title. Frames the agent's perspective. <code>"Senior Research Analyst"</code> reasons differently than <code>"Junior Intern"</code>.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">goal <span class="badge">REQUIRED</span></div>
+        <div class="type-desc">The agent's specific objective — what success looks like for THIS agent. Use <code>{variables}</code> to inject runtime context.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">backstory <span class="badge">REQUIRED</span></div>
+        <div class="type-desc">The persona — past experience, expertise, voice. Sounds silly, dramatically improves output quality by anchoring the LLM in a character.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">tools <span class="badge">OPTIONAL</span></div>
+        <div class="type-desc">A list of tools the agent can call. Without tools, the agent can only think. With tools, it can search, read, write, compute.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">llm / allow_delegation / max_iter <span class="badge">CONFIG</span></div>
+        <div class="type-desc">Which model powers it (<code>gpt-4o</code>, <code>claude-sonnet-4-6</code>, etc.), whether it can ask other agents for help, and how many tool-call loops are allowed.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. AGENT TYPES -->
+  <section class="slide" data-notes='
+    <p><strong>Common agent patterns (90 seconds):</strong></p>
+    <div class="say">"Once you have built a few crews, you start to notice the same kinds of agents showing up. There are roughly five canonical agent types you will encounter again and again."</div>
+    <p><em>Briefly characterize each:</em></p>
+    <p><strong>Specialist</strong> — "The most common. A Researcher. A Writer. Does ONE thing well. Most of your agents will be specialists."</p>
+    <p><strong>Manager</strong> — "Used in hierarchical mode. Delegates work, evaluates output. Powerful but unpredictable."</p>
+    <p><strong>Validator / Critic</strong> — "Checks work for accuracy. ‘Is this fact actually correct?’ Often added at the end of a pipeline."</p>
+    <p><strong>Synthesizer</strong> — "Combines outputs from multiple agents into a final deliverable. Often the last agent in the chain."</p>
+    <p><strong>Generalist</strong> — "Use sparingly. The fallback for tasks that do not fit a specialist."</p>
+    <span class="tip">Tip: "If you find yourself building a generalist agent, ask if you should split it into two specialists instead."</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">05</span> &nbsp;/ &nbsp; AGENT TYPES</div>
+      <div class="crumb">Common Patterns</div>
+    </div>
+    <h2>Five Common Agent Types</h2>
+    <p class="lead">Patterns that appear in nearly every multi-agent system.</p>
+
+    <div class="grid grid-2" style="margin-top: 20px;">
+      <div class="card">
+        <div class="icon">🔬</div>
+        <h3>Specialist Agent</h3>
+        <p>Does one thing well. The Researcher, the Writer, the SQL Analyst. Most agents you build will be specialists.</p>
+        <div style="margin-top: 8px;"><span class="tag">Most common</span></div>
+      </div>
+      <div class="card alt">
+        <div class="icon">👔</div>
+        <h3>Manager Agent</h3>
+        <p>Used in hierarchical processes. Receives the goal, breaks it into sub-tasks, delegates, evaluates outputs.</p>
+        <div style="margin-top: 8px;"><span class="tag">Hierarchical mode</span></div>
+      </div>
+      <div class="card">
+        <div class="icon">✅</div>
+        <h3>Validator / Critic</h3>
+        <p>Reviews another agent's output for accuracy, tone, or compliance. Often added as the final step in a pipeline.</p>
+        <div style="margin-top: 8px;"><span class="tag">Quality control</span></div>
+      </div>
+      <div class="card alt">
+        <div class="icon">🧩</div>
+        <h3>Synthesizer Agent</h3>
+        <p>Aggregates outputs from multiple parallel agents into a single deliverable. Common in research pipelines.</p>
+        <div style="margin-top: 8px;"><span class="tag">Aggregation</span></div>
+      </div>
+      <div class="card" style="grid-column: span 2;">
+        <div class="icon">🛠️</div>
+        <h3>Generalist Agent</h3>
+        <p>Handles miscellaneous work that does not fit a specialist. Use sparingly — when you reach for a generalist, consider splitting the role into two specialists instead.</p>
+        <div style="margin-top: 8px;"><span class="tag">Use rarely</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. AGENT CODE -->
+  <section class="slide" data-notes='
+    <p><strong>From theory to code (90 seconds):</strong></p>
+    <div class="say">"Here is what an agent looks like in actual Python. Notice how readable it is — almost like writing a job description."</div>
+    <p><em>Walk through the code:</em></p>
+    <p><strong>Lines 3-4:</strong> "We import Agent from crewai and define our researcher."</p>
+    <p><strong>The role:</strong> "Senior AI Research Analyst — short, specific."</p>
+    <p><strong>The goal:</strong> "Notice the curly braces — that is template syntax. We pass in the topic at runtime."</p>
+    <p><strong>The backstory:</strong> "Read this carefully — it is doing a lot of work. ‘Renowned analyst with a knack for spotting patterns.’ This is invisible to the end user but the LLM uses it to take on the persona."</p>
+    <p><strong>Tools:</strong> "search_tool and scrape_tool — this agent can search the web and read pages."</p>
+    <p><strong>verbose=True:</strong> "Crucial for development — prints out every thought and tool call. Turn off in production."</p>
+    <span class="tip">Tip: emphasize that this whole agent definition is about 10 lines, but it is a fully functional AI worker.</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">06</span> &nbsp;/ &nbsp; AGENT</div>
+      <div class="crumb">In Code</div>
+    </div>
+    <h2>Defining an Agent in Python</h2>
+
+    <pre style="margin-top: 20px;"><code><span class="tok-kw">from</span> crewai <span class="tok-kw">import</span> Agent
+
+researcher = <span class="tok-cls">Agent</span>(
+    role=<span class="tok-str">"Senior AI Research Analyst"</span>,
+    goal=<span class="tok-str">"Uncover cutting-edge trends in {topic}"</span>,
+    backstory=<span class="tok-str">"""You are a renowned analyst with a knack
+        for spotting emerging patterns. Known for your
+        ability to dissect complex data and present clear,
+        actionable insights."""</span>,
+    tools=[search_tool, scrape_tool],
+    llm=<span class="tok-str">"gpt-4o"</span>,
+    verbose=<span class="tok-kw">True</span>,             <span class="tok-com"># prints reasoning during dev</span>
+    allow_delegation=<span class="tok-kw">True</span>,    <span class="tok-com"># can ask other agents for help</span>
+    max_iter=<span class="tok-var">15</span>,              <span class="tok-com"># cap on tool-call loops</span>
+)</code></pre>
+
+    <p style="margin-top: 16px; color: var(--ink-faint); font-size: 15px;">💡 The <strong>role + goal + backstory</strong> trio is compiled into a system prompt. That is why writing them well matters more than any other configuration.</p>
+  </section>
+
+  <!-- 8. TASK DEEP DIVE -->
+  <section class="slide" data-notes='
+    <p><strong>The Task — what an agent actually does (2 minutes):</strong></p>
+    <div class="say">"If an Agent is the worker, a Task is their assignment. A task is the unit of work in CrewAI."</div>
+    <p><em>Why tasks matter:</em> "An agent without a task does nothing. The task is what activates the agent."</p>
+    <p><em>Walk through the fields:</em></p>
+    <p><strong>description:</strong> "What needs to be done. Clear, specific, with success criteria. ‘Research X’ is bad. ‘Research X and provide 5 sources with citations’ is good."</p>
+    <p><strong>expected_output:</strong> "This is huge. CrewAI uses this to validate that the task is complete. Without a clear expected_output, the agent will loop forever or stop too early."</p>
+    <p><strong>agent:</strong> "Which agent owns this task. Each task has exactly one owner."</p>
+    <p><strong>context:</strong> "Other tasks whose outputs feed into this one. This is how data flows between agents."</p>
+    <p><strong>tools:</strong> "You can give a task its own tools — overrides the agent's default tools just for this task."</p>
+    <p><strong>output_file:</strong> "Save the result to disk automatically. Useful for pipelines."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">07</span> &nbsp;/ &nbsp; TASK</div>
+      <div class="crumb">Deep Dive</div>
+    </div>
+    <h2>The Task — Anatomy</h2>
+    <p class="lead">A Task is a unit of work assigned to one agent. The framework executes tasks in order, passing outputs between them.</p>
+
+    <div style="margin-top: 20px;">
+      <div class="type-block">
+        <div class="type-name">description <span class="badge">REQUIRED</span></div>
+        <div class="type-desc">What the agent must do. Be specific. Bad: <code>"Research X"</code>. Good: <code>"Research X and find 5 verified sources with publication dates."</code></div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">expected_output <span class="badge">REQUIRED</span></div>
+        <div class="type-desc">The format and shape of the result. CrewAI uses this to validate completion. Vague expected outputs cause infinite loops.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">agent <span class="badge">REQUIRED</span></div>
+        <div class="type-desc">Which agent owns this task. One task = one owner. (In hierarchical mode, the manager assigns dynamically.)</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">context <span class="badge">OPTIONAL</span></div>
+        <div class="type-desc">A list of <em>other tasks</em> whose outputs become input to this task. This is how data flows through the crew.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">output_file / output_pydantic / output_json <span class="badge">OPTIONAL</span></div>
+        <div class="type-desc">Persist the output to disk, validate it against a Pydantic model, or parse as JSON for structured downstream use.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. TASK TYPES -->
+  <section class="slide" data-notes='
+    <p><strong>Task patterns (90 seconds):</strong></p>
+    <div class="say">"Tasks come in different flavors depending on how they fit into the workflow. Knowing these patterns helps you design crews that actually work."</div>
+    <p><em>Walk through each:</em></p>
+    <p><strong>Sequential Task</strong> — "Default. Runs after the previous one. Output of A is context for B."</p>
+    <p><strong>Contextual Task</strong> — "Receives output from one or MORE earlier tasks (not necessarily the immediately previous one). Powerful for branching workflows."</p>
+    <p><strong>Async Task</strong> — "Runs in parallel with other async tasks. Big speedup for independent work — like searching 5 different databases at once."</p>
+    <p><strong>Conditional Task</strong> — "Only runs IF a condition is met. Skip the editor if the writer's draft is already perfect."</p>
+    <p><strong>Human-in-the-loop Task</strong> — "Pauses to ask a human for input or approval before continuing. Critical for high-stakes workflows."</p>
+    <span class="tip">Tip: "Most prototypes start sequential. Async and conditional come into play once you optimize."</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">08</span> &nbsp;/ &nbsp; TASK TYPES</div>
+      <div class="crumb">Workflow Patterns</div>
+    </div>
+    <h2>Five Types of Tasks</h2>
+    <p class="lead">CrewAI supports several task patterns to fit how real workflows actually run.</p>
+
+    <div style="margin-top: 20px;">
+      <div class="type-block">
+        <div class="type-name">Sequential Task <span class="badge">DEFAULT</span></div>
+        <div class="type-desc">Runs after the previous task. Output of task N becomes context for task N+1. Easiest to reason about.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Contextual Task</div>
+        <div class="type-desc">Receives outputs from <em>multiple specific earlier tasks</em> via the <code>context=[task_a, task_b]</code> parameter. Enables non-linear flows.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Async Task</div>
+        <div class="type-desc">Set <code>async_execution=True</code>. Runs in parallel with other async tasks. Massive speedup for independent work.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Conditional Task</div>
+        <div class="type-desc">Wrapped in <code>ConditionalTask(condition=fn, ...)</code>. Skipped if the condition function returns False. Used for branching logic.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Human-in-the-Loop Task</div>
+        <div class="type-desc">Set <code>human_input=True</code>. Pauses execution to ask a human for review or approval before continuing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CREW -->
+  <section class="slide" data-notes='
+    <p><strong>The Crew — assembly (60 seconds):</strong></p>
+    <div class="say">"The Crew is where everything comes together. It is just three things: a list of agents, a list of tasks, and the process that runs them."</div>
+    <p><em>Walk through the code:</em></p>
+    <p><strong>agents=[...]:</strong> "Every agent that might participate."</p>
+    <p><strong>tasks=[...]:</strong> "Every task to be done, in order if sequential."</p>
+    <p><strong>process=:</strong> "The execution strategy — sequential or hierarchical."</p>
+    <p><strong>memory=True:</strong> "Optional shared memory across the crew."</p>
+    <p><strong>kickoff():</strong> "This is the trigger. Pass in inputs, the crew runs end-to-end, you get the final output back."</p>
+    <p><em>Big takeaway:</em> "The Crew is essentially a configuration object. The framework reads it and runs your team. You don't write orchestration code — you describe a team."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">09</span> &nbsp;/ &nbsp; CREW</div>
+      <div class="crumb">Assembly</div>
+    </div>
+    <h2>The Crew — Putting It Together</h2>
+    <p class="lead">A Crew is the team itself. It binds agents, tasks, and a process into one runnable unit.</p>
+
+    <pre style="margin-top: 20px;"><code><span class="tok-kw">from</span> crewai <span class="tok-kw">import</span> Crew, Process
+
+crew = <span class="tok-cls">Crew</span>(
+    agents=[researcher, writer, editor],         <span class="tok-com"># the team</span>
+    tasks=[research_task, write_task, edit_task], <span class="tok-com"># the work</span>
+    process=Process.sequential,                  <span class="tok-com"># execution strategy</span>
+    memory=<span class="tok-kw">True</span>,                                <span class="tok-com"># shared memory</span>
+    verbose=<span class="tok-kw">True</span>,                               <span class="tok-com"># log everything</span>
+    cache=<span class="tok-kw">True</span>,                                 <span class="tok-com"># cache tool results</span>
+)
+
+<span class="tok-com"># Trigger the crew</span>
+result = crew.<span class="tok-fn">kickoff</span>(inputs={<span class="tok-str">"topic"</span>: <span class="tok-str">"agentic AI in 2026"</span>})
+
+<span class="tok-fn">print</span>(result.raw)        <span class="tok-com"># final string output</span>
+<span class="tok-fn">print</span>(result.tasks_output)   <span class="tok-com"># every task's output</span></code></pre>
+
+    <p style="margin-top: 16px; color: var(--ink-faint); font-size: 15px;">💡 You don't write orchestration logic — you <strong>describe</strong> a team and the framework runs it.</p>
+  </section>
+
+  <!-- 11. PROCESS TYPES -->
+  <section class="slide" data-notes='
+    <p><strong>How the crew executes (2 minutes):</strong></p>
+    <div class="say">"There are three ways a crew can execute. Picking the right one is one of the biggest design decisions you'll make."</div>
+    <p><em>Walk through each in detail:</em></p>
+    <p><strong>1. Sequential</strong> — "Assembly line. Task 1, then Task 2, then Task 3. The output of each step feeds the next. This is what you should use 90 percent of the time. Predictable, debuggable, cheap."</p>
+    <p><strong>2. Hierarchical</strong> — "There is a manager agent at the top who decides which worker handles which task at runtime. More flexible, but the manager can hallucinate sub-tasks or get into loops. Use only when the workflow truly cannot be predetermined."</p>
+    <p><strong>3. Consensual (preview)</strong> — "Still being developed. Agents discuss and reach agreement before producing output. Like a meeting. Promising but not production-ready."</p>
+    <p><em>The pragmatic answer:</em> "Start sequential. Move to hierarchical only when sequential cannot model your problem."</p>
+    <span class="tip">Tip: "Hierarchical mode often costs 3-5x more in tokens because the manager and workers all communicate."</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">10</span> &nbsp;/ &nbsp; PROCESS TYPES</div>
+      <div class="crumb">Execution Strategies</div>
+    </div>
+    <h2>Three Process Types</h2>
+
+    <div style="margin-top: 20px;">
+      <div class="type-block">
+        <div class="type-name">Process.sequential <span class="badge">DEFAULT · USE 90% OF THE TIME</span></div>
+        <div class="type-desc">Tasks run in order. Output of each task is context for the next. Predictable, cheap, easy to debug. Think: assembly line.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Process.hierarchical <span class="badge">FLEXIBLE · MORE EXPENSIVE</span></div>
+        <div class="type-desc">A manager agent receives the goal and dynamically delegates tasks to workers. Powerful for open-ended problems but harder to control. Costs 3-5x more in tokens.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Process.consensual <span class="badge">PREVIEW</span></div>
+        <div class="type-desc">Agents discuss and converge on a shared answer (like a meeting). Still in development — not yet production-recommended.</div>
+      </div>
+    </div>
+
+    <table style="margin-top: 20px;">
+      <thead>
+        <tr><th>Aspect</th><th>Sequential</th><th>Hierarchical</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Predictability</td><td class="highlight">High</td><td>Medium</td></tr>
+        <tr><td>Flexibility</td><td>Low</td><td class="highlight">High</td></tr>
+        <tr><td>Token cost</td><td class="highlight">Low</td><td>High</td></tr>
+        <tr><td>Best for</td><td>Pipelines, content workflows</td><td>Open-ended, dynamic teams</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 12. EXECUTION FLOW -->
+  <section class="slide" data-notes='
+    <p><strong>Visualizing execution (60 seconds):</strong></p>
+    <div class="say">"Here is what happens visually when you run a sequential crew. Trace through it with the audience."</div>
+    <p><em>Walk through the diagram from left to right:</em></p>
+    <p>"User provides a topic — say, ‘agentic AI in 2026.’ The Researcher activates first. It searches the web, finds sources, summarizes. That summary becomes input to the Writer, who drafts an article. The draft goes to the Editor, who polishes it. Final output: a complete, edited article."</p>
+    <p><em>Key insight:</em> "Each agent only sees what it needs. The Editor doesn't see raw search results — it sees the Writer's draft. Clean context per agent."</p>
+    <p><em>Compare:</em> "If a single agent did all this, it would have raw research + half-drafted article + editing instructions all in one prompt. Way messier."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">11</span> &nbsp;/ &nbsp; EXECUTION</div>
+      <div class="crumb">Sequential Flow</div>
+    </div>
+    <h2>How a Sequential Crew Executes</h2>
+    <p class="lead">Each agent's output becomes the next agent's context. Like an assembly line — every worker can also use tools and delegate.</p>
+
+    <div class="flow">
+      <div class="flow-node">
+        <div class="role-tag">Input</div>
+        <div class="name">Topic</div>
+        <div class="desc">User goal</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="role-tag">Agent 1</div>
+        <div class="name">Researcher</div>
+        <div class="desc">Searches, cites</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="role-tag">Agent 2</div>
+        <div class="name">Writer</div>
+        <div class="desc">Drafts article</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="role-tag">Agent 3</div>
+        <div class="name">Editor</div>
+        <div class="desc">Polishes</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="role-tag">Output</div>
+        <div class="name">Article</div>
+        <div class="desc">Deliverable</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 24px; color: var(--ink-faint); font-size: 15px;">💡 Each agent only sees what it needs. The Editor never sees raw search results — only the Writer's draft. Clean context = better quality.</p>
+  </section>
+
+  <!-- 13. TOOLS DEEP DIVE -->
+  <section class="slide" data-notes='
+    <p><strong>Tools — agents with hands (90 seconds):</strong></p>
+    <div class="say">"An LLM by itself can only generate text. It cannot search the web, read your files, or call your APIs. Tools are how agents take action in the real world."</div>
+    <p><em>Walk through the tool categories:</em></p>
+    <p><strong>Search Tools:</strong> "SerperDev (Google), Tavily, Bing — get fresh information from the web."</p>
+    <p><strong>Web Tools:</strong> "Scrape pages, query specific URLs, extract data from HTML."</p>
+    <p><strong>File Tools:</strong> "Read, write, search across your local filesystem."</p>
+    <p><strong>Data Tools:</strong> "Parse CSV, JSON, query SQL databases."</p>
+    <p><strong>Code Tools:</strong> "CodeInterpreter runs Python in a sandbox — agent can do calculations, generate charts."</p>
+    <p><strong>MCP Tools:</strong> "New in 2025 — connect to ANY MCP server. This is huge — Anthropic's standard for tools."</p>
+    <p><strong>RAG Tools:</strong> "Vector store search — give agents access to your docs, your codebase."</p>
+    <p><strong>Custom @tool:</strong> "Wrap any Python function with the @tool decorator. Now your agent can call it."</p>
+    <span class="tip">Tip: show the bottom code example. Three lines and you have a custom stock-price tool.</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">12</span> &nbsp;/ &nbsp; TOOLS</div>
+      <div class="crumb">Agents With Hands</div>
+    </div>
+    <h2>Tools — Eight Categories</h2>
+    <p class="lead">An LLM alone can only think. Tools let agents <strong>act</strong> — search, read, write, compute, integrate.</p>
+
+    <div class="grid grid-4" style="margin-top: 20px;">
+      <div class="card"><div class="icon">🔍</div><h3>Search</h3><p>SerperDev, Tavily — Google &amp; web search.</p></div>
+      <div class="card alt"><div class="icon">🌐</div><h3>Web</h3><p>Scrape, browse URLs, extract DOM data.</p></div>
+      <div class="card"><div class="icon">📁</div><h3>File</h3><p>Read / write local files; directory search.</p></div>
+      <div class="card alt"><div class="icon">📊</div><h3>Data</h3><p>CSV, JSON, SQL parsers and queries.</p></div>
+      <div class="card"><div class="icon">🐍</div><h3>Code</h3><p>CodeInterpreter — run Python sandboxed.</p></div>
+      <div class="card alt"><div class="icon">🔌</div><h3>MCP</h3><p>Native MCP server support (added 2025).</p></div>
+      <div class="card"><div class="icon">📚</div><h3>RAG</h3><p>Vector store retrieval over your docs.</p></div>
+      <div class="card alt"><div class="icon">⚙️</div><h3>Custom</h3><p>Wrap any Python fn with <code>@tool</code>.</p></div>
+    </div>
+
+    <pre style="margin-top: 20px;"><code><span class="tok-kw">from</span> crewai.tools <span class="tok-kw">import</span> tool
+
+<span class="tok-com">@tool(<span class="tok-str">"Stock Price Lookup"</span>)</span>
+<span class="tok-kw">def</span> <span class="tok-fn">get_price</span>(ticker: <span class="tok-cls">str</span>) -> <span class="tok-cls">float</span>:
+    <span class="tok-str">"""Return the latest closing price for a given ticker symbol."""</span>
+    <span class="tok-kw">return</span> yfinance.<span class="tok-fn">Ticker</span>(ticker).history(period=<span class="tok-str">"1d"</span>)[<span class="tok-str">"Close"</span>][-<span class="tok-var">1</span>]</code></pre>
+  </section>
+
+  <!-- 14. MEMORY TYPES -->
+  <section class="slide" data-notes='
+    <p><strong>Memory — making agents stateful (90 seconds):</strong></p>
+    <div class="say">"By default, every task an agent runs is independent — no memory of past runs. CrewAI offers four types of memory to give agents persistent context."</div>
+    <p><em>Walk through each:</em></p>
+    <p><strong>Short-term memory</strong> — "Lasts for the duration of the current crew run. Gets shared between agents in the same kickoff. Good for: ‘what did the researcher find?' ‘what tone did the writer use?'"</p>
+    <p><strong>Long-term memory</strong> — "Persists across multiple kickoffs. Stored in a vector database. Good for: ‘what did this user ask last week?' Used in chat-style applications."</p>
+    <p><strong>Entity memory</strong> — "Tracks people, places, organizations mentioned across runs. ‘Tesla was discussed in 3 previous reports.' Powerful for relationship reasoning."</p>
+    <p><strong>Contextual memory</strong> — "Combines all three above and serves the most relevant context to the current task. The default when you set memory=True."</p>
+    <span class="tip">Tip: "Most prototypes do not need long-term memory. Start with short-term only."</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">13</span> &nbsp;/ &nbsp; MEMORY TYPES</div>
+      <div class="crumb">Persistent Context</div>
+    </div>
+    <h2>Four Types of Memory</h2>
+    <p class="lead">By default, agents are stateless. Memory gives them context that persists across tasks and runs.</p>
+
+    <div style="margin-top: 20px;">
+      <div class="type-block">
+        <div class="type-name">Short-Term Memory <span class="badge">DEFAULT</span></div>
+        <div class="type-desc">Lives for the duration of one crew run. Shared between all agents in the same <code>kickoff()</code>. Great for "what did the researcher just find?"</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Long-Term Memory</div>
+        <div class="type-desc">Persists across multiple crew runs. Stored in a vector database. Used for chat-style applications where context spans sessions.</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Entity Memory</div>
+        <div class="type-desc">Tracks people, organizations, places, and things mentioned across runs. Enables relationship reasoning ("Tesla was discussed in 3 prior reports").</div>
+      </div>
+      <div class="type-block">
+        <div class="type-name">Contextual Memory <span class="badge">RECOMMENDED</span></div>
+        <div class="type-desc">Combines all three above and serves the most relevant context to the current task automatically. Enabled when you set <code>memory=True</code>.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. FULL EXAMPLE -->
+  <section class="slide" data-notes='
+    <p><strong>Putting it all together (2 minutes):</strong></p>
+    <div class="say">"Here is a complete, working CrewAI application — about 30 lines of code. Read it line by line with me."</div>
+    <p><em>Walk through it:</em></p>
+    <p><strong>Step 1 — Define agents:</strong> "Three agents: Researcher, Writer, Editor. Each has its own role and goal."</p>
+    <p><strong>Step 2 — Define tasks:</strong> "Two tasks. Notice the second task has <code>context=[research_task]</code> — it consumes the first task's output."</p>
+    <p><strong>Step 3 — Assemble the crew:</strong> "Bind agents and tasks. Set process to sequential."</p>
+    <p><strong>Step 4 — Kickoff:</strong> "Pass in the topic. The crew runs end-to-end. Returns the final article."</p>
+    <p><em>Big idea:</em> "Look at this code. There is no orchestration logic. No threading. No queue management. You described what you wanted, and the framework executed it."</p>
+    <span class="tip">Tip: this slide is the climax. Pause for questions before moving on.</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">14</span> &nbsp;/ &nbsp; EXAMPLE</div>
+      <div class="crumb">Complete Crew</div>
+    </div>
+    <h2>A Complete Crew in 30 Lines</h2>
+
+    <pre style="margin-top: 20px;"><code><span class="tok-kw">from</span> crewai <span class="tok-kw">import</span> Agent, Task, Crew, Process
+
+<span class="tok-com"># 1. Define agents</span>
+researcher = <span class="tok-cls">Agent</span>(role=<span class="tok-str">"Researcher"</span>, goal=<span class="tok-str">"Find facts on {topic}"</span>, backstory=<span class="tok-str">"..."</span>)
+writer     = <span class="tok-cls">Agent</span>(role=<span class="tok-str">"Writer"</span>,     goal=<span class="tok-str">"Draft an engaging article"</span>, backstory=<span class="tok-str">"..."</span>)
+editor     = <span class="tok-cls">Agent</span>(role=<span class="tok-str">"Editor"</span>,     goal=<span class="tok-str">"Polish for clarity & flow"</span>, backstory=<span class="tok-str">"..."</span>)
+
+<span class="tok-com"># 2. Define tasks</span>
+research_task = <span class="tok-cls">Task</span>(
+    description=<span class="tok-str">"Research the latest on {topic}. Cite 5 sources."</span>,
+    expected_output=<span class="tok-str">"A bullet list of key findings with citations."</span>,
+    agent=researcher,
+)
+write_task = <span class="tok-cls">Task</span>(
+    description=<span class="tok-str">"Write a 600-word article based on the research."</span>,
+    expected_output=<span class="tok-str">"A polished article in Markdown."</span>,
+    agent=writer,
+    context=[research_task],   <span class="tok-com"># pass research output forward</span>
+)
+
+<span class="tok-com"># 3. Assemble the crew</span>
+crew = <span class="tok-cls">Crew</span>(
+    agents=[researcher, writer, editor],
+    tasks=[research_task, write_task],
+    process=Process.sequential,
+)
+
+<span class="tok-com"># 4. Run it</span>
+result = crew.<span class="tok-fn">kickoff</span>(inputs={<span class="tok-str">"topic"</span>: <span class="tok-str">"agentic AI in 2026"</span>})</code></pre>
+  </section>
+
+  <!-- 16. USE CASES -->
+  <section class="slide" data-notes='
+    <p><strong>Real-world applications (90 seconds):</strong></p>
+    <div class="say">"This isn't academic. Companies are using CrewAI in production for high-value workflows right now."</div>
+    <p><em>Highlight 2-3 examples:</em></p>
+    <p><strong>Content Pipelines</strong> — "Marketing teams use CrewAI to generate blogs at scale. Researcher → Writer → SEO Specialist → Editor. Saves hundreds of hours per month."</p>
+    <p><strong>Financial Analysis</strong> — "Hedge funds use it for due diligence. Data Collector pulls earnings reports, Analyst extracts metrics, Risk Assessor flags concerns, Reporter synthesizes."</p>
+    <p><strong>Customer Support</strong> — "Triage agent classifies tickets, Specialist drafts responses, QA agent reviews. Human-in-the-loop for sensitive cases."</p>
+    <p><em>Less obvious uses:</em> "Academic literature reviews, software prototyping, e-commerce product descriptions, even legal contract review pipelines."</p>
+    <span class="tip">Tip: ask the audience: "What is one workflow at your school or job that has 3-4 distinct steps? That is a candidate for a crew."</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">15</span> &nbsp;/ &nbsp; APPLICATIONS</div>
+      <div class="crumb">In Production</div>
+    </div>
+    <h2>Where CrewAI Shines</h2>
+
+    <div class="grid grid-3" style="margin-top: 20px;">
+      <div class="card">
+        <div class="icon">📝</div>
+        <h3>Content Pipelines</h3>
+        <p>Researcher → Writer → Editor → SEO. Used by marketing teams for blogs, newsletters, social.</p>
+        <div style="margin-top: 8px;"><span class="tag">Marketing</span><span class="tag">Media</span></div>
+      </div>
+      <div class="card alt">
+        <div class="icon">📈</div>
+        <h3>Financial Analysis</h3>
+        <p>Data Collector → Analyst → Risk Assessor → Reporter. Investment briefs and due diligence.</p>
+        <div style="margin-top: 8px;"><span class="tag">Fintech</span></div>
+      </div>
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>Customer Support</h3>
+        <p>Triage → Specialist → QA. Routes and resolves tickets with human-in-the-loop fallback.</p>
+        <div style="margin-top: 8px;"><span class="tag">SaaS</span></div>
+      </div>
+      <div class="card alt">
+        <div class="icon">🧪</div>
+        <h3>Academic Research</h3>
+        <p>Search → Summarize → Synthesize → Cite. Great for literature reviews and survey papers.</p>
+        <div style="margin-top: 8px;"><span class="tag">Education</span></div>
+      </div>
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Software Dev</h3>
+        <p>Architect → Coder → Reviewer → Tester. Crews for prototyping and code generation.</p>
+        <div style="margin-top: 8px;"><span class="tag">DevTools</span></div>
+      </div>
+      <div class="card alt">
+        <div class="icon">🛒</div>
+        <h3>E-commerce</h3>
+        <p>Product description writer + competitor analyst + pricing optimizer in parallel.</p>
+        <div style="margin-top: 8px;"><span class="tag">Retail</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17. FRAMEWORK COMPARISON -->
+  <section class="slide" data-notes='
+    <p><strong>The competitive landscape (90 seconds):</strong></p>
+    <div class="say">"CrewAI is one of four production-ready agent frameworks in 2025. Each has its strengths."</div>
+    <p><em>Walk through the comparison:</em></p>
+    <p><strong>CrewAI</strong> — "Easiest. Best mental model for newcomers. Trade-off: less control."</p>
+    <p><strong>LangGraph</strong> — "Most powerful. State graphs. You explicitly draw the workflow as nodes and edges. Steep learning curve, but you can build anything. Used at Uber, Replit, LinkedIn."</p>
+    <p><strong>OpenAI Agents SDK</strong> — "Native to OpenAI. Simple handoff model. Trade-off: locked into OpenAI."</p>
+    <p><strong>Pydantic AI</strong> — "Typed agents. Best for when you need structured, validated outputs. Used in fintech, where output format matters."</p>
+    <p><strong>No Framework</strong> — "Raw API calls. Maximum control, maximum work."</p>
+    <p><em>The summary:</em> "Most engineers I know use CrewAI to prototype, then graduate to LangGraph if they need more control."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">16</span> &nbsp;/ &nbsp; LANDSCAPE</div>
+      <div class="crumb">vs Other Frameworks</div>
+    </div>
+    <h2>How CrewAI Compares</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Framework</th>
+          <th>Abstraction</th>
+          <th>Best For</th>
+          <th>Learning Curve</th>
+          <th>Control</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="highlight">CrewAI</td><td>Roles &amp; Crews</td><td>Multi-agent collaboration</td><td>Easy</td><td>Medium</td></tr>
+        <tr><td>LangGraph</td><td>State Graphs</td><td>Complex stateful workflows</td><td>Steep</td><td>High</td></tr>
+        <tr><td>OpenAI Agents SDK</td><td>Handoffs</td><td>OpenAI-native pipelines</td><td>Easy</td><td>Medium</td></tr>
+        <tr><td>Pydantic AI</td><td>Typed Agents</td><td>Structured output, validation</td><td>Medium</td><td>High</td></tr>
+        <tr><td>No Framework</td><td>Raw API calls</td><td>Full custom systems</td><td>Hard</td><td>Total</td></tr>
+      </tbody>
+    </table>
+
+    <blockquote style="margin-top: 24px;">
+      CrewAI is the easiest path to a working multi-agent prototype. LangGraph is what you graduate to when you need fine-grained control.
+      <span class="attr">— Common takeaway from agentic-AI engineers</span>
+    </blockquote>
+  </section>
+
+  <!-- 18. PROS / CONS -->
+  <section class="slide" data-notes='
+    <p><strong>The honest take (90 seconds):</strong></p>
+    <div class="say">"No framework is perfect. Here is the honest breakdown of what CrewAI does well and where it falls short."</div>
+    <p><em>Strengths to highlight:</em></p>
+    <p>"<strong>Intuitive mental model</strong> — this is the killer feature. Even non-engineers can read a CrewAI config and understand what it does."</p>
+    <p>"<strong>Fast prototyping</strong> — working crew in under 50 lines."</p>
+    <p>"<strong>Native MCP support</strong> — added 2025. Means you can plug CrewAI into the entire MCP ecosystem."</p>
+    <p><em>Weaknesses to acknowledge:</em></p>
+    <p>"<strong>Debugging is hard</strong> — when 5 agents loop on each other, tracing what went wrong is a nightmare."</p>
+    <p>"<strong>Token cost</strong> — verbose backstories add up. A long crew run can cost several dollars in API fees."</p>
+    <p>"<strong>Non-determinism</strong> — same inputs, slightly different outputs. Hard to test."</p>
+    <span class="tip">Tip: be honest. Audience trust comes from acknowledging weaknesses. CrewAI is great, not magic.</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">17</span> &nbsp;/ &nbsp; TRADEOFFS</div>
+      <div class="crumb">Honest Take</div>
+    </div>
+    <h2>Strengths and Limitations</h2>
+
+    <div class="compare">
+      <div class="pros">
+        <h3>✅ Strengths</h3>
+        <ul>
+          <li><strong>Intuitive mental model</strong> — roles map to how humans think about teams</li>
+          <li><strong>Fast prototyping</strong> — working crew in under 50 lines</li>
+          <li><strong>Rich tool ecosystem</strong> — 100+ built-in tools, custom tools easy</li>
+          <li><strong>Native MCP support</strong> — added 2025</li>
+          <li><strong>Active community</strong> — 46K+ stars, frequent releases</li>
+          <li><strong>Memory system</strong> — short / long / entity memory built in</li>
+          <li><strong>Model-agnostic</strong> — OpenAI, Anthropic, Gemini, local LLMs</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>⚠️ Limitations</h3>
+        <ul>
+          <li><strong>Less granular control</strong> than LangGraph state machines</li>
+          <li><strong>Debugging is hard</strong> when 5+ agents loop on each other</li>
+          <li><strong>Token cost</strong> grows quickly with verbose backstories</li>
+          <li><strong>Non-determinism</strong> — same inputs, different paths</li>
+          <li><strong>Hierarchical mode is risky</strong> — manager agents can hallucinate sub-tasks</li>
+          <li><strong>Production observability</strong> still maturing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 19. ECOSYSTEM -->
+  <section class="slide" data-notes='
+    <p><strong>By the numbers (45 seconds):</strong></p>
+    <div class="say">"This is not a hobby project. CrewAI has serious adoption."</div>
+    <p><em>Key facts to mention:</em></p>
+    <p>"<strong>46,000 GitHub stars</strong> — top 1% of all open source projects."</p>
+    <p>"<strong>10,000+ companies</strong> — including Fortune 500."</p>
+    <p>"<strong>Founded by João Moura</strong> in 2023. Backed by Andreessen Horowitz."</p>
+    <p><em>Version timeline:</em> "CrewAI has been moving fast. From basic sequential to hierarchical to flows to MCP — every six months a major capability lands."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">18</span> &nbsp;/ &nbsp; ECOSYSTEM</div>
+      <div class="crumb">By the Numbers</div>
+    </div>
+    <h2>The CrewAI Ecosystem</h2>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">46K+</div><div class="label">GitHub Stars</div></div>
+      <div class="stat"><div class="num">100+</div><div class="label">Pre-built Tools</div></div>
+      <div class="stat"><div class="num">10K+</div><div class="label">Companies Using</div></div>
+      <div class="stat"><div class="num">2023</div><div class="label">Founded by João Moura</div></div>
+    </div>
+
+    <h3 style="margin-top: 32px;">Key Releases</h3>
+    <ul class="clean">
+      <li><span class="num">1</span><div><strong>v0.1 — 2023:</strong> Initial release. Sequential process only.</div></li>
+      <li><span class="num">2</span><div><strong>v0.30 — 2024:</strong> Hierarchical process, memory system, tool registry.</div></li>
+      <li><span class="num">3</span><div><strong>v0.60 — 2024:</strong> CrewAI Flows — event-driven, deterministic workflows alongside crews.</div></li>
+      <li><span class="num">4</span><div><strong>v0.80+ — 2025:</strong> Native MCP support, async kickoffs, training mode, telemetry.</div></li>
+    </ul>
+  </section>
+
+  <!-- 20. INSTALL -->
+  <section class="slide" data-notes='
+    <p><strong>Getting started (60 seconds):</strong></p>
+    <div class="say">"You can have a crew running on your laptop in 5 minutes. Here is exactly how."</div>
+    <p><em>Walk through the steps:</em></p>
+    <p><strong>1. Install:</strong> "<code>pip install crewai[tools]</code> — that's it. Python 3.10 or higher required."</p>
+    <p><strong>2. Set API key:</strong> "Export your OpenAI or Anthropic key as an environment variable."</p>
+    <p><strong>3. Scaffold:</strong> "<code>crewai create crew my_first_crew</code> — generates a full project structure with sample agents and tasks."</p>
+    <p><strong>4. The structure:</strong> "Notice the YAML files. Production CrewAI projects keep agent and task definitions in YAML — separate from code. We'll see why next."</p>
+    <span class="tip">Tip: encourage them to try this RIGHT NOW on their laptops while you talk.</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">19</span> &nbsp;/ &nbsp; HANDS-ON</div>
+      <div class="crumb">Get Started</div>
+    </div>
+    <h2>From Zero to Crew in 5 Minutes</h2>
+
+    <div class="grid grid-2" style="margin-top: 20px;">
+      <div>
+        <h3>1. Install</h3>
+        <pre><code><span class="tok-com"># Python 3.10+</span>
+pip install crewai
+pip install <span class="tok-str">'crewai[tools]'</span>  <span class="tok-com"># includes built-in tools</span></code></pre>
+
+        <h3 style="margin-top: 18px;">2. Set API Key</h3>
+        <pre><code><span class="tok-kw">export</span> OPENAI_API_KEY=<span class="tok-str">"sk-..."</span>
+<span class="tok-com"># or ANTHROPIC_API_KEY, GEMINI_API_KEY</span></code></pre>
+      </div>
+
+      <div>
+        <h3>3. Scaffold a Project</h3>
+        <pre><code>crewai create crew my_first_crew
+<span class="tok-kw">cd</span> my_first_crew
+crewai run</code></pre>
+
+        <h3 style="margin-top: 18px;">4. Project Structure</h3>
+        <pre><code>my_first_crew/
+├── src/my_first_crew/
+│   ├── config/
+│   │   ├── agents.yaml
+│   │   └── tasks.yaml
+│   ├── crew.py
+│   └── main.py
+└── pyproject.toml</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- 21. YAML CONFIG -->
+  <section class="slide" data-notes='
+    <p><strong>Production patterns (90 seconds):</strong></p>
+    <div class="say">"Real CrewAI projects keep agent and task definitions in YAML files — not Python code. Here is why that matters."</div>
+    <p><em>The benefits:</em></p>
+    <p>"<strong>1. Iteration speed.</strong> Tweaking a prompt is a YAML edit, not a code commit. PMs and copywriters can change agent behavior without touching code."</p>
+    <p>"<strong>2. Version control clarity.</strong> Prompt changes show as clean YAML diffs."</p>
+    <p>"<strong>3. Multi-environment.</strong> You can have agents.dev.yaml, agents.prod.yaml — different prompts for different stages."</p>
+    <p>"<strong>4. Templating.</strong> Use <code>{topic}</code> placeholders that get filled in at kickoff."</p>
+    <p><em>Walk through the YAML:</em> "Notice how clean it reads. Even a non-engineer can understand what this agent does."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">20</span> &nbsp;/ &nbsp; CONFIG</div>
+      <div class="crumb">YAML Workflow</div>
+    </div>
+    <h2>Config-Driven Crews</h2>
+    <p class="lead">Production CrewAI projects keep agents and tasks in YAML — not Python — so non-engineers can iterate on prompts.</p>
+
+    <div class="grid grid-2" style="margin-top: 20px;">
+      <div>
+        <h3>agents.yaml</h3>
+        <pre><code><span class="tok-cls">researcher</span>:
+  role: <span class="tok-str">>
+    Senior Research Analyst</span>
+  goal: <span class="tok-str">>
+    Find verified facts on {topic}</span>
+  backstory: <span class="tok-str">>
+    A meticulous analyst who never
+    cites without checking sources.</span>
+  llm: gpt-4o
+  tools:
+    - serper_search
+    - website_scraper</code></pre>
+      </div>
+      <div>
+        <h3>tasks.yaml</h3>
+        <pre><code><span class="tok-cls">research_task</span>:
+  description: <span class="tok-str">>
+    Research {topic}. Provide 5
+    verified sources with citations.</span>
+  expected_output: <span class="tok-str">>
+    Bullet list of findings with
+    URLs and one-line summaries.</span>
+  agent: researcher
+  output_file: research.md</code></pre>
+      </div>
+    </div>
+
+    <p style="margin-top: 16px; font-size: 14px; color: var(--ink-faint);">💡 Iterate prompts without redeploying. PMs and writers can tune agents directly.</p>
+  </section>
+
+  <!-- 22. FLOWS -->
+  <section class="slide" data-notes='
+    <p><strong>The advanced feature: Flows (90 seconds):</strong></p>
+    <div class="say">"Crews are autonomous — agents decide what to do. But sometimes you need DETERMINISTIC control. That is where Flows come in."</div>
+    <p><em>Why this matters:</em> "Imagine a content pipeline where you want to retry topic generation if the score is too low. Or branch to a different crew based on user input. Crews alone can't do that cleanly. Flows can."</p>
+    <p><em>Walk through the code:</em></p>
+    <p>"<strong>@start():</strong> the entry point."</p>
+    <p>"<strong>@listen(generate_topic):</strong> this method runs when generate_topic finishes."</p>
+    <p>"<strong>The if-statement:</strong> deterministic branching — if score is low, retry. If good, proceed to publish."</p>
+    <p><em>Mental model:</em> "Crews are the decision-makers. Flows are the conductor. You combine them when you need both reasoning AND reliable orchestration."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">21</span> &nbsp;/ &nbsp; ADVANCED</div>
+      <div class="crumb">CrewAI Flows</div>
+    </div>
+    <h2>When Crews Aren't Enough: Flows</h2>
+    <p class="lead">Crews are autonomous reasoners. <strong>Flows</strong> add deterministic, event-driven control flow on top.</p>
+
+    <pre style="margin-top: 24px;"><code><span class="tok-kw">from</span> crewai.flow.flow <span class="tok-kw">import</span> Flow, listen, start
+
+<span class="tok-kw">class</span> <span class="tok-cls">ContentFlow</span>(Flow):
+
+    <span class="tok-com">@start()</span>
+    <span class="tok-kw">def</span> <span class="tok-fn">generate_topic</span>(self):
+        <span class="tok-kw">return</span> trending_crew.<span class="tok-fn">kickoff</span>()
+
+    <span class="tok-com">@listen(generate_topic)</span>
+    <span class="tok-kw">def</span> <span class="tok-fn">write_article</span>(self, topic):
+        <span class="tok-kw">if</span> topic.score < <span class="tok-var">0.7</span>:
+            <span class="tok-kw">return</span> self.<span class="tok-fn">generate_topic</span>()  <span class="tok-com"># retry — deterministic loop</span>
+        <span class="tok-kw">return</span> writer_crew.<span class="tok-fn">kickoff</span>(inputs={<span class="tok-str">"topic"</span>: topic})
+
+    <span class="tok-com">@listen(write_article)</span>
+    <span class="tok-kw">def</span> <span class="tok-fn">publish</span>(self, article):
+        cms.<span class="tok-fn">publish</span>(article)</code></pre>
+
+    <p style="margin-top: 14px; color: var(--ink-faint); font-size: 14px;">💡 Crews = reasoning. Flows = orchestration. Combine when you need both autonomy AND reliable control flow.</p>
+  </section>
+
+  <!-- 23. BEST PRACTICES -->
+  <section class="slide" data-notes='
+    <p><strong>What actually works (2 minutes):</strong></p>
+    <div class="say">"These are the seven rules I wish someone had told me before I built my first crew. They will save you time and money."</div>
+    <p><em>Hit each rule briefly:</em></p>
+    <p><strong>Rule 1 — Start small:</strong> "Two agents. Add more only when you can name a real specialization."</p>
+    <p><strong>Rule 2 — Specific backstories:</strong> "Bad: ‘You are a writer.' Good: ‘You are a science journalist who explains complex topics with vivid analogies.'"</p>
+    <p><strong>Rule 3 — Define expected_output precisely:</strong> "This is the #1 cause of agents looping forever."</p>
+    <p><strong>Rule 4 — Sequential before hierarchical:</strong> "Pin down the workflow before delegating control."</p>
+    <p><strong>Rule 5 — Cap iterations:</strong> "Set max_iter. Without it, agents can call tools in loops until your wallet cries."</p>
+    <p><strong>Rule 6 — Log everything in dev:</strong> "verbose=True. Pipe to Langfuse or Helicone in prod."</p>
+    <p><strong>Rule 7 — Cheap models first:</strong> "Iterate on gpt-4o-mini, scale to gpt-4o for production."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">22</span> &nbsp;/ &nbsp; PRACTICE</div>
+      <div class="crumb">What Actually Works</div>
+    </div>
+    <h2>Seven Rules for Real Crews</h2>
+
+    <ul class="clean" style="margin-top: 14px;">
+      <li><span class="num">1</span><div><strong>Start with 2 agents, not 5.</strong> Add more only when you can name a real specialization. Each extra agent multiplies token cost and debugging surface.</div></li>
+      <li><span class="num">2</span><div><strong>Write specific backstories.</strong> "You are a writer" is weak. "You are a science journalist who explains complex topics with vivid analogies" steers the model meaningfully.</div></li>
+      <li><span class="num">3</span><div><strong>Define expected_output precisely.</strong> CrewAI uses it to validate completion. Vague expected outputs cause infinite loops.</div></li>
+      <li><span class="num">4</span><div><strong>Use sequential before hierarchical.</strong> Manager agents are powerful but unpredictable. Pin down the workflow before delegating control.</div></li>
+      <li><span class="num">5</span><div><strong>Cap iterations.</strong> Set <code>max_iter</code> on agents. Without it, an agent can loop on tool calls until your wallet cries.</div></li>
+      <li><span class="num">6</span><div><strong>Log everything in dev.</strong> Use <code>verbose=True</code>. Pipe to a tracer like Langfuse or Helicone in prod.</div></li>
+      <li><span class="num">7</span><div><strong>Test with cheap models first.</strong> Iterate prompts on <code>gpt-4o-mini</code>, then scale to <code>gpt-4o</code> for production.</div></li>
+    </ul>
+  </section>
+
+  <!-- 24. DEMO -->
+  <section class="slide" data-notes='
+    <p><strong>Imagined demo (60 seconds):</strong></p>
+    <div class="say">"Imagine you wanted to build a trip planner for spring break. Here is exactly how a crew would handle it."</div>
+    <p><em>Walk through the agents:</em></p>
+    <p><strong>City Selector:</strong> "Looks at user preferences, weather, budget. Picks the best city."</p>
+    <p><strong>Local Expert:</strong> "Once city is picked, suggests neighborhoods, restaurants, attractions."</p>
+    <p><strong>Travel Planner:</strong> "Builds the day-by-day itinerary with timing, transit, and budget."</p>
+    <p><em>The output:</em> "A complete Markdown itinerary you could hand to a friend. Three agents, one user query."</p>
+    <span class="tip">Tip: if you have time, run this live. The CrewAI examples repo has a working trip planner.</span>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">23</span> &nbsp;/ &nbsp; DEMO</div>
+      <div class="crumb">Trip Planner</div>
+    </div>
+    <h2>Demo Storyboard: Trip Planner</h2>
+    <p class="lead">A "trip planner" crew that designs a 3-day itinerary for any city.</p>
+
+    <div class="flow" style="margin-top: 24px;">
+      <div class="flow-node">
+        <div class="role-tag">Agent 1</div>
+        <div class="name">City Selector</div>
+        <div class="desc">Picks best city based on prefs &amp; weather</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="role-tag">Agent 2</div>
+        <div class="name">Local Expert</div>
+        <div class="desc">Suggests neighborhoods, food, attractions</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="role-tag">Agent 3</div>
+        <div class="name">Travel Planner</div>
+        <div class="desc">Builds day-by-day itinerary &amp; budget</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 24px;">User Input</h3>
+    <pre><code>{
+  <span class="tok-str">"origin"</span>: <span class="tok-str">"New York"</span>,
+  <span class="tok-str">"interests"</span>: [<span class="tok-str">"food"</span>, <span class="tok-str">"art"</span>, <span class="tok-str">"history"</span>],
+  <span class="tok-str">"dates"</span>: <span class="tok-str">"June 10–13, 2026"</span>,
+  <span class="tok-str">"budget"</span>: <span class="tok-str">"$2000"</span>
+}</code></pre>
+
+    <p style="margin-top: 12px; color: var(--ink-faint); font-size: 14px;">→ Output: a fully-formatted Markdown itinerary with restaurant recs, museum tickets, and transit options.</p>
+  </section>
+
+  <!-- 25. RESOURCES -->
+  <section class="slide" data-notes='
+    <p><strong>Where to learn more (45 seconds):</strong></p>
+    <div class="say">"If you want to dive deeper, here are the resources I recommend in priority order."</div>
+    <p><em>Top picks:</em></p>
+    <p>"<strong>DeepLearning.AI course</strong> — free, taught by the founder. Best 90-minute investment you can make."</p>
+    <p>"<strong>The examples repo</strong> — 30+ working crews you can clone and modify."</p>
+    <p>"<strong>Discord</strong> — the community is super active. Most questions get answered in hours."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">24</span> &nbsp;/ &nbsp; RESOURCES</div>
+      <div class="crumb">Where to Go Next</div>
+    </div>
+    <h2>Resources to Explore</h2>
+
+    <div class="grid grid-2" style="margin-top: 20px;">
+      <div class="card"><div class="icon">📖</div><h3>Official Docs</h3><p>docs.crewai.com — comprehensive guides, API reference, tutorials.</p></div>
+      <div class="card alt"><div class="icon">💻</div><h3>GitHub</h3><p>github.com/crewAIInc/crewAI — source, issues, examples.</p></div>
+      <div class="card"><div class="icon">🎓</div><h3>DeepLearning.AI Course</h3><p>"Multi AI Agent Systems with crewAI" — free, by founder João Moura.</p></div>
+      <div class="card alt"><div class="icon">💬</div><h3>Discord</h3><p>Active community of 10K+ developers building with CrewAI.</p></div>
+      <div class="card"><div class="icon">📺</div><h3>YouTube</h3><p>Official channel hosts walkthroughs, demos, case studies.</p></div>
+      <div class="card alt"><div class="icon">🧪</div><h3>Examples Repo</h3><p>github.com/crewAIInc/crewAI-examples — 30+ ready crews.</p></div>
+    </div>
+  </section>
+
+  <!-- 26. KEY TAKEAWAYS -->
+  <section class="slide" data-notes='
+    <p><strong>Wrap-up (60 seconds):</strong></p>
+    <div class="say">"If you remember nothing else, remember these five things."</div>
+    <p><em>Read each one slowly. These should land:</em></p>
+    <p><strong>1. Role-based</strong> — "Define agents by who they are, not what they do."</p>
+    <p><strong>2. Six concepts</strong> — "Agent, Task, Crew, Tool, Process, Memory. That's it."</p>
+    <p><strong>3. Sequential first</strong> — "Reach for hierarchical only when you must."</p>
+    <p><strong>4. Tradeoff</strong> — "Easiest framework, but less granular control than LangGraph."</p>
+    <p><strong>5. Best for</strong> — "Anything where multiple roles cooperate to produce a deliverable."</p>
+    <p><em>Closer:</em> "Multi-agent AI is the next big shift in software. CrewAI is the easiest place to start. Go build something."</p>
+  '>
+    <div class="slide-header">
+      <div class="crumb"><span class="accent">25</span> &nbsp;/ &nbsp; SUMMARY</div>
+      <div class="crumb">Remember This</div>
+    </div>
+    <h2>Five Things to Remember</h2>
+
+    <ul class="clean" style="margin-top: 24px;">
+      <li><span class="num">1</span><div style="font-size: 17px; color: var(--ink);"><strong>CrewAI is role-based.</strong> Agents are defined by who they are — Researcher, Writer, Editor — not by code paths.</div></li>
+      <li><span class="num">2</span><div style="font-size: 17px; color: var(--ink);"><strong>Six concepts cover 95% of usage:</strong> Agent, Task, Crew, Tool, Process, Memory.</div></li>
+      <li><span class="num">3</span><div style="font-size: 17px; color: var(--ink);"><strong>Sequential first, hierarchical when needed.</strong> Predictability beats flexibility for most workflows.</div></li>
+      <li><span class="num">4</span><div style="font-size: 17px; color: var(--ink);"><strong>The tradeoff:</strong> easiest multi-agent framework, but less granular control than LangGraph.</div></li>
+      <li><span class="num">5</span><div style="font-size: 17px; color: var(--ink);"><strong>Best for:</strong> rapid prototyping, content generation, research workflows, and any task where roles cooperate.</div></li>
+    </ul>
+  </section>
+
+  <!-- 27. THANK YOU -->
+  <section class="slide hero-final" data-notes='
+    <p><strong>Closing (Q&amp;A — let it breathe):</strong></p>
+    <div class="say">"That's CrewAI. Happy to take questions."</div>
+    <p><em>Common questions to anticipate:</em></p>
+    <p><strong>Q: How much does it cost to run?</strong> "Depends on the model and crew size. A 3-agent content crew on gpt-4o costs roughly $0.10 to $0.50 per run."</p>
+    <p><strong>Q: Can I use local models?</strong> "Yes. CrewAI supports Ollama, LM Studio, anything OpenAI-compatible."</p>
+    <p><strong>Q: Is this overkill for simple tasks?</strong> "Yes — if your task is one-shot, just call the API directly. Use CrewAI when you have 3+ logical steps."</p>
+    <p><strong>Q: Production-ready?</strong> "Yes — companies use it in prod. But add observability (Langfuse) and cost caps."</p>
+    <p><strong>Q: How does it compare to LangChain?</strong> "LangChain is broader (chains, agents, retrieval). CrewAI is focused specifically on multi-agent collaboration. Often used together."</p>
+  '>
+    <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px;">Questions?</div>
+    <h1>Thank You</h1>
+    <p class="lead" style="text-align: center; margin-top: 20px;">Now let's build a crew together.</p>
+    <div class="meta" style="margin-top: 56px; justify-content: center;">
+      <div class="meta-item" style="text-align: center;"><div class="label">Framework</div><div class="value">CrewAI</div></div>
+      <div class="meta-item" style="text-align: center;"><div class="label">Docs</div><div class="value">docs.crewai.com</div></div>
+      <div class="meta-item" style="text-align: center;"><div class="label">GitHub</div><div class="value">crewAIInc/crewAI</div></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- SPEAKER NOTES PANEL -->
+<div class="notes-panel" id="notesPanel">
+  <div class="popout-header-bar">
+    <div class="pop-title">🎤 Presenter View — Speaker Notes</div>
+    <div class="pop-info">Slide <span id="popSlideNum">1</span> / <span id="popSlideTotal">27</span> &nbsp;·&nbsp; <kbd>←</kbd> <kbd>→</kbd> Navigate</div>
+  </div>
+  <div class="notes-header">
+    <div class="title">🎤 Speaker Notes</div>
+    <div class="slide-info">Slide <span id="notesSlideNum">1</span> of <span id="notesSlideTotal">27</span> · Press <kbd style="background: var(--bg-2); padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line);">N</kbd> to toggle</div>
+  </div>
+  <div class="notes-content" id="notesContent"></div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button id="prev" aria-label="Previous">‹</button>
+  <span class="counter"><span id="cur">1</span> / <span id="total">27</span></span>
+  <div class="progress"><div class="progress-bar" id="bar"></div></div>
+  <button id="next" aria-label="Next">›</button>
+  <button class="notes-toggle" id="notesToggle" aria-label="Toggle notes">Notes</button>
+  <button class="popout-btn" id="popoutBtn" aria-label="Pop out notes" title="Open notes in a separate window">⬈ Pop-out</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let i = 0;
+
+  document.getElementById('total').textContent = total;
+  document.getElementById('notesSlideTotal').textContent = total;
+  document.getElementById('popSlideTotal').textContent = total;
+
+  const notesPanel = document.getElementById('notesPanel');
+  const notesContent = document.getElementById('notesContent');
+  const notesToggle = document.getElementById('notesToggle');
+  const popoutBtn = document.getElementById('popoutBtn');
+
+  // Detect popout mode via URL hash
+  const isPopout = window.location.hash === '#presenter';
+  if (isPopout) {
+    document.body.classList.add('popout-mode');
+    document.title = 'Presenter Notes — CrewAI';
+  }
+
+  // Cross-window sync via BroadcastChannel
+  const channel = new BroadcastChannel('crewai-deck');
+  let popWindow = null;
+
+  function show(n, broadcast = true) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    document.getElementById('cur').textContent = i + 1;
+    document.getElementById('notesSlideNum').textContent = i + 1;
+    document.getElementById('popSlideNum').textContent = i + 1;
+    document.getElementById('bar').style.width = ((i + 1) / total * 100) + '%';
+
+    const notes = slides[i].getAttribute('data-notes');
+    notesContent.innerHTML = notes || '<p style="color: var(--ink-faint);">No notes for this slide.</p>';
+
+    if (broadcast) channel.postMessage({ type: 'goto', index: i });
+  }
+
+  function toggleNotes() {
+    document.body.classList.toggle('notes-open');
+    notesToggle.classList.toggle('active');
+  }
+
+  function openPopout() {
+    if (popWindow && !popWindow.closed) {
+      popWindow.focus();
+      return;
+    }
+    const url = window.location.pathname + '#presenter';
+    popWindow = window.open(url, 'crewai-presenter', 'width=900,height=700,menubar=no,toolbar=no,location=no');
+    popoutBtn.textContent = '⬈ Notes Open';
+    popoutBtn.style.color = 'var(--accent)';
+  }
+
+  // Listen for messages from the other window
+  channel.onmessage = (e) => {
+    if (e.data.type === 'goto') show(e.data.index, false);
+  };
+
+  // Wire up controls (only in main window)
+  if (!isPopout) {
+    document.getElementById('prev').onclick = () => show(i - 1);
+    document.getElementById('next').onclick = () => show(i + 1);
+    notesToggle.onclick = toggleNotes;
+    popoutBtn.onclick = openPopout;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Home') show(0);
+    else if (e.key === 'End') show(total - 1);
+    else if (!isPopout && (e.key === 'n' || e.key === 'N')) { e.preventDefault(); toggleNotes(); }
+    else if (!isPopout && (e.key === 'p' || e.key === 'P')) { e.preventDefault(); openPopout(); }
+    else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  show(0, false);
+</script>
+
+</body>
+</html>

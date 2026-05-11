@@ -1,0 +1,4 @@
+configuration,overall,yes_no,open,delta_vs_rag
+Baseline,0.4233,0.8286,0.2051,-0.17
+RAG α=1.0 k=3,0.5933,0.8,0.4821,0.0
+"A. Type-router (yn→base, open→RAG)",0.6033,0.8286,0.4821,0.01

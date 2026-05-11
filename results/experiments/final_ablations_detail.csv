@@ -1,0 +1,101 @@
+qid,image_id,question,gt,is_yes_no,baseline,rag_k1,rag_k3,rag_k5,rag_k10,rag_a05,rag_a00,rag_rerank,eaw,eaw_reason,type_gated,sc_vote
+2529010,2529,Is there snow on the ground?,no|no|no,True,no,no,no,no,no,yes,yes,no,no,majority>=2,no,yes
+2532000,2532,Is the skier going downhill?,no|no|yes,True,no,yes,yes,yes,yes,yes,no,yes,yes,raw_rag,no,yes
+2532001,2532,How do you know this skier is not alone on the mountain?,someone had to take photo|tracks|other ski tracks and footprints,False,You don't,Because there is snow on the ground,not alone,not alone,not alone,I don't,I don't,I don't,not alone,raw_rag,not alone,I don't
+2532002,2532,How cold is it?,cold|15 degrees|freezing,False,sky is blue,very cold,cold,cold,cold,very,very,cold,cold,raw_rag,cold,very
+2532003,2532,Is it a sunny or cloudy day?,sunny|cloudy|cloudy,True,sunny day,Sunny,sunny,sunny,sunny,sunny,sunny,sunny,sunny,raw_rag,sunny day,sunny
+2532004,2532,What color is the sky?,blue|blue|blue,False,blue,blue,blue,blue,blue,gray,gray,blue,blue,raw_rag,blue,gray
+395749000,395749,What filter is being used in this image?,black and white|black & white|black and white,False,black and white,black and white,black and white,black and white,black and white,no filter,no filter,black and white,black and white,raw_rag,black and white,no filter
+395749001,395749,Are all the people elderly?,no|yes|no,True,no,no,no,no,no,no,no,yes,no,raw_rag,no,no
+395749002,395749,How many people can be seen?,4|4|4,False,Three,4,3,3,3,2,2,3,3,raw_rag,3,2
+395749003,395749,What ocean might this be?,atlantic|antarctic|atlantic,False,Atlantic Ocean,Atlantic Ocean,ocean,ocean,ocean,pacific,pacific,ocean,ocean,raw_rag,ocean,pacific
+395749004,395749,How many people are in the photo?,4|4|4,False,3,4,3,3,3,2,2,3,3,raw_rag,3,2
+395752000,395752,What color are the mums in the front of the photo?,"pink|red|pink, red, yellow",False,red and green,red,red,red,red,red,red,red,red,raw_rag,red,red
+395752001,395752,Can a mail truck fit behind the bus to pick up the mail?,yes|yes|yes,True,yes,yes,yes,yes,yes,no,no,no,yes,raw_rag,yes,no
+395752002,395752,"What  ""Over the Rainbow"" singer sang about this vehicle?",judy garland|judy garland|train,False,"""Over the Rainbow""","""Over the Rainbow""",Judy Garland,Judy Garland,Judy Garland,Judy Garland,Judy Garland,I don't know,Judy Garland,raw_rag,Judy Garland,Judy Garland
+395752003,395752,What color are the hubcaps?,red|red|red,False,Red and green,red,red,red,red,red,red,red,red,raw_rag,red,red
+395752004,395752,Is someone getting on this street car?,yes|yes|yes,True,yes,no,yes,yes,yes,no,no,yes,yes,raw_rag,yes,no
+264683000,264683,Is this airplane inside?,yes|yes|yes,True,yes,yes,yes,yes,yes,yes,no,no,yes,raw_rag,yes,yes
+264683001,264683,What airline does the plane fly for?,air france|air france|air france,False,United Airlines,Air France,Air France,Air France,Air France,American Airlines,united,no,Air France,raw_rag,Air France,Air France
+264683002,264683,Are there planes hanging?,yes|yes|yes,True,yes,yes,yes,yes,yes,yes,yes,yes,yes,raw_rag,yes,yes
+264686000,264686,How many side tables are there?,2|2|2,False,Three,3,2,2,2,3,2,2,no,majority>=2,2,2
+264686001,264686,How many windows are on the wall?,3|3|3,False,Three,3,3,3,3,1,1,2,no,majority>=2,3,1
+264686002,264686,Is the TV a tube or flat screen?,tube|tube|tube,True,tube,Flat screen,flat screen,flat screen,flat screen,tube,tube,flat screen,no,majority>=2,tube,tube
+133619000,133619,What type of truck is it?,fire engine|fire truck|service truck,False,Fire truck,fire truck,fire truck,fire truck,fire truck,fire truck,fire truck,fire truck,fire truck,raw_rag,fire truck,fire truck
+133619001,133619,What time of day is it?,night|night|night,False,night,night,night,night,night,evening,evening,night,night,raw_rag,night,evening
+133619002,133619,What color is the light above the hood of the truck?,yellow|blue|blue,False,Red,red,red,red,red,red,red,red,red,raw_rag,red,red
+133620000,133620,Why does the woman have her hair up?,uniform|on duty|uniform,False,Because she's a police officer,because she is a policewoman,to keep it out of her face,to keep it out of her face,to keep it out of her face,to keep it out of her face,because she is a police officer,to keep it out of her face,to keep it out of her face,raw_rag,to keep it out of her face,to keep it out of her face
+133620001,133620,Is she wearing glasses?,yes|yes|yes,True,yes,yes,yes,yes,yes,yes,yes,yes,yes,raw_rag,yes,yes
+133620002,133620,What is she wearing on her head?,hat|helmet|hat,False,police helmet,hat,hat,hat,hat,hat,hat,hat,hat,raw_rag,hat,hat
+133620003,133620,Is the woman happy?,yes|yes|yes,True,yes,yes,yes,yes,yes,yes,yes,yes,yes,raw_rag,yes,yes
+526837000,526837,Is this man dressed for the weather?,yes|yes|yes,True,yes,yes,yes,yes,yes,yes,yes,yes,yes,majority>=2,yes,yes
+526837001,526837,What is this man holding?,ski pole|ski poles|poles,False,Ski poles,skis,skis,skis,skis,cell phone,cell phone,ski poles,yes,majority>=2,skis,cell phone
+526837002,526837,What is covering the ground?,snow|snow|snow,False,Snow,snow,snow,snow,snow,snow,snow,snow,yes,majority>=2,snow,snow
+133622000,133622,Are these vegetables or fruits?,vegetables|vegetables|vegetables,True,Vegetables,Broccoli,vegetables,vegetables,vegetables,no,both,vegetables,vegetables,raw_rag,Vegetables,vegetables
+133622001,133622,What is the yellow topping?,cheese|glaze|cheese,False,bacon,horseradish,cheese,cheese,cheese,cheese,banana,cheese,cheese,raw_rag,cheese,cheese
+133622002,133622,Is this a high class dish?,yes|yes|no,True,no,no,no,no,no,no,no,no,no,raw_rag,no,no
+133622003,133622,What is the long thin food with seeds?,broccoli|cake|cheese,False,Broccoli cheddar quiche,Broccoli,broccoli,broccoli,broccoli,Broccoli,quiche,quiche,broccoli,raw_rag,broccoli,broccoli
+133622004,133622,What is the green topping?,broccoli|broccoli|broccoli,False,Broccoli,Broccoli,broccoli,broccoli,broccoli,cheese,cheese,bacon,broccoli,raw_rag,broccoli,cheese
+133622005,133622,What is the yellow item pictured?,cheese|cake|cheese,False,Broccoli and cheese quiche,Broccoli,broccoli,broccoli,broccoli,tape,tape,cheese,broccoli,raw_rag,broccoli,tape
+133622006,133622,How are the eggs cooked?,scrambled|scramble|omelet,False,not,poached,poached,poached,poached,scrambled,scrambled,scrambled,poached,raw_rag,poached,scrambled
+133622007,133622,What vegetable is this?,broccoli|broccoli|broccoli,False,Broccoli,Broccoli,broccoli,broccoli,broccoli,broccoli,broccoli,broccoli,broccoli,raw_rag,broccoli,broccoli
+133622008,133622,What kinds of food are on the plate?,"breakfast|spinach|eggs, spinach",False,Broccoli and cheese casserole,Broccoli,broccoli and cheese,broccoli and cheese,broccoli and cheese,hot dog,hot dog,cheese,broccoli and cheese,raw_rag,broccoli and cheese,hot dog
+22271000,22271,Is this a bright and sunny day?,no|no|no,True,no,no,yes,yes,yes,no,no,no,yes,raw_rag,no,no
+22271001,22271,Are there people in the picture?,yes|yes|yes,True,yes,yes,yes,yes,yes,yes,yes,yes,yes,raw_rag,yes,yes
+22271002,22271,What is the name of the street sign on the ground?,western ave|western ave|western ave,False,Western Avenue,western,western,western,western,pee wee reese,pee wee reese,west,western,raw_rag,western,pee wee reese
+133629000,133629,Is this a public place?,no|no|no,True,no,no,no,no,no,no,no,no,no,raw_rag,no,no
+133629001,133629,What color is the desk?,brown|brown|brown,False,desk is brown,black,brown,brown,brown,brown,brown,brown,brown,raw_rag,brown,brown
+133629002,133629,How many chairs have wheels?,1|1|1,False,None,three,3,3,3,1,1,none,3,raw_rag,3,1
+133629003,133629,Is this chair in the way of people who might walk through?,no|no|no,True,no,no,no,no,no,no,no,no,no,raw_rag,no,no
+133629004,133629,Can these items be used to make food?,no|no|no,True,no,yes,yes,yes,yes,yes,yes,yes,yes,raw_rag,no,yes
+133629005,133629,What do people do here?,work|work|office work,False,They work,work,work,work,work,surf,surf,work,work,raw_rag,work,surf
+133629006,133629,What color is the lampshade?,off white|white|white,False,lampshade is black,purple,purple,purple,purple,yellow,yellow,blue,purple,raw_rag,purple,yellow
+133629007,133629,What type of computer is on the desk?,mac|laptop|laptop,False,laptop computer,laptop,apple,apple,apple,dell,dell,apple,apple,raw_rag,apple,dell
+133631000,133631,"Which is longer, the Elephant's tusks or the Elephant's trunk?",trunk|trunk|trunk,False,Elephant's trunk,Elephant's trunk,trunk,trunk,trunk,both,trunk,trunk,trunk,raw_rag,trunk,trunk
+133631001,133631,Is it sunny out?,yes|yes|yes,True,yes,yes,yes,yes,yes,yes,yes,yes,yes,raw_rag,yes,yes
+133631002,133631,Does the elephant need water?,yes|yes|yes,True,no,no,yes,yes,yes,yes,no,yes,yes,raw_rag,no,yes
+2562000,2562,What is the color scheme of the photo?,"white|white and blue|white, blue",False,White,blue,blue,blue,blue,blue and white,blue and white,blue,blue,raw_rag,blue,blue and white
+2562001,2562,Are all the men tennis players?,yes|no|no,True,no,yes,yes,yes,yes,no,no,no,yes,raw_rag,no,no
+2562002,2562,Is the man wearing a wristband?,yes|yes|yes,True,no,no,yes,yes,yes,yes,yes,yes,yes,raw_rag,no,yes
+2562003,2562,What two brands are shown advertised behind the tennis player?,olympus and wta|olympus and wta|wta and olympus,False,Nike and Wilson,Nike and adidas,Nike and Wilson,Nike and Wilson,Nike and Wilson,Nike and Wilson,heb,Nike and Wilson,Nike and Wilson,raw_rag,Nike and Wilson,Nike and Wilson
+2562004,2562,What sport is being played?,tennis|tennis|tennis,False,Tennis,tennis,tennis,tennis,tennis,tennis,tennis,tennis,tennis,raw_rag,tennis,tennis
+133636000,133636,What is the number on the left parking meter?,12|12|19,False,1,2,1-2-3,1-2-3,1-2-3,0,2,1,1-2-3,raw_rag,1-2-3,1-2-3
+133636001,133636,How much time is left?,0 time|expired|0,False,None,3 minutes,30 minutes,30 minutes,30 minutes,5 minutes,5 minutes,2:22,30 minutes,raw_rag,30 minutes,5 minutes
+133636002,133636,What number is the parking meter on the right?,13|13|13,False,1,2,2,2,2,2,2,1,2,raw_rag,2,2
+133636003,133636,Is there any cars on the street?,no|no|0,True,no,no,yes,yes,yes,yes,yes,no,yes,raw_rag,no,yes
+133636004,133636,Are the meters rusted?,no|no|no,True,no,no,no,no,no,no,no,no,no,raw_rag,no,no
+133636005,133636,Is there time remaining on the meter?,yes|yes|no,True,yes,yes,yes,yes,yes,yes,yes,yes,yes,raw_rag,yes,yes
+133636006,133636,How many meters are there?,2|2|2,False,Two,two,2,2,2,2,2 meters,2,2,raw_rag,2,2
+133645000,133645,Is there someone on the bench?,no|no|no,True,no,no,no,no,no,no,no,no,no,raw_rag,no,no
+133645001,133645,Are the street lights turned on?,yes|yes|yes,True,yes,yes,yes,yes,yes,no,no,yes,yes,raw_rag,yes,no
+133645002,133645,Is the water clear?,no|yes|yes,True,yes,yes,yes,yes,yes,no,no,yes,yes,raw_rag,yes,no
+133645003,133645,What type of boat is in the water?,private|sailboat|pontoon,False,motor boat,motor boat,boat,boat,boat,lady gloria,lady gloria,boat,boat,raw_rag,boat,lady gloria
+264718000,264718,How long is the parking on the street?,12 hours|2 hours|7 spots,False,2 hours,2 hours,2 hours,2 hours,2 hours,1 hour,1 hour,2 hours,2 hours,raw_rag,2 hours,1 hour
+264718001,264718,Do you have to pay to park here?,yes|yes|yes,True,no,no,yes,yes,yes,yes,yes,yes,yes,raw_rag,no,yes
+264718002,264718,Which side of the sign is the road on?,right|left|right,False,on the right,right,both sides,both sides,both sides,both sides,no sign,left,both sides,raw_rag,both sides,both sides
+264718003,264718,What does the sign read?,2 hour parking 8am to 8pm|parking|2 hour parking 8am-8pm,False,"""No Parking""","""No Parking""",no parking,no parking,no parking,no parking,car park,no u-turn,no parking,raw_rag,no parking,no parking
+264718004,264718,What does the sign say?,parking|2 hour parking|2 hour parking,False,"""No Parking""","""No Parking""",no parking,no parking,no parking,@#,don't park here,no u-turn,no parking,raw_rag,no parking,no parking
+264718005,264718,What phone number is on the sign?,0|n/a|0,False,phone number is on the sign,555-1234,555-1234,555-1234,555-1234,1-844-844-844,1-844-844-844,555-1234,555-1234,raw_rag,555-1234,1-844-844-844
+264718006,264718,What modes of transportation are in the picture?,cars|car|car,False,Cars and buses,busses and cars,cars,cars,cars,"car, bus, train","car, bus, train",cars,cars,raw_rag,cars,"car, bus, train"
+264718007,264718,What sign is to the right of the photo?,2 hour parking|parking|2 hour parking,False,parking sign,parking meter,parking sign,parking sign,parking sign,parking,parking,stop sign,parking sign,raw_rag,parking sign,parking
+133648000,133648,Is the bat blue?,yes|yes|yes,True,yes,yes,yes,yes,yes,no,no,yes,yes,raw_rag,yes,no
+133648001,133648,Is the photo colored?,yes|yes|yes,True,no,no,no,no,no,yes,yes,black and white,no,raw_rag,no,yes
+133648002,133648,What color is the home plate umpire's shirt?,white|black|black,False,blue,blue,blue,blue,blue,blue,white,blue,blue,raw_rag,blue,blue
+133648003,133648,Which game are they playing?,baseball|baseball|baseball,False,baseball,This one,baseball,baseball,baseball,soccer,soccer,baseball,baseball,raw_rag,baseball,soccer
+459182000,459182,What are they carrying?,surfboards|surfboards|surfboards,False,surfboard,surfboards,surfboards,surfboards,surfboards,surfboards,surfboards,surfboards,surfboards,raw_rag,surfboards,surfboards
+459182001,459182,What is in the foreground?,rocks|rocks|rocks,False,Rocks and water,rocks,rocks,rocks,rocks,ocean,ocean,rocks,rocks,raw_rag,rocks,ocean
+459182002,459182,How many people are there?,2|2|2,False,Two,two,two,two,two,2,2,1,two,raw_rag,two,2
+395801000,395801,Is it morning or evening?,evening|morning|morning,True,morning,evening,morning,morning,morning,no,no,morning,morning,raw_rag,morning,no
+395801001,395801,How much does parking in the lot cost?,nothing|free|free,False,$0.00,$1.00,$5,$5,$5,$5.00,$5.00,$5,$5,raw_rag,$5,$5.00
+395801002,395801,What is on the road?,car|car|cars,False,road,sidewalk,road,road,road,people,cars,parking lot,road,raw_rag,road,road
+395801003,395801,How many people are in the picture?,7|7|11,False,One,3,2,2,2,2,2,2,2,raw_rag,2,2
+395801004,395801,Do the people know each other?,no|no|no,True,yes,yes,yes,yes,yes,yes,yes,yes,yes,raw_rag,yes,yes
+395801005,395801,How could you carry things if you were riding this bike?,there is no bike|on my back|backpack,False,You can't,you could carry them on your back,you couldn't,you couldn't,you couldn't,you could carry things on your back,you could carry things on your back,you couldn't,you couldn't,raw_rag,you couldn't,you could carry things on your back
+395801006,395801,How many people are in this scene?,25|15|9,False,One,3,1,1,1,3,3,1,1,raw_rag,1,3
+395801007,395801,What time is it?,6:00|6:00|12:30,False,It depends on who you ask,4:30,3:30,3:30,3:30,4:56,4:56,noon,3:30,raw_rag,3:30,4:56
+264730000,264730,How many arches are under the clock?,2|2|2,False,None,roman,3,3,3,2,3,3,3,raw_rag,3,3
+264730001,264730,What time is it?,10:50|10:49|8:45,False,dark outside,roman,night,night,night,10:30,5:42,7:00,night,raw_rag,night,night
+264730002,264730,Is a daytime or nighttime scene depicted?,nighttime|nighttime|night,True,yes,daytime,daytime,daytime,daytime,daytime,daytime,daytime,daytime,raw_rag,yes,daytime
+264730003,264730,What kind of numbers are on the clock?,roman numerals|roman|roman numerals,False,numbers on the clock are the numbers on the,roman,roman,roman,roman,roman,roman,roman,roman,raw_rag,roman,roman
+2587000,2587,Which food contains the most potassium?,banana|banana|banana,False,Bananas,donut,donut,donut,donut,bananas,bananas,banana,donut,raw_rag,donut,bananas
+2587001,2587,What is not healthy in the baggie?,donut|doughnut|donut,False,donut and the banana,donut,donut,donut,donut,donut,donut,donut,donut,raw_rag,donut,donut

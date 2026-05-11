@@ -1,0 +1,6 @@
+configuration,overall,yes_no,open,delta_vs_rag,notes
+Baseline (raw),0.4233,0.8286,0.2051,-0.17,raw
+C. Normalizer on baseline,0.44,0.8286,0.2308,-0.1533,lowercase + articles + candidate collapse
+RAG α=1.0 k=3 (raw),0.5933,0.8,0.4821,0.0,control
+C. Normalizer on RAG,0.5933,0.8,0.4821,0.0,
+C. Normalizer on QAR,0.5033,0.8,0.3436,-0.09,

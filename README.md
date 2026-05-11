@@ -54,29 +54,36 @@ Results saved to `results/eval_results.json` and `results/experiments/`.
 
 ## Interactive Demo
 
-### Cached mode (presentation-safe, instant)
+### Standalone HTML demo (recommended)
 
 ```bash
-python demo_app.py --mode cached
+# terminal 1 — static file server for the HTML demo
+python -m http.server 8081
+
+# terminal 2 — inference API (needed for live inference tab)
+python api.py
 ```
 
-Opens at `http://localhost:7860`. Shows 6 pre-computed curated examples across all verdict categories: RAG helps, RAG hurts, both correct, both fail.
+Open `http://localhost:8081/demo.html`. Three tabs:
+- **Curated Examples** — 6 pre-computed cases, instant
+- **Live Inference** — upload an image, ask a question, full RAG pipeline runs locally
+- **Results Summary** — all experiment numbers
 
-### Live inference mode
+### Live tab options
+
+- **Top-k** (1–5): how many retrieved examples to use
+- **α** (0–1): retrieval weight (1.0 = image-only, the headline config)
+- **τ** (0–1): confidence gate — skips RAG when top-1 image-similarity score < τ; falls back to baseline. Use τ=0.7 to suppress noisy retrieval on out-of-distribution queries.
+- **Cross-encoder re-rank**: re-ranks the top-30 CLIP candidates with `cross-encoder/ms-marco-MiniLM-L-6-v2`
+- **Generate image caption**: prepends a BLIP-2 caption to the prompt for richer context
+
+### Rebuilding the knowledge base
 
 ```bash
-python demo_app.py --mode live --top_k 5 --alpha 1.0
+python -m src.rag_build_kb --num_samples 5000 --diverse
 ```
 
-Loads BLIP-2 and CLIP on first query (~2 min on first run). Upload any image, type a question, see the full RAG pipeline.
-
-### Rebuild demo cases
-
-```bash
-python demo_app.py --setup
-```
-
-Runs fresh 30-sample inference and re-selects the 6 best demo examples.
+The `--diverse` flag streams VQAv2 validation past offset=5100 (image-id-disjoint from the 100-sample eval) and keeps one entry per unique image_id. Yields a 5.9× increase in visual coverage at the same KB size. Takes ~15 min on CPU.
 
 ---
 
